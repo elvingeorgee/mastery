@@ -15,3 +15,23 @@
     background-color: red;
 }
 
+
+#pierce {
+    border: 1px solid black; /* Specify a solid border for the pierce table */
+    border-collapse: collapse; /* Ensure borders collapse into a single border */
+}
+
+#pierce th, #pierce td {
+    border: 1px solid black; /* Add borders to table cells */
+    padding: 8px; /* Add some padding for better spacing */
+}
+
+#dreams {
+    border: 1px solid black; /* Specify a solid border for the pierce table */
+    border-collapse: collapse; /* Ensure borders collapse into a single border */
+}
+
+#dreams th, #dreams td {
+    border: 1px solid black; /* Add borders to table cells */
+    padding: 8px; /* Add some padding for better spacing */
+}
