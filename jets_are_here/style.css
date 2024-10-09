@@ -75,14 +75,44 @@
 }
 
 #dreams {
-    border: 1px solid black; /* Specify a solid border for the pierce table */
+    border: none; /* Remove the default border */
     border-collapse: collapse; /* Ensure borders collapse into a single border */
+    width: 100%; /* Full width for the table */
+    margin: 20px 0; /* Add some margin for spacing */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#dreams caption {
+    font-size: 1.5em; /* Increase caption font size */
+    margin: 10px; /* Margin around caption */
+    color: #333; /* Dark text color */
 }
 
 #dreams th, #dreams td {
-    border: 1px solid black; /* Add borders to table cells */
-    padding: 8px; /* Add some padding for better spacing */
-    background-color: white;
+    border-bottom: 1px solid #ddd; /* Light border between rows */
+    padding: 12px; /* Increased padding for better spacing */
+    text-align: left; /* Left-align text */
+}
+
+#dreams th {
+    background-color: #444; /* Dark background for header */
+    color: white; /* White text for header */
+}
+
+#dreams tr:hover {
+    background-color: #f5f5f5; /* Light gray background on row hover */
+}
+
+#dreams td {
+    color: #555; /* Darker text color for better readability */
+}
+
+/* Optional: Make it responsive */
+@media (max-width: 600px) {
+    #dreams {
+        font-size: 0.9em; /* Adjust font size for smaller screens */
+    }
 }
 
 .schedule-container {
@@ -92,4 +122,31 @@
 
 .jets, .bills {
     margin: 10px; /* Add some margin for spacing between tables */
+}
+
+.titties
+{
+    color:white;
+}
+
+.rangers-container {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Make sure it takes full width */
+    margin: 20px 0; /* Add some margin */
+}
+
+.rangers {
+    color: blue;
+    background-color: red;
+}
+
+.rangers td {
+    background-color: white; /* Set the background color of table cells to white */
+    color: blue; /* Keep the text color blue */
+}
+
+.rangers tr {
+    background-color: white; /* Set the background color of table cells to white */
+    color: blue; /* Keep the text color blue */
 }
