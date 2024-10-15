@@ -6,12 +6,47 @@
     <title>Function scope example</title>
 </head>
 <body>
-    <p></p>
-<script src="first.js"></script>
-    <script src="second.js"></script>
+
+    <button class="ouch">Bills</button>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+
+
 <script>
-    greeting();
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.querySelector('.ouch');
+
+        button.addEventListener('click', e => {
+            alert("Davante Time");
+        })
+    })
+
+
 </script>
+
+ <!--    const canvas = document.getElementById(`myCanvas`);-->
+ <!--    const ctx = canvas.getContext(`2d`);-->
+ <!--    const WIDTH = canvas.width;-->
+ <!--    const HEIGHT = canvas.height;-->
+
+ <!--    function random(max)-->
+ <!--    {-->
+ <!--        return Math.random() * max;-->
+ <!--    }-->
+
+ <!--    function draw() {-->
+ <!--        ctx.clearRect(0, 0, WIDTH, HEIGHT);-->
+ <!--        for (let i = 0; i < 100; i++) {-->
+ <!--            ctx.beginPath();-->
+ <!--            ctx.fillStyle = "rgba(255, 0, 0, 0.5)";-->
+ <!--            ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);-->
+ <!--            ctx.fill();-->
+ <!--        }-->
+ <!--    }-->
+
+
+
 
 </body>
 </html>
