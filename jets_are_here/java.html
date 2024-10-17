@@ -2,22 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jets are Here</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /*body {*/
-        /*    display: flex;*/
-        /*    flex-direction: column;*/
-        /*    align-items: center;*/
-        /*    justify-content: center;*/
-        /*    height: 100vh; !* Full height of the viewport *!*/
-        /*    margin: 0; !* Remove default margin *!*/
-        /*    background-color: purple; !* Optional: set a background color *!*/
-        /*}*/
-
         canvas {
             border: 1px solid black; /* Optional: add a border to the canvas */
             background-color: black; /* Optional: set a background color for the canvas */
@@ -29,10 +18,6 @@
         .schedule-container {
             text-align: center; /* Center the tables */
         }
-
-        /*.schedule-container {*/
-        /*    text-align: center; !* Center the tables *!*/
-        /*}*/
     </style>
 </head>
 <body>
@@ -41,15 +26,13 @@
     <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
     <nav class="navigation">
         <ul>
-            <li><a href="java.html">Java Activites</a></li>
+            <li><a href="java.html">Java Activities</a></li>
             <li><a href="rangers.html">Rangers Season Predictions</a></li>
             <li><a href="dreams.html">Dream Tracker</a></li>
             <li><a href="nose.html">Nose Ring Adventures</a></li>
         </ul>
     </nav>
 </div>
-
-<canvas id="myCanvas" width="500" height="500"></canvas>
 
 <div class="schedule-container">
     <table class="jets" border="1">
@@ -72,9 +55,10 @@
         <tr><td>Jan 5th</td><td>Dolphins</td><td>1pm</td></tr>
     </table>
 
-
+    <canvas id="myCanvas" width="500" height="250"></canvas> <!-- Reduced height -->
 
     <table class="bills" border="1">
+        <tr>
             <th>Date</th>
             <th>Team</th>
             <th>Time</th>
@@ -100,6 +84,63 @@
     const WIDTH = canvas.width;
     const HEIGHT = canvas.height;
 
+    const players = [
+        { id: "wr1-x", x: 50, y: 120, type: "X", name: "Will McDonald" },
+        { id: "wr2-x", x: 150, y: 120, type: "X", name: "Micheal Clemons" },
+        { id: "lb1-x", x: 200, y: 120, type: "X", name: "Quinnen Williams" },
+        { id: "lb2-x", x: 225, y: 120, type: "X", name: "Javon Kinlaw" },
+        { id: "c-x", x: 250, y: 120, type: "X", name: "Jamien Sherwood" },
+        { id: "rb1-x", x: 275, y: 120, type: "X", name: "Quicy Williams" },
+        { id: "rb2-x", x: 300, y: 120, type: "X", name: "Sauce Gardner" },
+        { id: "te-x", x: 350, y: 120, type: "X", name: "C.J Mosley" },
+        { id: "qb-x", x: 225, y: 100, type: "X", name: "D.J Reed" },
+        { id: "rb-x", x: 325, y: 120, type: "X", name: "Michael Carter" },
+        { id: "wr1-o", x: 50, y: 160, type: "O", name: "Davante Adams" },
+        { id: "wr2-o", x: 150, y: 160, type: "O", name: "Garret Wilson" },
+        { id: "lb1-o", x: 200, y: 160, type: "O", name: "John Simpson" },
+        { id: "lb2-o", x: 225, y: 160, type: "O", name: "Morgan Moses" },
+        { id: "c-o", x: 250, y: 160, type: "O", name: "Joe Tippmann" },
+        { id: "rb1-o", x: 275, y: 160, type: "O", name: "Tyron Smith" },
+        { id: "rb2-o", x: 300, y: 160, type: "O", name: "AVT" },
+        { id: "te-o", x: 350, y: 160, type: "O", name: "Tyler Conklin" },
+        { id: "qb-o", x: 250, y: 190, type: "O", name: "Aaron Rodgers" },
+        { id: "rb-o", x: 250, y: 220, type: "O", name: "Breece Hall" }
+    ];
+
+    let tooltip = "";
+
+    canvas.addEventListener('mousemove', (event) => {
+        const mouseX = event.offsetX;
+        const mouseY = event.offsetY;
+
+        tooltip = ""; // Reset tooltip text
+
+        players.forEach(player => {
+            if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
+                player.highlighted = true; // Set a flag for highlighting
+                tooltip = player.name; // Set the tooltip to the player's name
+            } else {
+                player.highlighted = false;
+            }
+        });
+
+        // Redraw on mouse move
+        draw(mouseX, mouseY);
+    });
+
+    function drawTooltip(x, y, text) {
+        if (text) {
+            ctx.fillStyle = "white";
+            ctx.font = "12px Arial";
+            const textWidth = ctx.measureText(text).width;
+            const padding = 5;
+
+            ctx.fillRect(x + padding, y - 20, textWidth + padding * 2, 20);
+            ctx.fillStyle = "black";
+            ctx.fillText(text, x + padding * 2, y - 5);
+        }
+    }
+
     function drawField() {
         ctx.fillStyle = "green";
         ctx.fillRect(0, 0, WIDTH, HEIGHT); // Draw the field
@@ -115,45 +156,24 @@
         }
     }
 
-    function drawPlay() {
-        ctx.fillStyle = "red";
-        ctx.font = "20px Arial";
-
-
-        // Offense (O's)
-        ctx.fillStyle = "blue";
-        ctx.fillText("O", 50, 350); // WR1
-        ctx.fillText("O", 150, 350); // WR2
-        ctx.fillText("O", 200, 350); // LB1
-        ctx.fillText("O", 225, 350); // LB2
-        ctx.fillText("O", 250, 350); // Center
-        ctx.fillText("O", 275, 350); // RB1
-        ctx.fillText("O", 300, 350); // RB1
-        ctx.fillText("O", 350, 350); // TE
-        ctx.fillText("O", 250, 375); // QB
-        ctx.fillText("O", 250, 400); // RB
-
-        ctx.fillStyle = "red";
-        ctx.fillText("X", 50, 325); // WR1
-        ctx.fillText("X", 150, 325); // WR2
-        ctx.fillText("X", 200, 325); // LB1
-        ctx.fillText("X", 225, 325); // LB2
-        ctx.fillText("X", 250, 325); // Center
-        ctx.fillText("X", 275, 325); // RB1
-        ctx.fillText("X", 300, 325); // RB1
-        ctx.fillText("X", 350, 325); // TE
-        ctx.fillText("X", 225, 300); // QB
-        ctx.fillText("X", 325, 325); // RB
-
+    function drawPlayers() {
+        players.forEach(player => {
+            ctx.beginPath();
+            ctx.arc(player.x, player.y, 10, 0, Math.PI * 2);
+            ctx.fillStyle = player.highlighted ? "yellow" : (player.type === "X" ? "red" : "blue");
+            ctx.fill();
+        });
     }
 
-    function draw() {
+    function draw(mouseX, mouseY) {
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
         drawField();
-        drawPlay();
+        drawPlayers();
+        drawTooltip(mouseX, mouseY, tooltip); // Pass the mouse coordinates and tooltip text
     }
 
     draw();
+
 </script>
 </body>
 </html>
