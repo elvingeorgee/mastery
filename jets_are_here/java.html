@@ -108,17 +108,20 @@
     ];
 
     let tooltip = "";
+    let isDragging = false;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
+    let draggedPlayer = null;
 
     canvas.addEventListener('mousemove', (event) => {
         const mouseX = event.offsetX;
         const mouseY = event.offsetY;
 
-        tooltip = ""; // Reset tooltip text
-
+        tooltip = null; // Change to null instead of an empty string
         players.forEach(player => {
             if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
-                player.highlighted = true; // Set a flag for highlighting
-                tooltip = player.name; // Set the tooltip to the player's name
+                player.highlighted = true;
+                tooltip = player; // Store the player object instead of just the name
             } else {
                 player.highlighted = false;
             }
@@ -128,22 +131,58 @@
         draw(mouseX, mouseY);
     });
 
-    function drawTooltip(x, y, text) {
-        if (text) {
+    canvas.addEventListener('mousedown', (event) => {
+        const mouseX = event.offsetX;
+        const mouseY = event.offsetY;
+
+        players.forEach(player => {
+            if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
+                isDragging = true;
+                draggedPlayer = player;
+                dragOffsetX = mouseX - player.x;
+                dragOffsetY = mouseY - player.y;
+            }
+        });
+    });
+
+    canvas.addEventListener('mouseup', () => {
+        isDragging = false;
+        draggedPlayer = null;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+        isDragging = false;
+        draggedPlayer = null;
+    });
+
+    canvas.addEventListener('mousemove', (event) => {
+        if (isDragging && draggedPlayer) {
+            draggedPlayer.x = event.offsetX - dragOffsetX;
+            draggedPlayer.y = event.offsetY - dragOffsetY;
+            draw(event.offsetX, event.offsetY);
+        }
+    });
+
+    function drawTooltip(player) {
+        if (player) {
             ctx.fillStyle = "white";
             ctx.font = "12px Arial";
-            const textWidth = ctx.measureText(text).width;
+            const textWidth = ctx.measureText(player.name).width;
             const padding = 5;
 
-            ctx.fillRect(x + padding, y - 20, textWidth + padding * 2, 20);
+            // Position the tooltip below the player's circle
+            const tooltipX = player.x - textWidth / 2 - padding;
+            const tooltipY = player.y + 15; // Place it directly below the circle
+
+            ctx.fillRect(tooltipX, tooltipY, textWidth + padding * 2, 20);
             ctx.fillStyle = "black";
-            ctx.fillText(text, x + padding * 2, y - 5);
+            ctx.fillText(player.name, tooltipX + padding, tooltipY + 15);
         }
     }
 
     function drawField() {
         ctx.fillStyle = "green";
-        ctx.fillRect(0, 0, WIDTH, HEIGHT); // Draw the field
+        ctx.fillRect(0, 0, WIDTH, HEIGHT);
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
 
@@ -169,7 +208,7 @@
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
         drawField();
         drawPlayers();
-        drawTooltip(mouseX, mouseY, tooltip); // Pass the mouse coordinates and tooltip text
+        drawTooltip(tooltip); // Pass the tooltip player object
     }
 
     draw();
