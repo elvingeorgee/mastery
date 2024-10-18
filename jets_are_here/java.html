@@ -8,15 +8,38 @@
     <link rel="stylesheet" href="style.css">
     <style>
         canvas {
-            border: 1px solid black; /* Optional: add a border to the canvas */
-            background-color: black; /* Optional: set a background color for the canvas */
+            border: 1px solid black;
+            background-color: black;
             border-color: white;
             border-radius: 2px;
-            margin: 20px 0; /* Add some space above and below the canvas */
+            margin: 20px 0;
         }
-
         .schedule-container {
-            text-align: center; /* Center the tables */
+            text-align: center;
+        }
+        .canvas-container {
+            position: relative;
+            display: inline-block;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .button-container button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .button-container button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -55,7 +78,15 @@
         <tr><td>Jan 5th</td><td>Dolphins</td><td>1pm</td></tr>
     </table>
 
-    <canvas id="myCanvas" width="500" height="250"></canvas> <!-- Reduced height -->
+    <div class="canvas-container">
+        <canvas id="myCanvas" width="500" height="250"></canvas>
+
+        <div class="button-container">
+            <button id="passButton">Pass</button>
+            <button id="rushButton">Rush</button>
+            <button id="resetButton">Reset</button>
+        </div>
+    </div>
 
     <table class="bills" border="1">
         <tr>
@@ -79,12 +110,12 @@
 </div>
 
 <script>
-    const canvas = document.getElementById("myCanvas");
-    const ctx = canvas.getContext('2d');
-    const WIDTH = canvas.width;
-    const HEIGHT = canvas.height;
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext('2d');
+        const WIDTH = canvas.width;
+        const HEIGHT = canvas.height;
 
-    const players = [
+        const players = [
         { id: "wr1-x", x: 50, y: 120, type: "X", name: "Will McDonald" },
         { id: "wr2-x", x: 150, y: 120, type: "X", name: "Micheal Clemons" },
         { id: "lb1-x", x: 200, y: 120, type: "X", name: "Quinnen Williams" },
@@ -104,98 +135,159 @@
         { id: "rb2-o", x: 300, y: 160, type: "O", name: "AVT" },
         { id: "te-o", x: 350, y: 160, type: "O", name: "Tyler Conklin" },
         { id: "qb-o", x: 250, y: 190, type: "O", name: "Aaron Rodgers" },
-        { id: "rb-o", x: 250, y: 220, type: "O", name: "Breece Hall" }
-    ];
+        { id: "rb-o", x: 250, y: 210, type: "O", name: "Breece Hall" },
+        ];
 
-    let tooltip = "";
-    let isDragging = false;
-    let dragOffsetX = 0;
-    let dragOffsetY = 0;
-    let draggedPlayer = null;
+        let tooltip = "";
+        let isDrawingMode = false;
+        let startPoint = null;
+        let arrowLength = 0;
+        let arrowAngle = 0;
 
-    canvas.addEventListener('mousemove', (event) => {
+        const arrows = [];
+
+        document.getElementById('passButton').addEventListener('click', () => {
+        isDrawingMode = true;
+        startPoint = null;
+        arrowLength = 0;
+        draw();
+    });
+
+        document.getElementById('rushButton').addEventListener('click', () => {
+        isDrawingMode = true;
+        startPoint = null;
+        arrowLength = 0;
+        draw();
+    });
+
+        document.getElementById('resetButton').addEventListener('click', () => {
+        arrows.length = 0; // Clear arrows
+        players.forEach(player => {
+        player.highlighted = false; // Reset highlights
+    });
+        isDrawingMode = false; // Disable drawing mode
+        draw(); // Redraw the canvas
+    });
+
+        let isDragging = false;
+        let draggedPlayer = null;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+
+        canvas.addEventListener('mousedown', (event) => {
         const mouseX = event.offsetX;
         const mouseY = event.offsetY;
 
-        tooltip = null; // Change to null instead of an empty string
         players.forEach(player => {
-            if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
-                player.highlighted = true;
-                tooltip = player; // Store the player object instead of just the name
-            } else {
-                player.highlighted = false;
-            }
-        });
+        if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
+        isDragging = true;
+        draggedPlayer = player;
+        dragOffsetX = mouseX - player.x;
+        dragOffsetY = mouseY - player.y;
+    }
+    });
 
-        // Redraw on mouse move
+        if (isDrawingMode && !startPoint) {
+        startPoint = { x: mouseX, y: mouseY };
+    }
+    });
+
+        canvas.addEventListener('mouseup', () => {
+        if (isDragging) {
+        isDragging = false;
+        draggedPlayer = null;
+    }
+
+        if (isDrawingMode && startPoint) {
+        const newArrow = {
+        from: startPoint,
+        length: arrowLength,
+        angle: arrowAngle
+    };
+        arrows.push(newArrow);
+        startPoint = null;
+    }
+    });
+
+        canvas.addEventListener('mouseleave', () => {
+        isDragging = false;
+        draggedPlayer = null;
+    });
+
+        canvas.addEventListener('mousemove', (event) => {
+        const mouseX = event.offsetX;
+        const mouseY = event.offsetY;
+
+        if (isDragging && draggedPlayer) {
+        draggedPlayer.x = mouseX - dragOffsetX;
+        draggedPlayer.y = mouseY - dragOffsetY;
+    }
+
+        if (isDrawingMode && startPoint) {
+        arrowLength = Math.sqrt(Math.pow(mouseX - startPoint.x, 2) + Math.pow(mouseY - startPoint.y, 2));
+        arrowAngle = Math.atan2(mouseY - startPoint.y, mouseX - startPoint.x);
+    } else {
+        tooltip = null;
+        players.forEach(player => {
+        if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
+        player.highlighted = true;
+        tooltip = player;
+    } else {
+        player.highlighted = false;
+    }
+    });
+    }
+
         draw(mouseX, mouseY);
     });
 
-    canvas.addEventListener('mousedown', (event) => {
-        const mouseX = event.offsetX;
-        const mouseY = event.offsetY;
+        function drawArrow(fromX, fromY, angle, length) {
+        const headLength = 10;
+        const toX = fromX + length * Math.cos(angle);
+        const toY = fromY + length * Math.sin(angle);
 
-        players.forEach(player => {
-            if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
-                isDragging = true;
-                draggedPlayer = player;
-                dragOffsetX = mouseX - player.x;
-                dragOffsetY = mouseY - player.y;
-            }
-        });
-    });
-
-    canvas.addEventListener('mouseup', () => {
-        isDragging = false;
-        draggedPlayer = null;
-    });
-
-    canvas.addEventListener('mouseleave', () => {
-        isDragging = false;
-        draggedPlayer = null;
-    });
-
-    canvas.addEventListener('mousemove', (event) => {
-        if (isDragging && draggedPlayer) {
-            draggedPlayer.x = event.offsetX - dragOffsetX;
-            draggedPlayer.y = event.offsetY - dragOffsetY;
-            draw(event.offsetX, event.offsetY);
-        }
-    });
-
-    function drawTooltip(player) {
-        if (player) {
-            ctx.fillStyle = "white";
-            ctx.font = "12px Arial";
-            const textWidth = ctx.measureText(player.name).width;
-            const padding = 5;
-
-            // Position the tooltip below the player's circle
-            const tooltipX = player.x - textWidth / 2 - padding;
-            const tooltipY = player.y + 15; // Place it directly below the circle
-
-            ctx.fillRect(tooltipX, tooltipY, textWidth + padding * 2, 20);
-            ctx.fillStyle = "black";
-            ctx.fillText(player.name, tooltipX + padding, tooltipY + 15);
-        }
+        ctx.beginPath();
+        ctx.moveTo(fromX, fromY);
+        ctx.lineTo(toX, toY);
+        ctx.lineTo(toX - headLength * Math.cos(angle - Math.PI / 6), toY - headLength * Math.sin(angle - Math.PI / 6));
+        ctx.moveTo(toX, toY);
+        ctx.lineTo(toX - headLength * Math.cos(angle + Math.PI / 6), toY - headLength * Math.sin(angle + Math.PI / 6));
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = 2;
+        ctx.stroke();
     }
 
-    function drawField() {
+        function drawTooltip(player) {
+        if (player) {
+        ctx.fillStyle = "white";
+        ctx.font = "12px Arial";
+        const textWidth = ctx.measureText(player.name).width;
+        const padding = 5;
+
+        const tooltipX = player.x - textWidth / 2 - padding;
+        const tooltipY = player.y + 15;
+
+        ctx.fillRect(tooltipX, tooltipY, textWidth + padding * 2, 20);
+        ctx.fillStyle = "black";
+        ctx.fillText(player.name, tooltipX + padding, tooltipY + 15);
+    }
+    }
+
+        function drawField() {
         ctx.fillStyle = "green";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
 
-        // Draw yard lines
         for (let i = 0; i <= HEIGHT; i += 50) {
-            ctx.beginPath();
-            ctx.moveTo(0, i);
-            ctx.lineTo(WIDTH, i);
-            ctx.stroke();
-        }
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(WIDTH, i);
+        ctx.stroke();
+    }
     }
 
-    function drawPlayers() {
+        function drawPlayers() {
         players.forEach(player => {
             ctx.beginPath();
             ctx.arc(player.x, player.y, 10, 0, Math.PI * 2);
@@ -204,15 +296,24 @@
         });
     }
 
-    function draw(mouseX, mouseY) {
+        function draw(mouseX, mouseY) {
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
         drawField();
         drawPlayers();
-        drawTooltip(tooltip); // Pass the tooltip player object
+
+        arrows.forEach(arrow => {
+        drawArrow(arrow.from.x, arrow.from.y, arrow.angle, arrow.length);
+    });
+
+        if (isDrawingMode && startPoint) {
+        drawArrow(startPoint.x, startPoint.y, arrowAngle, arrowLength);
     }
 
-    draw();
+        drawTooltip(tooltip);
+    }
 
+        draw();
 </script>
+
 </body>
 </html>
