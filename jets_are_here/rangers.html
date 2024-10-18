@@ -7,6 +7,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jets are Here</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .carousel {
+            width: 100%; /* Width of carousel */
+            height: 166px; /* Height of carousel */
+        }
+
+        .card-container {
+            width: 100%; /* Width of card container */
+            display: flex; /* Set inline elements */
+        }
+
+        .card {
+            min-width: 238px; /* Set min width of card */
+            height: 150px; /* Set height of card */
+            background-color: blue; /* Blue background for each card */
+            border: 2px solid red; /* Thin red border */
+            color: white; /* Text color for better visibility */
+            display: flex; /* Flex to center content */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+        }
+
+        .card-container {
+            /* ... */
+            overflow-x: auto; /* Set overflow in horizontal scroll */
+            overflow-y: hidden; /* Hidden overflow in vertical scroll */
+            scroll-snap-type: x mandatory; /* Force the scroll to snap to the start of a scroll-snap area */
+            gap: 8px; /* Set gap between cards */
+        }
+
+        .card {
+            /* ... */
+            scroll-snap-align: start; /* Set the element focus position in scroll container */
+        }
+    </style>
 </head>
 <body>
 
@@ -14,97 +49,67 @@
     <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
     <nav class="navigation">
         <ul>
-            <li><a href="java.html">Java Activites</a></li>
-            <li><a href="rangers.html">Rangers Season Predictions</a></li>
-            <li><a href="dreams.html">Dream Tracker</a></li>
+            <li><a href="java.html">Jets</a></li>
+            <li><a href="rangers.html">Rangers</a></li>
+            <li><a href="dreams.html">Dreams</a></li>
             <li><a href="nose.html">Nose Ring Adventures</a></li>
         </ul>
     </nav>
 </div>
 
-<div class="schedule-container">
-    <table class="jets" border="1">
-        <tr>
-            <th>Date</th>
-            <th>Team</th>
-            <th>Time</th>
-        </tr>
-        <tr><td>Oct 14th</td><td style="background-color: red; color: black">Bills</td><td>8:15pm</td></tr>
-        <tr><td>Oct 20th</td><td>Steelers</td><td>8:20pm</td></tr>
-        <tr><td>Oct 27th</td><td>Patriots</td><td>1pm</td></tr>
-        <tr><td>Oct 31st</td><td>Texans</td><td>8:15pm</td></tr>
-        <tr><td>Nov 10th</td><td>Cardinals</td><td>4:25pm</td></tr>
-        <tr><td>Nov 17th</td><td>Colts</td><td>8:20pm</td></tr>
-        <tr><td>Dec 1st</td><td>Seahawks</td><td>1pm</td></tr>
-        <tr><td>Dec 8th</td><td>Dolphins</td><td>1pm</td></tr>
-        <tr><td>Dec 15th</td><td>Jaguars</td><td>1pm</td></tr>
-        <tr><td>Dec 22nd</td><td>Rams</td><td>1pm</td></tr>
-        <tr><td>Dec 29th</td><td>Bills</td><td>1pm</td></tr>
-        <tr><td>Jan 5th</td><td>Dolphins</td><td>1pm</td></tr>
-    </table>
+<!--<div class="rangers-container">-->
+<!--    <table class="rangers">-->
+<!--        <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Goal</th>-->
+<!--            <th>Num</th>-->
+<!--            <th>Target</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Panarin</th>-->
+<!--            <th>Points</th>-->
+<!--            <th>11</th>-->
+<!--            <th>105</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Zibanajad</th>-->
+<!--            <th>Points</th>-->
+<!--            <th>3</th>-->
+<!--            <th>80</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Kreider</th>-->
+<!--            <th>Goals</th>-->
+<!--            <th>3</th>-->
+<!--            <th>33</th>-->
+<!--        </tr>-->
 
-<div class="rangers-container">
-    <table class="rangers">
-        <tr>
-            <th>Name</th>
-            <th>Goal</th>
-            <th>Num</th>
-            <th>Target</th>
-        </tr>
-        <tr>
-            <th>Panarin</th>
-            <th>Points</th>
-            <th>7</th>
-            <th>105</th>
-        </tr>
-        <tr>
-            <th>Zibanajad</th>
-            <th>Points</th>
-            <th>3</th>
-            <th>80</th>
-        </tr>
-        <tr>
-            <th>Kreider</th>
-            <th>Goals</th>
-            <th>3</th>
-            <th>33</th>
-        </tr>
+<!--        <tr>-->
+<!--            <th>Lafreniere</th>-->
+<!--            <th>Points</th>-->
+<!--            <th>5</th>-->
+<!--            <th>75</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th>Shesterkin</th>-->
+<!--            <th>%</th>-->
+<!--            <th>0.921</th>-->
+<!--            <th>0.923</th>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
 
-        <tr>
-            <th>Lafreniere</th>
-            <th>Points</th>
-            <th>4</th>
-            <th>75</th>
-        </tr>
-        <tr>
-            <th>Shesterkin</th>
-            <th>%</th>
-            <th>0.921</th>
-            <th>0.923</th>
-        </tr>
-    </table>
+<div class="carousel">
+    <div class="card-container">
+        <div class="card">Panarin</div>
+        <div class="card">Zibanajad</div>
+        <div class="card">Kreider</div>
+        <div class="card">Lafreniere</div>
+        <div class="card">Shesterkin</div>
+        <div class="card">Wins</div>
+    </div>
 </div>
 
-
-    <table class="bills" border="1">
-        <tr>
-            <th>Date</th>
-            <th>Team</th>
-            <th>Time</th>
-        </tr>
-        <tr><td>Oct 14th</td><td style="background-color: green; color: black">Jets</td><td>8:15pm</td></tr>
-        <tr><td>Oct 20th</td><td>Titans</td><td>1pm</td></tr>
-        <tr><td>Oct 27th</td><td>Seahawks</td><td>4:05pm</td></tr>
-        <tr><td>Nov 3rd</td><td>Dolphins</td><td>1pm</td></tr>
-        <tr><td>Nov 10th</td><td>Colts</td><td>1pm</td></tr>
-        <tr><td>Nov 17th</td><td>Chiefs</td><td>4:25pm</td></tr>
-        <tr><td>Dec 1st</td><td>49ers</td><td>8:20pm</td></tr>
-        <tr><td>Dec 8th</td><td>Rams</td><td>4:25pm</td></tr>
-        <tr><td>Dec 15th</td><td>Lions</td><td>4:25pm</td></tr>
-        <tr><td>Dec 22nd</td><td>Patriots</td><td>1pm</td></tr>
-        <tr><td>Dec 29th</td><td>Jets</td><td>1pm</td></tr>
-        <tr><td>Jan 5th</td><td>Patriots</td><td>1pm</td></tr>
-    </table>
 </div>
 
 <script src="main.js"></script>
