@@ -70,10 +70,12 @@
         }
 
         .progress {
-            height: 100%; /* Full height of the progress bar */
+            height: 50%; /* Height for the progress bars */
             background: linear-gradient(to right, green, yellow); /* Gradient for the progress */
             width: 0%; /* Initial width */
             transition: width 0.5s; /* Smooth transition for the width */
+            position: absolute; /* Position for layering */
+            bottom: 0; /* Align to the bottom */
         }
 
         .title {
@@ -129,7 +131,8 @@
     <div>Hover over a card to see details here.</div>
     <div class="progress-container">
         <div class="progress-bar">
-            <div class="progress" style="width: 0%;"></div>
+            <div class="progress" id="lastYearProgress" style="width: 0%;"></div>
+            <div class="progress" id="thisYearProgress" style="width: 0%; bottom: 50%;"></div>
             <div class="progress-label" id="progressLabel">0/0</div>
         </div>
     </div>
@@ -142,19 +145,20 @@
 <script>
     const cards = document.querySelectorAll('.card');
     const largeBox = document.getElementById('largeBox');
-    const progress = largeBox.querySelector('.progress');
+    const lastYearProgress = document.getElementById('lastYearProgress');
+    const thisYearProgress = document.getElementById('thisYearProgress');
     const bubbleProgress = document.getElementById('bubbleProgress');
     const bubbleLabel = document.getElementById('bubbleLabel');
     const progressLabel = document.getElementById('progressLabel');
 
     // Create an object to hold specific details and progress for each card
     const cardDetails = {
-        'Panarin': { details: 'Details about Panarin: Excellent playmaker.', progress: { current: 80, total: 100 }, bubbleProgress: '11/102' },
-        'Zibanajad': { details: 'Details about Zibanajad: Strong scorer.', progress: { current: 60, total: 80 }, bubbleProgress: '3/80' },
-        'Kreider': { details: 'Details about Kreider: Speed and power on ice.', progress: { current: 30, total: 35 }, bubbleProgress: '3/35' },
-        'Lafreniere': { details: 'Details about Lafreniere: Rising star.', progress: { current: 50, total: 70 }, bubbleProgress: '5/70' },
-        'Shesterkin': { details: 'Details about Shesterkin: Top goaltender.', progress: { current: 85, total: 90 }, bubbleProgress: '0.921/0.923' },
-        'Wins': { details: 'Details about Wins: Victory counts.', progress: { current: 45, total: 52 }, bubbleProgress: '3/52' },
+        'Panarin': { details: 'Details about Panarin: Excellent playmaker.', lastYearProgress: { current: 80, total: 102 }, thisYearProgress: { current: 11, total: 102 }, bubbleProgress: '11/102' },
+        'Zibanajad': { details: 'Details about Zibanajad: Strong scorer.', lastYearProgress: { current: 60, total: 80 }, thisYearProgress: { current: 3, total: 80 }, bubbleProgress: '3/80' },
+        'Kreider': { details: 'Details about Kreider: Speed and power on ice.', lastYearProgress: { current: 30, total: 35 }, thisYearProgress: { current: 3, total: 35 }, bubbleProgress: '3/35' },
+        'Lafreniere': { details: 'Details about Lafreniere: Rising star.', lastYearProgress: { current: 50, total: 70 }, thisYearProgress: { current: 5, total: 70 }, bubbleProgress: '5/70' },
+        'Shesterkin': { details: 'Details about Shesterkin: Top goaltender.', lastYearProgress: { current: 85, total: 90 }, thisYearProgress: { current: 0.921, total: 0.923 }, bubbleProgress: '0.921/0.923' },
+        'Wins': { details: 'Details about Wins: Victory counts.', lastYearProgress: { current: 45, total: 52 }, thisYearProgress: { current: 3, total: 52 }, bubbleProgress: '3/52' },
     };
 
     cards.forEach(card => {
@@ -168,11 +172,16 @@
             largeBox.style.top = `${cardRect.bottom + window.scrollY}px`; // Position below the card
             largeBox.style.left = `0`; // Align left with the window
 
-            // Update the progress bar
-            const currentProgress = cardInfo.progress.current;
-            const totalProgress = cardInfo.progress.total;
-            progress.style.width = `${(currentProgress / totalProgress) * 100}%`; // Set the progress width
-            progressLabel.textContent = `${currentProgress}/${totalProgress}`; // Update label
+            // Update last year's progress bar
+            const lastYearCurrent = cardInfo.lastYearProgress.current;
+            const lastYearTotal = cardInfo.lastYearProgress.total;
+            lastYearProgress.style.width = `${(lastYearCurrent / lastYearTotal) * 100}%`;
+            progressLabel.textContent = `${lastYearCurrent}/${lastYearTotal}`;
+
+            // Update this year's progress bar
+            const thisYearCurrent = cardInfo.thisYearProgress.current;
+            const thisYearTotal = cardInfo.thisYearProgress.total;
+            thisYearProgress.style.width = `${(thisYearCurrent / thisYearTotal) * 100}%`;
 
             // Update the bubble progress
             const stats = cardInfo.bubbleProgress.split('/');
