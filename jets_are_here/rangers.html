@@ -8,95 +8,108 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            font-family: Arial, sans-serif; /* Fallback font */
+            font-family: Arial, sans-serif;
         }
 
         .carousel {
-            width: 100%; /* Width of carousel */
-            height: 166px; /* Height of carousel */
+            width: 100%;
+            height: 166px;
         }
 
         .card-container {
-            width: 100%; /* Width of card container */
-            display: flex; /* Set inline elements */
+            width: 100%;
+            display: flex;
         }
 
         .card {
-            min-width: 238px; /* Set min width of card */
-            height: 150px; /* Set height of card */
-            background-color: blue; /* Blue background for each card */
-            border: 2px solid red; /* Thin red border */
-            color: white; /* Text color for better visibility */
-            display: flex; /* Flex to center content */
-            flex-direction: column; /* Stack content vertically */
-            align-items: center; /* Center horizontally */
-            justify-content: center; /* Center vertically */
-            position: relative; /* Relative positioning for hover effects */
-            padding: 10px; /* Padding inside the card */
+            min-width: 238px;
+            height: 150px;
+            background-color: blue;
+            border: 2px solid red;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 10px;
         }
 
         .large-box {
-            width: 100%; /* Full width */
-            height: 25vh; /* 25% of the viewport height */
-            background-color: blue; /* Background color */
-            border: 2px solid red; /* Border */
-            color: white; /* Text color */
-            display: flex; /* Flexbox for centering */
-            flex-direction: column; /* Stack content vertically */
-            align-items: center; /* Center horizontally */
-            justify-content: center; /* Center vertically */
-            margin-top: 10px; /* Spacing from carousel */
-            position: absolute; /* Absolute positioning */
-            display: none; /* Initially hidden */
-            z-index: 10; /* Ensure it appears above other elements */
-            padding: 20px; /* Add some padding */
-            box-sizing: border-box; /* Include padding in width/height calculations */
+            width: 100%;
+            height: 25vh;
+            background-color: blue;
+            border: 2px solid red;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            position: absolute;
+            display: none;
+            z-index: 10;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .progress-container {
-            position: relative; /* For positioning numeric labels */
-            width: 100%; /* Full width */
-            height: 50%; /* Half of the large box */
-            margin-top: 10px; /* Spacing above the progress bar */
+            position: relative;
+            width: 100%;
+            height: 50%;
+            margin-top: 10px;
         }
 
         .progress-bar {
-            width: 100%; /* Full width of the box */
-            background-color: #ccc; /* Background of the bar */
-            border-radius: 5px; /* Rounded corners */
-            height: 100%; /* Full height of the progress container */
-            overflow: hidden; /* Hide overflow for the progress */
-            position: relative; /* For positioning the inner progress */
+            width: 100%;
+            background-color: #ccc;
+            border-radius: 5px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
         }
 
         .progress {
-            height: 50%; /* Height for the progress bars */
-            background: linear-gradient(to right, green, yellow); /* Gradient for the progress */
-            width: 0%; /* Initial width */
-            transition: width 0.5s; /* Smooth transition for the width */
-            position: absolute; /* Position for layering */
-            bottom: 0; /* Align to the bottom */
-        }
-
-        .title {
-            font-size: 36px; /* Title font size */
-            color: red; /* Title color */
-            text-align: center; /* Center the title */
-            margin: 20px 0; /* Spacing around the title */
-            text-transform: uppercase; /* Uppercase letters */
-            font-family: 'Arial Black', sans-serif; /* Bold font for title */
-            letter-spacing: 2px; /* Spacing between letters */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect for better visibility */
+            height: 50%;
+            background: repeating-linear-gradient(
+                    45deg,
+                    rgba(255, 0, 0, 0.5) 0%,
+                    rgba(255, 0, 0, 0.5) 20%,
+                    rgba(0, 0, 255, 0.5) 20%,
+                    rgba(0, 0, 255, 0.5) 40%
+            );
+            width: 0%;
+            transition: width 0.5s;
+            position: absolute;
+            bottom: 0;
         }
 
         .progress-label {
             position: absolute;
-            color: black;
+            color: white;
             font-weight: bold;
             text-align: center;
             width: 100%;
-            top: 50%; /* Center vertically */
+            top: 50%;
             transform: translateY(-50%);
+        }
+
+        .year-label {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        #lastYearLabel {
+            top: -25px;
+        }
+
+        #thisYearLabel {
+            top: -50px;
         }
     </style>
 </head>
@@ -131,9 +144,14 @@
     <div>Hover over a card to see details here.</div>
     <div class="progress-container">
         <div class="progress-bar">
-            <div class="progress" id="lastYearProgress" style="width: 0%;"></div>
-            <div class="progress" id="thisYearProgress" style="width: 0%; bottom: 50%;"></div>
-            <div class="progress-label" id="progressLabel">0/0</div>
+            <div class="year-label" id="lastYearLabel">2023-2024 Progression</div>
+            <div class="progress" id="lastYearProgress" style="width: 0%;">
+                <div class="progress-label" id="lastYearProgressLabel">0/0</div>
+            </div>
+            <div class="year-label" id="thisYearLabel">2024-2025 Progression</div>
+            <div class="progress" id="thisYearProgress" style="width: 0%; bottom: 50%;">
+                <div class="progress-label" id="thisYearProgressLabel">0/0</div>
+            </div>
         </div>
     </div>
     <div class="bubble-container">
@@ -149,53 +167,45 @@
     const thisYearProgress = document.getElementById('thisYearProgress');
     const bubbleProgress = document.getElementById('bubbleProgress');
     const bubbleLabel = document.getElementById('bubbleLabel');
-    const progressLabel = document.getElementById('progressLabel');
+    const lastYearProgressLabel = document.getElementById('lastYearProgressLabel');
+    const thisYearProgressLabel = document.getElementById('thisYearProgressLabel');
 
-    // Create an object to hold specific details and progress for each card
     const cardDetails = {
-        'Panarin': { details: 'Details about Panarin: Excellent playmaker.', lastYearProgress: { current: 80, total: 102 }, thisYearProgress: { current: 11, total: 102 }, bubbleProgress: '11/102' },
-        'Zibanajad': { details: 'Details about Zibanajad: Strong scorer.', lastYearProgress: { current: 60, total: 80 }, thisYearProgress: { current: 3, total: 80 }, bubbleProgress: '3/80' },
-        'Kreider': { details: 'Details about Kreider: Speed and power on ice.', lastYearProgress: { current: 30, total: 35 }, thisYearProgress: { current: 3, total: 35 }, bubbleProgress: '3/35' },
-        'Lafreniere': { details: 'Details about Lafreniere: Rising star.', lastYearProgress: { current: 50, total: 70 }, thisYearProgress: { current: 5, total: 70 }, bubbleProgress: '5/70' },
-        'Shesterkin': { details: 'Details about Shesterkin: Top goaltender.', lastYearProgress: { current: 85, total: 90 }, thisYearProgress: { current: 0.921, total: 0.923 }, bubbleProgress: '0.921/0.923' },
-        'Wins': { details: 'Details about Wins: Victory counts.', lastYearProgress: { current: 45, total: 52 }, thisYearProgress: { current: 3, total: 52 }, bubbleProgress: '3/52' },
+        'Panarin': { details: 'Details about Panarin: Excellent playmaker.', lastYearProgress: { current: 7, total: 102 }, thisYearProgress: { current: 12, total: 102 }},
+        'Zibanajad': { details: 'Details about Zibanajad: Strong scorer.', lastYearProgress: { current: 5, total: 80 }, thisYearProgress: { current: 5, total: 80 }},
+        'Kreider': { details: 'Details about Kreider: Speed and power on ice.', lastYearProgress: { current: 4, total: 35 }, thisYearProgress: { current: 5, total: 35 }},
+        'Lafreniere': { details: 'Details about Lafreniere: Rising star.', lastYearProgress: { current: 2, total: 70 }, thisYearProgress: { current: 6, total: 70 } },
+        'Shesterkin': { details: 'Details about Shesterkin: Top goaltender.', lastYearProgress: { current: 0.865, total: 0.923 }, thisYearProgress: { current: 0.927, total: 0.923 } },
+        'Wins': { details: 'Details about Wins: Victory counts.', lastYearProgress: { current: 3, total: 52 }, thisYearProgress: { current: 4, total: 52 } },
     };
 
     cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            const cardInfo = cardDetails[card.textContent];
-            largeBox.style.display = 'flex'; // Show the large box
-            largeBox.firstChild.textContent = cardInfo.details; // Get specific details
+        card.addEventListener('mouseenter', function () {
+            const details = cardDetails[this.textContent];
+            if (details) {
+                largeBox.style.display = 'flex';
 
-            // Position the large box below the card
-            const cardRect = card.getBoundingClientRect();
-            largeBox.style.top = `${cardRect.bottom + window.scrollY}px`; // Position below the card
-            largeBox.style.left = `0`; // Align left with the window
+                document.querySelector('.large-box div').textContent = details.details;
 
-            // Update last year's progress bar
-            const lastYearCurrent = cardInfo.lastYearProgress.current;
-            const lastYearTotal = cardInfo.lastYearProgress.total;
-            lastYearProgress.style.width = `${(lastYearCurrent / lastYearTotal) * 100}%`;
-            progressLabel.textContent = `${lastYearCurrent}/${lastYearTotal}`;
+                const lastYearPercentage = (details.lastYearProgress.current / details.lastYearProgress.total) * 100;
+                const thisYearPercentage = (details.thisYearProgress.current / details.thisYearProgress.total) * 100;
 
-            // Update this year's progress bar
-            const thisYearCurrent = cardInfo.thisYearProgress.current;
-            const thisYearTotal = cardInfo.thisYearProgress.total;
-            thisYearProgress.style.width = `${(thisYearCurrent / thisYearTotal) * 100}%`;
+                lastYearProgress.style.width = `${lastYearPercentage}%`;
+                thisYearProgress.style.width = `${thisYearPercentage}%`;
 
-            // Update the bubble progress
-            const stats = cardInfo.bubbleProgress.split('/');
-            const current = parseFloat(stats[0]);
-            const total = parseFloat(stats[1]);
-            const bubblePercentage = (current / total) * 100;
-            bubbleProgress.style.width = `${bubblePercentage}%`;
-            bubbleLabel.textContent = `${Math.round(bubblePercentage)}%`;
+                lastYearProgressLabel.textContent = `${details.lastYearProgress.current}/${details.lastYearProgress.total}`;
+                thisYearProgressLabel.textContent = `${details.thisYearProgress.current}/${details.thisYearProgress.total}`;
+
+                bubbleLabel.textContent = details.bubbleProgress;
+                bubbleProgress.style.width = `${(details.thisYearProgress.current / details.thisYearProgress.total) * 100}%`;
+            }
         });
 
-        card.addEventListener('mouseleave', () => {
-            largeBox.style.display = 'none'; // Hide the large box
+        card.addEventListener('mouseleave', function () {
+            largeBox.style.display = 'none';
         });
     });
 </script>
+
 </body>
 </html>
