@@ -37,20 +37,60 @@
 
         .large-box {
             width: 100%;
-            height: 25vh;
+            height: 35vh;
             background-color: blue;
             border: 2px solid red;
             color: white;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: flex-start;
             margin-top: 10px;
             position: absolute;
             display: none;
             z-index: 10;
             padding: 20px;
             box-sizing: border-box;
+        }
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .player-info img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .player-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .tables-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 30%; /* Adjust as needed */
+            border-collapse: collapse;
+            background-color: blue; /* Changed to blue */
+            border: 2px solid red; /* Added red border */
+        }
+
+        td {
+            border: 1px solid white;
+            padding: 5px;
+            text-align: center;
+            color: white;
         }
 
         .progress-container {
@@ -62,7 +102,7 @@
 
         .progress-bar {
             width: 100%;
-            background-color: #ccc;
+            background-color: blue; /* Changed to blue */
             border-radius: 5px;
             height: 100%;
             overflow: hidden;
@@ -86,7 +126,7 @@
 
         .progress-label {
             position: absolute;
-            color: white;
+            color: white; /* White text */
             font-weight: bold;
             text-align: center;
             width: 100%;
@@ -94,22 +134,19 @@
             transform: translateY(-50%);
         }
 
-        .year-label {
+        .common-denominator {
             position: absolute;
-            top: 0;
-            width: 100%;
-            text-align: center;
-            color: black;
+            right: -10px;
+            font-size: 20px;
             font-weight: bold;
+            color: white; /* Changed to white */
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: blue; /* Changed to blue */
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
             z-index: 1;
-        }
-
-        #lastYearLabel {
-            top: -25px;
-        }
-
-        #thisYearLabel {
-            top: -50px;
         }
     </style>
 </head>
@@ -135,28 +172,68 @@
         <div class="card">Zibanajad</div>
         <div class="card">Kreider</div>
         <div class="card">Lafreniere</div>
+        <div class="card">Fox</div>
         <div class="card">Shesterkin</div>
-        <div class="card">Wins</div>
     </div>
 </div>
 
 <div class="large-box" id="largeBox">
-    <div>Hover over a card to see details here.</div>
+    <div class="player-info">
+        <img src="bread.png" alt="Player Photo" id="playerPhoto">
+        <div class="player-name" id="playerName">Player Name</div>
+    </div>
+    <div id="playerDetails">Hover over a card to see details here.</div>
+
+    <!-- Tables Section -->
+    <div class="tables-container">
+        <table>
+            <tr>
+                <td>2023-24</td>
+                <td>GP</td>
+                <td>Points</td>
+            </tr>
+            <tr>
+                <td>3rd in NHL</td>
+                <td>82</td>
+                <td>120</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>2022-2023</td>
+                <td>GP</td>
+                <td>Points</td>
+            </tr>
+            <tr>
+                <td>17th in NHL</td>
+                <td>82</td>
+                <td>92</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>2021-2022</td>
+                <td>GP</td>
+                <td>Points</td>
+            </tr>
+            <tr>
+                <td>11th in NHL</td>
+                <td>75</td>
+                <td>96</td>
+            </tr>
+        </table>
+    </div>
+
     <div class="progress-container">
         <div class="progress-bar">
-            <div class="year-label" id="lastYearLabel">2023-2024 Progression</div>
             <div class="progress" id="lastYearProgress" style="width: 0%;">
-                <div class="progress-label" id="lastYearProgressLabel">0/0</div>
+                <div class="progress-label" id="lastYearProgressLabel">0</div>
             </div>
-            <div class="year-label" id="thisYearLabel">2024-2025 Progression</div>
             <div class="progress" id="thisYearProgress" style="width: 0%; bottom: 50%;">
-                <div class="progress-label" id="thisYearProgressLabel">0/0</div>
+                <div class="progress-label" id="thisYearProgressLabel">0</div>
             </div>
+            <div class="common-denominator" id="denominatorLabel">/0</div>
         </div>
-    </div>
-    <div class="bubble-container">
-        <div class="bubble" id="bubbleProgress" style="width: 0%;"></div>
-        <div class="label" id="bubbleLabel">0%</div>
     </div>
 </div>
 
@@ -165,18 +242,19 @@
     const largeBox = document.getElementById('largeBox');
     const lastYearProgress = document.getElementById('lastYearProgress');
     const thisYearProgress = document.getElementById('thisYearProgress');
-    const bubbleProgress = document.getElementById('bubbleProgress');
-    const bubbleLabel = document.getElementById('bubbleLabel');
+    const denominatorLabel = document.getElementById('denominatorLabel');
     const lastYearProgressLabel = document.getElementById('lastYearProgressLabel');
     const thisYearProgressLabel = document.getElementById('thisYearProgressLabel');
+    const playerName = document.getElementById('playerName');
+    const playerPhoto = document.getElementById('playerPhoto');
 
     const cardDetails = {
-        'Panarin': { details: 'Details about Panarin: Excellent playmaker.', lastYearProgress: { current: 7, total: 102 }, thisYearProgress: { current: 12, total: 102 }},
-        'Zibanajad': { details: 'Details about Zibanajad: Strong scorer.', lastYearProgress: { current: 5, total: 80 }, thisYearProgress: { current: 5, total: 80 }},
-        'Kreider': { details: 'Details about Kreider: Speed and power on ice.', lastYearProgress: { current: 4, total: 35 }, thisYearProgress: { current: 5, total: 35 }},
-        'Lafreniere': { details: 'Details about Lafreniere: Rising star.', lastYearProgress: { current: 2, total: 70 }, thisYearProgress: { current: 6, total: 70 } },
-        'Shesterkin': { details: 'Details about Shesterkin: Top goaltender.', lastYearProgress: { current: 0.865, total: 0.923 }, thisYearProgress: { current: 0.927, total: 0.923 } },
-        'Wins': { details: 'Details about Wins: Victory counts.', lastYearProgress: { current: 3, total: 52 }, thisYearProgress: { current: 4, total: 52 } },
+        'Panarin': { lastYearProgress: { current: 7, total: 122 }, thisYearProgress: { current: 12, total: 122 }},
+        'Zibanajad': { lastYearProgress: { current: 5, total: 80 }, thisYearProgress: { current: 5, total: 80 }},
+        'Kreider': { lastYearProgress: { current: 4, total: 35 }, thisYearProgress: { current: 5, total: 35 }},
+        'Lafreniere': { lastYearProgress: { current: 2, total: 70 }, thisYearProgress: { current: 6, total: 70 }},
+        'Shesterkin': { lastYearProgress: { current: 0.865, total: 0.923 }, thisYearProgress: { current: 0.927, total: 0.923 }},
+        'Fox': { lastYearProgress: { current: 5, total: 82 }, thisYearProgress: { current: 6, total: 82 }},
     };
 
     cards.forEach(card => {
@@ -185,7 +263,11 @@
             if (details) {
                 largeBox.style.display = 'flex';
 
-                document.querySelector('.large-box div').textContent = details.details;
+                // Update player name and photo
+                playerName.textContent = this.textContent;
+                playerPhoto.src = `${this.textContent.toLowerCase()}.png`; // Assuming images are named after players
+
+                document.getElementById('playerDetails').textContent = details.details;
 
                 const lastYearPercentage = (details.lastYearProgress.current / details.lastYearProgress.total) * 100;
                 const thisYearPercentage = (details.thisYearProgress.current / details.thisYearProgress.total) * 100;
@@ -193,11 +275,10 @@
                 lastYearProgress.style.width = `${lastYearPercentage}%`;
                 thisYearProgress.style.width = `${thisYearPercentage}%`;
 
-                lastYearProgressLabel.textContent = `${details.lastYearProgress.current}/${details.lastYearProgress.total}`;
-                thisYearProgressLabel.textContent = `${details.thisYearProgress.current}/${details.thisYearProgress.total}`;
+                lastYearProgressLabel.textContent = `${details.lastYearProgress.current}`;
+                thisYearProgressLabel.textContent = `${details.thisYearProgress.current}`;
 
-                bubbleLabel.textContent = details.bubbleProgress;
-                bubbleProgress.style.width = `${(details.thisYearProgress.current / details.thisYearProgress.total) * 100}%`;
+                denominatorLabel.textContent = `/${details.lastYearProgress.total}`;
             }
         });
 
