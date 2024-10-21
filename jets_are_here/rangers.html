@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, 1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rangers</title>
     <link rel="stylesheet" href="style.css">
@@ -37,7 +37,7 @@
 
         .large-box {
             width: 100%;
-            height: 35vh;
+            height: 45vh; /* Increased height to fit content */
             background-color: blue;
             border: 2px solid red;
             color: white;
@@ -148,6 +148,15 @@
             white-space: nowrap;
             z-index: 1;
         }
+
+        .gamenum {
+            text-align: center; /* Center horizontally */
+            color: white; /* White text for contrast */
+            font-weight: bold;
+            background-color: blue; /* Blue background to match the rest */
+            width: 100%; /* Ensures it takes up the full width */
+            padding: 10px 0; /* Adds vertical padding */
+        }
     </style>
 </head>
 <body>
@@ -182,45 +191,95 @@
         <img src="bread.png" alt="Player Photo" id="playerPhoto">
         <div class="player-name" id="playerName">Player Name</div>
     </div>
-    <div id="playerDetails">Hover over a card to see details here.</div>
 
-    <!-- Tables Section -->
-    <div class="tables-container">
+    <!-- Tables Section for each player -->
+    <div id="panarinTables" class="tables-container">
         <table>
-            <tr>
-                <td>2023-24</td>
-                <td>GP</td>
-                <td>Points</td>
-            </tr>
-            <tr>
-                <td>3rd in NHL</td>
-                <td>82</td>
-                <td>120</td>
-            </tr>
+            <tr><td>2023-24</td><td>GP</td><td>Points</td></tr>
+            <tr><td>3rd in NHL</td><td>82</td><td>120</td></tr>
         </table>
         <table>
-            <tr>
-                <td>2022-2023</td>
-                <td>GP</td>
-                <td>Points</td>
-            </tr>
-            <tr>
-                <td>17th in NHL</td>
-                <td>82</td>
-                <td>92</td>
-            </tr>
+            <tr><td>2022-2023</td><td>GP</td><td>Points</td></tr>
+            <tr><td>16th in NHL</td><td>82</td><td>92</td></tr>
         </table>
         <table>
-            <tr>
-                <td>2021-2022</td>
-                <td>GP</td>
-                <td>Points</td>
-            </tr>
-            <tr>
-                <td>11th in NHL</td>
-                <td>75</td>
-                <td>96</td>
-            </tr>
+            <tr><td>2021-2022</td><td>GP</td><td>Points</td></tr>
+            <tr><td>11th in NHL</td><td>75</td><td>96</td></tr>
+        </table>
+    </div>
+
+    <div id="zibanajadTables" class="tables-container" style="display: none;">
+        <table>
+            <tr><td>2023-24</td><td>GP</td><td>Points</td></tr>
+            <tr><td>18th in NHL</td><td>81</td><td>72</td></tr>
+        </table>
+        <table>
+            <tr><td>2022-2023</td><td>GP</td><td>Points</td></tr>
+            <tr><td>17th in NHL</td><td>82</td><td>91</td></tr>
+        </table>
+        <table>
+            <tr><td>2021-2022</td><td>GP</td><td>Points</td></tr>
+            <tr><td>28th in NHL</td><td>81</td><td>81</td></tr>
+        </table>
+    </div>
+
+    <div id="kreiderTables" class="tables-container" style="display: none;">
+        <table>
+            <tr><td>2023-24</td><td>GP</td><td>Goals</td></tr>
+            <tr><td>18th in NHL</td><td>82</td><td>39</td></tr>
+        </table>
+        <table>
+            <tr><td>2022-2023</td><td>GP</td><td>Goals</td></tr>
+            <tr><td>30th in NHL</td><td>79</td><td>36</td></tr>
+        </table>
+        <table>
+            <tr><td>2021-2022</td><td>GP</td><td>Goals</td></tr>
+            <tr><td>3rd in NHL</td><td>81</td><td>52</td></tr>
+        </table>
+    </div>
+
+    <div id="lafreniereTables" class="tables-container" style="display: none;">
+        <table>
+            <tr><td>2023-24</td><td>GP</td><td>Points</td></tr>
+            <tr><td></td><td>82</td><td>57</td></tr>
+        </table>
+        <table>
+            <tr><td>2022-2023</td><td>GP</td><td>Points</td></tr>
+            <tr><td></td><td>81</td><td>39</td></tr>
+        </table>
+        <table>
+            <tr><td>2021-2022</td><td>GP</td><td>Points</td></tr>
+            <tr><td></td><td>79</td><td>31</td></tr>
+        </table>
+    </div>
+
+    <div id="foxTables" class="tables-container" style="display: none;">
+        <table>
+            <tr><td>2023-24</td><td>GP</td><td>Points</td></tr>
+            <tr><td>6th in NHL</td><td>72</td><td>73</td></tr>
+        </table>
+        <table>
+            <tr><td>2022-2023</td><td>GP</td><td>Points</td></tr>
+            <tr><td>8th in NHL</td><td>82</td><td>72</td></tr>
+        </table>
+        <table>
+            <tr><td>2021-2022</td><td>GP</td><td>Points</td></tr>
+            <tr><td>4th in NHL</td><td>78</td><td>74</td></tr>
+        </table>
+    </div>
+
+    <div id="shesterkinTables" class="tables-container" style="display: none;">
+        <table>
+            <tr><td>2023-24</td><td>GP</td><td>SVG</td></tr>
+            <tr><td>11th in NHL</td><td>55</td><td>.913</td></tr>
+        </table>
+        <table>
+            <tr><td>2022-2023</td><td>GP</td><td>SVG</td></tr>
+            <tr><td>10th in NHL</td><td>58</td><td>.916</td></tr>
+        </table>
+        <table>
+            <tr><td>2021-2022</td><td>GP</td><td>SVG</td></tr>
+            <tr><td>1st in NHL</td><td>53</td><td>.935</td></tr>
         </table>
     </div>
 
@@ -234,6 +293,9 @@
             </div>
             <div class="common-denominator" id="denominatorLabel">/0</div>
         </div>
+    </div>
+    <div class="gamenum">
+        Game 5
     </div>
 </div>
 
@@ -253,36 +315,31 @@
         'Zibanajad': { lastYearProgress: { current: 5, total: 80 }, thisYearProgress: { current: 5, total: 80 }},
         'Kreider': { lastYearProgress: { current: 4, total: 35 }, thisYearProgress: { current: 5, total: 35 }},
         'Lafreniere': { lastYearProgress: { current: 2, total: 70 }, thisYearProgress: { current: 6, total: 70 }},
-        'Shesterkin': { lastYearProgress: { current: 0.865, total: 0.923 }, thisYearProgress: { current: 0.927, total: 0.923 }},
-        'Fox': { lastYearProgress: { current: 5, total: 82 }, thisYearProgress: { current: 6, total: 82 }},
+        'Shesterkin': { lastYearProgress: { current: 0.865, total: 0.865 }, thisYearProgress: { current: 0.935, total: 0.925 }},
+        'Fox': { lastYearProgress: { current: 5, total: 82 }, thisYearProgress: { current: 6, total: 82 }}
     };
 
     cards.forEach(card => {
-        card.addEventListener('mouseenter', function () {
-            const details = cardDetails[this.textContent];
-            if (details) {
-                largeBox.style.display = 'flex';
+        card.addEventListener('mouseover', () => {
+            const player = card.textContent.trim();
+            const { lastYearProgress: last, thisYearProgress: current } = cardDetails[player];
 
-                // Update player name and photo
-                playerName.textContent = this.textContent;
-                playerPhoto.src = `${this.textContent.toLowerCase()}.png`; // Assuming images are named after players
+            lastYearProgress.style.width = `${(last.current / last.total) * 100}%`;
+            thisYearProgress.style.width = `${(current.current / current.total) * 100}%`;
+            lastYearProgressLabel.textContent = `${last.current}`;
+            thisYearProgressLabel.textContent = `${current.current}`;
+            denominatorLabel.textContent = `/${current.total}`;
 
-                document.getElementById('playerDetails').textContent = details.details;
+            playerName.textContent = player;
+            playerPhoto.src = `${player.toLowerCase()}.png`; // Assuming image filename matches player name
+            largeBox.style.display = 'block';
 
-                const lastYearPercentage = (details.lastYearProgress.current / details.lastYearProgress.total) * 100;
-                const thisYearPercentage = (details.thisYearProgress.current / details.thisYearProgress.total) * 100;
-
-                lastYearProgress.style.width = `${lastYearPercentage}%`;
-                thisYearProgress.style.width = `${thisYearPercentage}%`;
-
-                lastYearProgressLabel.textContent = `${details.lastYearProgress.current}`;
-                thisYearProgressLabel.textContent = `${details.thisYearProgress.current}`;
-
-                denominatorLabel.textContent = `/${details.lastYearProgress.total}`;
-            }
+            // Handle visibility of tables for each player
+            document.querySelectorAll('.tables-container').forEach(table => table.style.display = 'none');
+            document.getElementById(`${player.toLowerCase()}Tables`).style.display = 'flex';
         });
 
-        card.addEventListener('mouseleave', function () {
+        card.addEventListener('mouseout', () => {
             largeBox.style.display = 'none';
         });
     });
