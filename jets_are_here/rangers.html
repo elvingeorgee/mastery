@@ -9,16 +9,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background for sleek design */
+            margin: 0;
+            padding: 20px; /* Added padding for spacing */
         }
 
         .carousel {
             width: 100%;
             height: 166px;
+            margin-bottom: 20px; /* Space below the carousel */
         }
 
         .card-container {
-            width: 100%;
             display: flex;
+            overflow-x: auto; /* Allow horizontal scrolling */
+            padding: 10px 0; /* Padding around cards */
         }
 
         .card {
@@ -31,38 +36,38 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
+            margin-right: 10px; /* Space between cards */
             padding: 10px;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
         }
 
         .large-box {
             width: 100%;
-            height: 60vh; /* Increased height */
             background-color: blue;
-            border: 2px solid red;
             color: white;
-            display: flex;
+            display: none; /* Hidden initially */
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-top: 10px;
-            position: relative;
-            z-index: 10;
+            align-items: center;
+            justify-content: flex-start; /* Align items to start */
             padding: 20px;
             box-sizing: border-box;
-            overflow: hidden; /* Ensures no content is cut off */
+            margin-top: 10px;
+            border-radius: 8px; /* Rounded corners */
         }
 
         .player-info {
             display: flex;
             align-items: center;
             width: 100%;
+            margin-bottom: 20px; /* Space between player info and progress */
         }
 
         .player-info img {
             width: 60px;
             height: auto;
             margin-right: 10px;
+            border-radius: 50%; /* Circular player photo */
         }
 
         .player-name {
@@ -71,53 +76,43 @@
             color: white;
         }
 
-        .tables-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        table {
-            width: 30%;
-            border-collapse: collapse;
-            background-color: blue;
-            border: 2px solid red;
-        }
-
-        td {
-            border: 1px solid white;
-            padding: 5px;
-            text-align: center;
+        .player-text {
             color: white;
+            margin-left: 10px; /* Space between name and text */
+            font-size: 16px; /* Smaller font for the placeholder text */
         }
 
         .progress-container {
-            position: relative;
             width: 100%;
-            height: 50%;
-            margin-top: 10px;
+            margin-bottom: 20px; /* Space below the progress */
+        }
+
+        .progress-year {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            margin: 10px 0; /* Space around years */
         }
 
         .progress-bar {
             width: 100%;
-            background-color: blue;
+            background-color: #ddd; /* Light background for contrast */
             border-radius: 5px;
-            height: 50%;
+            height: 20px; /* Adjust height for visibility */
             overflow: hidden;
             position: relative;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Space below progress bars */
         }
 
         .progress {
-            height: 50%;
+            height: 100%;
             background: repeating-linear-gradient(
                     45deg,
-                    rgba(255, 0, 0, 0.5) 0%,
-                    rgba(255, 0, 0, 0.5) 20%,
-                    rgba(0, 0, 255, 0.5) 20%,
-                    rgba(0, 0, 255, 0.5) 40%
+                    rgba(255, 0, 0, 0.8) 0%,
+                    rgba(255, 0, 0, 0.8) 20%,
+                    rgba(0, 0, 255, 0.8) 20%,
+                    rgba(0, 0, 255, 0.8) 40%
             );
             width: 0%;
             transition: width 0.5s;
@@ -137,25 +132,12 @@
 
         .common-denominator {
             position: absolute;
-            right: -10px;
-            font-size: 20px;
+            right: 10px;
+            font-size: 14px;
             font-weight: bold;
             color: white;
             top: 50%;
             transform: translateY(-50%);
-            background-color: blue;
-            padding: 5px 10px;
-            border-radius: 5px;
-            white-space: nowrap;
-            z-index: 1;
-        }
-
-        .progress-year {
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 5px;
         }
 
         .gamenum {
@@ -166,9 +148,9 @@
             width: 100%;
             padding: 5px 0;
             font-size: 18px;
-            margin-top: 10px; /* Added margin for space below */
-            box-sizing: border-box;
-            border-top: 2px solid red; /* Makes sure the red border is visible */
+            margin-top: 10px; /* Space below the game number */
+            border-top: 2px solid red;
+            border-radius: 5px; /* Rounded corners */
         }
     </style>
 </head>
@@ -190,12 +172,12 @@
 
 <div class="carousel">
     <div class="card-container">
-        <div class="card">Panarin</div>
-        <div class="card">Zibanajad</div>
-        <div class="card">Kreider</div>
-        <div class="card">Lafreniere</div>
-        <div class="card">Fox</div>
-        <div class="card">Shesterkin</div>
+        <div class="card" data-player="Panarin">Panarin</div>
+        <div class="card" data-player="Zibanajad">Zibanajad</div>
+        <div class="card" data-player="Kreider">Kreider</div>
+        <div class="card" data-player="Lafreniere">Lafreniere</div>
+        <div class="card" data-player="Fox">Fox</div>
+        <div class="card" data-player="Shesterkin">Shesterkin</div>
     </div>
 </div>
 
@@ -203,6 +185,7 @@
     <div class="player-info">
         <img src="bread.png" alt="Player Photo" id="playerPhoto">
         <div class="player-name" id="playerName">Player Name</div>
+        <div class="player-text" id="playerText">Player description here.</div>
     </div>
 
     <div class="progress-container">
@@ -222,7 +205,7 @@
         </div>
     </div>
 
-    <div class="gamenum" style="display: none;">Game 5/82</div> <!-- Gamnum stays here -->
+    <div class="gamenum" style="display: none;">Game 5/82</div>
 </div>
 
 <script>
@@ -235,20 +218,45 @@
     const thisYearProgressLabel = document.getElementById('thisYearProgressLabel');
     const playerName = document.getElementById('playerName');
     const playerPhoto = document.getElementById('playerPhoto');
+    const playerText = document.getElementById('playerText');
 
     const cardDetails = {
-        'Panarin': { lastYearProgress: { current: 7, total: 122 }, thisYearProgress: { current: 12, total: 122 }},
-        'Zibanajad': { lastYearProgress: { current: 5, total: 80 }, thisYearProgress: { current: 5, total: 80 }},
-        'Kreider': { lastYearProgress: { current: 4, total: 35 }, thisYearProgress: { current: 5, total: 35 }},
-        'Lafreniere': { lastYearProgress: { current: 2, total: 70 }, thisYearProgress: { current: 6, total: 70 }},
-        'Shesterkin': { lastYearProgress: { current: 0.865, total: 0.865 }, thisYearProgress: { current: 0.935, total: 0.925 }},
-        'Fox': { lastYearProgress: { current: 5, total: 82 }, thisYearProgress: { current: 6, total: 82 }}
+        'Panarin': {
+            lastYearProgress: { current: 7, total: 122 },
+            thisYearProgress: { current: 12, total: 122 },
+            text: "A playmaker with incredible vision and skill."
+        },
+        'Zibanajad': {
+            lastYearProgress: { current: 5, total: 80 },
+            thisYearProgress: { current: 5, total: 80 },
+            text: "A dynamic forward with a powerful shot."
+        },
+        'Kreider': {
+            lastYearProgress: { current: 4, total: 35 },
+            thisYearProgress: { current: 5, total: 35 },
+            text: "Known for his speed and goal-scoring ability."
+        },
+        'Lafreniere': {
+            lastYearProgress: { current: 2, total: 70 },
+            thisYearProgress: { current: 6, total: 70 },
+            text: "A young talent with a bright future."
+        },
+        'Shesterkin': {
+            lastYearProgress: { current: 0.865, total: 0.865 },
+            thisYearProgress: { current: 0.935, total: 0.925 },
+            text: "An elite goaltender known for his agility."
+        },
+        'Fox': {
+            lastYearProgress: { current: 5, total: 82 },
+            thisYearProgress: { current: 6, total: 82 },
+            text: "A strong defenseman with offensive capabilities."
+        }
     };
 
     cards.forEach(card => {
         card.addEventListener('mouseover', () => {
-            const player = card.textContent.trim();
-            const { lastYearProgress: last, thisYearProgress: current } = cardDetails[player];
+            const player = card.getAttribute('data-player');
+            const { lastYearProgress: last, thisYearProgress: current, text } = cardDetails[player];
 
             lastYearProgress.style.width = `${(last.current / last.total) * 100}%`;
             thisYearProgress.style.width = `${(current.current / current.total) * 100}%`;
@@ -258,17 +266,19 @@
 
             playerName.textContent = player;
             playerPhoto.src = `${player.toLowerCase()}.png`; // Adjust as per your image naming convention
+            playerText.textContent = text; // Set unique player text
             largeBox.style.display = 'flex'; // Show the large box
             document.querySelector('.gamenum').style.display = 'block'; // Show the gamenum
 
-            // Set gamenum text dynamically (you can modify this logic)
-            document.querySelector('.gamenum').textContent = 'Game 5/82';
+            document.querySelector('.gamenum').textContent = 'Game 5/82'; // Set gamenum text dynamically
         });
     });
 
-    largeBox.addEventListener('mouseleave', () => {
-        largeBox.style.display = 'none'; // Hide the large box when mouse leaves
-        document.querySelector('.gamenum').style.display = 'none'; // Hide the gamenum
+    cards.forEach(card => {
+        card.addEventListener('mouseleave', () => {
+            largeBox.style.display = 'none'; // Hide the large box when mouse leaves
+            document.querySelector('.gamenum').style.display = 'none'; // Hide the gamenum
+        });
     });
 </script>
 
