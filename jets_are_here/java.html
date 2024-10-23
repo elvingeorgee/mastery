@@ -65,37 +65,111 @@
         .full-preface-text {
             margin-top: 20px; /* Add space between canvas and text */
             padding: 10px;
-            background-color: green;
+
             color: black;
+            font-size:22px;
             border: 2px solid white;
             border-radius: 8px; /* Rounded corners */
             max-width: 500px; /* Keep it aligned with the canvas width */
             overflow-y: auto;
             max-height: 300px; /* Limit height and enable scrolling if needed */
+            margin-bottom: 20px;
         }
 
         .bruh {
             color: white;
         }
 
-        .timeline
-        {
-            min-width: 100%;
-            height: 100px; /* Limit height to allow scrolling */
+        .preface {
+            min-width: 238px;
+            max-height: 350px;
             background-color: green;
             border: 2px solid white;
             color: black;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: start; /* Align content to the top */
-            margin-right: 10px; /* Space between cards */
-            margin-bottom: 20px; /* Space below preface */
+            justify-content: start;
+            margin-right: 10px;
+            margin-bottom: 20px;
             padding: 10px;
-            border-radius: 8px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor on hover */
-            overflow-y: auto; /* Enable vertical scrolling */
+            border-radius: 8px;
+            overflow-y: auto;
+            position: relative; /* Added for relative positioning */
         }
+
+        .timeline-container {
+            width: 98%;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            position: relative;
+            border-top: 2px solid white;
+        }
+
+        .circle {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+
+        .info-text {
+            display: none; /* Hidden by default */
+            width: 150px;
+            height: 50px;
+            margin-top: 10px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .circle:hover .info-text {
+            display: block; /* Show on hover */
+        }
+        .info-box {
+            display: none;
+            position: absolute;
+            bottom: 60px;
+            left: -50px;
+            width: 200px;
+            padding: 10px;
+            background-color: black;
+            border: 1px solid white;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            z-index: 10;
+        }
+
+        .info-box::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+    </style>
 
     </style>
 </head>
@@ -142,6 +216,8 @@
 <!--    </div>-->
 
     <!-- Canvas and buttons section -->
+
+
     <div class="canvas-container">
         <canvas id="myCanvas" width="500" height="250"></canvas>
         <div class="button-container">
@@ -153,8 +229,9 @@
 
     <!-- Full preface text below the canvas -->
     <div class="full-preface-text">
+        <h1 style="color:white">Preface</h1>
         <div class="bruh">
-            In 2011 I watched Mark Sanchez out-duel the unstoppable force of Tom Brady, giving him one of his 11 playoff losses. In that moment, I gained a level of love and appreciation for the underdog story and felt like I needed to hop on that bandwagon. That win was the last time the team had in the playoffs. In the last four seasons, the team has finished with an accumulative record of 17-31. I wish I could emphasize more how terrible 17-31 is by putting you in my perspective as a Jets fan. I’d like to believe that most fans look forward to seeing their football team play on the weekend like going to church. Unlike other major sports, where teams play 3-4 times a week, I have to wait a full week before I get disappointed. For over a decade, I’ve become numb to this feeling, salvaging hope that a team that has failed to reach the playoffs for over a decade might win on a weekly basis. For the last 12 years, I’ve felt the same emotion watching the Jets—until last season.
+            In 2011 I watched Mark Sanchez out-duel the unstoppable force of Tom Brady, giving him one of his 11 playoff losses. In that moment, I gained a level of love and appreciation for the underdog story and felt like I needed to hop on that Jets bandwagon. That win was the last Jets playoff game. In the last four seasons, the team has finished with an accumulative record of 17-31. The only way how terrible 17-31 can be emphasised is by putting you in my perspective as a Jets fan. I’d like to believe that most fans look forward to seeing their football team play on the weekend like going to church. Unlike other major sports, where teams play 3-4 times a week, I have to wait a full week before I get disappointed. For over a decade, I’ve become numb to this feeling, salvaging hope that a team that has failed to reach the playoffs for over a decade might win on a weekly basis. For the last 12 years, I’ve felt the same emotion watching the Jets—until last season.
         </div>
     </div>
 
@@ -181,8 +258,61 @@
     </table>
 </div>
 
-<div class="timeline">
-
+<div class="timeline-container preface">
+    <div class="timeline">
+        <div class="circle" data-index="11">
+            11
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="12">
+            12
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="13">
+            13
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="14">
+            14
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="15">
+            15
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="16">
+            16
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="17">
+            17
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="18">
+            18
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="19">
+            19
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="20">
+            20
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="21">
+            21
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="22">
+            22
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+        <div class="circle" data-index="23">
+            23
+            <textarea class="info-text" placeholder="Write details here..."></textarea>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -201,7 +331,7 @@
         { id: "rb2-x", x: 300, y: 120, type: "X", name: "Sauce Gardner" },
         { id: "te-x", x: 350, y: 120, type: "X", name: "C.J Mosley" },
         { id: "qb-x", x: 225, y: 100, type: "X", name: "D.J Reed" },
-        { id: "rb-x", x: 325, y: 120, type: "X", name: "Michael Carter" },
+        { id: "rb-x", x: 325, y: 120, type: "X", name: "Hassan Reddick" },
         { id: "wr1-o", x: 50, y: 160, type: "O", name: "Davante Adams" },
         { id: "wr2-o", x: 150, y: 160, type: "O", name: "Garret Wilson" },
         { id: "lb1-o", x: 200, y: 160, type: "O", name: "John Simpson" },
@@ -389,6 +519,18 @@
     }
 
     draw();
+
+    const circles = document.querySelectorAll('.circle');
+    const textboxes = document.querySelectorAll('.textbox-container');
+
+    circles.forEach((circle, index) => {
+        circle.addEventListener('mouseover', () => {
+            textboxes[index].style.display = 'block';
+        });
+        circle.addEventListener('mouseout', () => {
+            textboxes[index].style.display = 'none';
+        });
+    });
 </script>
 
 </body>
