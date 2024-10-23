@@ -20,7 +20,9 @@
         .canvas-container {
             position: relative;
             display: inline-block;
+            margin-bottom: 20px; /* Optional: add more space below canvas if needed */
         }
+
         .button-container {
             position: absolute;
             bottom: 10px;
@@ -41,6 +43,60 @@
         .button-container button:hover {
             background-color: #45a049;
         }
+
+        .preface {
+            min-width: 238px;
+            max-height: 350px; /* Limit height to allow scrolling */
+            background-color: green;
+            border: 2px solid white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start; /* Align content to the top */
+            margin-right: 10px; /* Space between cards */
+            margin-bottom: 20px; /* Space below preface */
+            padding: 10px;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        .full-preface-text {
+            margin-top: 20px; /* Add space between canvas and text */
+            padding: 10px;
+            background-color: green;
+            color: black;
+            border: 2px solid white;
+            border-radius: 8px; /* Rounded corners */
+            max-width: 500px; /* Keep it aligned with the canvas width */
+            overflow-y: auto;
+            max-height: 300px; /* Limit height and enable scrolling if needed */
+        }
+
+        .bruh {
+            color: white;
+        }
+
+        .timeline
+        {
+            min-width: 100%;
+            height: 100px; /* Limit height to allow scrolling */
+            background-color: green;
+            border: 2px solid white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start; /* Align content to the top */
+            margin-right: 10px; /* Space between cards */
+            margin-bottom: 20px; /* Space below preface */
+            padding: 10px;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
     </style>
 </head>
 <body>
@@ -49,9 +105,9 @@
     <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
     <nav class="navigation">
         <ul>
-            <li><a href="java.html">Java Activities</a></li>
-            <li><a href="rangers.html">Rangers Season Predictions</a></li>
-            <li><a href="dreams.html">Dream Tracker</a></li>
+            <li><a href="java.html">Jets</a></li>
+            <li><a href="rangers.html">Rangers</a></li>
+            <li><a href="dreams.html">Dreams</a></li>
             <li><a href="nose.html">Nose Ring Adventures</a></li>
         </ul>
     </nav>
@@ -78,15 +134,31 @@
         <tr><td>Jan 5th</td><td>Dolphins</td><td>1pm</td></tr>
     </table>
 
+<!--    <div class="preface">-->
+<!--        Preface-->
+<!--        <div class="bruh">-->
+<!--            In 2011 I watched Mark Sanchez outdual the unstoppable force of Tom Brady giving him one of his 11 playoff loses. In that moment I gained a level of love and appreciation for the underdog story, and felt like I needed to hop on that bandwagon. That win was the last time the team was in the playoffs. In the last four seasons the team has finsihed with an accumative record of 17-31. I wish I can emphasis more how terrible 17-31 but putting you in my perspective as being a Jets fan. I'd like to believe that most teams look forward to seeing their football team play on the weekend like going to church. Unlike the other major sports where teams play 3-4 times a week, I have to wait a full week before I get dissappointed. I've become numb to this feeling for over a decade, for over decade I've salvaged hope that a team that has failed to reach the playoffs for over a decade to win on a weekly basis. For the last 12 years, I've felt the same emotion watching the Jets until last season.-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <!-- Canvas and buttons section -->
     <div class="canvas-container">
         <canvas id="myCanvas" width="500" height="250"></canvas>
-
         <div class="button-container">
             <button id="passButton">Pass</button>
             <button id="rushButton">Rush</button>
             <button id="resetButton">Reset</button>
         </div>
     </div>
+
+    <!-- Full preface text below the canvas -->
+    <div class="full-preface-text">
+        <div class="bruh">
+            In 2011 I watched Mark Sanchez out-duel the unstoppable force of Tom Brady, giving him one of his 11 playoff losses. In that moment, I gained a level of love and appreciation for the underdog story and felt like I needed to hop on that bandwagon. That win was the last time the team had in the playoffs. In the last four seasons, the team has finished with an accumulative record of 17-31. I wish I could emphasize more how terrible 17-31 is by putting you in my perspective as a Jets fan. I’d like to believe that most fans look forward to seeing their football team play on the weekend like going to church. Unlike other major sports, where teams play 3-4 times a week, I have to wait a full week before I get disappointed. For over a decade, I’ve become numb to this feeling, salvaging hope that a team that has failed to reach the playoffs for over a decade might win on a weekly basis. For the last 12 years, I’ve felt the same emotion watching the Jets—until last season.
+        </div>
+    </div>
+
+    <!-- Move the preface here -->
 
     <table class="bills" border="1">
         <tr>
@@ -109,13 +181,17 @@
     </table>
 </div>
 
-<script>
-        const canvas = document.getElementById("myCanvas");
-        const ctx = canvas.getContext('2d');
-        const WIDTH = canvas.width;
-        const HEIGHT = canvas.height;
+<div class="timeline">
 
-        const players = [
+</div>
+
+<script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext('2d');
+    const WIDTH = canvas.width;
+    const HEIGHT = canvas.height;
+
+    const players = [
         { id: "wr1-x", x: 50, y: 120, type: "X", name: "Will McDonald" },
         { id: "wr2-x", x: 150, y: 120, type: "X", name: "Micheal Clemons" },
         { id: "lb1-x", x: 200, y: 120, type: "X", name: "Quinnen Williams" },
@@ -136,112 +212,112 @@
         { id: "te-o", x: 350, y: 160, type: "O", name: "Tyler Conklin" },
         { id: "qb-o", x: 250, y: 190, type: "O", name: "Aaron Rodgers" },
         { id: "rb-o", x: 250, y: 210, type: "O", name: "Breece Hall" },
-        ];
+    ];
 
-        let tooltip = "";
-        let isDrawingMode = false;
-        let startPoint = null;
-        let arrowLength = 0;
-        let arrowAngle = 0;
+    let tooltip = "";
+    let isDrawingMode = false;
+    let startPoint = null;
+    let arrowLength = 0;
+    let arrowAngle = 0;
 
-        const arrows = [];
+    const arrows = [];
 
-        document.getElementById('passButton').addEventListener('click', () => {
+    document.getElementById('passButton').addEventListener('click', () => {
         isDrawingMode = true;
         startPoint = null;
         arrowLength = 0;
         draw();
     });
 
-        document.getElementById('rushButton').addEventListener('click', () => {
+    document.getElementById('rushButton').addEventListener('click', () => {
         isDrawingMode = true;
         startPoint = null;
         arrowLength = 0;
         draw();
     });
 
-        document.getElementById('resetButton').addEventListener('click', () => {
+    document.getElementById('resetButton').addEventListener('click', () => {
         arrows.length = 0; // Clear arrows
         players.forEach(player => {
-        player.highlighted = false; // Reset highlights
-    });
+            player.highlighted = false; // Reset highlights
+        });
         isDrawingMode = false; // Disable drawing mode
         draw(); // Redraw the canvas
     });
 
-        let isDragging = false;
-        let draggedPlayer = null;
-        let dragOffsetX = 0;
-        let dragOffsetY = 0;
+    let isDragging = false;
+    let draggedPlayer = null;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
 
-        canvas.addEventListener('mousedown', (event) => {
+    canvas.addEventListener('mousedown', (event) => {
         const mouseX = event.offsetX;
         const mouseY = event.offsetY;
 
         players.forEach(player => {
-        if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
-        isDragging = true;
-        draggedPlayer = player;
-        dragOffsetX = mouseX - player.x;
-        dragOffsetY = mouseY - player.y;
-    }
-    });
+            if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
+                isDragging = true;
+                draggedPlayer = player;
+                dragOffsetX = mouseX - player.x;
+                dragOffsetY = mouseY - player.y;
+            }
+        });
 
         if (isDrawingMode && !startPoint) {
-        startPoint = { x: mouseX, y: mouseY };
-    }
+            startPoint = { x: mouseX, y: mouseY };
+        }
     });
 
-        canvas.addEventListener('mouseup', () => {
+    canvas.addEventListener('mouseup', () => {
         if (isDragging) {
-        isDragging = false;
-        draggedPlayer = null;
-    }
+            isDragging = false;
+            draggedPlayer = null;
+        }
 
         if (isDrawingMode && startPoint) {
-        const newArrow = {
-        from: startPoint,
-        length: arrowLength,
-        angle: arrowAngle
-    };
-        arrows.push(newArrow);
-        startPoint = null;
-    }
+            const newArrow = {
+                from: startPoint,
+                length: arrowLength,
+                angle: arrowAngle
+            };
+            arrows.push(newArrow);
+            startPoint = null;
+        }
     });
 
-        canvas.addEventListener('mouseleave', () => {
+    canvas.addEventListener('mouseleave', () => {
         isDragging = false;
         draggedPlayer = null;
     });
 
-        canvas.addEventListener('mousemove', (event) => {
+    canvas.addEventListener('mousemove', (event) => {
         const mouseX = event.offsetX;
         const mouseY = event.offsetY;
 
         if (isDragging && draggedPlayer) {
-        draggedPlayer.x = mouseX - dragOffsetX;
-        draggedPlayer.y = mouseY - dragOffsetY;
-    }
+            draggedPlayer.x = mouseX - dragOffsetX;
+            draggedPlayer.y = mouseY - dragOffsetY;
+        }
 
         if (isDrawingMode && startPoint) {
-        arrowLength = Math.sqrt(Math.pow(mouseX - startPoint.x, 2) + Math.pow(mouseY - startPoint.y, 2));
-        arrowAngle = Math.atan2(mouseY - startPoint.y, mouseX - startPoint.x);
-    } else {
-        tooltip = null;
-        players.forEach(player => {
-        if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
-        player.highlighted = true;
-        tooltip = player;
-    } else {
-        player.highlighted = false;
-    }
-    });
-    }
+            arrowLength = Math.sqrt(Math.pow(mouseX - startPoint.x, 2) + Math.pow(mouseY - startPoint.y, 2));
+            arrowAngle = Math.atan2(mouseY - startPoint.y, mouseX - startPoint.x);
+        } else {
+            tooltip = null;
+            players.forEach(player => {
+                if (Math.abs(player.x - mouseX) < 10 && Math.abs(player.y - mouseY) < 10) {
+                    player.highlighted = true;
+                    tooltip = player;
+                } else {
+                    player.highlighted = false;
+                }
+            });
+        }
 
         draw(mouseX, mouseY);
     });
 
-        function drawArrow(fromX, fromY, angle, length) {
+    function drawArrow(fromX, fromY, angle, length) {
         const headLength = 10;
         const toX = fromX + length * Math.cos(angle);
         const toY = fromY + length * Math.sin(angle);
@@ -257,37 +333,37 @@
         ctx.stroke();
     }
 
-        function drawTooltip(player) {
+    function drawTooltip(player) {
         if (player) {
-        ctx.fillStyle = "white";
-        ctx.font = "12px Arial";
-        const textWidth = ctx.measureText(player.name).width;
-        const padding = 5;
+            ctx.fillStyle = "white";
+            ctx.font = "12px Arial";
+            const textWidth = ctx.measureText(player.name).width;
+            const padding = 5;
 
-        const tooltipX = player.x - textWidth / 2 - padding;
-        const tooltipY = player.y + 15;
+            const tooltipX = player.x - textWidth / 2 - padding;
+            const tooltipY = player.y + 15;
 
-        ctx.fillRect(tooltipX, tooltipY, textWidth + padding * 2, 20);
-        ctx.fillStyle = "black";
-        ctx.fillText(player.name, tooltipX + padding, tooltipY + 15);
+            ctx.fillRect(tooltipX, tooltipY, textWidth + padding * 2, 20);
+            ctx.fillStyle = "black";
+            ctx.fillText(player.name, tooltipX + padding, tooltipY + 15);
+        }
     }
-    }
 
-        function drawField() {
+    function drawField() {
         ctx.fillStyle = "green";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
 
         for (let i = 0; i <= HEIGHT; i += 50) {
-        ctx.beginPath();
-        ctx.moveTo(0, i);
-        ctx.lineTo(WIDTH, i);
-        ctx.stroke();
-    }
+            ctx.beginPath();
+            ctx.moveTo(0, i);
+            ctx.lineTo(WIDTH, i);
+            ctx.stroke();
+        }
     }
 
-        function drawPlayers() {
+    function drawPlayers() {
         players.forEach(player => {
             ctx.beginPath();
             ctx.arc(player.x, player.y, 10, 0, Math.PI * 2);
@@ -296,23 +372,23 @@
         });
     }
 
-        function draw(mouseX, mouseY) {
+    function draw(mouseX, mouseY) {
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
         drawField();
         drawPlayers();
 
         arrows.forEach(arrow => {
-        drawArrow(arrow.from.x, arrow.from.y, arrow.angle, arrow.length);
-    });
+            drawArrow(arrow.from.x, arrow.from.y, arrow.angle, arrow.length);
+        });
 
         if (isDrawingMode && startPoint) {
-        drawArrow(startPoint.x, startPoint.y, arrowAngle, arrowLength);
-    }
+            drawArrow(startPoint.x, startPoint.y, arrowAngle, arrowLength);
+        }
 
         drawTooltip(tooltip);
     }
 
-        draw();
+    draw();
 </script>
 
 </body>
