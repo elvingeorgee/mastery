@@ -99,74 +99,45 @@
         }
 
         .timeline-container {
-            width: 98%;
+            width: 100%; /* Set to 100% width */
             margin-top: 20px;
             position: relative;
+            text-align: center; /* Center title */
         }
-
         .timeline {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Use space-between for even spacing */
             align-items: center;
             width: 100%;
             height: 100px;
             position: relative;
             border-top: 2px solid white;
         }
-
         .circle {
             position: relative;
             width: 40px;
             height: 40px;
-            background-color: white;
+            background-color: green; /* Changed to match info-box */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 16px;
             font-weight: bold;
-            color: black;
+            color: black; /* Text color */
             cursor: pointer;
-        }
-
-        .info-text {
-            display: none; /* Hidden by default */
-            width: 150px;
-            height: 50px;
-            margin-top: 10px;
-            background-color: white;
-            border: 1px solid black;
-            border-radius: 5px;
-            resize: none;
-        }
-
-        .circle:hover .info-text {
-            display: block; /* Show on hover */
         }
         .info-box {
             display: none;
             position: absolute;
-            bottom: 60px;
-            left: -50px;
             width: 200px;
             padding: 10px;
-            background-color: black;
-            border: 1px solid white;
+            background-color: black; /* Changed to black */
             color: white;
             text-align: center;
+            border: 2px solid green; /* Green border */
             border-radius: 8px;
             z-index: 10;
-        }
-
-        .info-box::before {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: black transparent transparent transparent;
         }
 
     </style>
@@ -208,12 +179,12 @@
         <tr><td>Jan 5th</td><td>Dolphins</td><td>1pm</td></tr>
     </table>
 
-<!--    <div class="preface">-->
-<!--        Preface-->
-<!--        <div class="bruh">-->
-<!--            In 2011 I watched Mark Sanchez outdual the unstoppable force of Tom Brady giving him one of his 11 playoff loses. In that moment I gained a level of love and appreciation for the underdog story, and felt like I needed to hop on that bandwagon. That win was the last time the team was in the playoffs. In the last four seasons the team has finsihed with an accumative record of 17-31. I wish I can emphasis more how terrible 17-31 but putting you in my perspective as being a Jets fan. I'd like to believe that most teams look forward to seeing their football team play on the weekend like going to church. Unlike the other major sports where teams play 3-4 times a week, I have to wait a full week before I get dissappointed. I've become numb to this feeling for over a decade, for over decade I've salvaged hope that a team that has failed to reach the playoffs for over a decade to win on a weekly basis. For the last 12 years, I've felt the same emotion watching the Jets until last season.-->
-<!--        </div>-->
-<!--    </div>-->
+    <!--    <div class="preface">-->
+    <!--        Preface-->
+    <!--        <div class="bruh">-->
+    <!--            In 2011 I watched Mark Sanchez outdual the unstoppable force of Tom Brady giving him one of his 11 playoff loses. In that moment I gained a level of love and appreciation for the underdog story, and felt like I needed to hop on that bandwagon. That win was the last time the team was in the playoffs. In the last four seasons the team has finsihed with an accumative record of 17-31. I wish I can emphasis more how terrible 17-31 but putting you in my perspective as being a Jets fan. I'd like to believe that most teams look forward to seeing their football team play on the weekend like going to church. Unlike the other major sports where teams play 3-4 times a week, I have to wait a full week before I get dissappointed. I've become numb to this feeling for over a decade, for over decade I've salvaged hope that a team that has failed to reach the playoffs for over a decade to win on a weekly basis. For the last 12 years, I've felt the same emotion watching the Jets until last season.-->
+    <!--        </div>-->
+    <!--    </div>-->
 
     <!-- Canvas and buttons section -->
 
@@ -258,62 +229,67 @@
     </table>
 </div>
 
-<div class="timeline-container preface">
-    <div class="timeline">
-        <div class="circle" data-index="11">
-            11
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="12">
-            12
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="13">
-            13
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="14">
-            14
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="15">
-            15
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="16">
-            16
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="17">
-            17
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="18">
-            18
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="19">
-            19
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="20">
-            20
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="21">
-            21
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="22">
-            22
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
-        </div>
-        <div class="circle" data-index="23">
-            23
-            <textarea class="info-text" placeholder="Write details here..."></textarea>
+
+<div class="schedule-container">
+    <h1 style="color:white">New York Jets Timeline</h1>
+    <div class="timeline-container-preface">
+        <div class="timeline">
+            <div class="circle" data-info="2010-2011 Season: Record 8-8. Missed playoffs.">
+                11
+                <div class="info-box" id="info-11">2010-2011 Season: Record 8-8. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2011-2012 Season: Record 8-8. Missed playoffs.">
+                12
+                <div class="info-box" id="info-12">2011-2012 Season: Record 8-8. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2012-2013 Season: Record 6-10. Missed playoffs.">
+                13
+                <div class="info-box" id="info-13">2012-2013 Season: Record 6-10. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2013-2014 Season: Record 8-8. Missed playoffs.">
+                14
+                <div class="info-box" id="info-14">2013-2014 Season: Record 8-8. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2014-2015 Season: Record 10-6. Missed playoffs.">
+                15
+                <div class="info-box" id="info-15">2014-2015 Season: Record 10-6. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2015-2016 Season: Record 10-6. Missed playoffs.">
+                16
+                <div class="info-box" id="info-16">2015-2016 Season: Record 10-6. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2016-2017 Season: Record 5-11. Missed playoffs.">
+                17
+                <div class="info-box" id="info-17">2016-2017 Season: Record 5-11. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2017-2018 Season: Record 5-11. Missed playoffs.">
+                18
+                <div class="info-box" id="info-18">2017-2018 Season: Record 5-11. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2018-2019 Season: Record 4-12. Missed playoffs.">
+                19
+                <div class="info-box" id="info-19">2018-2019 Season: Record 4-12. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2019-2020 Season: Record 7-9. Missed playoffs.">
+                20
+                <div class="info-box" id="info-20">2019-2020 Season: Record 7-9. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2020-2021 Season: Record 2-14. Missed playoffs.">
+                21
+                <div class="info-box" id="info-21">2020-2021 Season: Record 2-14. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2021-2022 Season: Record 4-13. Missed playoffs.">
+                22
+                <div class="info-box" id="info-22">2021-2022 Season: Record 4-13. Missed playoffs.</div>
+            </div>
+            <div class="circle" data-info="2022-2023 Season: Record 7-10. Missed playoffs.">
+                23
+                <div class="info-box" id="info-23">2022-2023 Season: Record 7-10. Missed playoffs.</div>
+            </div>
         </div>
     </div>
 </div>
+
 
 <script>
     const canvas = document.getElementById("myCanvas");
@@ -520,17 +496,27 @@
 
     draw();
 
-    const circles = document.querySelectorAll('.circle');
-    const textboxes = document.querySelectorAll('.textbox-container');
 
-    circles.forEach((circle, index) => {
-        circle.addEventListener('mouseover', () => {
-            textboxes[index].style.display = 'block';
+
+    const circles = document.querySelectorAll('.circle');
+    const infoBox = document.createElement('div');
+    infoBox.className = 'info-box';
+    document.body.appendChild(infoBox);
+
+    circles.forEach(circle => {
+        circle.addEventListener('mouseenter', (e) => {
+            infoBox.style.display = 'block';
+            infoBox.innerHTML = e.target.dataset.info;
+            const rect = e.target.getBoundingClientRect();
+            infoBox.style.left = `${rect.left + window.scrollX + 20}px`;
+            infoBox.style.top = `${rect.top + window.scrollY - 40}px`;
         });
-        circle.addEventListener('mouseout', () => {
-            textboxes[index].style.display = 'none';
+        circle.addEventListener('mouseleave', () => {
+            infoBox.style.display = 'none';
         });
     });
+
+
 </script>
 
 </body>
