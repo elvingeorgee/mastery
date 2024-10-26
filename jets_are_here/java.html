@@ -160,6 +160,35 @@
             z-index: 10;
         }
 
+        .card-container {
+            display: flex;
+            justify-content: space-between; /* Space between cards */
+            margin-top: 20px; /* Space above cards */
+        }
+
+        .card {
+            background-color: black; /* Same color as other elements */
+            border: 2px solid green; /* Consistent border style */
+            color: white; /* Text color */
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px; /* Inner padding */
+            flex: 1; /* Allow cards to grow equally */
+            margin: 0 10px; /* Margin between cards */
+            /*min-width: 300px; !* Minimum width for responsiveness *!*/
+            /*max-width: 350px; !* Maximum width for cards *!*/
+            width:33%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+        }
+
+        .card h2 {
+            font-size: 24px; /* Title size */
+            margin-bottom: 10px; /* Space below title */
+        }
+
+        .card p {
+            font-size: 16px; /* Content size */
+        }
+
     </style>
 
     </style>
@@ -255,59 +284,74 @@
 <!--        <h2 style="color:white">New York Jets Timeline</h2>-->
         <div class="title">New York Jets Failure History(2010-2023)
             <div class="timeline">
-                <div class="circle" data-info="2010-2011 Season: Record 8-8. Missed playoffs.">11
+                <div class="circle" data-info="09-10 Record: 11-5.TWO PLAYOFF WINS AND ONE AGAINST TOM BRADY. A START OF A NEW REGIME.">10
                     <div class="info-box" id="info-11">2010-2011 Season: Record 8-8. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2011-2012 Season: Record 8-8. Missed playoffs.">12
+                <div class="circle" data-info="10-11 Record: 8-8. The Jets lost the last three games of the season, and losing their playoff spot.">11
                     <div class="info-box" id="info-12">2011-2012 Season: Record 8-8. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2012-2013 Season: Record 6-10. Missed playoffs.">13
+                <div class="circle" data-info="12-13 Season: Record 6-10. The Jets lost the last three games of the season, and once again surrendering their playoff spot.">12
                     <div class="info-box" id="info-13">2012-2013 Season: Record 6-10. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2013-2014 Season: Record 8-8. Missed playoffs.">14
+                <div class="circle" data-info="13-14 Season: Record 8-8. Third straight season having a 3 game losing streak and a rookie QB unable to adjust to the NFL game-pace">13
                     <div class="info-box" id="info-14">2013-2014 Season: Record 8-8. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2014-2015 Season: Record 10-6. Missed playoffs.">15
+                <div class="circle" data-info="14-15 Season: Record 4-12.Started the season 1-8 LMAO.">14
                     <div class="info-box" id="info-15">2014-2015 Season: Record 10-6. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2015-2016 Season: Record 10-6. Missed playoffs.">16
+                <div class="circle" data-info="15-16 Season: Record 10-6. Tied for the last playoff spot, but because the other team had a better record against the teams both teams played that season Pittsburgh won the tiebreaker. Lord have mercy">15
                     <div class="info-box" id="info-16">2015-2016 Season: Record 10-6. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2016-2017 Season: Record 5-11. Missed playoffs.">17
+                <div class="circle" data-info="16-17 Season: Record 5-11. Started the season 1-5, and couldn't recover.">16
                     <div class="info-box" id="info-17">2016-2017 Season: Record 5-11. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2017-2018 Season: Record 5-11. Missed playoffs.">18
+                <div class="circle" data-info="17-18 Season: Record 5-11. Lost the last 4 games of the season again losing their playoff spot.">17
                     <div class="info-box" id="info-18">2017-2018 Season: Record 5-11. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2018-2019 Season: Record 4-12. Missed playoffs.">19
+                <div class="circle" data-info="18-19 Season: Record 4-12. Another rookie QB who gets obliterated on a weekly basis">18
                     <div class="info-box" id="info-19">2018-2019 Season: Record 4-12. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2019-2020 Season: Record 7-9. Missed playoffs.">20
+                <div class="circle" data-info="19-20 Season: Record 7-9. Sophomore improvement was displayed by getting three more wins in a losing effort.">19
                     <div class="info-box" id="info-20">2019-2020 Season: Record 7-9. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2020-2021 Season: Record 2-14. Missed playoffs.">21
+                <div class="circle" data-info="20-21 Season: Record 2-14. In the first 13 games we had 0 wins. .... Im justing saying you can do better">20
                     <div class="info-box" id="info-21">2020-2021 Season: Record 2-14. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2021-2022 Season: Record 4-13. Missed playoffs.">22
+                <div class="circle" data-info="21-22 Season: Record 4-13. Third-year QB got cut, and with the awful previous season we got blessed with a 2nd Overall Pick. QB Experiment Round 3: Zach Wilson. Who would've thought pain could never have a limit.">21
                     <div class="info-box" id="info-22">2021-2022 Season: Record 4-13. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="2022-2023 Season: Record 7-10. Missed playoffs.">23
+                <div class="circle" data-info="22-23 Season: Record 7-10. STARTED THE SEASON 7-4 AND WE ENDED 7-10 BRO THE DEVIL CAN'T GIVE ME ANY SORT OF HAPPINESS">22
                     <div class="info-box" id="info-23">2022-2023 Season: Record 7-10. Missed playoffs.</div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="card-container">
+    <div class="card">
+        <h2>Card Title 1</h2>
+        <p>Content for card 1 goes here. This could include statistics, player highlights, or any information relevant to the Jets.</p>
+    </div>
+    <div class="card">
+        <h2>Card Title 2</h2>
+        <p>Content for card 2 goes here. This could be a summary of the season or a player spotlight.</p>
+    </div>
+    <div class="card">
+        <h2>Card Title 3</h2>
+        <p>Content for card 3 goes here. This might highlight future games or upcoming events related to the Jets.</p>
     </div>
 </div>
 
