@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jets are Here</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://path-to-your-fonts.css">
+
     <style>
         canvas {
             border: 1px solid black;
@@ -21,6 +23,14 @@
             position: relative;
             display: inline-block;
             margin-bottom: 20px; /* Optional: add more space below canvas if needed */
+        }
+
+        .title
+        {
+            color:white;
+            font-family: 'Nitro', 'Turbo', sans-serif;
+            font-size: 32px;
+
         }
 
         .button-container {
@@ -48,7 +58,7 @@
             min-width: 238px;
             max-height: 350px; /* Limit height to allow scrolling */
             background-color: green;
-            border: 2px solid white;
+            border: 2px solid green;
             color: black;
             display: flex;
             flex-direction: column;
@@ -68,7 +78,7 @@
 
             color: black;
             font-size:22px;
-            border: 2px solid white;
+            border: 2px solid green;
             border-radius: 8px; /* Rounded corners */
             max-width: 500px; /* Keep it aligned with the canvas width */
             overflow-y: auto;
@@ -99,33 +109,43 @@
         }
 
         .timeline-container {
-            width: 100%; /* Set to 100% width */
+            width: 100%;
             margin-top: 20px;
             position: relative;
             text-align: center; /* Center title */
+            border: 2px solid green; /* Add border here */
+            border-radius: 8px; /* Optional: add rounded corners */
+            padding: 10px; /* Add padding to give space around the timeline */
         }
+
         .timeline {
             display: flex;
-            justify-content: space-between; /* Use space-between for even spacing */
+            justify-content: space-between; /* Use space-between for better alignment */
             align-items: center;
-            width: 100%;
-            height: 100px;
             position: relative;
-            border-top: 2px solid white;
+            padding: 0 20px; /* Adjust this padding */
         }
+
         .circle {
             position: relative;
             width: 40px;
             height: 40px;
-            background-color: green; /* Changed to match info-box */
+            background-color: green;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 16px;
             font-weight: bold;
-            color: black; /* Text color */
+            color: black;
             cursor: pointer;
+        }
+
+        .line {
+            height: 4px; /* Line thickness */
+            background-color: green; /* Line color */
+            flex-grow: 1; /* Allows the line to stretch */
+            margin: 0 10px; /* Add space around the line */
         }
         .info-box {
             display: none;
@@ -231,65 +251,65 @@
 
 
 <div class="schedule-container">
-    <h1 style="color:white">New York Jets Timeline</h1>
-    <div class="timeline-container-preface">
-        <div class="timeline">
-            <div class="circle" data-info="2010-2011 Season: Record 8-8. Missed playoffs.">
-                11
-                <div class="info-box" id="info-11">2010-2011 Season: Record 8-8. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2011-2012 Season: Record 8-8. Missed playoffs.">
-                12
-                <div class="info-box" id="info-12">2011-2012 Season: Record 8-8. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2012-2013 Season: Record 6-10. Missed playoffs.">
-                13
-                <div class="info-box" id="info-13">2012-2013 Season: Record 6-10. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2013-2014 Season: Record 8-8. Missed playoffs.">
-                14
-                <div class="info-box" id="info-14">2013-2014 Season: Record 8-8. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2014-2015 Season: Record 10-6. Missed playoffs.">
-                15
-                <div class="info-box" id="info-15">2014-2015 Season: Record 10-6. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2015-2016 Season: Record 10-6. Missed playoffs.">
-                16
-                <div class="info-box" id="info-16">2015-2016 Season: Record 10-6. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2016-2017 Season: Record 5-11. Missed playoffs.">
-                17
-                <div class="info-box" id="info-17">2016-2017 Season: Record 5-11. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2017-2018 Season: Record 5-11. Missed playoffs.">
-                18
-                <div class="info-box" id="info-18">2017-2018 Season: Record 5-11. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2018-2019 Season: Record 4-12. Missed playoffs.">
-                19
-                <div class="info-box" id="info-19">2018-2019 Season: Record 4-12. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2019-2020 Season: Record 7-9. Missed playoffs.">
-                20
-                <div class="info-box" id="info-20">2019-2020 Season: Record 7-9. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2020-2021 Season: Record 2-14. Missed playoffs.">
-                21
-                <div class="info-box" id="info-21">2020-2021 Season: Record 2-14. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2021-2022 Season: Record 4-13. Missed playoffs.">
-                22
-                <div class="info-box" id="info-22">2021-2022 Season: Record 4-13. Missed playoffs.</div>
-            </div>
-            <div class="circle" data-info="2022-2023 Season: Record 7-10. Missed playoffs.">
-                23
-                <div class="info-box" id="info-23">2022-2023 Season: Record 7-10. Missed playoffs.</div>
+    <div class="timeline-container">
+<!--        <h2 style="color:white">New York Jets Timeline</h2>-->
+        <div class="title">New York Jets Failure History(2010-2023)
+            <div class="timeline">
+                <div class="circle" data-info="2010-2011 Season: Record 8-8. Missed playoffs.">11
+                    <div class="info-box" id="info-11">2010-2011 Season: Record 8-8. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2011-2012 Season: Record 8-8. Missed playoffs.">12
+                    <div class="info-box" id="info-12">2011-2012 Season: Record 8-8. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2012-2013 Season: Record 6-10. Missed playoffs.">13
+                    <div class="info-box" id="info-13">2012-2013 Season: Record 6-10. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2013-2014 Season: Record 8-8. Missed playoffs.">14
+                    <div class="info-box" id="info-14">2013-2014 Season: Record 8-8. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2014-2015 Season: Record 10-6. Missed playoffs.">15
+                    <div class="info-box" id="info-15">2014-2015 Season: Record 10-6. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2015-2016 Season: Record 10-6. Missed playoffs.">16
+                    <div class="info-box" id="info-16">2015-2016 Season: Record 10-6. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2016-2017 Season: Record 5-11. Missed playoffs.">17
+                    <div class="info-box" id="info-17">2016-2017 Season: Record 5-11. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2017-2018 Season: Record 5-11. Missed playoffs.">18
+                    <div class="info-box" id="info-18">2017-2018 Season: Record 5-11. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2018-2019 Season: Record 4-12. Missed playoffs.">19
+                    <div class="info-box" id="info-19">2018-2019 Season: Record 4-12. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2019-2020 Season: Record 7-9. Missed playoffs.">20
+                    <div class="info-box" id="info-20">2019-2020 Season: Record 7-9. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2020-2021 Season: Record 2-14. Missed playoffs.">21
+                    <div class="info-box" id="info-21">2020-2021 Season: Record 2-14. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2021-2022 Season: Record 4-13. Missed playoffs.">22
+                    <div class="info-box" id="info-22">2021-2022 Season: Record 4-13. Missed playoffs.</div>
+                </div>
+                <div class="line"></div>
+                <div class="circle" data-info="2022-2023 Season: Record 7-10. Missed playoffs.">23
+                    <div class="info-box" id="info-23">2022-2023 Season: Record 7-10. Missed playoffs.</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <script>
     const canvas = document.getElementById("myCanvas");
@@ -508,13 +528,56 @@
             infoBox.style.display = 'block';
             infoBox.innerHTML = e.target.dataset.info;
             const rect = e.target.getBoundingClientRect();
-            infoBox.style.left = `${rect.left + window.scrollX + 20}px`;
-            infoBox.style.top = `${rect.top + window.scrollY - 40}px`;
+            const infoBoxWidth = infoBox.offsetWidth;
+
+            // Calculate the desired position
+            let leftPosition = rect.left + window.scrollX + (rect.width / 2) - (infoBoxWidth / 2);
+            let topPosition = rect.bottom + window.scrollY + 5; // Position just below the circle
+
+            // Check if the info box would overflow the top of the viewport
+            if (topPosition + infoBox.offsetHeight > window.innerHeight) {
+                topPosition = rect.top + window.scrollY - infoBox.offsetHeight - 5; // Adjust to be above the circle
+            }
+
+            // Adjust left position if it overflows the left side of the viewport
+            if (leftPosition < 0) {
+                leftPosition = 5; // Position it slightly inside the viewport
+            }
+
+            // Adjust left position if it overflows the right side of the viewport
+            if (leftPosition + infoBoxWidth > window.innerWidth) {
+                leftPosition = window.innerWidth - infoBoxWidth - 5; // Position it slightly inside the viewport
+            }
+
+            // Set the position of the info box
+            infoBox.style.left = `${leftPosition}px`;
+            infoBox.style.top = `${topPosition}px`;
         });
+
         circle.addEventListener('mouseleave', () => {
             infoBox.style.display = 'none';
         });
     });
+
+
+
+    // document.querySelectorAll('.circle').forEach(circle => {
+    //     circle.addEventListener('mouseenter', function() {
+    //         const infoBox = this.querySelector('.info-box');
+    //         infoBox.style.display = 'block';
+    //         const rect = this.getBoundingClientRect();
+    //         const infoBoxWidth = infoBox.offsetWidth;
+    //
+    //         // Position the info box above the circle, centered
+    //         infoBox.style.left = `${Math.max(0, rect.left + (rect.width / 2) - (infoBoxWidth / 2))}px`;
+    //         infoBox.style.top = `${rect.top - infoBox.offsetHeight - 5}px`; // Adjusted for height
+    //     });
+    //
+    //     circle.addEventListener('mouseleave', function() {
+    //         const infoBox = this.querySelector('.info-box');
+    //         infoBox.style.display = 'none';
+    //     });
+    // });
 
 
 </script>
