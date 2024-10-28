@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,79 +22,44 @@
         .canvas-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 20px; /* Optional: add more space below canvas if needed */
-        }
-
-        .title
-        {
-            color:white;
-            font-family: 'Nitro', 'Turbo', sans-serif;
-            font-size: 32px;
-
-        }
-
-        .button-container {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-        }
-        .button-container button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 15px;
-            text-align: center;
-            text-decoration: none;
-            margin-left: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .button-container button:hover {
-            background-color: #45a049;
-        }
-
-        .preface {
-            min-width: 238px;
-            max-height: 350px; /* Limit height to allow scrolling */
-            background-color: green;
-            border: 2px solid green;
-            color: black;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: start; /* Align content to the top */
-            margin-right: 10px; /* Space between cards */
-            margin-bottom: 20px; /* Space below preface */
-            padding: 10px;
-            border-radius: 8px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor on hover */
-            overflow-y: auto; /* Enable vertical scrolling */
-        }
-
-        .full-preface-text {
-            margin-top: 20px; /* Add space between canvas and text */
-            padding: 10px;
-
-            color: black;
-            font-size:22px;
-            border: 2px solid green;
-            border-radius: 8px; /* Rounded corners */
-            max-width: 500px; /* Keep it aligned with the canvas width */
-            overflow-y: auto;
-            max-height: 300px; /* Limit height and enable scrolling if needed */
             margin-bottom: 20px;
         }
 
-        .bruh {
+        .title {
             color: white;
+            font-family: 'Nitro', 'Turbo', sans-serif;
+            font-size: 32px;
+            padding-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .button-container button {
+            background-color: black;
+            border: 2px solid green;
+            color: white;
+            padding: 8px 12px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
+        .button-container button:hover {
+            background-color: green;
+            color: black;
         }
 
         .preface {
             min-width: 238px;
             max-height: 350px;
             background-color: green;
-            border: 2px solid white;
+            border: 2px solid green;
             color: black;
             display: flex;
             flex-direction: column;
@@ -104,26 +69,43 @@
             margin-bottom: 20px;
             padding: 10px;
             border-radius: 8px;
+            cursor: pointer;
             overflow-y: auto;
-            position: relative; /* Added for relative positioning */
+        }
+
+        .full-preface-text {
+            margin-top: 20px;
+            padding: 10px;
+            color: black;
+            font-size: 22px;
+            border: 2px solid green;
+            border-radius: 8px;
+            max-width: 500px;
+            overflow-y: auto;
+            max-height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .bruh {
+            color: white;
         }
 
         .timeline-container {
             width: 100%;
             margin-top: 20px;
             position: relative;
-            text-align: center; /* Center title */
-            border: 2px solid green; /* Add border here */
-            border-radius: 8px; /* Optional: add rounded corners */
-            padding: 10px; /* Add padding to give space around the timeline */
+            text-align: center;
+            border: 2px solid green;
+            border-radius: 8px;
+            padding: 10px;
         }
 
         .timeline {
             display: flex;
-            justify-content: space-between; /* Use space-between for better alignment */
+            justify-content: space-between;
             align-items: center;
             position: relative;
-            padding: 0 20px; /* Adjust this padding */
+            padding: 0 20px;
         }
 
         .circle {
@@ -139,58 +121,75 @@
             font-weight: bold;
             color: black;
             cursor: pointer;
+            flex-direction: column; /* Aligns the name below the circle */
+        }
+
+        .circle .name {
+            font-size: 12px; /* Set to 12px as requested */
+            color: black; /* Ensure the text color is appropriate */
         }
 
         .line {
-            height: 4px; /* Line thickness */
-            background-color: green; /* Line color */
-            flex-grow: 1; /* Allows the line to stretch */
-            margin: 0 10px; /* Add space around the line */
+            height: 4px;
+            background-color: green;
+            flex-grow: 1;
+            margin: 0 10px;
         }
+
         .info-box {
             display: none;
             position: absolute;
             width: 200px;
             padding: 10px;
-            background-color: black; /* Changed to black */
+            background-color: black;
             color: white;
             text-align: center;
-            border: 2px solid green; /* Green border */
+            border: 2px solid green;
             border-radius: 8px;
             z-index: 10;
         }
 
         .card-container {
             display: flex;
-            justify-content: space-between; /* Space between cards */
-            margin-top: 20px; /* Space above cards */
+            justify-content: space-between;
+            margin-top: 20px;
         }
 
         .card {
-            background-color: black; /* Same color as other elements */
-            border: 2px solid green; /* Consistent border style */
-            color: white; /* Text color */
-            border-radius: 8px; /* Rounded corners */
-            padding: 20px; /* Inner padding */
-            flex: 1; /* Allow cards to grow equally */
-            margin: 0 10px; /* Margin between cards */
-            /*min-width: 300px; !* Minimum width for responsiveness *!*/
-            /*max-width: 350px; !* Maximum width for cards *!*/
-            width:33%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+            background-color: black;
+            border: 2px solid green;
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            flex: 1;
+            margin: 0 10px;
+            width: 33%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .card h2 {
-            font-size: 24px; /* Title size */
-            margin-bottom: 10px; /* Space below title */
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
         .card p {
-            font-size: 16px; /* Content size */
+            font-size: 16px;
         }
 
-    </style>
+        .nested-card-container {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
 
+        .nested-card-container button {
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -216,7 +215,7 @@
         </tr>
         <tr><td>Oct 14th</td><td style="background-color: red; color: black">Bills</td><td>8:15pm</td></tr>
         <tr><td>Oct 20th</td><td style="background-color: red; color: black">Steelers</td><td>8:20pm</td></tr>
-        <tr><td>Oct 27th</td><td>Patriots</td><td>1pm</td></tr>
+        <tr><td>Oct 27th</td><td style="background-color: red; color: black">Patriots</td><td>1pm</td></tr>
         <tr><td>Oct 31st</td><td>Texans</td><td>8:15pm</td></tr>
         <tr><td>Nov 10th</td><td>Cardinals</td><td>4:25pm</td></tr>
         <tr><td>Nov 17th</td><td>Colts</td><td>8:20pm</td></tr>
@@ -265,7 +264,7 @@
         </tr>
         <tr><td>Oct 14th</td><td style="background-color: green; color: black">Jets</td><td>8:15pm</td></tr>
         <tr><td>Oct 20th</td><td style="background-color: green; color: black">Titans</td><td>1pm</td></tr>
-        <tr><td>Oct 27th</td><td>Seahawks</td><td>4:05pm</td></tr>
+        <tr><td>Oct 27th</td><td style="background-color: green; color: black">Seahawks</td><td>4:05pm</td></tr>
         <tr><td>Nov 3rd</td><td>Dolphins</td><td>1pm</td></tr>
         <tr><td>Nov 10th</td><td>Colts</td><td>1pm</td></tr>
         <tr><td>Nov 17th</td><td>Chiefs</td><td>4:25pm</td></tr>
@@ -281,7 +280,7 @@
 
 <div class="schedule-container">
     <div class="timeline-container">
-<!--        <h2 style="color:white">New York Jets Timeline</h2>-->
+        <!--        <h2 style="color:white">New York Jets Timeline</h2>-->
         <div class="title">New York Jets Failure History(2010-2023)
             <div class="timeline">
                 <div class="circle" data-info="09-10 Record: 11-5.TWO PLAYOFF WINS AND ONE AGAINST TOM BRADY. A START OF A NEW REGIME.">10
@@ -342,14 +341,26 @@
 
 <div class="card-container">
     <div class="card">
+        <div class="button-container">
+            <button id="button-container">Jets</button>
+            <button id="bubjets">Post Jets</button>
+        </div>
         <h2>Card Title 1</h2>
         <p>Content for card 1 goes here. This could include statistics, player highlights, or any information relevant to the Jets.</p>
     </div>
     <div class="card">
+        <div class="button-container">
+            <button id="bub-1">Jets</button>
+            <button id="bubjets1">Post Jets</button>
+        </div>
         <h2>Card Title 2</h2>
         <p>Content for card 2 goes here. This could be a summary of the season or a player spotlight.</p>
     </div>
     <div class="card">
+        <div class="button-container">
+            <button id="bub-2">Jets</button>
+            <button id="bubjets-2">Post Jets</button>
+        </div>
         <h2>Card Title 3</h2>
         <p>Content for card 3 goes here. This might highlight future games or upcoming events related to the Jets.</p>
     </div>
@@ -604,24 +615,6 @@
     });
 
 
-
-    // document.querySelectorAll('.circle').forEach(circle => {
-    //     circle.addEventListener('mouseenter', function() {
-    //         const infoBox = this.querySelector('.info-box');
-    //         infoBox.style.display = 'block';
-    //         const rect = this.getBoundingClientRect();
-    //         const infoBoxWidth = infoBox.offsetWidth;
-    //
-    //         // Position the info box above the circle, centered
-    //         infoBox.style.left = `${Math.max(0, rect.left + (rect.width / 2) - (infoBoxWidth / 2))}px`;
-    //         infoBox.style.top = `${rect.top - infoBox.offsetHeight - 5}px`; // Adjusted for height
-    //     });
-    //
-    //     circle.addEventListener('mouseleave', function() {
-    //         const infoBox = this.querySelector('.info-box');
-    //         infoBox.style.display = 'none';
-    //     });
-    // });
 
 
 </script>

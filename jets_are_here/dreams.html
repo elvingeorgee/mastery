@@ -2,11 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jets are Here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreams</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Centering the calendar container */
+        .schedule-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .calender {
+            width: 380px;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background-color: purple;
+            border-radius: 1px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            display: flex;
+            justify-content: center; /* Center month title */
+            align-items: center;
+        }
+
+        .monthYear {
+            text-align: center;
+            font-weight: 600;
+            width: 150px;
+            color: white;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .day {
+            text-align: center;
+            padding: 5px;
+            color: blue;
+        }
+
+        .dates {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .date {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: auto;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            transition: 0.2s;
+            color: white;
+        }
+
+        .date:hover, .date.active {
+            background: #ff5869;
+            color: white;
+        }
+
+        .date.inactive {
+            color: #d2d2d2;
+        }
+
+        .highlighted {
+            border: 2px solid yellow;
+        }
+
+        .hover-box {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            color: black;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,118 +103,95 @@
     <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
     <nav class="navigation">
         <ul>
-            <ul>
-                <li><a href="java.html">Jets</a></li>
-                <li><a href="rangers.html">Rangers</a></li>
-                <li><a href="dreams.html">Dreams</a></li>
-                <li><a href="nose.html">Nose Ring Adventures</a></li>
-            </ul>
+            <li><a href="java.html">Jets</a></li>
+            <li><a href="rangers.html">Rangers</a></li>
+            <li><a href="dreams.html">Dreams</a></li>
+            <li><a href="nose.html">Nose Ring Adventures</a></li>
         </ul>
     </nav>
 </div>
 
 <div class="schedule-container">
-    <table class="jets" border="1">
-        <tr>
-            <th>Date</th>
-            <th>Team</th>
-            <th>Time</th>
-        </tr>
-        <tr><td>Oct 14th</td><td>Bills</td><td>8:15pm</td></tr>
-        <tr><td>Oct 20th</td><td>Steelers</td><td>8:20pm</td></tr>
-        <tr><td>Oct 27th</td><td>Patriots</td><td>1pm</td></tr>
-        <tr><td>Oct 31st</td><td>Texans</td><td>8:15pm</td></tr>
-        <tr><td>Nov 10th</td><td>Cardinals</td><td>4:25pm</td></tr>
-        <tr><td>Nov 17th</td><td>Colts</td><td>8:20pm</td></tr>
-        <tr><td>Dec 1st</td><td>Seahawks</td><td>1pm</td></tr>
-        <tr><td>Dec 8th</td><td>Dolphins</td><td>1pm</td></tr>
-        <tr><td>Dec 15th</td><td>Jaguars</td><td>1pm</td></tr>
-        <tr><td>Dec 22nd</td><td>Rams</td><td>1pm</td></tr>
-        <tr><td>Dec 29th</td><td>Bills</td><td>1pm</td></tr>
-        <tr><td>Jan 5th</td><td>Dolphins</td><td>1pm</td></tr>
-    </table>
-
-
-    <div class="dreams-container">
-        <table class="dreams" id="dreams">
-            <caption id="titties">Dream Tracker</caption>
-            <thead>
-            <tr>
-                <th>Date</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>09-30-24</td>
-                <td>I went to the gym but it wasn't a gym it was an elementary school. All the workouts were completed outside and she was outside working out. Then naturally when I began to leave the gym, so went into her whip with her mom and her kid in the backseat.</td>
-            </tr>
-            <tr>
-                <td>10-02-24</td>
-                <td>I went to the bank in the morning and I spoke to an old Russian lady, and then I left. I returned to the bank later on during the day and was introduced to Natalie who also knew about the situation. She asked me the question when I suddenly become so shocked.</td>
-            </tr>
-            <tr>
-                <td>10-08-24</td>
-                <td>I don't remember this dream but I had good sleep</td>
-            </tr>
-            <tr>
-                <td>10-09-24</td>
-                <td>We are chilling at a resort, with two of Geoffs' bois. Although the dream was so scattered to so many different places. I remember being in a grocery store.</td>
-            </tr>
-            <tr>
-                <td>10-19-24</td>
-                <td>We are discussing Travis shows with Kevin, and he was telling me about us going to so many shows, and then John Zabbal talking about going to a Travis show and seeing Mo-City Flexologist live. Then a side story of Daniela Commiso came up, and we was talking about dealing with three guys in one night. One of them being LJ, and LJ for some reason being the main one.</td>
-            </tr>
-            <tr>
-                <td>10-20-24</td>
-                <td>It was another dream where we were front row at a Travis concert but it felt like it was a bit more immursive, and there was a few people who felt like they were tweaking out. </td>
-            </tr>
-            <tr>
-                <td>10-22-24</td>
-                <td>I was having discussions with someone regarding the birthdays of both my children and the two days were October 10th, and June 6th. The second part of the dream was me dressing up to get ready to a party and I was waiting outside with a brown girl but Natalie was inside the house waiting to come out. I was telling the brown girl about how I met both of you guys at two different locations. I was rolling in bed waiting for Natalie to come out but she never did.</td>
-            </tr>
-            <tr>
-                <td>10-23-24</td>
-                <td>Preface: Last night before going to the old gym. I was leaving the house and I noticed Michelle with her man and they were feeling themselves. The other situation was me sitting outside of OLR with the old managers from Concord pulling up to the school while we were leaving.</td>
-            </tr>
-            <tr>
-                <td>10-24-24</td>
-                <td>I was at the cottage and Ramon was there with a group of people that I can't recall faces to names. Everyone was chilling outside,and some people were chilling inside. There was a big dog outside that wanted to come inside but there was some rule that they weren't allowed to come inside, but it was strange because there was a smaller dog inside??? Then another portion of the dream was being at the airport and waiting for a flight to somewhere. Olya came up and told me she had plans to go back to school. She was talking to me with crack-head energy which was very strange.</td>
-            </tr>
-
-
-            <!-- Add more rows as needed -->
-            </tbody>
-        </table>
+    <!-- Calendar for October -->
+    <div class="calender" id="octoberCalender">
+        <div class="header">
+            <div class="monthYear" id="octoberMonthYear">October 2024</div>
+        </div>
+        <div class="days">
+            <div class="day">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day">Thurs</div>
+            <div class="day">Fri</div>
+            <div class="day">Sat</div>
+            <div class="day">Sun</div>
+        </div>
+        <div class="dates" id="octoberDates"></div>
     </div>
-
-
-    <table class="bills" border="1">
-        <tr>
-            <th>Date</th>
-            <th>Team</th>
-            <th>Time</th>
-        </tr>
-        <tr><td>Oct 14th</td><td>Jets</td><td>8:15pm</td></tr>
-        <tr><td>Oct 20th</td><td>Titans</td><td>1pm</td></tr>
-        <tr><td>Oct 27th</td><td>Seahawks</td><td>4:05pm</td></tr>
-        <tr><td>Nov 3rd</td><td>Dolphins</td><td>1pm</td></tr>
-        <tr><td>Nov 10th</td><td>Colts</td><td>1pm</td></tr>
-        <tr><td>Nov 17th</td><td>Chiefs</td><td>4:25pm</td></tr>
-        <tr><td>Dec 1st</td><td>49ers</td><td>8:20pm</td></tr>
-        <tr><td>Dec 8th</td><td>Rams</td><td>4:25pm</td></tr>
-        <tr><td>Dec 15th</td><td>Lions</td><td>4:25pm</td></tr>
-        <tr><td>Dec 22nd</td><td>Patriots</td><td>1pm</td></tr>
-        <tr><td>Dec 29th</td><td>Jets</td><td>1pm</td></tr>
-        <tr><td>Jan 5th</td><td>Patriots</td><td>1pm</td></tr>
-    </table>
+    <div class="hover-box" id="hoverBox"></div>
 </div>
 
+<script>
+    const octoberDatesElement = document.getElementById('octoberDates');
+    const hoverBox = document.getElementById('hoverBox');
+    const dreamEntries = {
+        '10-02-24': "I went to the bank in the morning and I spoke to an old Russian lady, and then I left. I returned to the bank later on during the day and was introduced to Natalie who also knew about the situation. She asked me the question when I suddenly become so shocked.",
+        '10-08-24':  "We are chilling at a resort, with two of Geoffs' bois. Although the dream was so scattered to so many different places. I remember being in a grocery store.",
+        '10-19-24':  "We are discussing Travis shows with Kevin, and he was telling me about us going to so many shows, and then John Zabbal talking about going to a Travis show and seeing Mo-City Flexologist live. Then a side story of Daniela Commiso came up, and we was talking about dealing with three guys in one night. One of them being LJ, and LJ for some reason being the main one.",
+        '10-20-24': "It was another dream where we were front row at a Travis concert but it felt like it was a bit more immursive, and there was a few people who felt like they were tweaking out.",
+        '10-22-24':  "I was having discussions with someone regarding the birthdays of both my children and the two days were October 10th, and June 6th. The second part of the dream was me dressing up to get ready to a party and I was waiting outside with a brown girl but Natalie was inside the house waiting to come out. I was telling the brown girl about how I met both of you guys at two different locations. I was rolling in bed waiting for Natalie to come out but she never did.",
+        '10-23-24': "Preface: Last night before going to the old gym. I was leaving the house and I noticed Michelle with her man and they were feeling themselves. The other situation was me sitting outside of OLR with the old managers from Concord pulling up to the school while we were leaving.",
+        '10-24-24': "I was at the cottage and Ramon was there with a group of people that I can't recall faces to names. Everyone was chilling outside,and some people were chilling inside. There was a big dog outside that wanted to come inside but there was some rule that they weren't allowed to come inside, but it was strange because there was a smaller dog inside??? Then another portion of the dream was being at the airport and waiting for a flight to somewhere. Olya came up and told me she had plans to go back to school. She was talking to me with crack-head energy which was very strange.",
+        '10-27-24': "We were celebrating Thanksgiving or some sort of dinner, and there was the feeling around the house that there was a third baby boy. I believe it was Periannas' third kid, and the party was happening at our house. While I was upstairs in the room I was talking to Roshaan about something and Ronklin and Vinnie were coming into the room. We were working on the Mac and Cheese in the room so we walked over to my parents room so we can discuss what we wanted to discuss. Then while Roshaan was doing the transfer some of the Mac N Cheese fell onto the floor. My instinct was to go into the room that had Ronklin and close it so we can clean it without them seeing but like, Roshaan doesn't know where the paper towels are so he should've been the diversion."
+    };
 
+    function generateCalendar(datesElement, monthOffset = 0) {
+        const currentDate = new Date();
+        currentDate.setMonth(currentDate.getMonth() + monthOffset);
 
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
 
+        const firstDay = new Date(currentYear, currentMonth, 1);
+        const lastDay = new Date(currentYear, currentMonth + 1, 0);
+        const totalDays = lastDay.getDate();
+        const firstDayIndex = firstDay.getDay();
+        const lastDayIndex = lastDay.getDay();
 
+        let datesHTML = '';
 
-<script src="main.js"></script>
+        for (let i = 1; i <= totalDays; i++) {
+            const formattedDate = `${String(currentMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}-${String(currentYear).slice(-2)}`;
+            const isHighlighted = dreamEntries.hasOwnProperty(formattedDate);
+            const highlightClass = isHighlighted ? 'highlighted' : '';
+
+            datesHTML += `<div class="date ${highlightClass}" data-date="${formattedDate}">${i}</div>`;
+        }
+
+        datesElement.innerHTML = datesHTML;
+    }
+
+    octoberDatesElement.addEventListener('click', function(event) {
+        if (event.target.classList.contains('date')) {
+            const date = event.target.getAttribute('data-date');
+            const entry = dreamEntries[date];
+            if (entry) {
+                hoverBox.innerText = entry;
+                hoverBox.style.display = 'block';
+                hoverBox.style.top = `${event.clientY + 20}px`;
+                hoverBox.style.left = `${event.clientX + 20}px`;
+            }
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!event.target.classList.contains('date')) {
+            hoverBox.style.display = 'none';
+        }
+    });
+
+    // Initialize the calendar for October
+    generateCalendar(octoberDatesElement, 0);
+</script>
 </body>
 </html>
