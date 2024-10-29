@@ -6,20 +6,64 @@
     <title>Dreams</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Centering the calendar container */
+        /* Page container styling */
+        .page-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        /* Side shapes styling */
+        .side-shape {
+            width: 350px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+
+        .circle,
+        .square {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffcc80; /* Or #ff9e80 for the square */
+            width: 100%;
+            height: 100%;
+        }
+
+        .circle {
+            border-radius: 50%;
+            background-color: #ffcc80;
+        }
+
+        .square {
+            background-color: #ff9e80;
+        }
+
+        .quote {
+            font-style: italic;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 20px;
+            /* Removed max-width to center text better within shapes */
+        }
+
+        /* Calendar container styling */
         .schedule-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
-            margin-top: 50px;
-            position: relative;
         }
 
-        .calender {
+        .calendar {
             width: 380px;
-            display: flex;
-            flex-direction: column;
             padding: 10px;
             background-color: orange;
             border-radius: 1px;
@@ -28,14 +72,13 @@
 
         .header {
             display: flex;
-            justify-content: center; /* Center month title */
+            justify-content: center;
             align-items: center;
         }
 
         .monthYear {
             text-align: center;
             font-weight: 600;
-            width: 150px;
             color: white;
         }
 
@@ -61,7 +104,6 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            margin: auto;
             cursor: pointer;
             font-weight: 600;
             border-radius: 50%;
@@ -96,6 +138,33 @@
             color: black;
         }
 
+        /* Centered title bar styling with eyes */
+        .titlebar {
+            background-color: orange;
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            padding: 20px;
+            margin-top: 20px;
+            border-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .titlebar::before, .titlebar::after {
+            content: '👁️'; /* Use eye icon here */
+            font-size: 1.5em;
+            display: inline-flex;
+        }
     </style>
 </head>
 <body>
@@ -107,51 +176,65 @@
             <li><a href="java.html">Jets</a></li>
             <li><a href="rangers.html">Rangers</a></li>
             <li><a href="dreams.html">Dreams</a></li>
-            <li><a href="nose.html">Nose Ring Adventures</a></li>
         </ul>
     </nav>
 </div>
 
-<div class="schedule-container">
-    <!-- Calendar for October -->
-    <div class="calendar" style="border: 10px solid orange;" id="octoberCalender">
-        <div class="header">
-            <div class="monthYear" id="octoberMonthYear">October 2024</div>
+<div class="titlebar">
+    Dream Collection
+</div>
+
+<div class="page-container">
+    <div class="side-shape">
+        <div class="circle">
+            <p class="quote">"The world we live in is a shadow of the world of ideas; dreams can bring us closer to that reality." - Plato</p>
         </div>
-        <div class="days">
-            <div class="day">Mon</div>
-            <div class="day">Tue</div>
-            <div class="day">Wed</div>
-            <div class="day">Thurs</div>
-            <div class="day">Fri</div>
-            <div class="day">Sat</div>
-            <div class="day">Sun</div>
-        </div>
-        <div class="dates" id="octoberDates"></div>
     </div>
 
-    <!-- Calendar for November -->
-    <div class="calendar"  style="border: 10px solid brown;" id="novemberCalendar">
-        <div class="header">
-            <div class="monthYear" id="novemberMonthYear">November 2024</div>
+    <div class="schedule-container">
+        <!-- Calendar for October -->
+        <div class="calendar" id="octoberCalender">
+            <div class="header">
+                <div class="monthYear" id="octoberMonthYear">October 2024</div>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thurs</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="octoberDates"></div>
         </div>
-        <div class="days">
-            <div class="day">Mon</div>
-            <div class="day">Tue</div>
-            <div class="day">Wed</div>
-            <div class="day">Thurs</div>
-            <div class="day">Fri</div>
-            <div class="day">Sat</div>
-            <div class="day">Sun</div>
+
+        <!-- Calendar for November -->
+        <div class="calendar" id="novemberCalendar">
+            <div class="header">
+                <div class="monthYear" id="novemberMonthYear">November 2024</div>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thurs</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="novemberDates"></div>
         </div>
-        <div class="dates" id="novemberDates"></div>
+    </div>
+
+    <div class="side-shape">
+        <div class="square">
+            <p class="quote">"Dreams arise from the inner motions of the soul; they reveal that which the waking mind cannot."-Spinoza</p>
+        </div>
     </div>
 </div>
 
-
-    <div class="hover-box" id="hoverBox"></div>
-</div>
-
+<div class="hover-box" id="hoverBox"></div>
 <script>
     const octoberDatesElement = document.getElementById('octoberDates');
     const hoverBox = document.getElementById('hoverBox');
@@ -164,7 +247,8 @@
         '10-22-24':  "I was having discussions with someone regarding the birthdays of both my children and the two days were October 10th, and June 6th. The second part of the dream was me dressing up to get ready to a party and I was waiting outside with a brown girl but Natalie was inside the house waiting to come out. I was telling the brown girl about how I met both of you guys at two different locations. I was rolling in bed waiting for Natalie to come out but she never did.",
         '10-23-24': "Preface: Last night before going to the old gym. I was leaving the house and I noticed Michelle with her man and they were feeling themselves. The other situation was me sitting outside of OLR with the old managers from Concord pulling up to the school while we were leaving.",
         '10-24-24': "I was at the cottage and Ramon was there with a group of people that I can't recall faces to names. Everyone was chilling outside,and some people were chilling inside. There was a big dog outside that wanted to come inside but there was some rule that they weren't allowed to come inside, but it was strange because there was a smaller dog inside??? Then another portion of the dream was being at the airport and waiting for a flight to somewhere. Olya came up and told me she had plans to go back to school. She was talking to me with crack-head energy which was very strange.",
-        '10-27-24': "We were celebrating Thanksgiving or some sort of dinner, and there was the feeling around the house that there was a third baby boy. I believe it was Periannas' third kid, and the party was happening at our house. While I was upstairs in the room I was talking to Roshaan about something and Ronklin and Vinnie were coming into the room. We were working on the Mac and Cheese in the room so we walked over to my parents room so we can discuss what we wanted to discuss. Then while Roshaan was doing the transfer some of the Mac N Cheese fell onto the floor. My instinct was to go into the room that had Ronklin and close it so we can clean it without them seeing but like, Roshaan doesn't know where the paper towels are so he should've been the diversion."
+        '10-27-24': "We were celebrating Thanksgiving or some sort of dinner, and there was the feeling around the house that there was a third baby boy. I believe it was Periannas' third kid, and the party was happening at our house. While I was upstairs in the room I was talking to Roshaan about something and Ronklin and Vinnie were coming into the room. We were working on the Mac and Cheese in the room so we walked over to my parents room so we can discuss what we wanted to discuss. Then while Roshaan was doing the transfer some of the Mac N Cheese fell onto the floor. My instinct was to go into the room that had Ronklin and close it so we can clean it without them seeing but like, Roshaan doesn't know where the paper towels are so he should've been the diversion.",
+        '10-30-24': "I remember being in the gym and seeing Russ doing the toe tap exercises. The rest of the dream was just a blur."
 
     };
 
