@@ -230,6 +230,37 @@
         .nested-card-container button {
             margin-right: 5px;
         }
+
+        /* Card Flip Animation */
+        @keyframes flip {
+            from { transform: rotateY(0); }
+            to { transform: rotateY(180deg); }
+        }
+
+        .card {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped {
+            animation: flip 0.6s forwards;
+        }
+
+        /* Post-Jets Styles */
+        .card[data-player="geno"].flipped {
+            background-color: darkblue;
+            border: 2px solid white;
+        }
+
+        .card[data-player="sam"].flipped {
+            background-color: purple;
+            border: 2px solid white;
+        }
+
+        .card[data-player="zach"].flipped {
+            background-color: orange;
+            border: 2px solid white;
+        }
     </style>
 </head>
 <body>
@@ -378,54 +409,92 @@
     </div>
 </div>
 
+<!--<div class="card-container">-->
+<!--    <div class="card">-->
+<!--        <div class="button-container">-->
+<!--            <button id="button-container">Jets</button>-->
+<!--            <button id="bubjets">Post Jets</button>-->
+<!--        </div>-->
+<!--        <h2 style="            border: 4px solid green;-->
+<!--            border-radius: 8px;">Geno Smith(2013-2015)</h2>-->
+
+<!--        <div class="card-content">-->
+<!--            <div class="left-text">-->
+<!--                <div>Draft Pick(2013)</div>-->
+<!--                <div>Round 2-Pick:39</div>-->
+<!--            </div>-->
+
+<!--            <div class="right-text">-->
+<!--                <div>Record w/Jets</div>-->
+<!--                <div>12-20</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <p>Content for card 1 goes here. This could include statistics, player highlights, or any information relevant to the Jets.</p>-->
+
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <div class="button-container">-->
+<!--            <button id="bub-1">Jets</button>-->
+<!--            <button id="bubjets1">Post Jets</button>-->
+<!--        </div>-->
+<!--        <h2>Sam Darnold</h2>-->
+
+<!--        <h3>Rd:1-Pick:3(2018)</h3>-->
+<!--        <h3>13-25(2018-2020)</h3>-->
+<!--        <p>Content for card 2 goes here. This could be a summary of the season or a player spotlight.</p>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <div class="button-container">-->
+<!--            <button id="bub-2">Jets</button>-->
+<!--            <button id="bubjets-2">Post Jets</button>-->
+<!--        </div>-->
+<!--        <h2>Zach Wilson</h2>-->
+
+<!--        <h3>Rd:1-Pick:2(2021)</h3>-->
+<!--        <h3>11-18(2021-2023)</h3>-->
+<!--        <p>Content for card 3 goes here. This might highlight future games or upcoming events related to the Jets.</p>-->
+<!--    </div>-->
+<!--</div>-->
+
+
 <div class="card-container">
-    <div class="card">
-        <div class="button-container">
-            <button id="button-container">Jets</button>
-            <button id="bubjets">Post Jets</button>
-        </div>
-        <h2 style="            border: 4px solid green;
-            border-radius: 8px;">Geno Smith(2013-2015)</h2>
-
-        <div class="card-content">
-            <div class="left-text">
-                <div>Draft Pick(2013)</div>
-                <div>Round 2-Pick:39</div>
-            </div>
-            <img src="smith.jpg" alt="Player Photo">
-            <div class="right-text">
-                <div>Record w/Jets</div>
-                <div>12-20</div>
-            </div>
-        </div>
-        <p>Content for card 1 goes here. This could include statistics, player highlights, or any information relevant to the Jets.</p>
-
+    <!-- Geno Smith Card -->
+    <div class="card" data-player="geno">
+        <h2>Geno Smith</h2>
+        <img src="smith.jpg" alt="Player Photo">
+        <p>Content about Geno...</p>
+        <button class="post-jets-btn" data-player="geno">Post-Jets</button>
     </div>
-    <div class="card">
-        <div class="button-container">
-            <button id="bub-1">Jets</button>
-            <button id="bubjets1">Post Jets</button>
-        </div>
+
+    <!-- Sam Darnold Card -->
+    <div class="card" data-player="sam">
         <h2>Sam Darnold</h2>
         <img src="darnold.jpg" alt="Player Photo" id="playerPhoto">
-        <h3>Rd:1-Pick:3(2018)</h3>
-        <h3>13-25(2018-2020)</h3>
-        <p>Content for card 2 goes here. This could be a summary of the season or a player spotlight.</p>
+        <p>Content about Sam...</p>
+        <button class="post-jets-btn" data-player="sam">Post-Jets</button>
     </div>
-    <div class="card">
-        <div class="button-container">
-            <button id="bub-2">Jets</button>
-            <button id="bubjets-2">Post Jets</button>
-        </div>
+
+    <!-- Zach Wilson Card -->
+    <div class="card" data-player="zach">
         <h2>Zach Wilson</h2>
         <img src="wilson.jpg" alt="Player Photo" id="playerPhoto">
-        <h3>Rd:1-Pick:2(2021)</h3>
-        <h3>11-18(2021-2023)</h3>
-        <p>Content for card 3 goes here. This might highlight future games or upcoming events related to the Jets.</p>
+        <p>Content about Zach...</p>
+        <button class="post-jets-btn" data-player="zach">Post-Jets</button>
     </div>
 </div>
 
+
 <script>
+
+    document.querySelectorAll('.post-jets-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const player = button.getAttribute('data-player');
+            const card = document.querySelector(`.card[data-player="${player}"]`);
+            card.classList.toggle('flipped');
+        });
+    });
+
+
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext('2d');
     const WIDTH = canvas.width;
