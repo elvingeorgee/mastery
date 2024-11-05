@@ -126,6 +126,11 @@
             border: 2px solid yellow;
         }
 
+        .dream-date {
+            background-color: red; /* Change to red when highlighted */
+            color: white; /* Text color for the dream date */
+        }
+
         .hover-box {
             display: none;
             position: absolute;
@@ -140,7 +145,7 @@
 
         /* Centered title bar styling with eyes */
         .titlebar {
-            background-color: orange;
+            background-color: black;
             color: white;
             text-align: center;
             font-size: 2em;
@@ -165,7 +170,36 @@
             font-size: 1.5em;
             display: inline-flex;
         }
-    </style>
+
+        .dream-date {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .dream-date {
+            background-color: red; /* Dates with dreams highlighted in red */
+            color: white;
+        }
+
+        /* Styling for displaying dream entry text */
+        .dream-entry-display {
+            display: none;
+            position: absolute;
+            background-color: black;
+            border: 1px solid orange;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            color: red;
+        }
+        </style>
 </head>
 <body>
 
@@ -225,6 +259,8 @@
             </div>
             <div class="dates" id="novemberDates"></div>
         </div>
+        <div class="dream-entry-display" id="dreamEntryDisplay">Select a highlighted date to see its entry.</div>
+
     </div>
 
     <div class="side-shape">
@@ -234,10 +270,12 @@
     </div>
 </div>
 
-<div class="hover-box" id="hoverBox"></div>
+<div class="dream-entry-display" id="dreamEntryDisplay">Select a highlighted date to see its entry.</div>
+
+
 <script>
     const octoberDatesElement = document.getElementById('octoberDates');
-    const hoverBox = document.getElementById('hoverBox');
+    // const hoverBox = document.getElementById('hoverBox');
     const dreamEntries = {
         '10-01-24': "I went to the gym but it wasn't a gym it was an elementary school. All the workouts were completed outside and she was outside working out. Then naturally when I began to leave the gym, so went into her whip with her mom and her kid in the backseat.",
         '10-02-24': "I went to the bank in the morning and I spoke to an old Russian lady, and then I left. I returned to the bank later on during the day and was introduced to Natalie who also knew about the situation. She asked me the question when I suddenly become so shocked.",
@@ -248,58 +286,64 @@
         '10-23-24': "Preface: Last night before going to the old gym. I was leaving the house and I noticed Michelle with her man and they were feeling themselves. The other situation was me sitting outside of OLR with the old managers from Concord pulling up to the school while we were leaving.",
         '10-24-24': "I was at the cottage and Ramon was there with a group of people that I can't recall faces to names. Everyone was chilling outside,and some people were chilling inside. There was a big dog outside that wanted to come inside but there was some rule that they weren't allowed to come inside, but it was strange because there was a smaller dog inside??? Then another portion of the dream was being at the airport and waiting for a flight to somewhere. Olya came up and told me she had plans to go back to school. She was talking to me with crack-head energy which was very strange.",
         '10-27-24': "We were celebrating Thanksgiving or some sort of dinner, and there was the feeling around the house that there was a third baby boy. I believe it was Periannas' third kid, and the party was happening at our house. While I was upstairs in the room I was talking to Roshaan about something and Ronklin and Vinnie were coming into the room. We were working on the Mac and Cheese in the room so we walked over to my parents room so we can discuss what we wanted to discuss. Then while Roshaan was doing the transfer some of the Mac N Cheese fell onto the floor. My instinct was to go into the room that had Ronklin and close it so we can clean it without them seeing but like, Roshaan doesn't know where the paper towels are so he should've been the diversion.",
-        '10-30-24': "I remember being in the gym and seeing Russ doing the toe tap exercises. The rest of the dream was just a blur."
+        '10-29-24': "I was in the backyard room and my mom was on the call with Annson who was sitting outside in the grass fields while his head was in the garden. Then there was another part of the dream that I was learning a new dance choreo with Maya Munir, and there was compliments being made because I was a child of an immigrant. Then I was guided to the locker room of the Miami Heat who were playing poorly. As I was walking through the locker room I only recognized Jovic. Chilled back with Bueno and Bron at the back of the bus.   ",
+        '11-02-24': "I was at a family party and my family was on the left side, and I was all the way by myself on the right side. I then make a turn around and notice Annson is sitting by himself in between the both of us. It was awkward the whole time waiting for brother to leave the area. Then the trippy part of driving on a 4 lane road when cars were moving on both sides.",
+        '11-03-24': "I was sitting in the barber shop chair, and the person was cutting my hair. They were cutting the sides of my head, which got me really concerned with my situation. I got transferred to a Yankees watch party, and then I was hovering around and noticed there was an unrecognizable black guy who was putting a paper hanger on the wall. I was trying to help put it up, but it wasn't straight. Then someone came walking behind me and advised me that I really wanted to become a popstar. That froze me for the rest of the night. I was riding in a jetski for the last one. I was just skrting around.",
+        '11-04-24': "My dad and I were walking around an island were there were animals running around. In the middle of the island there was a portal that you can walk through, and my dad walked through it and then came back on the other side. We went onto a boat to do eat dinner. We were walking through the seafood restaurant and noticed that there wasn't any spaces to sit down. It was hard to find places to sit and eat. I was trying to find the place with the best view.",
+
 
     };
 
 
-    function generateCalendar(datesElement, monthOffset = 0) {
-        const currentDate = new Date();
-        currentDate.setMonth(currentDate.getMonth() + monthOffset);
-
-        const currentYear = currentDate.getFullYear();
-        const currentMonth = currentDate.getMonth();
-
-        const firstDay = new Date(currentYear, currentMonth, 1);
-        const lastDay = new Date(currentYear, currentMonth + 1, 0);
-        const totalDays = lastDay.getDate();
+    function generateCalendar(datesElement, month) {
+        const currentYear = 2024;
+        const totalDays = new Date(currentYear, month + 1, 0).getDate();
 
         let datesHTML = '';
         for (let i = 1; i <= totalDays; i++) {
-            const formattedDate = `${String(currentMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}-${String(currentYear).slice(-2)}`;
-            const isHighlighted = dreamEntries.hasOwnProperty(formattedDate);
-            const highlightClass = isHighlighted ? 'highlighted' : '';
-            datesHTML += `<div class="date ${highlightClass}" data-date="${formattedDate}">${i}</div>`;
+            const formattedDate = `${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}-${String(currentYear).slice(-2)}`;
+            const isDreamDate = dreamEntries.hasOwnProperty(formattedDate);
+            const dateClass = isDreamDate ? 'dream-date' : '';
+            datesHTML += `<div class="date ${dateClass}" data-date="${formattedDate}">${i}</div>`;
         }
-
         datesElement.innerHTML = datesHTML;
     }
 
     function handleDateClick(event) {
-        if (event.target.classList.contains('date')) {
-            const date = event.target.getAttribute('data-date');
-            const entry = dreamEntries[date];
-            const hoverBox = document.getElementById('hoverBox');
-            if (entry) {
-                hoverBox.innerText = entry;
-                hoverBox.style.display = 'block';
-                hoverBox.style.top = `${event.clientY + 20}px`;
-                hoverBox.style.left = `${event.clientX + 20}px`;
-            }
+        const date = event.target.getAttribute('data-date');
+        const entry = dreamEntries[date];
+        const entryDisplay = document.getElementById('dreamEntryDisplay');
+
+
+        if (entry) {
+            entryDisplay.innerText = entry;
+            entryDisplay.style.display = 'block';
+
+            // Position the hover box above the clicked date
+            const rect = event.target.getBoundingClientRect();
+            entryDisplay.style.top = `${rect.top - entryDisplay.offsetHeight - 10}px`;
+            entryDisplay.style.left = `${rect.left + (rect.width / 2) - (entryDisplay.offsetWidth / 2)}px`;
+        } else {
+            entryDisplay.innerText = "No dream entry for this date.";
         }
     }
 
+    document.getElementById('octoberDates').addEventListener('click', handleDateClick);
+    document.getElementById('novemberDates').addEventListener('click', handleDateClick);
+
+    // Close the hover box if clicking outside
     document.addEventListener('click', function(event) {
+        const entryDisplay = document.getElementById('dreamEntryDisplay');
         if (!event.target.classList.contains('date')) {
-            document.getElementById('hoverBox').style.display = 'none';
+            entryDisplay.style.display = 'none';
         }
     });
 
-    generateCalendar(document.getElementById('octoberDates'), 0);
-    generateCalendar(document.getElementById('novemberDates'), 1);
+    // Generate calendars
+    generateCalendar(document.getElementById('octoberDates'), 9); // October
+    generateCalendar(document.getElementById('novemberDates'), 10); // November
 
-    document.getElementById('octoberDates').addEventListener('click', handleDateClick);
-    document.getElementById('novemberDates').addEventListener('click', handleDateClick);
+
 </script>
 </body>
 </html>
