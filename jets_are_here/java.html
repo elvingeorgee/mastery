@@ -207,7 +207,7 @@
         }
 
         .card {
-            background-color: black;
+            background-color: green;
             border: 2px solid green;
             color: white;
             border-radius: 8px;
@@ -246,9 +246,6 @@
         }
         .card-content.back {
             transform: rotateY(180deg);
-            color: white;
-            /* Full background color for back */
-            background-color: inherit;
         }
         .card.flipped .front {
             transform: rotateY(180deg);
@@ -259,13 +256,16 @@
 
         /* Background colors for alternate (back) versions */
         .dark-blue-bg {
-            background-color: darkblue !important;
+            background-color: darkblue;
+            color: white;
         }
         .purple-bg {
-            background-color: purple !important;
+            background-color: purple;
+            color: white;
         }
         .orange-bg {
-            background-color: orange !important;
+            background-color: orange;
+            color: white;
         }
 
         /* Common card styles */
@@ -274,7 +274,7 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            margin-top: 10px;
+            /*margin-top: 10px;*/
         }
 
         .row-1{
@@ -304,6 +304,51 @@
             border: 2px solid green;
             border-radius: 5px;
         }
+
+        .top-text {
+            background-color: green;
+            position: absolute;
+            top: 1px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .genotable {
+            position: absolute;
+            top: 10px; /* Adjust the positioning as needed */
+            left: 10px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            border: 1px solid white;
+            padding: 5px;
+            text-align: center;
+            font-size: 14px;
+            z-index: 1;
+        }
+
+        .ritb {
+            position: absolute;
+            top: 10px; /* Adjust the positioning as needed */
+            right: 10px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            border: 1px solid white;
+            padding: 5px;
+            text-align: center;
+            font-size: 14px;
+            z-index: 1;
+        }
+        /*.genotable td{*/
+        /*    background-color: green;*/
+        /*    border-radius: 1px;*/
+        /*    border-color: white;*/
+        /*}*/
 
 
     </style>
@@ -448,6 +493,7 @@
 <div class="card-container">
     <!-- Geno Smith Card -->
     <div class="card" id="card-geno">
+        <span class="top-text">Failure 1</span>
         <div class="card-content front">
             <button class="seabutt" onclick="flipCard('card-geno')">Post-Jets</button>
             <h3>Geno Smith</h3>
@@ -456,7 +502,59 @@
                 <img src="smith.jpg" alt="Geno Smith">
                 <span class="right-text">Record: 3-10</span>
             </div>
-            <p>...content for Geno's card goes here...</p>
+            <table class="genotable">
+                <tr>
+                    <td>Year</td>
+                    <td>Pass.Y</td>
+                    <td>TDS</td>
+                    <td>INT</td>
+                </tr>
+                <tr>
+                    <td>2013</td>
+                    <td>3046</td>
+                    <td>12</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>2014</td>
+                    <td>2525</td>
+                    <td>13</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>2015</td>
+                    <td>265</td>
+                    <td>2</td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+
+                </tr>
+            </table>
+            <table class="ritb">
+                <tr>
+                    <td>Draft</td>
+                    <td>Round</td>
+                    <td>Pick</td>
+                </tr>
+                <tr>
+                    <td>2013</td>
+                    <td>2nd</td>
+                    <td>39th</td>
+                </tr>
+                <tr>
+                    <td>(W/L)</td>
+                    <td>W</td>
+                    <td>L</td>
+                </tr>
+                <tr>
+                    <td>37%</td>
+                    <td>11</td>
+                    <td>19</td>
+                </tr>
+
+            </table>
         </div>
         <div class="card-content back dark-blue-bg">
             <button class="cardbutt" onclick="flipCard('card-geno')">Jets</button>
@@ -472,6 +570,7 @@
 
     <!-- Sam Darnold Card -->
     <div class="card" id="card-sam">
+        <span class="top-text">Failure 2</span>
         <div class="card-content front">
             <button class="minbutt" onclick="flipCard('card-sam')">Post-Jets</button>
             <h3>Sam Darnold</h3>
@@ -480,7 +579,56 @@
                 <img src="darnold.jpg" alt="Sam Darnold">
                 <span class="right-text">Record: 4-7</span>
             </div>
-            <p>...content for Sam's card goes here...</p>
+            <table class="genotable">
+                <tr>
+                    <td>Year</td>
+                    <td>Pass.Y</td>
+                    <td>TDS</td>
+                    <td>INT</td>
+                </tr>
+                <tr>
+                    <td>2018</td>
+                    <td>2865</td>
+                    <td>17</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>2019</td>
+                    <td>3024</td>
+                    <td>19</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>2020</td>
+                    <td>2208</td>
+                    <td>9</td>
+                    <td>11</td>
+                </tr>
+
+            </table>
+            <table class="ritb">
+                <tr>
+                    <td>Draft</td>
+                    <td>Round</td>
+                    <td>Pick</td>
+                </tr>
+                <tr>
+                    <td>2018</td>
+                    <td>1st</td>
+                    <td>3rd</td>
+                </tr>
+                <tr>
+                    <td>(W/L)</td>
+                    <td>W</td>
+                    <td>L</td>
+                </tr>
+                <tr>
+                    <td>34%</td>
+                    <td>13</td>
+                    <td>25</td>
+                </tr>
+
+            </table>
         </div>
         <div class="card-content back purple-bg">
             <button class="cardbutt" onclick="flipCard('card-sam')">Jets</button>
@@ -496,6 +644,7 @@
 
     <!-- Zach Wilson Card -->
     <div class="card" id="card-zach">
+        <span class="top-text">Failure 3</span>
         <div class="card-content front">
             <button class= "denbutt" onclick="flipCard('card-zach')">Post-Jets</button>
             <h3>Zach Wilson</h3>
@@ -504,7 +653,56 @@
                 <img src="wilson.jpg" alt="Zach Wilson">
                 <span class="right-text">Record: 5-6</span>
             </div>
-            <p>...content for Zach's card goes here...</p>
+            <table class="genotable">
+                <tr>
+                    <td>Year</td>
+                    <td>Pass.Y</td>
+                    <td>TDS</td>
+                    <td>INT</td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>2334</td>
+                    <td>9</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>1688</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>2,271</td>
+                    <td>8</td>
+                    <td>7</td>
+                </tr>
+
+            </table>
+            <table class="ritb">
+                <tr>
+                    <td>Draft</td>
+                    <td>Round</td>
+                    <td>Pick</td>
+                </tr>
+                <tr>
+                    <td>2020</td>
+                    <td>1st</td>
+                    <td>2nd</td>
+                </tr>
+                <tr>
+                    <td>(W/L)</td>
+                    <td>W</td>
+                    <td>L</td>
+                </tr>
+                <tr>
+                    <td>36%</td>
+                    <td>12</td>
+                    <td>21</td>
+                </tr>
+
+            </table>
         </div>
         <div class="card-content back orange-bg">
             <button class="cardbutt" onclick="flipCard('card-zach')">Jets</button>
