@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,6 +36,58 @@
             justify-content: center;
             margin-bottom: 10px;
         }
+
+        .cardbutt
+        {
+            background-color: black;
+            border: 2px solid green;
+            color: white;
+            padding: 8px 12px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+        .seabutt
+        {
+            background-color: blue;
+            border: 2px solid green;
+            color: white;
+            padding: 8px 12px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
+        .minbutt
+        {
+            background-color: purple;
+            border: 2px solid green;
+            color: white;
+            padding: 8px 12px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
+        .denbutt
+        {
+            background-color: orange;
+            border: 2px solid green;
+            color: white;
+            padding: 8px 12px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
 
         .button-container button {
             background-color: black;
@@ -155,7 +206,6 @@
             margin-top: 20px;
         }
 
-
         .card {
             background-color: black;
             border: 2px solid green;
@@ -165,102 +215,97 @@
             flex: 1;
             margin: 0 10px;
             width: 33%;
+            height: 350px; /* Adjusted height */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Positions elements on each side of the image */
-
             align-items: center;
-            overflow: hidden; /* Prevents image overflow */
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
+        /* Card content and alignment */
         .card-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.6s;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .card-content.front {
+            transform: rotateY(0deg);
+        }
+        .card-content.back {
+            transform: rotateY(180deg);
+            color: white;
+            /* Full background color for back */
+            background-color: inherit;
+        }
+        .card.flipped .front {
+            transform: rotateY(180deg);
+        }
+        .card.flipped .back {
+            transform: rotateY(0deg);
+        }
+
+        /* Background colors for alternate (back) versions */
+        .dark-blue-bg {
+            background-color: darkblue !important;
+        }
+        .purple-bg {
+            background-color: purple !important;
+        }
+        .orange-bg {
+            background-color: orange !important;
+        }
+
+        /* Common card styles */
+        .row {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            margin-top: 10px;
         }
 
-        .left-text, .right-text {
-            font-size: 16px;
+        .row-1{
+            background-color: darkblue;
         }
 
-        .left-text {
-            margin-right: 10px;
-            text-align: left;
+        .row-2{
+            background-color: purple;
         }
 
-        .right-text {
-            margin-left: 10px;
-            text-align: right;
+        .row-3{
+            background-color: orange;
         }
-
-        .left-text,.right-text
-        {
-            border: 4px solid green;
-            border-radius: 8px;
-        }
-
         .card img {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
             border: 4px solid green;
             border-radius: 8px;
         }
 
-
-        .card h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
+        /* Text inside the left and right sections */
+        .left-text, .right-text {
             font-size: 16px;
-        }
-
-        .nested-card-container {
-            margin-top: 10px;
-            padding: 10px;
-            border: 1px solid green;
+            color: white;
+            padding: 5px 10px;
+            border: 2px solid green;
             border-radius: 5px;
-            background-color: #f0f0f0;
         }
 
-        .nested-card-container button {
-            margin-right: 5px;
-        }
 
-        /* Card Flip Animation */
-        @keyframes flip {
-            from { transform: rotateY(0); }
-            to { transform: rotateY(180deg); }
-        }
-
-        .card {
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-
-        .card.flipped {
-            animation: flip 0.6s forwards;
-        }
-
-        /* Post-Jets Styles */
-        .card[data-player="geno"].flipped {
-            background-color: darkblue;
-            border: 2px solid white;
-        }
-
-        .card[data-player="sam"].flipped {
-            background-color: purple;
-            border: 2px solid white;
-        }
-
-        .card[data-player="zach"].flipped {
-            background-color: orange;
-            border: 2px solid white;
-        }
     </style>
 </head>
 <body>
@@ -296,15 +341,6 @@
         <tr><td>Dec 29th</td><td>Bills</td><td>1pm</td></tr>
         <tr><td>Jan 5th</td><td>Dolphins</td><td>1pm</td></tr>
     </table>
-
-    <!--    <div class="preface">-->
-    <!--        Preface-->
-    <!--        <div class="bruh">-->
-    <!--            In 2011 I watched Mark Sanchez outdual the unstoppable force of Tom Brady giving him one of his 11 playoff loses. In that moment I gained a level of love and appreciation for the underdog story, and felt like I needed to hop on that bandwagon. That win was the last time the team was in the playoffs. In the last four seasons the team has finsihed with an accumative record of 17-31. I wish I can emphasis more how terrible 17-31 but putting you in my perspective as being a Jets fan. I'd like to believe that most teams look forward to seeing their football team play on the weekend like going to church. Unlike the other major sports where teams play 3-4 times a week, I have to wait a full week before I get dissappointed. I've become numb to this feeling for over a decade, for over decade I've salvaged hope that a team that has failed to reach the playoffs for over a decade to win on a weekly basis. For the last 12 years, I've felt the same emotion watching the Jets until last season.-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-    <!-- Canvas and buttons section -->
 
 
     <div class="canvas-container">
@@ -365,15 +401,15 @@
                     <div class="info-box" id="info-13">2012-2013 Season: Record 6-10. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="13-14 Season: Record 8-8. Third straight season having a 3 game losing streak and a rookie QB unable to adjust to the NFL game-pace">13
+                <div class="circle" style="background-color: blue" data-info="13-14 Season: Record 8-8. Third straight season having a 3 game losing streak and a rookie QB unable to adjust to the NFL game-pace">13
                     <div class="info-box" id="info-14">2013-2014 Season: Record 8-8. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="14-15 Season: Record 4-12.Started the season 1-8 LMAO.">14
+                <div class="circle" style="background-color: blue" data-info="14-15 Season: Record 4-12.Started the season 1-8 LMAO.">14
                     <div class="info-box" id="info-15">2014-2015 Season: Record 10-6. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="15-16 Season: Record 10-6. Tied for the last playoff spot, but because the other team had a better record against the teams both teams played that season Pittsburgh won the tiebreaker. Lord have mercy">15
+                <div class="circle" style="background-color: blue" data-info="15-16 Season: Record 10-6. Tied for the last playoff spot, but because the other team had a better record against the teams both teams played that season Pittsburgh won the tiebreaker. Lord have mercy">15
                     <div class="info-box" id="info-16">2015-2016 Season: Record 10-6. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
@@ -385,23 +421,23 @@
                     <div class="info-box" id="info-18">2017-2018 Season: Record 5-11. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="18-19 Season: Record 4-12. Another rookie QB who gets obliterated on a weekly basis">18
+                <div class="circle" style="background-color: purple" data-info="18-19 Season: Record 4-12. Another rookie QB who gets obliterated on a weekly basis">18
                     <div class="info-box" id="info-19">2018-2019 Season: Record 4-12. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="19-20 Season: Record 7-9. Sophomore improvement was displayed by getting three more wins in a losing effort.">19
+                <div class="circle" style="background-color: purple" data-info="19-20 Season: Record 7-9. Sophomore improvement was displayed by getting three more wins in a losing effort.">19
                     <div class="info-box" id="info-20">2019-2020 Season: Record 7-9. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="20-21 Season: Record 2-14. In the first 13 games we had 0 wins. .... Im justing saying you can do better">20
+                <div class="circle" style="background-color: purple" data-info="20-21 Season: Record 2-14. In the first 13 games we had 0 wins. .... Im justing saying you can do better">20
                     <div class="info-box" id="info-21">2020-2021 Season: Record 2-14. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="21-22 Season: Record 4-13. Third-year QB got cut, and with the awful previous season we got blessed with a 2nd Overall Pick. QB Experiment Round 3: Zach Wilson. Who would've thought pain could never have a limit.">21
+                <div class="circle" style="background-color: orange" data-info="21-22 Season: Record 4-13. Third-year QB got cut, and with the awful previous season we got blessed with a 2nd Overall Pick. QB Experiment Round 3: Zach Wilson. Who would've thought pain could never have a limit.">21
                     <div class="info-box" id="info-22">2021-2022 Season: Record 4-13. Missed playoffs.</div>
                 </div>
                 <div class="line"></div>
-                <div class="circle" data-info="22-23 Season: Record 7-10. STARTED THE SEASON 7-4 AND WE ENDED 7-10 BRO THE DEVIL CAN'T GIVE ME ANY SORT OF HAPPINESS">22
+                <div class="circle" style="background-color: orange" data-info="22-23 Season: Record 7-10. STARTED THE SEASON 7-4 AND WE ENDED 7-10 BRO THE DEVIL CAN'T GIVE ME ANY SORT OF HAPPINESS">22
                     <div class="info-box" id="info-23">2022-2023 Season: Record 7-10. Missed playoffs.</div>
                 </div>
             </div>
@@ -409,82 +445,87 @@
     </div>
 </div>
 
-<!--<div class="card-container">-->
-<!--    <div class="card">-->
-<!--        <div class="button-container">-->
-<!--            <button id="button-container">Jets</button>-->
-<!--            <button id="bubjets">Post Jets</button>-->
-<!--        </div>-->
-<!--        <h2 style="            border: 4px solid green;-->
-<!--            border-radius: 8px;">Geno Smith(2013-2015)</h2>-->
-
-<!--        <div class="card-content">-->
-<!--            <div class="left-text">-->
-<!--                <div>Draft Pick(2013)</div>-->
-<!--                <div>Round 2-Pick:39</div>-->
-<!--            </div>-->
-
-<!--            <div class="right-text">-->
-<!--                <div>Record w/Jets</div>-->
-<!--                <div>12-20</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <p>Content for card 1 goes here. This could include statistics, player highlights, or any information relevant to the Jets.</p>-->
-
-<!--    </div>-->
-<!--    <div class="card">-->
-<!--        <div class="button-container">-->
-<!--            <button id="bub-1">Jets</button>-->
-<!--            <button id="bubjets1">Post Jets</button>-->
-<!--        </div>-->
-<!--        <h2>Sam Darnold</h2>-->
-
-<!--        <h3>Rd:1-Pick:3(2018)</h3>-->
-<!--        <h3>13-25(2018-2020)</h3>-->
-<!--        <p>Content for card 2 goes here. This could be a summary of the season or a player spotlight.</p>-->
-<!--    </div>-->
-<!--    <div class="card">-->
-<!--        <div class="button-container">-->
-<!--            <button id="bub-2">Jets</button>-->
-<!--            <button id="bubjets-2">Post Jets</button>-->
-<!--        </div>-->
-<!--        <h2>Zach Wilson</h2>-->
-
-<!--        <h3>Rd:1-Pick:2(2021)</h3>-->
-<!--        <h3>11-18(2021-2023)</h3>-->
-<!--        <p>Content for card 3 goes here. This might highlight future games or upcoming events related to the Jets.</p>-->
-<!--    </div>-->
-<!--</div>-->
-
-
 <div class="card-container">
     <!-- Geno Smith Card -->
-    <div class="card" data-player="geno">
-        <h2>Geno Smith</h2>
-        <img src="smith.jpg" alt="Player Photo">
-        <p>Content about Geno...</p>
-        <button class="post-jets-btn" data-player="geno">Post-Jets</button>
+    <div class="card" id="card-geno">
+        <div class="card-content front">
+            <button class="seabutt" onclick="flipCard('card-geno')">Post-Jets</button>
+            <h3>Geno Smith</h3>
+            <div class="row">
+                <span class="left-text">Draft Round: 2</span>
+                <img src="smith.jpg" alt="Geno Smith">
+                <span class="right-text">Record: 3-10</span>
+            </div>
+            <p>...content for Geno's card goes here...</p>
+        </div>
+        <div class="card-content back dark-blue-bg">
+            <button class="cardbutt" onclick="flipCard('card-geno')">Jets</button>
+            <h3 style="background-color: darkblue">Geno Smith (Post-Jets)</h3>
+            <div class="row-1" style="background-color: darkblue">
+                <span class="left-text">Post Record</span>
+                <img src="seasmith.jpg" alt="Geno Smith">
+                <span class="right-text">Career Highs</span>
+            </div>
+            <p style="background-color: darkblue">...Post-Jets content for Geno Smith...</p>
+        </div>
     </div>
 
     <!-- Sam Darnold Card -->
-    <div class="card" data-player="sam">
-        <h2>Sam Darnold</h2>
-        <img src="darnold.jpg" alt="Player Photo" id="playerPhoto">
-        <p>Content about Sam...</p>
-        <button class="post-jets-btn" data-player="sam">Post-Jets</button>
+    <div class="card" id="card-sam">
+        <div class="card-content front">
+            <button class="minbutt" onclick="flipCard('card-sam')">Post-Jets</button>
+            <h3>Sam Darnold</h3>
+            <div class="row">
+                <span class="left-text">Draft Round: 1</span>
+                <img src="darnold.jpg" alt="Sam Darnold">
+                <span class="right-text">Record: 4-7</span>
+            </div>
+            <p>...content for Sam's card goes here...</p>
+        </div>
+        <div class="card-content back purple-bg">
+            <button class="cardbutt" onclick="flipCard('card-sam')">Jets</button>
+            <h3 style="background-color: purple">Sam Darnold</h3>
+            <div class="row-2" style="background-color: purple">
+                <span class="left-text">Post Record</span>
+                <img src="min-darnold.jpg" alt="Sam Darnold">
+                <span class="right-text">Career Highs</span>
+            </div>
+            <p style="background-color: purple">...Post-Jets content for Sam Darnold...</p>
+        </div>
     </div>
 
     <!-- Zach Wilson Card -->
-    <div class="card" data-player="zach">
-        <h2>Zach Wilson</h2>
-        <img src="wilson.jpg" alt="Player Photo" id="playerPhoto">
-        <p>Content about Zach...</p>
-        <button class="post-jets-btn" data-player="zach">Post-Jets</button>
+    <div class="card" id="card-zach">
+        <div class="card-content front">
+            <button class= "denbutt" onclick="flipCard('card-zach')">Post-Jets</button>
+            <h3>Zach Wilson</h3>
+            <div class="row">
+                <span class="left-text">Draft Round: 1</span>
+                <img src="wilson.jpg" alt="Zach Wilson">
+                <span class="right-text">Record: 5-6</span>
+            </div>
+            <p>...content for Zach's card goes here...</p>
+        </div>
+        <div class="card-content back orange-bg">
+            <button class="cardbutt" onclick="flipCard('card-zach')">Jets</button>
+            <h3 style="background-color: orange">Zach Wilson</h3>
+            <div class="row-3" style="background-color: orange">
+                <span class="left-text">Post Record</span>
+                <img src="zachden.jpeg" alt="Zach Wilson">
+                <span class="right-text">Career Highs</span>
+            </div>
+            <p style="background-color: orange">...Post-Jets content for Zach Wilson...</p>
+        </div>
     </div>
 </div>
 
-
 <script>
+
+
+    function flipCard(cardId) {
+        const card = document.getElementById(cardId);
+        card.classList.toggle("flipped");
+    }
 
     document.querySelectorAll('.post-jets-btn').forEach(button => {
         button.addEventListener('click', () => {
@@ -493,6 +534,13 @@
             card.classList.toggle('flipped');
         });
     });
+
+    function toggleCard(button) {
+        const card = button.closest('.card');
+        card.classList.toggle('flipped');
+    }
+
+
 
 
     const canvas = document.getElementById("myCanvas");
