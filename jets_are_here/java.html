@@ -270,12 +270,17 @@
         }
 
         /* Common card styles */
-        .row,.row-1-min {
+        .row,.row-1-min,.row-2-min {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 96%;
 
+        }
+
+        .row-2-min
+        {
+            background-color: purple;
         }
 
         .row-1{
@@ -316,12 +321,24 @@
         }
 
         /* Text inside the left and right sections */
-        .left-text, .right-text,.right-text-sea,.left-text-sea,.right-text-min {
+        .left-text, .right-text,.right-text-sea,.left-text-sea,.right-text-min,.left-text-min {
             font-size: 16px;
             color: white;
             padding: 5px 10px;
             border: 2px solid green;
             border-radius: 5px;
+        }
+
+
+
+        .left-text-min
+        {
+            margin-right: 15px; /* Add margin to the left of the text if needed */
+            font-size: 16px;
+            color: white;
+            padding: 5px 10px;
+            background-color: darkblue;
+            border: 2px solid white;
         }
         .right-text-sea {
             margin-left: 15px; /* Add margin to the left of the text if needed */
@@ -331,6 +348,15 @@
             background-color: darkblue;
             border: 2px solid white;
         }
+
+        .denzach
+        {
+            border: 2px solid white;
+            background-color: orange;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
         .left-text-sea {
             margin-right: 15px; /* Add margin to the left of the text if needed */
             font-size: 16px;
@@ -341,7 +367,7 @@
         }
 
         .right-text-min {
-            margin-right: 15px; /* Add margin to the left of the text if needed */
+            margin-left: 15px; /* Add margin to the left of the text if needed */
             font-size: 16px;
             color: white;
             padding: 5px 10px;
@@ -508,7 +534,7 @@
         <tr><td>Oct 14th</td><td style="background-color: green; color: black">Jets</td><td>8:15pm</td></tr>
         <tr><td>Oct 20th</td><td style="background-color: green; color: black">Titans</td><td>1pm</td></tr>
         <tr><td>Oct 27th</td><td style="background-color: green; color: black">Seahawks</td><td>4:05pm</td></tr>
-        <tr><td>Nov 3rd</td><td>Dolphins</td><td>1pm</td></tr>
+        <tr><td>Nov 3rd</td><td style="background-color: green; color: black">Dolphins</td><td>1pm</td></tr>
         <tr><td>Nov 10th</td><td>Colts</td><td>1pm</td></tr>
         <tr><td>Nov 17th</td><td>Chiefs</td><td>4:25pm</td></tr>
         <tr><td>Dec 1st</td><td>49ers</td><td>8:20pm</td></tr>
@@ -718,8 +744,9 @@
             <button class="minbutt" onclick="flipCard('card-sam')">Post-Jets</button>
             <h3>Sam Darnold</h3>
             <div class="row-1-min">
-                <span class="right-text-min">When you draft a Top-3 pick, you expect some sort of NFL-ready talent. He would want to put the world on notice "Hey I'm top 3 but should've been 1" mentality. Regardless of mentality, he should have some veteran play to learn what to expect.Again, another failed instance where FUCK IT! THROW HIM IN THE FIRE LET HIM SURVIVE! 4-12 Season </span>
                 <img src="darnold.jpg" alt="Sam Darnold">
+                <span class="right-text-min">When you draft a Top-3 pick, you expect some sort of NFL-ready talent. Regardless of expectation, he should have some veteran play to learn what to expect. Again, another failed instance where FUCK IT! THROW HIM IN THE FIRE LET HIM SURVIVE! 4-12 Season </span>
+
             </div>
             <table class="genotable">
                 <tr>
@@ -775,10 +802,9 @@
         <div class="card-content back purple-bg">
             <button class="cardbutt" onclick="flipCard('card-sam')">Jets</button>
             <h3 style="background-color: purple">Sam Darnold</h3>
-            <div class="row-2" style="background-color: purple">
-                <span class="left-text">Post Record</span>
-                <img src="min-darnold.jpg" alt="Sam Darnold">
-                <span class="right-text">Career Highs</span>
+            <div class="row-2-min" style="background-color: purple">
+                <span class="left-text-min" style="background-color: purple">His skill hasn't gotten better, but his weapons have significantly improved. He had 6 wins last year with the 9ers, subbing in for their starter. 49ers had an elite Offensive Line to protect him, and playing with the best Wide Receiver(Justin Jefferson) right now allows him to throw to a frequent safety blanket.</span>
+                <img style="border-color: white" src="min-darnold.jpg" alt="Sam Darnold">
             </div>
             <table class="mintable">
                 <tr>
@@ -843,9 +869,8 @@
             <button class= "denbutt" onclick="flipCard('card-zach')">Post-Jets</button>
             <h3>Zach Wilson</h3>
             <div class="row">
-                <span class="left-text">Draft Round: 1</span>
+                <span class="left-text-sea">Lack of veteran presence forced a difficult first two seasons, and then finally we got a top-5 quarterback to put him on his wing for his third season. As you can see, the results didn't change.His ex threw it out there that Zach(MilfHunter) had an affair with this moms' bestfriend. </span>
                 <img src="wilson.jpg" alt="Zach Wilson">
-                <span class="right-text">Record: 5-6</span>
             </div>
             <table class="genotable">
                 <tr>
@@ -902,11 +927,9 @@
             <button class="cardbutt" onclick="flipCard('card-zach')">Jets</button>
             <h3 style="background-color: orange">Zach Wilson</h3>
             <div class="row-3" style="background-color: orange">
-                <span class="left-text">Post Record</span>
-                <img src="zachden.jpeg" alt="Zach Wilson">
-                <span class="right-text">Career Highs</span>
+                <img style="border-color: white" src="zachden.jpeg" alt="Zach Wilson">
             </div>
-            <p style="background-color: orange">...Post-Jets content for Zach Wilson...</p>
+            <p class="denzach" style="background-color: orange">I am the 3rd option on the team. I will learn from the other two QBs and eventually become the QB God intended me to be</p>
         </div>
     </div>
 </div>
