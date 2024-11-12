@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wild Card Standings</title>
+    <title>Rejection Streak</title>
     <link rel="stylesheet" href="style.css">
     <style>
 
@@ -18,6 +18,85 @@
             align-items: center;
             justify-content: center;
         }
+
+        .whites{
+            position:relative;
+            width:40px;
+            height:40px;
+            background-color:white;
+            border-radius: 50%;
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+
+        .browns{
+            position:relative;
+            width:40px;
+            height:40px;
+            background-color:brown;
+            border-radius: 50%;
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+
+        .races{
+            display:flex;
+            gap:10px;
+            justify-content: center;
+            margin-top:20px;
+        }
+
+        .box
+        {
+            width:200px;
+            height:200px;
+            position:absolute;
+            top:100px;
+            display:none;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+            border-radius:8px;
+            font-size:20px;
+            font-weight:bold;
+            color:white;
+        }
+
+        .left-box, .lefter-box, .left-bottom-box, .lefter-bottom-box,.lefty-bottom-box,.leftyer-bottom-box{
+            background-color: white;
+            border-color: black;
+            color: black;
+        }
+
+        .right-box, .righter-box, .right-bottom-box, .righter-bottom-box {
+            background-color: brown;
+        }
+
+        /* Positions for all boxes */
+        .left-box { left: 10px; }
+        .lefter-box { left: 220px; }
+        .left-bottom-box { left: 10px; top: 320px; }
+        .lefter-bottom-box { left: 220px; top: 320px; }
+        .lefty-bottom-box { left: 10px; top: 640px; }
+        .leftyer-bottom-box { left: 220px; top: 640px; }
+
+        .right-box { right: 10px; }
+        .righter-box { right: 220px; }
+        .right-bottom-box { right: 10px; top: 320px; }
+        .righter-bottom-box { right: 220px; top: 320px; }
+
+
+
     </style>
 </head>
 <body>
@@ -35,13 +114,136 @@
 </div>
 
 <div class="title">
-    AFC Title Race
+    Rejection Streak
 </div>
+
+<div class="races">
+    <div class="whites" onclick="toggleBoxes('left', 1)">W</div>
+    <div class="browns" onclick="toggleBoxes('right', 1)">B</div>
+</div>
+
+<!-- Hidden boxes that will appear based on the button click -->
+<!-- First row of white and brown boxes -->
+<div class="box left-box" id="leftBox">Zara</div>
+<div class="box lefter-box" id="lefterBox">Michelle</div>
+<div class="box right-box" id="rightBox">Opp 1 </div>
+<div class="box righter-box" id="righterBox">Opp 2</div>
+
+<!-- Second row of white and brown boxes -->
+<div class="box left-bottom-box" id="leftBottomBox">Natalie</div>
+<div class="box lefter-bottom-box" id="lefterBottomBox">Yustina</div>
+<div class="box right-bottom-box" id="rightBottomBox">Gorgeous Engaged Gym Baddie</div>
+<div class="box righter-bottom-box" id="righterBottomBox">Livina</div>
+
+<div class="box lefty-bottom-box" id="leftyBottomBox">Beach Girl</div>
+<div class="box leftyer-bottom-box" id="leftyerBottomBox">Ukraine Girl</div>
+<!--<div class="box right-bottom-box" id="rightBottomBox">Gorgeous Engaged Gym Baddie</div>-->
+<!--<div class="box righter-bottom-box" id="righterBottomBox">Opp 3</div>-->
 
 
 
 <script>
+    let leftBoxState = 0; // 0 = no box visible, 1 = leftBox visible, 2 = lefterBox visible, 3 = leftBottomBox visible, etc.
+    let rightBoxState = 0; // 0 = no box visible, 1 = rightBox visible, 2 = righterBox visible, 3 = rightBottomBox visible, etc.
+
+    function toggleBoxes(side, row) {
+        // Get all boxes based on their IDs
+        const leftBox = document.getElementById('leftBox');
+        const lefterBox = document.getElementById('lefterBox');
+        const rightBox = document.getElementById('rightBox');
+        const righterBox = document.getElementById('righterBox');
+        const leftBottomBox = document.getElementById('leftBottomBox');
+        const lefterBottomBox = document.getElementById('lefterBottomBox');
+        const leftyBottomBox = document.getElementById('leftyBottomBox');
+        const leftyerBottomBox = document.getElementById('leftyerBottomBox');
+        const lBottomBox = document.getElementById('lBottomBox');
+        const llBottomBox = document.getElementById('llBottomBox');
+        const rightBottomBox = document.getElementById('rightBottomBox');
+        const righterBottomBox = document.getElementById('righterBottomBox');
+
+        // Hide all boxes first
+        leftBox.style.display = 'none';
+        lefterBox.style.display = 'none';
+        rightBox.style.display = 'none';
+        righterBox.style.display = 'none';
+        leftBottomBox.style.display = 'none';
+        lefterBottomBox.style.display = 'none';
+        leftyBottomBox.style.display = 'none';
+        leftyerBottomBox.style.display = 'none';
+        rightBottomBox.style.display = 'none';
+        righterBottomBox.style.display = 'none';
+
+        if (side === 'left') {
+            if (row === 1) { // First row of white boxes
+                if (leftBoxState === 0) {
+                    leftBox.style.display = 'flex';
+                    leftBoxState = 1;
+                } else if (leftBoxState === 1) {
+                    lefterBox.style.display = 'flex';
+                    leftBoxState = 2;
+                } else if (leftBoxState === 2) {
+                    leftBottomBox.style.display = 'flex';
+                    leftBoxState = 3;
+                } else if (leftBoxState === 3) {
+                    lefterBottomBox.style.display = 'flex';
+                    leftBoxState = 4;
+                } else if (leftBoxState === 4) {
+                    leftyBottomBox.style.display = 'flex';
+                    leftBoxState = 5;
+                } else if (leftBoxState === 5) {
+                    leftyerBottomBox.style.display = 'flex';
+                    leftBoxState = 6;
+                }
+            } else { // Second row of white boxes
+                if (leftBoxState === 2) {
+                    leftBottomBox.style.display = 'flex';
+                    leftBoxState = 3;
+                } else if (leftBoxState === 3) {
+                    lefterBottomBox.style.display = 'flex';
+                    leftBoxState = 4;
+                } else if (leftBoxState === 4) {
+                    leftyBottomBox.style.display = 'flex';
+                    leftBoxState = 5;
+                } else if (leftBoxState === 5) {
+                    leftyerBottomBox.style.display = 'flex';
+                    leftBoxState = 6;
+                }
+            }
+        }
+
+        if (side === 'right') {
+            if (row === 1) { // First row of brown boxes
+                if (rightBoxState === 0) {
+                    rightBox.style.display = 'flex';
+                    rightBoxState = 1;
+                } else if (rightBoxState === 1) {
+                    righterBox.style.display = 'flex';
+                    rightBoxState = 2;
+                } else if (rightBoxState === 2) {
+                    rightBottomBox.style.display = 'flex';
+                    rightBoxState = 3;
+                } else if (rightBoxState === 3) {
+                    righterBottomBox.style.display = 'flex';
+                    rightBoxState = 4;
+                } else {
+                    rightBoxState = 0; // Reset to initial state
+                }
+            } else { // Second row of brown boxes
+                if (rightBoxState === 2) {
+                    rightBottomBox.style.display = 'flex';
+                    rightBoxState = 3;
+                } else if (rightBoxState === 3) {
+                    righterBottomBox.style.display = 'flex';
+                    rightBoxState = 4;
+                }
+            }
+        }
+    }
+
 
 </script>
+
+
+
 </body>
 </html>
