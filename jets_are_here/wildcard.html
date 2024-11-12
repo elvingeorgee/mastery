@@ -82,6 +82,103 @@
             background-color: brown;
         }
 
+
+        .gradient-box {
+            width: 200px; /* Make it a thin vertical box */
+            height: 500px; /* Adjust the height as necessary */
+            background: linear-gradient(to bottom, green, red); /* Green to red gradient */
+            margin-top: 30px; /* Space between the circle buttons and the gradient box */
+            display: flex; /* Use Flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            margin-left: auto;
+            margin-right: auto; /* Centers the gradient box horizontally */
+            border-radius: 5px;
+            border-color: white;
+        }
+
+        /* Vertical Line */
+        .line {
+            width: 15px; /* Keep the line width narrow */
+            height: 500px; /* Set the height of the line */
+            background: linear-gradient(to bottom, green, red); /* Gradient background */
+            border-radius: 3px;
+            border: 2px solid black; /* Black border around the line */
+            margin: 0 auto; /* Center the line within its parent */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensures the circles are spaced evenly */
+        }
+
+        /* Circle styles inside the line */
+        .line .circle1,.circle2,.circle3,.circle4,.circle5,.circle6,.circle7 {
+            width: 40px; /* Circle width */
+            height: 40px; /* Circle height */
+            background-color: white;
+            border-radius: 50%; /* Make them circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            margin: 0; /* Remove any default margin */
+            position: absolute; /* Absolute positioning inside the .line */
+            left: 50%; /* Position the circle in the center horizontally */
+            transform: translateX(-50%); /* Offset the circle width to ensure it's centered */
+            cursor: pointer;
+        }
+
+        .circle1
+        {
+            background-color: green;
+        }
+
+        /* Circle with the brown background */
+        .line .circle.brown {
+            background-color: brown;
+            color: white;
+        }
+
+        /* Add specific vertical offsets to each circle */
+        .line .circle1:nth-child(1) {
+            top: 0; /* First circle at the top */
+        }
+
+        .line .circle2:nth-child(2) {
+            top: 20%; /* Second circle at the middle */
+            transform: translate(-50%, -50%); /* Adjust for exact centering */
+        }
+
+        .line .circle3:nth-child(3) {
+            top: 40%; /* Second circle at the middle */
+            transform: translate(-50%, -50%); /* Adjust for exact centering */
+        }
+
+        /* Add specific vertical offsets to each circle */
+        .line .circle4:nth-child(4) {
+            top: 50%; /* Second circle at the middle */
+            transform: translate(-50%, -50%); /* Adjust for exact centering */
+        }
+
+        .line .circle5:nth-child(5) {
+            top: 60%; /* Second circle at the middle */
+            transform: translate(-50%, -50%); /* Adjust for exact centering */
+        }
+
+        .line .circle6:nth-child(6) {
+            top: 80%; /* Second circle at the middle */
+            transform: translate(-50%, -50%); /* Adjust for exact centering */
+        }
+
+        .line .circle7:nth-child(7) {
+            bottom: 0;
+        }
+
+
+
+
         /* Positions for all boxes */
         .left-box { left: 10px; }
         .lefter-box { left: 220px; }
@@ -121,6 +218,20 @@
     <div class="whites" onclick="toggleBoxes('left', 1)">W</div>
     <div class="browns" onclick="toggleBoxes('right', 1)">B</div>
 </div>
+
+<div class="gradient-box">
+        <div class="line">
+            <div class="circle1">+3</div>
+            <div class="circle2">+2</div>
+            <div class="circle3">+1</div>
+            <div class="circle4">0</div>
+            <div class="circle5">-1</div>
+            <div class="circle6">-2</div>
+            <div class="circle7">-3</div>
+        </div>
+
+</div>
+
 
 <!-- Hidden boxes that will appear based on the button click -->
 <!-- First row of white and brown boxes -->
