@@ -111,126 +111,82 @@
             justify-content: space-between; /* Ensures the circles are spaced evenly */
         }
 
-        /* Circle styles inside the line */
-        .line .circle1,.circle2,.circle3,.circle4,.circle5,.circle6,.circle7,.number1,.number2,.number3,.number4{
-            width: 40px; /* Circle width */
-            height: 40px; /* Circle height */
+        /* Circle styling */
+        .line .circle1, .circle2, .circle3, .circle4, .circle5, .circle6, .circle7, .number1, .number2, .number3,.number4 {
+            width: 40px;
+            height: 40px;
             background-color: white;
-            border-radius: 50%; /* Make them circular */
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 16px;
             font-weight: bold;
             color: black;
-            margin: 0; /* Remove any default margin */
-            position: absolute; /* Absolute positioning inside the .line */
-            left: 50%; /* Position the circle in the center horizontally */
-            transform: translateX(-50%); /* Offset the circle width to ensure it's centered */
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             cursor: pointer;
         }
 
+        /* Specific circles */
         .line .circle1 {
-            border: 3px solid black; /* Add a black border with 10px width */
-            background-color: teal; /* Set the background color of the circle to green */
+            border: 3px solid black;
+            background-color: teal;
         }
+
         .line .circle2 {
-            border: 3px solid black; /* Add a black border with 10px width */
-            background-color: green; /* Set the background color of the circle to green */
+            border: 3px solid black;
+            background-color: green;
         }
+
         .line .circle3 {
-            border: 3px solid black; /* Add a black border with 10px width */
-            background-color: lightgreen; /* Set the background color of the circle to green */
+            border: 3px solid black;
+            background-color: lightgreen;
         }
+
         .line .circle4 {
-            border: 3px solid black; /* Add a black border */
-            background: linear-gradient(green, red); /* Use 'background' to apply a gradient */
+            border: 3px solid black;
+            background: linear-gradient(green, red);
         }
+
         .line .circle5 {
-            border: 3px solid black; /* Add a black border with 10px width */
-            background-color: yellow; /* Set the background color of the circle to green */
+            border: 3px solid black;
+            background-color: yellow;
         }
+
         .line .circle6 {
-            border: 3px solid black; /* Add a black border with 10px width */
-            background-color: orange; /* Set the background color of the circle to green */
+            border: 3px solid black;
+            background-color: orange;
         }
+
         .line .circle7 {
-            border: 3px solid black; /* Add a black border with 10px width */
-            background-color: red; /* Set the background color of the circle to green */
-        }
-        .line .number1,.number2,.number3,.number4{
-            border: 3px solid black; /* Add a black border with 10px width */
-            background-color: black; /* Set the background color of the circle to green */
-            color:white;
+            border: 3px solid black;
+            background-color: red;
         }
 
-        /* Circle with the brown background */
-        .line .circle.brown {
-            background-color: brown;
-            color: black;
-        }
+        /* Circle positions */
+        .line .circle1 { top: 0; }
+        .line .circle2 { top: 15%; }
+        .line .circle3 { top: 35%; }
+        .line .circle4 { top: 50%; }
+        .line .circle5 { top: 65%; }
+        .line .circle6 { top: 80%; }
+        .line .circle7 { bottom: 0; }
 
-        /* Add specific vertical offsets to each circle */
-        .line .circle1:nth-child(1) {
-            top: 0; /* First circle at the top */
-        }
+        /* Adjust the positioning of numbers to sit next to the circles */
 
-        .line .circle2:nth-child(2) {
-            top: 15%; /* Second circle at the middle */
-            transform: translate(-50%, -50%); /* Adjust for exact centering */
-        }
-
-        .line .circle3:nth-child(3) {
-            top: 30%; /* Second circle at the middle */
-            transform: translate(-50%, -50%); /* Adjust for exact centering */
-        }
-
-        /* Add specific vertical offsets to each circle */
-        .line .circle4:nth-child(4) {
-            top: 50%; /* Second circle at the middle */
-            transform: translate(-50%, -50%); /* Adjust for exact centering */
-        }
-        /*.line .number4:nth-child(5) {*/
-        /*    top: 50%; !* Second circle at the middle *!*/
-        /*    transform: translate(-100%, -50%); !* Adjust for exact centering *!*/
-        /*}*/
-
-        .line .circle5:nth-child(5) {
-            top: 70%; /* Second circle at the middle */
-            transform: translate(-50%, -50%); /* Adjust for exact centering */
-        }
-        .line .number1:nth-child(6) {
-            top: 70%; /* Second circle at the middle */
-            transform: translate(-200%, -50%); /* Adjust for exact centering */
-        }
-
-        .line .number3:nth-child(8) {
-            top: 70%; /* Second circle at the middle */
-            transform: translate(200%, -50%); /* Adjust for exact centering */
-        }
-
-        .line .number2:nth-child(7) {
-            top: 85%; /* Second circle at the middle */
-            transform: translate(-200%, -50%); /* Adjust for exact centering */
-        }
-
-        .line .circle6:nth-child(8) {
-            top: 85%; /* Second circle at the middle */
-            transform: translate(-50%, -50%); /* Adjust for exact centering */
-        }
-
-        .line .circle7:nth-child(9) {
-            bottom: 0;
-        }
-
-        .number1 {
+        /* Number 1: To the left of circle5 */
+        .line .number1 {
             position: absolute;
-            top: 65%; /* Aligns with the top of circle5 */
-            left: 200%; /* Adjust the left position to be right next to circle5 */
+            top: 65%; /* Align with circle5 */
+            left: -250%; /* Position to the left of circle5 */
+            transform: translateX(-100%); /* Move it to the left of the circle */
             width: 40px;
             height: 40px;
-            background-color: white;
-            border: 3px solid black; /* Black border around the number */
+            background-color: yellow;
+            border: 3px solid black;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -240,6 +196,155 @@
             color: black;
             cursor: pointer;
         }
+
+        /* Number 2: To the left of circle6 */
+        .line .number2 {
+            position: absolute;
+            top: 80%; /* Align with circle6 */
+            left: -250%; /* Position to the left of circle6 */
+            transform: translateX(-100%); /* Move it to the left of the circle */
+            width: 40px;
+            height: 40px;
+            background-color: orange;
+            border: 3px solid black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+
+        /* Number 3: To the right of circle5 */
+        .line .number3 {
+            position: absolute;
+            top: 65%; /* Align with circle5 */
+            right: 30%; /* Position to the right of circle5 */
+            transform: translateX(100%); /* Move it to the right of the circle */
+            width: 40px;
+            height: 40px;
+            background-color: yellow;
+            border: 3px solid black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+
+        .line .number4 {
+            position: absolute;
+            top: 50%; /* Align with circle5 */
+            right: 30%; /* Position to the right of circle5 */
+            transform: translateX(100%); /* Move it to the right of the circle */
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(green, red);
+            border: 3px solid black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+
+        .textbox1,.textbox2,.textbox3, .textbox4
+        {
+            background-color: black;
+            border: 1px solid orange;
+            padding: 10px;
+            width: 200px;
+            height:150px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            color: red;
+            margin-left: 120px; /* Moves the box 100px to the right */
+        }
+
+
+        .textbox1
+        {
+            background-color: yellow;
+            border: 1px solid orange;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            color: red;
+            margin-right: 120px; /* Moves the box 100px to the right */
+        }
+
+        .textbox2
+        {
+            background-color: orange;
+            border: 1px solid orange;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            color: red;
+            margin-right: 120px; /* Moves the box 100px to the right */
+        }
+        .textbox3
+        {
+            background-color: yellow;
+            border: 1px solid orange;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            color: red;
+            margin-left: 120px; /* Moves the box 100px to the right */
+        }
+        .textbox4
+        {
+            background: linear-gradient(green, red);
+            border: 1px solid orange;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            color: red;
+            margin-left: 120px; /* Moves the box 100px to the right */
+        }
+
+        .doodoo
+        {
+            background: yellow;
+        }
+
+        .due
+        {
+            background: linear-gradient(green, red);
+            color:black;
+
+        }
+
+        .doo
+        {
+            background: orange;
+        }
+        .stars {
+            display: flex; /* Use flexbox for horizontal arrangement */
+            justify-content: center; /* Center the stars horizontally */
+            gap: 10px; /* Space between the stars */
+            margin-top: 10px; /* Add some space above the stars */
+        }
+
+        .star {
+            font-size: 30px; /* Set the size of the stars */
+            color: gold; /* Make the stars golden */
+            cursor: pointer; /* Change cursor to indicate they are interactive */
+        }
+
 
 
 
@@ -291,12 +396,52 @@
         <div class="circle3" id="circle3">+1</div>
         <div class="circle4" id="circle4">0</div>
         <div class="circle5" id="circle5">-1</div>
-        <div class="number1" id="number1">1</div> <!-- New number 1 div -->
-        <div class="number2" id="number2">2</div> <!-- New number 1 div -->
-<!--        <div class="number3" id="number3">3</div> &lt;!&ndash; New number 1 div &ndash;&gt;-->
-<!--        <div class="number4" id="number4">4</div> &lt;!&ndash; New number 1 div &ndash;&gt;-->
-        <div class="circle6" id="circle6">-2</div>
+        <div class="number1" id="number1">1</div> <!-- Number 1 -->
+        <div class="number2" id="number2">2</div> <!-- Number 2 -->
+        <div class="number3" id="number3">3</div> <!-- Number 3 -->
+        <div class="number4" id="number4">4</div> <!-- Number 3 -->
+        <div class="circle6" id="circle6">-2</div> <!-- -2 circle -->
         <div class="circle7" id="circle7">-3</div>
+
+        <div class="textbox1" id="textbox1" style="display: none;">
+            <label style="background-color: yellow" >Hottest Gilf Ever-Gym</label>
+            <div class="doodoo">There was eye contact, and it felt like it I'd never talk to her, and then that guy went to make the move.</div>
+            <div class="stars">
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+            </div>
+        </div>
+        <div class="textbox2" id="textbox2" style="display: none;">
+            <label style="background-color: orange" >Mid-Filipino Thick Af-Gym</label>
+            <div class="doo">I should've worked-out right next to her, especially since I knew she was a regular.</div>
+            <div class="stars">
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+            </div>
+        </div>
+        <div class="textbox3" id="textbox3" style="display: none;">
+            <label style="background-color: yellow">Fine Engaged Girl-Gym</label>
+            <div class="doodoo">The momentum from the morning run gave me the urge, Jesus Christ she was beautiful</div>
+            <div class="stars">
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+            </div>
+        </div>
+        <div class="textbox4" id="textbox4" style="display: none;">
+            <label style="background: linear-gradient(green, red); color: black" >Mid-Filipino Thick Af-Gym</label>
+            <div class="due">She made little to no eye contact, and made the convo very quick.</div>
+            <div class="stars">
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+            </div>
+        </div>
+
+
     </div>
 </div>
 
@@ -322,13 +467,50 @@
 
 <script>
 
-    const circle1 = document.getElementById('circle1')
-    const circle2 = document.getElementById('circle2')
-    const circle3 = document.getElementById('circle3')
-    const circle4 = document.getElementById('circle4')
-    const circle5 = document.getElementById('circle5')
-    const circle6 = document.getElementById('circle6')
-    const circle7 = document.getElementById('circle7')
+    function toggleTextbox(number) {
+        // Hide all textboxes first
+        hideAllTextboxes();
+
+        // Show the textbox based on the number clicked
+        switch(number) {
+            case 1:
+                document.getElementById("textbox1").style.display = "block";
+                break;
+            case 2:
+                document.getElementById("textbox2").style.display = "block";
+                break;
+            case 3:
+                document.getElementById("textbox3").style.display = "block";
+                break;
+            case 4:
+                document.getElementById("textbox4").style.display = "block";
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Function to hide all textboxes
+    function hideAllTextboxes() {
+        document.getElementById("textbox1").style.display = "none";
+        document.getElementById("textbox2").style.display = "none";
+        document.getElementById("textbox3").style.display = "none";
+        document.getElementById("textbox4").style.display = "none";
+    }
+
+    // Add event listeners to number boxes
+    document.getElementById("number1").addEventListener("click", function() {
+        toggleTextbox(1);
+    });
+    document.getElementById("number2").addEventListener("click", function() {
+        toggleTextbox(2);
+    });
+    document.getElementById("number3").addEventListener("click", function() {
+        toggleTextbox(3);
+    });
+    document.getElementById("number4").addEventListener("click", function() {
+        toggleTextbox(4);
+    });
 
 
 
