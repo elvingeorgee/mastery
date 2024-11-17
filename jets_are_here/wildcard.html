@@ -112,7 +112,7 @@
         }
 
         /* Circle styling */
-        .line .circle1, .circle2, .circle3, .circle4, .circle5, .circle6, .circle7, .number1, .number2, .number3,.number4 {
+        .line .circle1, .circle2, .circle3, .circle4, .circle5, .circle6, .circle7, .number1, .number2, .number3,.number4,.number5 {
             width: 40px;
             height: 40px;
             background-color: white;
@@ -256,7 +256,26 @@
             cursor: pointer;
         }
 
-        .textbox1,.textbox2,.textbox3, .textbox4
+        .line .number5 {
+            position: absolute;
+            top: 35%; /* Align with circle5 */
+            right: 30%; /* Position to the right of circle5 */
+            transform: translateX(100%); /* Move it to the right of the circle */
+            width: 40px;
+            height: 40px;
+            background-color: lightgreen;
+            border: 3px solid black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+
+        .textbox1,.textbox2,.textbox3, .textbox4,.textbox5
         {
             background-color: black;
             border: 1px solid orange;
@@ -316,6 +335,18 @@
             margin-left: 120px; /* Moves the box 100px to the right */
         }
 
+        .textbox5
+        {
+            background: lightgreen;
+            border: 1px solid orange;
+            padding: 10px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            color: red;
+            margin-left: 120px; /* Moves the box 100px to the right */
+        }
+
         .doodoo
         {
             background: yellow;
@@ -331,6 +362,10 @@
         .doo
         {
             background: orange;
+        }
+        .iska
+        {
+            background: lightgreen;
         }
         .stars {
             display: flex; /* Use flexbox for horizontal arrangement */
@@ -400,6 +435,7 @@
         <div class="number2" id="number2">2</div> <!-- Number 2 -->
         <div class="number3" id="number3">3</div> <!-- Number 3 -->
         <div class="number4" id="number4">4</div> <!-- Number 3 -->
+        <div class="number5" id="number5">5</div> <!-- Number 3 -->
         <div class="circle6" id="circle6">-2</div> <!-- -2 circle -->
         <div class="circle7" id="circle7">-3</div>
 
@@ -419,6 +455,8 @@
             <div class="stars">
                 <span class="star">&#9733;</span> <!-- Star symbol -->
                 <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+
             </div>
         </div>
         <div class="textbox3" id="textbox3" style="display: none;">
@@ -436,6 +474,19 @@
             <label style="background: linear-gradient(green, red); color: black" >Mid-Filipino Thick Af-Gym</label>
             <div class="due">She made little to no eye contact, and made the convo very quick.</div>
             <div class="stars">
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+
+            </div>
+        </div>
+        <div class="textbox5" id="textbox5" style="display: none;">
+            <label style="background-color: lightgreen">Iska-Moroccan Queen</label>
+            <div class="iska">It was a cool conversation until the queen thought I was going for a hug. We back up</div>
+            <div class="stars">
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
+                <span class="star">&#9733;</span> <!-- Star symbol -->
                 <span class="star">&#9733;</span> <!-- Star symbol -->
                 <span class="star">&#9733;</span> <!-- Star symbol -->
             </div>
@@ -485,6 +536,9 @@
             case 4:
                 document.getElementById("textbox4").style.display = "block";
                 break;
+            case 5:
+                document.getElementById("textbox5").style.display = "block";
+                break;
             default:
                 break;
         }
@@ -496,6 +550,8 @@
         document.getElementById("textbox2").style.display = "none";
         document.getElementById("textbox3").style.display = "none";
         document.getElementById("textbox4").style.display = "none";
+        document.getElementById("textbox5").style.display = "none";
+
     }
 
     // Add event listeners to number boxes
@@ -511,6 +567,10 @@
     document.getElementById("number4").addEventListener("click", function() {
         toggleTextbox(4);
     });
+    document.getElementById("number5").addEventListener("click", function() {
+        toggleTextbox(5);
+    });
+
 
 
 
