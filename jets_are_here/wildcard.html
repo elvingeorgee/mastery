@@ -312,6 +312,8 @@
             color: red;
             margin-right: 120px; /* Moves the box 100px to the right */
         }
+
+
         .textbox3
         {
             background-color: yellow;
@@ -378,6 +380,71 @@
             font-size: 30px; /* Set the size of the stars */
             color: gold; /* Make the stars golden */
             cursor: pointer; /* Change cursor to indicate they are interactive */
+        }
+
+        .whitey1, .whitey2, .whitey3, .whitey4, .whitey5, .whitey6 {
+            font-size: 14px;
+            background: white;
+            color: black;
+            padding: 5px 10px; /* Optional: add some padding inside each whitey div */
+            width: 100%; /* Ensures whitey divs take up full width of the parent container */
+            display: flex;
+            align-items: center; /* Center the whitey elements horizontally within the box */
+            justify-content: flex-start; /* Align them to the top of the container */
+            width: 100%; /* Ensure the box takes up the full width available */
+            max-width: 500px; /* Optional: set a max-width to prevent stretching too wide */
+            margin: 0 auto; /* Center the box horizontally within the page */
+            box-sizing: border-box;
+            margin-bottom:10px;
+        }
+
+
+
+
+        #leftBox, #lefterBox, #rightBox, #righterBox, #left-bottom-box, #lefter-bottom-box, #right-bottom-box, #righter-bottom-box {
+            background-color: #f4f4f4; /* Light background for the boxes */
+            padding: 15px;
+            margin-bottom: 20px; /* Space between each .box */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        .whitey1
+        {
+            flex-direction:row;
+            justify-content:space-between;
+            background:white;
+            color:black;
+        }
+        .whitey2
+        {
+            top:20%;
+            background:white;
+            color:black;
+        }
+        .whitey3
+        {
+            top:30%;
+            background:white;
+            color:black;
+        }
+        .whitey4
+        {
+            top:40%;
+            background:white;
+            color:black;
+        }
+        .whitey5
+        {
+            top:50%;
+            background:white;
+            color:black;
+        }
+        .whitey6
+        {
+            top:60%;
+            background:white;
+            color:black;
         }
 
 
@@ -498,21 +565,58 @@
 
 <!-- Hidden boxes that will appear based on the button click -->
 <!-- First row of white and brown boxes -->
-<div class="box left-box" id="leftBox">Zara</div>
-<div class="box lefter-box" id="lefterBox">Michelle</div>
+<div class="box left-box" id="leftBox">
+    <div class="whitey1">
+        Zara-99% Percentile Latina<br>
+        First Sight: Sept-23<br>
+        Approach: April-23<br>
+        Int 1: Told her that I saw her at the mall, and had a great exchange<br>
+        Int 2: During mid-conversation I exploded my water bottle on the floor and that was the last time I saw her.<br>
+        Case Closed: Sept 24
+    </div>
+
+</div>
+
+<div class="box lefter-box" id="lefterBox">
+    <div class="whitey1">
+        Michelle-Older Italian Girl<br>
+        First Sight: Sept-23<br>
+        Approach: Jan-23<br>
+        Int 1: Asked her for a piece of gum never got it.<br>
+        Int 2: She stole the weights I was using once, but didn't counter.<br>
+        Case Closed: Sept-24
+    </div>
+</div>
 <div class="box right-box" id="rightBox">Opp 1 </div>
 <div class="box righter-box" id="righterBox">Opp 2</div>
 
 <!-- Second row of white and brown boxes -->
-<div class="box left-bottom-box" id="leftBottomBox">Natalie</div>
-<div class="box lefter-bottom-box" id="lefterBottomBox">Yustina</div>
+<div class="box left-bottom-box" id="leftBottomBox">
+    <div class="whitey1">
+        Natalie-Human Perfection<br>
+        First Sight: April-24<br>
+        Approach: Sept-24<br>
+        Int 1: I complimented her by telling her she looks like Bella Hadid<br>
+        Int 2: Proceeded to avoid eye contact for a while<br>
+        Case Closed: Nov-24
+    </div>
+</div>
+<div class="box lefter-bottom-box" id="lefterBottomBox">
+    <div class="whitey1">
+        Yustina-Latina Perfection<br>
+        First Sight: Oct-23<br>
+        Approach: Sept-24<br>
+        Int 1: I offered her a ride home twice. Both declined<br>
+        Int 2: Teasing with her lifting her sweats up and down then proceed to walk to her bf.<br>
+        Case Closed: Nov-24
+    </div>
+</div>
 <div class="box right-bottom-box" id="rightBottomBox">Gorgeous Engaged Gym Baddie</div>
 <div class="box righter-bottom-box" id="righterBottomBox">Livina</div>
 
 <div class="box lefty-bottom-box" id="leftyBottomBox">Beach Girl</div>
 <div class="box leftyer-bottom-box" id="leftyerBottomBox">Ukraine Girl</div>
-<!--<div class="box right-bottom-box" id="rightBottomBox">Gorgeous Engaged Gym Baddie</div>-->
-<!--<div class="box righter-bottom-box" id="righterBottomBox">Opp 3</div>-->
+
 
 
 
