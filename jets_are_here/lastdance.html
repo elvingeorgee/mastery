@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Dance</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        *{
+            color:pink;
+        }
+
+        .pip{
+            background:orange;
+        }
+
+        .fio{
+            background:blue;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="logo-bar">
+    <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
+    <nav class="navigation">
+        <ul>
+            <li><a href="java.html">Jets</a></li>
+            <li><a href="rangers.html">Rangers</a></li>
+            <li><a href="dreams.html">Dreams</a></li>
+            <li><a href="wildcard.html">Wild Card</a></li>
+            <li><a href="lastdance.html">Progression</a></li>
+        </ul>
+    </nav>
+
+</div>
+
+<!--<button class="pip">Start Machine</button>-->
+<!--<p class="fio">The machine is stopped.</p>-->
+
+<!--<canvas id="myCanvas" width="800" height="600"></canvas>-->
+
+<input id="textBox" type="text"/>
+<div id="output"></div>
+
+<canvas id="myCanvas" width="500" height="400"></canvas>
+
+<script>
+
+    let answer = parseInt(prompt("What is the number you would like to FizzBuzz up to?"))
+    for(i = 0; i < answer;i++)
+    {
+        if(i % 3 === 0 && i % 5 === 0)
+        {
+            printf("FizzBuzz")
+        }
+        else if((i % 3) === 0)
+        {
+            printf("Fizz");
+        }
+        else if(i % 5 === 0)
+        {
+            printf("FizzBuzz")
+        }
+        else
+            printf("%i");
+    }
+
+
+
+
+    // let age = prompt("What is your age?",18);
+    //
+    // let welcome = (age < 18)?
+    //     () => alert("Hello"):
+    //     () => alert("Greetings");
+    //
+    // welcome();
+
+    // Arrow Functions
+
+    // let sum = (a + b) => a + b;
+    //
+    // alert(sum(1,2));
+
+
+
+    // const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada'];
+    // const para = document.createElement('p');
+    //
+    // const shortNames = names.filter(name => name.length < 5);
+    // para.textContent = shortNames;
+    //
+    // section.innerHTML = ' ';
+    //
+    // section.appendChild(para);
+
+
+    // const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+    // const para = document.createElement('p');
+    //
+    // // Add your code here
+    // function random(min,max)
+    // {
+    //     return Math.floor(Math.random() * (max - min) + min);
+    // }
+    //
+    // function chooseName(names)
+    // {
+    //     const randomIndex = random(0, names.length)
+    //     return names[randomIndex];
+    //
+    // }
+
+    // Don't edit the code below here!
+
+    section.innerHTML = ' ';
+
+    section.appendChild(para);
+
+
+    // const canvas = document.querySelector('#myCanvas');
+    // const ctx = canvas.getContext('2d');
+    //
+    // const x = 50;
+    // const y = 60;
+    // const width = 100;
+    // const height = 75;
+    // const color = 'blue';
+    //
+    // function drawRectangle(x, y, width, height, color)
+    // {
+    //     ctx.fillStyle = color;
+    //     ctx.fillRect(x, y, width, height);
+    // }
+    //
+    // drawRectangle(x, y, width, height, color);
+
+
+    // const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+    // const para = document.createElement('p');
+    //
+    // function chooseName()
+    // {
+    //     const randomIndex = Math.floor(Math.random() * names.length);
+    //     return names[randomIndex];
+    // }
+
+
+
+    // const x = 1;
+    //
+    // function a() {
+    //     const y = 2;
+    //     output(y);
+    // }
+    //
+    // function b() {
+    //     const z = 3;
+    //     output(z);
+    // }
+    //
+    // function output(value) {
+    //     const para = document.createElement('p');
+    //     document.body.appendChild(para);
+    //     para.textContent = `Value: ${value}`;
+    // }
+
+    // const textbox = document.getElementById("#textBox");
+    // const output = document.querySelector("#output")
+    //
+    // textBox.addEventListener("keydown", (event)=> {
+    //     output.textContent = `Suck ya mum "${event.key}.`;
+    // });
+
+
+    // function logKey(event)
+    // {
+    //     console.log(`You pressed "${event.key}".`)
+    // }
+    // textBox.addEventListener("keydown", logKey);
+
+    // textBox.addEventListener("keydown", (event) => {
+    //     console.log(`You pressed "${event.key}".`)
+    // })
+
+    // const originals = [1, 2, 3];
+    // const doubled = originals.map(item => item *2);
+    // console.log(doubled);
+
+
+    // function myFunction()
+    // {
+    //     alert("hello");
+    // }
+    //
+    // myFunction();
+
+
+
+// <!--    Set Up the canvas context-->
+// const canvas = document.getElementById("myCanvas");
+// const ctx = canvas.getContext("2d");
+//
+// // Set the canvas width and height as constants(same as canvas dimensions)
+// const WIDTH = canvas.width;
+// const HEIGHT = canvas.height;
+//
+// // Helper function to generate random values
+// function random(max)
+// {
+//     return Math.random() * max;
+// }
+//
+// function draw()
+// {
+//     ctx.clearRect(0, 0, WIDTH, HEIGHT);
+//     for(let i = 0; i < 100;i++)
+//     {
+//         ctx.beginPath();
+//         ctx.fillStyle = "rgb(255, 0, 0, 0.5)";
+//     //     Red Color with 50% transparency
+//         ctx.arc(random(WIDTH), random(HEIGHT),random(50), 0, 2 * Math.PI);
+//         ctx.fill();
+//     }
+// }
+//
+// const startButton = document.querySelector('.pip');
+// startButton.addEventListener('click', function()
+// {
+//   draw();
+//   document.querySelector('.fio').textContent = 'The machine is running.';
+// });
+
+
+
+
+    // const numy = Math.random();
+    // console.log(numy);
+
+    // const arry = ["I", "am", "in", "fucking", "pain"];
+    // const igo = arry.join(" ");
+    // console.log(igo);
+
+    // const texter = "My text is that I'm in pain";
+    // const newText = texter.replace("text", "ear")
+    // console.log(newText);
+
+    // function kill(num1, num2)
+    // {
+    //     return num1 + num2;
+    // }
+    //
+    // console.log(kill(44,44));
+
+
+    // function myFaveAnimal(animal)
+    // {
+    //     return animal + "is my favorite animal";
+    // }
+
+    // console.log(myFaveAnimal("bitchassniggas"));
+    // const birthYear = 1996;
+    // const thisYear = 2024;
+    // const firstName = "Elvin";
+    // const lastName = "George";
+    // age = thisYear - birthYear;
+    //
+    // const greeting = "Hello my name is " + firstName +" " + lastName + " and I am " + age + " years old";
+    //
+    // console.log(greeting);
+
+    // const a = 1;
+    // const b = 1;
+    //
+    // result = "a" + "b";
+    // // code above is in string so it won't return it back properly
+    // result = a + b;
+    //
+    // console.log(result);
+
+    // number = Number(prompt("enter a number"));
+    //
+    // function numberChecker()
+    // {
+    //     function numberChecker(){
+    //           if(number == 6)
+    //           {
+    //               return true;
+    //           }
+    //           else
+    //           {
+    //               return false;
+    //           }
+    //     }
+    // }
+
+    // const a = 1 + 8;
+    // const b = 22 * 3;
+    // const c = 5 % 4;
+    // const d = a - 17;
+    // const e = a + b + c + d;
+    //
+    // console.log(a, b, c, d, e);
+
+
+    // const lotsOfDecimal = 1.7849940384093;
+    // lotsOfDecimal;
+    // const twoDecimalPlaces = lotsOfDecimal.toFixed(2);
+    // console.log(twoDecimalPlaces);
+
+    // const myInt = 5;
+    // const myFloat = 6.667;
+    //
+    // typeof myInt;
+    // typeof myFloat;
+    //
+    // console.log(typeof myInt)
+    // console.log(typeof myFloat)
+
+
+
+    // let name = "poop";
+        // let pip = "popoo";
+        // console.log(name);
+        // console.log(pip);
+
+        // let age = 11;
+        // console.log(age);
+        //
+        // age = 55;
+        // console.log(age);
+
+        // const pi = 3.14;
+        // pi = 10;
+        //
+        // console.log(pi);
+
+        // console.log((4 + 6 + 9)/77);
+
+        // let a = 10;
+        // console.log(a);
+        // console.log((9 * a));
+        // let b = 7 * a;
+        // console.log(b);
+
+        // const max = 57;
+        // let actual = max-13;
+        // let percentage = actual/max;
+        // console.log(percentage);
+
+        // let username;
+        // let test123;
+
+        // let $ = 1;
+        // let _ = 2;
+        //
+        // alert($ + _);
+
+        const btn = document.querySelector("button");
+        const txt = document.querySelector("p");
+
+        btn.addEventListener("click", updateBtn);
+
+        function updateBtn()
+        {
+            if(btn.textContent === "Start Machine")
+            {
+             btn.textContent = "Stop Machine";
+             txt.textContent = "The machine has started";
+            }
+            else
+            {
+                btn.textContent = "Start Machine";
+                txt.textContent = "The machine is stopped"
+            }
+        }
+
+
+
+
+</script>
+</body>
+</html>
