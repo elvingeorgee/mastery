@@ -19,6 +19,29 @@
             background:blue;
         }
 
+        .rock,.paper,.scissors{
+            width:40px;
+            height:40px;
+            justify-content: center;
+            color:black;
+            font-size:8px;
+        }
+
+        .hscore,.cpuscore{
+            height:50px;
+            width:50px;
+        }
+
+        .rock{
+            background:pink;
+        }
+        .paper{
+            background:orange;
+        }
+        .scissors{
+            background:magenta;
+        }
+
     </style>
 </head>
 <body>
@@ -42,31 +65,128 @@
 
 <!--<canvas id="myCanvas" width="800" height="600"></canvas>-->
 
-<input id="textBox" type="text"/>
-<div id="output"></div>
+<!--<input id="textBox" type="text"/>-->
+<!--<div id="output"></div>-->
 
-<canvas id="myCanvas" width="500" height="400"></canvas>
+<!--<canvas id="myCanvas" width="500" height="400"></canvas>-->
+
+<div class="rps">
+    <div id="hscore" class="hscore">Human Score
+    </div>
+    <div id="cpuscore" class="cpuscore">CPU Score
+    </div>
+    <button id="rock" class="rock">Rock</button>
+    <button id="paper" class="paper">Paper</button>
+    <button id="scissors" class="scissors">Szscor</button>
+</div>
 
 <script>
+    let humanScore = 0;
+    let cpuScore = 0;
 
-    let answer = parseInt(prompt("What is the number you would like to FizzBuzz up to?"))
-    for(i = 0; i < answer;i++)
+    const rock = document.getElementById("rock");
+    const paper = document.getElementById("paper");
+    const scissors = document.getElementById("scissors");
+    let hscore = document.getElementById("hscore");
+    let cpuscore = document.getElementById("cpuscore");
+
+    function randomNumber()
     {
-        if(i % 3 === 0 && i % 5 === 0)
+        return Math.floor(Math.random() * 3) + 1;
+    }
+
+    function updateScores()
+    {
+        hscore.textContent= `Human Score : ${humanScore}`;
+        cpuscore.textContent= `CPU Score : ${cpuScore}`;
+
+    }
+
+    rock.addEventListener("click", function(){
+
+        const ranNum = randomNumber()
+        if(ranNum === 1)
         {
-            printf("FizzBuzz")
+            alert("Draw!")
         }
-        else if((i % 3) === 0)
+        else if(ranNum === 2)
         {
-            printf("Fizz");
-        }
-        else if(i % 5 === 0)
-        {
-            printf("FizzBuzz")
+            cpuScore++;
+            alert("You Win!")
         }
         else
-            printf("%i");
-    }
+        {
+            hScore++;
+            alert("You Lose!")
+        }
+        updateScores()
+
+
+    })
+
+    paper.addEventListener("click", function(){
+
+        const ranNum = randomNumber()
+        if(ranNum === 1)
+        {
+            hScore++;
+            alert("You Win!")
+        }
+        else if(ranNum === 2)
+        {
+            alert("Draw!")
+        }
+        else
+        {
+            cpuScore++;
+            alert("You Lose!")
+
+        }
+        updateScores()
+
+    })
+
+    scissors.addEventListener("click", function(){
+
+        const ranNum = randomNumber()
+        if(ranNum === 1)
+        {
+            cpuScore+1;
+            alert("You Lose!")
+        }
+        else if(ranNum === 2)
+        {
+            hScore++;
+            alert("You Win!")
+        }
+        else
+        {
+            alert("Draw!")
+        }
+
+        updateScores()
+
+    })
+
+
+    // let answer = parseInt(prompt("What is the number you would like to FizzBuzz up to?"))
+    // for(i = 0; i < answer;i++)
+    // {
+    //     if(i % 3 === 0 && i % 5 === 0)
+    //     {
+    //         printf("FizzBuzz")
+    //     }
+    //     else if((i % 3) === 0)
+    //     {
+    //         printf("Fizz");
+    //     }
+    //     else if(i % 5 === 0)
+    //     {
+    //         printf("FizzBuzz")
+    //     }
+    //     else
+    //         printf("%i");
+    // }
 
 
 
