@@ -2,21 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Last Dance</title>
     <link rel="stylesheet" href="style.css">
     <style>
 
-        *{
-            color:pink;
+        .canvas {
+            border: 1px solid green;
+            margin-top: 10px;
+            width: 25%;  /* 25% width of the parent container */
+            height: 300px;  /* Fixed height of 300px */
         }
 
-        .pip{
-            background:orange;
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
         }
 
-        .fio{
-            background:blue;
+        .rps
+        {
+            display:flex;
+            justify-content: space-between;
         }
 
         .rock,.paper,.scissors{
@@ -27,7 +35,12 @@
             font-size:8px;
         }
 
+        .rock:hover, .paper:hover, .scissors:hover {
+            opacity: 0.8;
+        }
+
         .hscore,.cpuscore{
+            color:pink;
             height:50px;
             width:50px;
         }
@@ -40,6 +53,24 @@
         }
         .scissors{
             background:magenta;
+        }
+
+        .gas
+        {
+            background:white;
+            color:green;
+        }
+
+        .subs
+        {
+            background:red;
+            color:magenta;
+        }
+
+        .food
+        {
+            background:teal;
+            color:white;
         }
 
     </style>
@@ -60,15 +91,6 @@
 
 </div>
 
-<!--<button class="pip">Start Machine</button>-->
-<!--<p class="fio">The machine is stopped.</p>-->
-
-<!--<canvas id="myCanvas" width="800" height="600"></canvas>-->
-
-<!--<input id="textBox" type="text"/>-->
-<!--<div id="output"></div>-->
-
-<!--<canvas id="myCanvas" width="500" height="400"></canvas>-->
 
 <div class="rps">
     <div id="hscore" class="hscore">Human Score
@@ -80,7 +102,118 @@
     <button id="scissors" class="scissors">Szscor</button>
 </div>
 
+<div class="card-container">
+    <table class="gas" id="gas">
+        <tr>
+            <td>Frequency</td>
+            <td>Price</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>$126.19</td>
+        </tr>
+    </table>
+
+    <table class="food" id="food">
+        <tr>
+            <td>Frequency</td>
+            <td>Price</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>$255.45</td>
+        </tr>
+    </table>
+
+    <table class="subs" id="subs">
+        <tr>
+            <td>Sub</td>
+            <td>Price</td>
+        </tr>
+        <tr>
+            <td>Youtube</td>
+            <td>$16.99</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>$67.80</td>
+        </tr>
+        <tr>
+            <td>iCloud</td>
+            <td>$14.99</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>$126.19</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>$126.19</td>
+        </tr>
+    </table>
+
+</div>
+
+<div style="width: 1000px; height: 400px;">
+    <canvas id="scatterplot" class="canvas"></canvas>
+</div>
 <script>
+
+    const canvas = document.getElementById("scatterplot");
+    const ctx = canvas.getContext('2d');
+
+    // Dynamically set canvas width and height based on its CSS size
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    const data = [
+        { x: 10, y: 20 },
+        { x: 15, y: 30 },
+        { x: 20, y: 25 },
+        { x: 25, y: 40 },
+        { x: 30, y: 35 },
+        { x: 35, y: 50 },
+        { x: 40, y: 45 }
+
+    ];
+    // Sample Data
+    const scatterChart = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Scatter Plot Example',
+                data: data,
+                backgroundColor: 'rgba(75, 192, 192, 1)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    min: 0,  // Set min value to avoid negative space
+                    max: 50, // Limit x-axis range
+                    title: {
+                        display: true,
+                        text: 'X Axis'
+                    }
+                },
+                y: {
+                    min: 0,  // Set min value to avoid negative space
+                    max: 50, // Limit y-axis range
+                    title: {
+                        display: true,
+                        text: 'Y Axis'
+                    }
+                }
+            }
+        }
+    });
+
+
     let humanScore = 0;
     let cpuScore = 0;
 
@@ -112,12 +245,12 @@
         else if(ranNum === 2)
         {
             cpuScore++;
-            alert("You Win!")
+            alert("You Lose!")
         }
         else
         {
-            hScore++;
-            alert("You Lose!")
+            humanScore++;
+            alert("You Win!")
         }
         updateScores()
 
@@ -129,7 +262,7 @@
         const ranNum = randomNumber()
         if(ranNum === 1)
         {
-            hScore++;
+            humanScore++;
             alert("You Win!")
         }
         else if(ranNum === 2)
@@ -156,7 +289,7 @@
         }
         else if(ranNum === 2)
         {
-            hScore++;
+            humanScore++;
             alert("You Win!")
         }
         else
@@ -165,6 +298,7 @@
         }
 
         updateScores()
+
 
     })
 
