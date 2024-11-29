@@ -118,15 +118,34 @@
             margin-top:5px;
         }
 
-        .shoulders
+        /*.shoulders,.arms,.chest,.back*/
+        /*{*/
+        /*    display:none;*/
+        /*    width:80%;*/
+        /*    margin-top:20px;*/
+        /*    background:black;*/
+        /*    color:white;*/
+        /*    justify-content:center;*/
+        /*    align-items:center;*/
+        /*    text-align:center;*/
+        /*}*/
+
+        .shoulders,.arms
         {
+            display:none;
             margin-top:20px;
             background: pink;
-            display:flex;
             color:white;
             justify-content:center;
             align-items:center;
             text-align:center;
+        }
+
+        table
+        {
+            border-collapse:collapse;
+            width:100%;
+            border: 1px solid black;
         }
 
 
@@ -183,70 +202,70 @@
         <div class="singsing">
         <button class="chingching">Chest</button>
         <button class="chingching">Back</button>
-        <button class="chingching">Shoulders</button>
-        <button class="chingching">Arms</button>
+            <button class="chingching" onclick="showTable('shoulders')">Shoulders</button>
+            <button class="chingching" onclick="showTable('arms')">Arms</button>
         </div>
 
-<!--        <table class="shoulders">-->
-<!--            <tr>-->
-<!--                <td>Date</td>-->
-<!--                <td>Shoulder Press</td>-->
-<!--                <td>Side Raise(Mach)</td>-->
-<!--                <td>Rope Pull</td>-->
-<!--                <td>4 x 4</td>-->
-<!--                <td>Bent Over Swings</td>-->
-<!--                <td>Arnold's</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>11.27</td>-->
-<!--                <td>10s(3)-15s</td>-->
-<!--                <td>40s(3)-50s(2)</td>-->
-<!--                <td>50s(3)-60s(1)</td>-->
-<!--                <td>10s(3)-20s(1)</td>-->
-<!--                <td>6</td>-->
-<!--                <td>7</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>1</td>-->
-<!--                <td>2</td>-->
-<!--                <td>3</td>-->
-<!--                <td>4</td>-->
-<!--                <td>5</td>-->
-<!--                <td>6</td>-->
-<!--                <td>7</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>1</td>-->
-<!--                <td>2</td>-->
-<!--                <td>3</td>-->
-<!--                <td>4</td>-->
-<!--                <td>5</td>-->
-<!--                <td>6</td>-->
-<!--                <td>7</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>1</td>-->
-<!--                <td>2</td>-->
-<!--                <td>3</td>-->
-<!--                <td>4</td>-->
-<!--                <td>5</td>-->
-<!--                <td>6</td>-->
-<!--                <td>7</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>1</td>-->
-<!--                <td>2</td>-->
-<!--                <td>3</td>-->
-<!--                <td>4</td>-->
-<!--                <td>5</td>-->
-<!--                <td>6</td>-->
-<!--                <td>7</td>-->
-<!--            </tr>-->
+        <table class="shoulders" id="shoulders">
+            <tr>
+                <td>Date</td>
+                <td>Shoulder Press</td>
+                <td>Side Raise(Mach)</td>
+                <td>Rope Pull</td>
+                <td>4 x 4</td>
+                <td>Bent Over Swings</td>
+                <td>Arnold's</td>
+            </tr>
+            <tr>
+                <td>11.27</td>
+                <td>10s(3)-15s</td>
+                <td>40s(3)-50s(2)</td>
+                <td>50s(3)-60s(1)</td>
+                <td>10s(3)-20s(1)</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
 
 
-<!--        </table>-->
+        </table>
 
-        <table class="shoulders">
+        <table class="arms" id="arms">
             <tr>
                 <td>Date</td>
                 <td>2-Hand Curls(Mac)</td>
@@ -310,6 +329,22 @@
 
 
 <script>
+
+    function showTable(table)
+    {
+    //     Hide Both tables
+        document.querySelector('.shoulders').style.display = 'none';
+        document.querySelector('.arms').style.display = 'none';
+
+    //     Show the selected table
+        document.querySelector('.' + table).style.display = 'block';
+    }
+
+    window.onload = function()
+    {
+        showTable('shoulders');
+    };
+
 
     const xValues = ["2020", "2021", "2022", "2023", "2024"];
     const yValues = [12372, 14327, 10319, 12831, 7747];  // Total values
