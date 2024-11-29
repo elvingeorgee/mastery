@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Last Dance</title>
     <link rel="stylesheet" href="style.css">
     <style>
 
+        .bari
+        {
+            border:1px solid green;
+        }
+
         .canvas {
             border: 1px solid green;
-            margin-top: 10px;
+            margin-top: 20px;
             width: 25%;  /* 25% width of the parent container */
             height: 300px;  /* Fixed height of 300px */
         }
@@ -35,7 +42,7 @@
             font-size:8px;
         }
 
-        .rock:hover, .paper:hover, .scissors:hover {
+        .rock:hover, .paper:hover, .scissors, .chingching:hover {
             opacity: 0.8;
         }
 
@@ -73,6 +80,63 @@
             color:white;
         }
 
+        .graphis
+        {
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%; height: 400px;
+        }
+
+        .strength
+        {
+            border:1px solid green;
+            width:50%;
+            height:90%;
+            background:black;
+        }
+
+        .titties
+        {
+            background:black;
+            color:white;
+            display:flex;
+            justify-content:center;
+            text-align:center;
+        }
+        .chingching
+        {
+            background:black;
+            color:white;
+        }
+
+        .singsing
+        {
+            background:black;
+            justify-content:center;
+            text-align:center;
+            margin-top:5px;
+        }
+
+        .shoulders
+        {
+            margin-top:20px;
+            background: pink;
+            display:flex;
+            color:white;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+
+
+
+        th, td {
+            border: 1px solid white;      /* Add borders to the table cells */
+            padding: 10px;                /* Add some padding inside the cells */
+            text-align: center;           /* Optional: centers the text inside the cells */
+        }
+
     </style>
 </head>
 <body>
@@ -100,119 +164,231 @@
     <button id="rock" class="rock">Rock</button>
     <button id="paper" class="paper">Paper</button>
     <button id="scissors" class="scissors">Szscor</button>
-</div>
-
-<div class="card-container">
-    <table class="gas" id="gas">
-        <tr>
-            <td>Frequency</td>
-            <td>Price</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>$126.19</td>
-        </tr>
-    </table>
-
-    <table class="food" id="food">
-        <tr>
-            <td>Frequency</td>
-            <td>Price</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>$255.45</td>
-        </tr>
-    </table>
-
-    <table class="subs" id="subs">
-        <tr>
-            <td>Sub</td>
-            <td>Price</td>
-        </tr>
-        <tr>
-            <td>Youtube</td>
-            <td>$16.99</td>
-        </tr>
-        <tr>
-            <td>Phone</td>
-            <td>$67.80</td>
-        </tr>
-        <tr>
-            <td>iCloud</td>
-            <td>$14.99</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>$126.19</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>$126.19</td>
-        </tr>
-    </table>
 
 </div>
 
-<div style="width: 1000px; height: 400px;">
-    <canvas id="scatterplot" class="canvas"></canvas>
+
+<div class="graphis">
+
+    <!-- Bar Chart -->
+    <div style="width: 48%; height: 100%;">
+
+        <canvas id="myChart" class="bari"></canvas>
+
+    </div>
+
+    <div class="strength">
+
+        <div class="titties">13's</div>
+        <div class="singsing">
+        <button class="chingching">Chest</button>
+        <button class="chingching">Back</button>
+        <button class="chingching">Shoulders</button>
+        <button class="chingching">Arms</button>
+        </div>
+
+<!--        <table class="shoulders">-->
+<!--            <tr>-->
+<!--                <td>Date</td>-->
+<!--                <td>Shoulder Press</td>-->
+<!--                <td>Side Raise(Mach)</td>-->
+<!--                <td>Rope Pull</td>-->
+<!--                <td>4 x 4</td>-->
+<!--                <td>Bent Over Swings</td>-->
+<!--                <td>Arnold's</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>11.27</td>-->
+<!--                <td>10s(3)-15s</td>-->
+<!--                <td>40s(3)-50s(2)</td>-->
+<!--                <td>50s(3)-60s(1)</td>-->
+<!--                <td>10s(3)-20s(1)</td>-->
+<!--                <td>6</td>-->
+<!--                <td>7</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>1</td>-->
+<!--                <td>2</td>-->
+<!--                <td>3</td>-->
+<!--                <td>4</td>-->
+<!--                <td>5</td>-->
+<!--                <td>6</td>-->
+<!--                <td>7</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>1</td>-->
+<!--                <td>2</td>-->
+<!--                <td>3</td>-->
+<!--                <td>4</td>-->
+<!--                <td>5</td>-->
+<!--                <td>6</td>-->
+<!--                <td>7</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>1</td>-->
+<!--                <td>2</td>-->
+<!--                <td>3</td>-->
+<!--                <td>4</td>-->
+<!--                <td>5</td>-->
+<!--                <td>6</td>-->
+<!--                <td>7</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>1</td>-->
+<!--                <td>2</td>-->
+<!--                <td>3</td>-->
+<!--                <td>4</td>-->
+<!--                <td>5</td>-->
+<!--                <td>6</td>-->
+<!--                <td>7</td>-->
+<!--            </tr>-->
+
+
+<!--        </table>-->
+
+        <table class="shoulders">
+            <tr>
+                <td>Date</td>
+                <td>2-Hand Curls(Mac)</td>
+                <td>2-Hand Extendo(Mach)</td>
+                <td>Pull-Up</td>
+                <td>Tricep Drops</td>
+                <td>Cable Curl</td>
+                <td>Tri PullDown</td>
+            </tr>
+            <tr>
+                <td>11.28</td>
+                <td>40s(3)-50s</td>
+                <td>40s(2)-50s-60s</td>
+                <td>4</td>
+                <td>110s(3)-130s-150s</td>
+                <td>6</td>
+                <td>32.5(2)-37.5-42.5</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+
+
+        </table>
+    </div>
 </div>
+
+
+
 <script>
 
-    const canvas = document.getElementById("scatterplot");
-    const ctx = canvas.getContext('2d');
+    const xValues = ["2020", "2021", "2022", "2023", "2024"];
+    const yValues = [12372, 14327, 10319, 12831, 7747];  // Total values
+    const partialYValues = [880, 1774, 2578, 1575, 290];  // Partial values to highlight
+    const weedValues = [602, 995, 554, 1398, 31];  // Weed values to include in the stack
+    const barColors = ["teal", "red", "green", "blue", "orange"];
 
-    // Dynamically set canvas width and height based on its CSS size
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-
-    const data = [
-        { x: 10, y: 20 },
-        { x: 15, y: 30 },
-        { x: 20, y: 25 },
-        { x: 25, y: 40 },
-        { x: 30, y: 35 },
-        { x: 35, y: 50 },
-        { x: 40, y: 45 }
-
-    ];
-    // Sample Data
-    const scatterChart = new Chart(ctx, {
-        type: 'scatter',
+    new Chart("myChart", {
+        type: "bar",
         data: {
-            datasets: [{
-                label: 'Scatter Plot Example',
-                data: data,
-                backgroundColor: 'rgba(75, 192, 192, 1)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
+            labels: xValues,  // x-axis labels (e.g., years)
+            datasets: [
+                {
+                    label: "Base Expenses",  // Label for the base portion of the bar
+                    backgroundColor: barColors,  // Base colors for each bar
+                    data: yValues.map((y, i) => y - partialYValues[i] - weedValues[i]),  // Base value = total - partial - weed
+                    stack: "stack1",  // Assign to a stack group
+                },
+                {
+                    label: "Weed Expenses",  // Label for the weed portion
+                    backgroundColor: "rgba(153, 102, 255, 0.5)",  // Color for the weed portion
+                    data: weedValues,  // Weed values data
+                    stack: "stack1",  // Assign to the same stack group
+                },
+                {
+                    label: "Partial Expenses",  // Label for the partial portion
+                    backgroundColor: "rgba(255, 99, 132, 0.5)",  // Color for the partial portion
+                    data: partialYValues,  // Partial expenses data
+                    stack: "stack1",  // Assign to the same stack group
+                }
+            ]
         },
         options: {
             responsive: true,
+            legend: { display: false },  // Hide the legend to prevent duplicate labels
+            title: {
+                display: true,
+                text: "Day 2 Day Expenses(20-24)"  // Title of the chart
+            },
             scales: {
-                x: {
-                    type: 'linear',
-                    position: 'bottom',
-                    min: 0,  // Set min value to avoid negative space
-                    max: 50, // Limit x-axis range
-                    title: {
-                        display: true,
-                        text: 'X Axis'
-                    }
-                },
                 y: {
-                    min: 0,  // Set min value to avoid negative space
-                    max: 50, // Limit y-axis range
+                    suggestedMin: 6000,  // Suggested minimum for the Y-axis
+                    suggestedMax: 15000,  // Suggested maximum for the Y-axis
+                    stacked: true,  // Enable stacking for the y-axis
+                    ticks: {
+                        stepSize: 1000,  // Step size of 1000 between tick marks
+                    },
                     title: {
                         display: true,
-                        text: 'Y Axis'
+                        text: 'Amount ($)'  // Y-axis label
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        // Custom tooltip to show both total, partial, and weed values together
+                        label: function(tooltipItem) {
+                            const datasetIndex = tooltipItem.datasetIndex;
+                            const datasetLabel = tooltipItem.dataset.label;
+                            const dataValue = tooltipItem.raw;
+                            const partialValue = partialYValues[tooltipItem.dataIndex];
+                            const weedValue = weedValues[tooltipItem.dataIndex];
+
+                            if (datasetLabel === "Base Expenses") {
+                                return `${datasetLabel}: $${dataValue} (Partial: $${partialValue}, Weed: $${weedValue})`;
+                            } else if (datasetLabel === "Weed Expenses") {
+                                return `${datasetLabel}: $${dataValue}`;
+                            } else if (datasetLabel === "Partial Expenses") {
+                                return `${datasetLabel}: $${dataValue}`;
+                            } else {
+                                return `${datasetLabel}: $${dataValue}`;
+                            }
+                        }
                     }
                 }
             }
         }
     });
-
 
     let humanScore = 0;
     let cpuScore = 0;
