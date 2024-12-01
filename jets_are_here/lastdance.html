@@ -88,72 +88,101 @@
             width: 100%; height: 400px;
         }
 
-        .strength
-        {
-            border:1px solid green;
-            width:50%;
-            height:90%;
-            background:black;
+        /* Styling for .strength container */
+        .strength {
+            border: 1px solid green;
+            width: 50%;
+            height: 115%;
+            background: black;
+            padding: 20px;
+            box-sizing: border-box;  /* Ensure padding is included in width/height calculations */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .titties
-        {
-            background:black;
-            color:white;
-            display:flex;
-            justify-content:center;
-            text-align:center;
-        }
-        .chingching
-        {
-            background:black;
-            color:white;
+        /* Title area */
+        .titties {
+            background: black;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
-        .singsing
-        {
-            background:black;
-            justify-content:center;
-            text-align:center;
-            margin-top:5px;
+        /* Styling for the button container */
+        .singsing {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;  /* Space between buttons */
+            margin-bottom: 20px;
         }
 
-        /*.shoulders,.arms,.chest,.back*/
-        /*{*/
-        /*    display:none;*/
-        /*    width:80%;*/
-        /*    margin-top:20px;*/
-        /*    background:black;*/
-        /*    color:white;*/
-        /*    justify-content:center;*/
-        /*    align-items:center;*/
-        /*    text-align:center;*/
-        /*}*/
-
-        .shoulders,.arms
-        {
-            display:none;
-            margin-top:20px;
-            background: pink;
-            color:white;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
+        .chingching {
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        table
-        {
-            border-collapse:collapse;
-            width:100%;
-            border: 1px solid black;
+        /* Hover effect for buttons */
+        .chingching:hover {
+            background-color: gray;
         }
 
+        /* Style for the tables */
+        .shoulders, .arms {
+            display: none;
+            margin-top: 20px;
+            background: black;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
 
+        /* General table styling */
+        table {
+            width: 100%; /* Full width */
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: white;
+        }
 
         th, td {
-            border: 1px solid white;      /* Add borders to the table cells */
-            padding: 10px;                /* Add some padding inside the cells */
-            text-align: center;           /* Optional: centers the text inside the cells */
+            border: 1px solid white;  /* Table borders */
+            padding: 12px 20px;  /* Larger padding for better readability */
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* Adjusting the first row (headings) */
+        th {
+            background-color: #333;  /* Dark background for headers */
+            font-size: 18px;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .strength {
+                width: 90%;  /* Make the strength container more flexible on smaller screens */
+            }
+
+            .chingching {
+                font-size: 14px;
+                padding: 8px 16px;  /* Reduce button size on small screens */
+            }
+
+            table th, table td {
+                font-size: 14px;  /* Smaller font size for small screens */
+                padding: 8px 12px;  /* Reduced padding on small screens */
+            }
         }
 
     </style>
@@ -200,8 +229,8 @@
 
         <div class="titties">13's</div>
         <div class="singsing">
-        <button class="chingching">Chest</button>
-        <button class="chingching">Back</button>
+            <button class="chingching" onclick="showTable('chest')">Chest</button>
+            <button class="chingching" onclick="showTable('back')">Back</button>
             <button class="chingching" onclick="showTable('shoulders')">Shoulders</button>
             <button class="chingching" onclick="showTable('arms')">Arms</button>
         </div>
@@ -218,10 +247,10 @@
             </tr>
             <tr>
                 <td>11.27</td>
-                <td>10s(3)-15s</td>
-                <td>40s(3)-50s(2)</td>
-                <td>50s(3)-60s(1)</td>
-                <td>10s(3)-20s(1)</td>
+                <td>10-15-17.5(2)</td>
+                <td>50(2)-65(2)</td>
+                <td>32.5-37.5</td>
+                <td>5</td>
                 <td>6</td>
                 <td>7</td>
             </tr>
@@ -268,11 +297,11 @@
         <table class="arms" id="arms">
             <tr>
                 <td>Date</td>
-                <td>2-Hand Curls(Mac)</td>
-                <td>2-Hand Extendo(Mach)</td>
+                <td>Curl Mac</td>
+                <td>Tri Mac</td>
                 <td>Pull-Up</td>
                 <td>Tricep Drops</td>
-                <td>Cable Curl</td>
+                <td>Bar Curl</td>
                 <td>Tri PullDown</td>
             </tr>
             <tr>
@@ -281,8 +310,126 @@
                 <td>40s(2)-50s-60s</td>
                 <td>4</td>
                 <td>110s(3)-130s-150s</td>
-                <td>6</td>
+                <td>40s(3)-50s</td>
                 <td>32.5(2)-37.5-42.5</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+
+
+        </table>
+
+        <table class="chest" id="chest">
+            <tr>
+                <td>Date</td>
+                <td>Incline Press</td>
+                <td>Incline Mac</td>
+                <td>Incline Db</td>
+                <td>Push-Ups</td>
+                <td>Db Flies</td>
+                <td>Dips</td>
+            </tr>
+            <tr>
+                <td>11.29</td>
+                <td>25-30-35(2)</td>
+                <td>45-70-75-80-</td>
+                <td>4</td>
+                <td>94</td>
+                <td>22.5-25(2)-30</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+
+
+        </table>
+
+        <table class="back" id="back">
+            <tr>
+                <td>Date</td>
+                <td>Lat PullB</td>
+                <td>Lat PullD</td>
+                <td>Pull-Up</td>
+                <td>Mac PullB</td>
+                <td>Mac PullD</td>
+                <td>Pendalay</td>
+            </tr>
+            <tr>
+                <td>11.30</td>
+                <td>50-70-90(2)</td>
+                <td>70-90(2)-100</td>
+                <td>-</td>
+                <td>-</td>
+                <td>90</td>
+                <td>45(2)-70(2)</td>
             </tr>
             <tr>
                 <td>1</td>
@@ -335,6 +482,8 @@
     //     Hide Both tables
         document.querySelector('.shoulders').style.display = 'none';
         document.querySelector('.arms').style.display = 'none';
+        document.querySelector('.chest').style.display = 'none';
+        document.querySelector('.back').style.display = 'none';
 
     //     Show the selected table
         document.querySelector('.' + table).style.display = 'block';
@@ -342,7 +491,7 @@
 
     window.onload = function()
     {
-        showTable('shoulders');
+        showTable('chest');
     };
 
 
@@ -581,9 +730,9 @@
 
     // Don't edit the code below here!
 
-    section.innerHTML = ' ';
-
-    section.appendChild(para);
+    // section.innerHTML = ' ';
+    //
+    // section.appendChild(para);
 
 
     // const canvas = document.querySelector('#myCanvas');

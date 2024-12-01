@@ -9,20 +9,10 @@
         /* Page container styling */
         .page-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
+            flex-direction: column;  /* Stack items vertically */
+            align-items: center;     /* Align everything centrally */
+            gap: 20px;               /* Add some space between items */
             margin-top: 50px;
-        }
-
-        /* Side shapes styling */
-        .side-shape {
-            width: 350px;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
         }
 
 
@@ -54,20 +44,14 @@
             /* Removed max-width to center text better within shapes */
         }
 
-        /* Calendar container styling */
-        .schedule-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
         .calendar {
             width: 380px;
             padding: 10px;
-            background-color: orange;
+            /*background-color: pink;*/
             border-radius: 1px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-right: 10px;
+
         }
 
         .header {
@@ -147,24 +131,43 @@
         .titlebar {
             background-color: black;
             color: white;
-            text-align: center;
             font-size: 2em;
             font-weight: bold;
-            padding: 20px;
+            /*padding: 20px;*/
             margin-top: 20px;
+            margin-left:30%;
             border-color: white;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
             position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
+            align-items: center; /* Aligns the content vertically */
+            justify-content: center; /* Centers the text horizontally */
+            gap: 20px; /* Space between the shapes and the text */        }
+
+        .rhombus {
+            width: 50px;
+            height: 50px;
+            background-color: #ffcc00;
+            transform: rotate(45deg); /* Create rhombus shape */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
+        .square {
+            width: 50px;
+            height: 50px;
+            background-color: #ff9e80;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .rhombus:hover, .square:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+            transition: transform 0.2s ease;
+        }
+
+
+        /* Styling for the rhombus */
         .titlebar::before, .titlebar::after {
             content: '👁️'; /* Use eye icon here */
             font-size: 1.5em;
@@ -213,6 +216,25 @@
             z-index: 10;
             color: red;
         }
+
+        .theories {
+            margin-top: 20px; /* Adds space between the calendars and the square */
+            width: 200px;
+            height: 200px;
+            padding:5px;
+            background: black;
+            border: solid pink;
+            color: pink;
+            font-style: italic;
+            text-align: center;
+
+            /* Centering the text vertically and horizontally */
+            display: flex;
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically */
+        }
+
+
         </style>
 </head>
 <body>
@@ -231,15 +253,17 @@
 </div>
 
 <div class="titlebar">
+    <div class="rhombus"></div>
     Dream Collection
+    <div class="square"></div>
 </div>
 
 <div class="page-container">
-    <div class="side-shape">
-        <div class="circle">
-            <p class="quote">"The world we live in is a shadow of the world of ideas; dreams can bring us closer to that reality." - Plato</p>
-        </div>
-    </div>
+<!--    <div class="side-shape">-->
+<!--        <div class="circle">-->
+<!--            <p class="quote">"The world we live in is a shadow of the world of ideas; dreams can bring us closer to that reality." - Plato</p>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="schedule-container">
         <!-- Calendar for October -->
@@ -275,18 +299,31 @@
             </div>
             <div class="dates" id="novemberDates"></div>
         </div>
+
+        <div class="calendar" id="decemberCalendar">
+            <div class="header">
+                <div class="monthYear" id="decemberMonthYear">December 2024</div>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thurs</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="decemberDates"></div>
+        </div>
         <div class="dream-entry-display" id="dreamEntryDisplay">Select a highlighted date to see its entry.</div>
 
     </div>
 
-    <div class="side-shape">
-        <div class="square">
-            <p class="quote">"Dreams arise from the inner motions of the soul; they reveal that which the waking mind cannot."-Spinoza</p>
-        </div>
+    <div class="theories">
+        Visions for the future based on past experiences hidden within the unconscious
+        -Elvin
     </div>
 </div>
-
-<div class="dream-entry-display" id="dreamEntryDisplay">Select a highlighted date to see its entry.</div>
 
 
 <script>
@@ -312,8 +349,8 @@
         '11-19-24': "Many different storylines in this dream, and one of them is me chilling at my brothers house and there were many garbage bags in the living room. I wanted to help him clean it all out. There was another part of the dream that was talking to a girl about Young Miko and telling her about her songs like Princess Peach.",
         '11-25-24': "I was walking down the street with Kelly and there was a billboard that displayed all the newly trades that occurred. It appeared that the Bruins had blew up the team. Then I went upstairs to his spot, and I asked if he had a Switch charger. I woke up mid-sleep, and then returned back to the same dream where I'm with Kelly and his colleagues pitching to them. ",
         '11-26-24': "I was in the library chilling with Justin. One of the available books that were open to taking was The Art of Seduction. We grabbed it and walked around and it was pretty packed, then walked to an completely empty area but there was no bird watching available at that location so we went and sat at a more packed spot.",
-
-
+        '11-28-24': "I was an event space and recalling all the jobs I had. AT was sitting next to me, and Paul had a homegirl that he found that was going to go on a walk with. At one point AT got slapped by someone by mistake, she felt uncomfortable and walked away from the situation. She didn't come back and I was kinda bummed out."
+        
 
     };
 
@@ -365,6 +402,7 @@
     // Generate calendars
     generateCalendar(document.getElementById('octoberDates'), 9); // October
     generateCalendar(document.getElementById('novemberDates'), 10); // November
+    generateCalendar(document.getElementById('decemberDates'),11)
 
 
 </script>
