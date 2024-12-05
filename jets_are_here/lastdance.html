@@ -185,6 +185,26 @@
             }
         }
 
+        .learn-container{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            gap:10px;
+            margin-top:10px;
+
+
+        }
+
+       .learn{
+           height:200px;
+           width:200px;
+           background:orange;
+           color:black;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+       }
+
     </style>
 </head>
 <body>
@@ -255,13 +275,13 @@
                 <td>7</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.02</td>
+                <td>10(2)-12.5(2)</td>
+                <td>50</td>
+                <td>15lb</td>
+                <td>5lb</td>
+                <td>22.5-25s(3)</td>
+                <td>22.5-30(3)</td>
             </tr>
             <tr>
                 <td>1</td>
@@ -314,13 +334,13 @@
                 <td>32.5(2)-37.5-42.5</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
+                <td>12.03</td>
+                <td>40(3)-50</td>
+                <td></td>
                 <td>4</td>
-                <td>5</td>
+                <td>110-130-150(2)</td>
                 <td>6</td>
-                <td>7</td>
+                <td>37.5-42.5</td>
             </tr>
             <tr>
                 <td>1</td>
@@ -471,11 +491,14 @@
 
         </table>
     </div>
+
+
 </div>
 
 
 
 <script>
+
 
     function showTable(table)
     {
@@ -496,7 +519,7 @@
 
 
     const xValues = ["2020", "2021", "2022", "2023", "2024"];
-    const yValues = [12372, 14327, 10319, 12831, 7747];  // Total values
+    const yValues = [12372, 14327, 10319, 12831, 6914];  // Total values
     const partialYValues = [880, 1774, 2578, 1575, 290];  // Partial values to highlight
     const weedValues = [602, 995, 554, 1398, 31];  // Weed values to include in the stack
     const barColors = ["teal", "red", "green", "blue", "orange"];
@@ -973,26 +996,947 @@
         //
         // alert($ + _);
 
-        const btn = document.querySelector("button");
-        const txt = document.querySelector("p");
+        // const btn = document.querySelector("button");
+        // const txt = document.querySelector("p");
+        //
+        // btn.addEventListener("click", updateBtn);
+        //
+        // function updateBtn()
+        // {
+        //     if(btn.textContent === "Start Machine")
+        //     {
+        //      btn.textContent = "Stop Machine";
+        //      txt.textContent = "The machine has started";
+        //     }
+        //     else
+        //     {
+        //         btn.textContent = "Start Machine";
+        //         txt.textContent = "The machine is stopped"
+        //     }
+        // }
 
-        btn.addEventListener("click", updateBtn);
+        // let message;
+        // message = 'Hello!';
+        // message = 'World!';
+        // alert(message);
+//         When the value is changed the old value is removed
 
-        function updateBtn()
-        {
-            if(btn.textContent === "Start Machine")
-            {
-             btn.textContent = "Stop Machine";
-             txt.textContent = "The machine has started";
-            }
-            else
-            {
-                btn.textContent = "Start Machine";
-                txt.textContent = "The machine is stopped"
-            }
-        }
+        // const myBirthday = '18.04.1982';
+
+    // const COLOR_RED = "#F00";
+    // const COLOR_GREEN = "#0F0";
+    // const COLOR_BLUE = "#00F";
+    // const COLOR_ORANGE = "#FF7F00";
+    //
+    // let color = COLOR_ORANGE;
+    // alert(color);
+
+    // const pageLoadTime = ?
+
+    // let admin;
+    // let name;
+    //
+    // name = "John";
+    // admin = name;
+    // alert(admin);
+
+    // let nameOfOurPlanet = "Earth";
+    // let currentUserName = "John";
+
+//     Data Types
+//     let message = "hello";
+//     message = 123456;
+//
+//     let n = 123;
+//     n = 12.345;
+
+//     Prompts + Alerts
+
+    // let age = prompt('How old are you?', 100);
+    // alert(`You are ${age} years old!`);
+
+    // let isBoss = confirm("Are you the Boss?");
+    // alert(isBoss);
+
+    // let name = prompt("What is your name?");
+    // alert(`You are this nigga ${name}`);
+
+//     String Conversion
+//     let value = true;
+//     alert(typeof value);
+//
+//     value = String(value);
+//     alert(typeof value);
+
+    // let str = "123";
+    // alert(typeof str);
+    //
+    // let num = Number(str);
+    // alert(typeof num);
+
+    // alert(8 % 3);
+    // alert(2 ** 2);
+    // alert(4 ** (1/2));
+    // alert(8 ** (1/3));
+
+    // let s = "my" + "string";
+    // alert(s);
+
+    // alert('1' + 2);
+    // alert(2 + '1');
+
+    // alert(6 - '2');
+    // let x = 1;
+    // alert(+x);
+    //
+    // let y = -2;
+    // alert(+y);
+
+    // let apples = "2";
+    // let oranges = "3";
+    //
+    // alert( +apples + +oranges);
+
+    // let x = 2 * 2 + 1;
+    // alert(x);
+
+    // let x = 2 * 2 + 1;
+    // alert(x);
+
+    // let a = 1;
+    // let b = 2;
+    //
+    // let c = 3 - (a = b + 1);
+    //
+    // alert(a);
+    // alert(c);
+
+    // let a, b, c;
+    // a = b = c = 2 + 2;
+    //
+    // alert(a);
+    // alert(b);
+    // alert(c);
+
+    // let n = 2;
+    // n += 5;
+    // n *= 2;
+    // alert(n);
+
+    // let n = 2;
+    // n *= 3 + 5;
+    // alert(n);
+
+    // let counter = 2;
+    // counter++;
+    // alert(counter);
+
+    // let counter = 1;
+    // let a = counter++;
+    // alert(a);
+
+    // let a = prompt("Enter a number? ");
+    // let b = prompt("Enter another Num?");
+    // alert(a + b);
+
+    // alert(2 > 1);
+    // alert(2 == 1);
+    // let results = 5 > 4;
+    // alert('Z' > 'A');
+    // alert('Glow' > 'Glee');
+    // alert('Bee' > 'Be');
+
+    // alert('2' > 1);
+
+//     Conditional Branching
+//
+//     let year = prompt("In which year was ECMAScript-2015 specification published? ',");
+//     if(year == 2015) alert('You are right!');
+//
+//         let year = prompt("In which year was ECMAScript-2015 specification published? ',");
+//     if(year == 2015)
+//     {
+//         alert('You guessed it right!');
+//     }
+//     else
+//     {
+//         alert('How can you be so wrong?');
+//     }
+
+    // let accessAllowed;
+    // let age = prompt('How old are you?');
+    //
+    // if(age > 18)
+    // {
+    //     accessAllowed = True;
+    // }
+    // else{
+    //     accessAllowed = False;
+    // }
+    // alert(accessAllowed);
+
+    // let result = condition ? value1 : value2;
 
 
+    // let age = prompt('age?', 18);
+    //
+    // let message = (age < 3) ? 'Hi, baby!':
+    //     (age > 13) ? 'Hello' :
+    //         (age < 100) ? 'Greetings!':
+    //             'What an unusual age!';
+    // alert(message);
+
+    // let company = prompt('Which company created Javascript?');
+    //
+    // (company == 'Netscape')?
+    //     alert('Right!') : alert('Wrong!');
+
+    // let i = 0;
+    // while(i < 3)
+    // {
+    //     alert(i);
+    //     i++;
+    // }
+
+// for(let i = 0; i < 3;i++)
+// {
+//     alert(i);
+// }
+
+    // let sum = 0;
+    //
+    // while(true)
+    // {
+    //     let value = +prompt("Enter a num?");
+    //
+    //     if(!value) break;
+    //
+    //     sum += value;
+    // }
+    //
+    // alert('Sum: ' + sum); Gives total when no number is given
+
+    // for(let i = 0; i < 10;i++)
+    // {
+    //     if(i % 2 == 0) continue;
+    //
+    //     alert(i);
+    // } Skips the number 2
+    //
+    // for(let i = 2; i <= 10;i++)
+    // {
+    //     if(i % 2 == 0)
+    //     {
+    //         alert(i);
+    //     }
+    // }
+
+    // let i = 0;
+    //
+    // while(i < 3)
+    // {
+    //     alert(`number ${i}`);
+    //     i++;
+    // }
+
+    // let i;
+    //
+    // do {
+    //     i = prompt("Num above 100?", 0);
+    // } while(num <= 100 && num);
+
+    // let n = 10;
+    //
+    // nextPrime:
+    //     // Labeled statement which is used to mark a specific part of the code
+    //     // Continue statement can jump into it
+    //     // Label allows the inner loop to skip the next iteration of the outer loop if the current number isn't a prime
+    //     for(let i = 2;i<=n;i++) {
+    //         // For Each i
+    //         for (let j = 2; j < i; j++)
+    //         // For Each Divisor
+    //         {
+    //             if(i % j == 0)
+    //                 continue nextPrime;
+    //         //     Not A Prime
+    //         }
+    //         alert(i);
+    //     //     A Prime
+    //     }
+
+//     Switch
+//     Replaces multiple if checks
+
+        // let a = 2 + 2;
+        //
+        // switch(a)
+        // {
+        //     case 3:
+        //         alert('Too Small');
+        //         break;
+        //     case 4:
+        //         alert("Exactly!")
+        //         break;
+        //     case 5:
+        //         alert("Too Big");
+        //         break;
+        //     default:
+        //         alert("I don't know such values");
+        // }
+
+
+    //     let a = 3;
+    //
+    // switch(a)
+    // {
+    //     case 4:
+    //         alert("Right!");
+    //         break;
+    //
+    //     case 3:
+    //     case 5:
+    //         alert("Wrong!");
+    //         alert("Why Don't you take a math class?");
+    //         break;
+    //     default:
+    //         alert("The result is strange.Really.")
+    // }
+
+    // let arg = prompt("Enter a value?");
+    // switch(arg){
+    //     case '0':
+    //     case '1':
+    //         alert('One or Zero');
+    //         break;
+    //
+    //     case '2':
+    //         alert('Two');
+    //         break;
+    //
+    //     case '3':
+    //         alert('Never Executes');
+    //         break;
+    //
+    //     default:
+    //         alert('An unknown value');
+    // }
+
+    // let browser = "Chrome";
+    //
+    // if(browser == 'Edge')
+    // {
+    //     alert("You've got the Edge");
+    // }
+    // else if(browser == 'Chrome' || browser == 'Firefox' || browser == 'Safari' || browser == 'Opera')
+    // {
+    //     alert("Okay we support these browsers too");
+    // }
+    // else
+    // {
+    //     alert("We hope that this page looks ok!");
+    // }
+
+    // let a = +prompt('a?','');
+    //
+    // switch(a)
+    // {
+    //     case 0:
+    //         alert("0");
+    //         break;
+    //     case 1:
+    //         alert("1");
+    //         break;
+    //     case 2:
+    //     case 3:
+    //         alert('2, 3');
+    //         break;
+    // }
+
+
+//     Functions
+
+    // function showMessage()
+    // {
+    //     let message = "Hello I'm Javascript";
+    //
+    //     alert(message);
+    // }
+    //
+    // showMessage();
+    // alert(message);
+
+    // let userName = "Elvin";
+    //
+    // function showMessage()
+    // {
+    //     let userName = "Steve";
+    //     let message = 'Hello '  + userName;
+    //     alert(message);
+    // }
+    //
+    // showMessage();
+    // alert(userName);
+
+    // function showMessage(from, text)
+    // {
+    //     alert(from + ': ' + text);
+    // }
+    //
+    // showMessage('Ann', 'Hello!');
+    // showMessage('Natalie', 'Bro I love u!');
+
+    // function showMessage(from, text)
+    // {
+    //     from = '*' + from + '*';
+    //
+    //     alert(from + ': ' + text);
+    // }
+    //
+    // let from = 'Natalie';
+    //
+    // showMessage(from, 'I love u man');
+    //
+    // alert(from);
+
+// function showMessage(text)
+// {
+//     if(text === undefined)
+//     {
+//         text = 'empty message';
+//     }
+//
+//     alert(text);
+// }
+//
+// showMessage();
+
+    // function showMessage(text)
+    // {
+    //     text = text || 'empty';
+    //
+    //     alert(text);
+    // }
+    //
+    // showMessage()
+
+    // function sum(a, b)
+    // {
+    //     return a + b;
+    // }
+    //
+    // let result = sum(2, 4);
+    // alert(result);
+
+    // function checkAge(age)
+    // {
+    //     if(age >= 18)
+    //     {
+    //         return true;
+    //     }
+    //     else{
+    //         return confirm("Do you have permission?");
+    //     }
+    // }
+    //
+    // let age = prompt('How old are you? ', 18);
+    //
+    // if(checkAge(age)){
+    //     alert('Access Granted!');
+    // } else{
+    //     alert('Access Denied!');
+    // }
+
+    // function showPrimes(n)
+    // {
+    //     for(let i = 2; i < n; i++)
+    //     {
+    //         if(!isPrime(i)) continue;
+    //         alert(i);
+    //     }
+    // }
+    //
+    // function isPrime(n) {
+    //     for (let i = 2; i < n; i++)
+    //     {
+    //         if(n % i == 0){
+    //             return false;
+    //         }
+    //         return true;
+    //     }
+    // }
+
+    // function getMin(a, b)
+    // {
+    //     if(a > b)
+    //     {
+    //         return b;
+    //     }
+    //     else{
+    //         return a;
+    //     }
+    // }
+    //
+    // alert(getMin(5,4));
+
+    // function pow(a, b)
+    // {
+    //     return a ** b;
+    // }
+    //
+    // alert(pow(1, 100));
+
+    // function sayHi()
+    // {
+    //     alert("Hello");
+    // }
+    //
+    // sayHi();
+
+    // function sayHi()
+    // {
+    //     alert("Hello");
+    // }
+    // alert(sayHi())
+
+    // function sayHi()
+    // {
+    //     alert("Hello");
+    // }
+    //
+    // let func = sayHi;
+    //
+    // func();
+    // sayHi();
+
+    // function ask(question, yes , no)
+    // {
+    //     if(confirm(question)) yes()
+    //     else no();
+    // }
+    //
+    // function showOk()
+    // {
+    //     alert("You agreed!");
+    // }
+    //
+    // function showCancel()
+    // {
+    //     alert("You cancelled the execution");
+    // }
+    //
+    // ask("Do you agree", showOk, showCancel);
+
+    // function ask(question, yes, no)
+    // {
+    //     if(confirm(question)) yes()
+    //     else no();
+    // }
+    // ask(
+    //     "Do you agree",
+    //     function() {alert("You agreed.");},
+    //     function() {alert("You canceled the execution.");}
+    // );
+
+    // Function Declarations can be called whenever
+    // sayHi("John");
+    // function sayHi(name)
+    // {
+    //     alert(`Hello, ${name}`);
+    // }
+
+    // let age = prompt("What is your age? ", 18);
+    //
+    // let welcome;
+    //
+    // if(age < 18)
+    // {
+    //     welcome = function()
+    //     {
+    //         alert("Hello!");
+    //     };
+    // }
+    // else
+    // {
+    //     welcome = function()
+    //     {
+    //         alert("Greetings!");
+    //     };
+    // }
+    //
+    // welcome();
+
+    // let age = prompt("What is your age?", 18);
+    //
+    // let welcome = (age < 18) ? function() {alert("Hello!");} : function() {alert("Greetings")};
+    //
+    // welcome();
+
+
+//     Arrow Functions
+
+    // let func = (arg1, arg2, ..., argN) => expression;
+
+    // let fries = (x, y) => x + y;
+    //
+    // alert(fries(44,33));
+
+    // let adder = (x, y) => x + y;
+    //
+    // alert(adder(43,22));
+
+    // let double = n => n * 2;
+    //
+    // alert(double(4));
+
+    // let bye = (x, y) => x + y;
+    // alert(bye(33,2));
+
+    // let sayHi = () => alert("Hello!");
+    //
+    // sayHi();
+
+    // let hello = () => alert("yerr");
+    //
+    // hello();
+
+    // let age = prompt("Enter your age?", 19);
+    //
+    // let welcome = (age < 18) ? () => alert("Hello") : () => alert("Greetings!");
+    //
+    // welcome();
+    //
+    // let bingo = prompt("Enter a roller coaster number?", 22);
+    //
+    // let farts = (bingo < 18) ? () => alert("Nice") : () => alert("Not yours");
+    //
+    // farts();
+
+    // let sum = (a, b) => {
+    //     let result = a + b;
+    //     return result;
+    // };
+    // alert(sum(44,33));
+
+    // let sum = (a, b)  => { let result = a + b; return result; };
+    // alert(sum(33,33));
+
+    // function ask(question, yes, no)
+    // {
+    //     if(confirm(question)) yes();
+    //     else no();
+    // }
+    //
+    // ask(
+    //     "Do you Agree",
+    //     () => alert("You Agreed"),
+    //     () => alert("You canceled the execution")
+    // );
+
+    // function ask(question, yes, no)
+    // {
+    //     if(confirm(question)) yes();
+    //     else no();
+    // }
+    //
+    // ask(
+    //     "Do you still have a chance?",
+    //     () => alert("No your fucked"),
+    //     () => alert("You have a redemption shot dw")
+    // );
+
+    // let username = prompt("Your name", "Elvin");
+    // let isTeaWanted = confirm("Do you want some tea?");
+    //
+    // alert("Username: " + username);
+    // alert("Tea Wanted " + isTeaWanted);
+
+    // function bum(a,b)
+    // {
+    //     return a + b;
+    // }
+    // alert(bum(22, 44))
+
+    // let sum = function(a,b)
+    // {
+    //     let result = a + b;
+    //     return result;
+    // };
+
+//     Object
+//     let user = new Object() - object constructor syntax
+//     let user = {} - object literal syntax
+//
+//     let user = {
+//         name: "John",
+//         age: 30
+//     };
+//
+//     alert(user.name);
+//     alert(user.age);
+
+    // user.isAdmin = true;
+
+    // delete user.age;
+    //
+    // let user = {
+    //     name: "Elvin",
+    //     age: 28,
+    //     "Likes Birds": true
+    // //     Multiword property name must be quoted.
+    // };
+
+    // let key = "like birds";
+    // user[key] = true;
+
+    // let user = {
+    //     name: "John",
+    //     age: 30
+    // };
+    //
+    // let key = prompt("What do you want to know about the user?", "name");
+    //
+    // alert(user[key]);
+
+    // let fruit = prompt("What is your favorite team?", "Rangers");
+    // let team = {
+    //     [fruit]: 5,
+    // //     The Name of the property is the variable
+    // };
+    // alert(team.fruit);
+
+
+    // let team = prompt("Which team is your fave?", "rangers");
+    //
+    // let link = {
+    //     [team]: 5,
+    // }
+    //
+    // alert(link.rangers)
+
+    // function makeUser(name, age)
+    // {
+    //     return{
+    //         name:name,
+    //         age: age,
+    //     };
+    // }
+    //
+    // let user = makeUser("John", 30);
+    // alert(user.name);
+    //
+    // function teamName(name, team)
+    // {
+    //     return{
+    //         name: name,
+    //         team: team,
+    //     };
+    // }
+    //
+    // let user = teamName("Panarin", "Rangers");
+    // alert(user.name);
+    // alert(user.team);
+
+    //
+    // let obj = {
+    //     for: 1,
+    //     let: 2,
+    //     return:3
+    // };
+    //
+    // alert(obj.for + obj.let + obj.return);
+
+    // let obj = {
+    //     0: "test"
+    // };
+    //
+    // alert(obj["0"]);
+    // alert(obj[0]);
+
+    // let user = {name: "Panarin", team: "Rangers"};
+    //
+    // alert("team" in user);
+    // alert("")
+
+    // let obj = {
+    //     test:undefined;
+    // };
+    //
+    // alert(obj.test);
+    // alert("test" in obj);
+
+    // let user = {
+    //     name: "Panarin",
+    //     age: 33,
+    //     team:"Rangers"
+    // }
+    //
+    // for(let key in user)
+    // {
+    //     alert(key);
+    //     alert(user[key]);
+    // }
+
+    // let codes = {
+    //     "33": "Rangers",
+    //     "22": "Islanders",
+    //     "11": "Capitals",
+    //
+    //     "1": "Hurricanes"
+    // };
+    //
+    // for(let code in codes)
+    // {
+    //     alert(code);
+    // }
+
+    // let user = {
+    //     name: "John",
+    //     surname: "Smith",
+    // }
+    // user.name = Pete;
+    // delete(user.name)
+
+    // let user = {};
+    // user.name = "John";
+    // user.surname = "Smith";
+    // user.name = "Pete";
+    // delete user.name;
+
+    // function isEmpty(obj)
+    // {
+    //     for(let key in obj)
+    //     {
+    //         return false;
+    //     }
+    //     return true;
+    // }
+    //
+    // let salaries = {
+    //     John: 100,
+    //     Ann: 160,
+    //     Pete: 130
+    // };
+    //
+    // let sum = 0;
+    // for(let key in salaries)
+    // {
+    //     sum += salaries[key];
+    // }
+    //
+    // alert(sum);
+
+    //
+    // let menu = {
+    //     width:200,
+    //     height: 300,
+    //     title:"My menu"
+    // };
+    //
+    // multiplyNumeric(menu);
+    //
+    // menu = {
+    //     width:400,
+    //     height:600,
+    //     title: "My menu"
+    //
+    // };
+
+    // function multiplyNumeric(obj)
+    // {
+    //     for(let key in obj)
+    //     {
+    //         if(typeof obj[key] == 'number')
+    //         {
+    //             obj[key] *= 2;
+    //         }
+    //     }
+    // }
+
+    // let user = {name: "John"};
+    //
+    // let admin = user;
+    //
+    // admin.name = 'Pete';
+    //
+    // alert(user.name);
+
+    // let a = {};
+    // let b = a;
+    //
+    // alert(a == b);
+    // alert(a === b);
+
+    // const user = {
+    //     name: "Pete"
+    // };
+    //
+    // user.name = "Georgie";
+    //
+    // alert(user.name);
+
+
+    // const user = {
+    //     name: "Tom"
+    // };
+    //
+    // user.name = "Timofey";
+    //
+    // alert(user.name);
+
+    // let user = {
+    //     name: "John",
+    //     age: 30
+    // };
+    //
+    // let clone = {}; // the new empty object
+    //
+    // // let's copy all user properties into it
+    // for (let key in user) {
+    //     clone[key] = user[key];
+    // }
+    //
+    // // now clone is a fully independent object with the same content
+    // clone.name = "Pete"; // changed the data in it
+    //
+    // alert( user.name ); // still John in the original object
+
+    // let user = {name: "John"};
+    //
+    // let permissions1 = {canView: true};
+    // let permissions2 = {canView: true};
+    //
+    // // copies all properties from permissions1 and permissions2 into user
+    // Object.assign(user, permissions1, permissions2);
+    //
+    // alert(user.name);
+    // alert(user.canView);
+    // alert(user.canEdit);
+
+    // let user = {
+    //     name:"John",
+    //     sizes:{
+    //         height: 182,
+    //         width: 50
+    //     }
+    // };
+    //
+    // let clone = structuredClone(user);
+    //
+    // alert(user.sizes === clone.sizes);
+    //
+    // user.sizes.width = 60;
+    // alert(clone.sizes.width);
+
+    let user = {
+        name: "John",
+        age: 30
+    };
+
+    user.sayHi = function() {
+        alert("Hello!");
+    }
+
+    user.sayHi();
 
 
 </script>

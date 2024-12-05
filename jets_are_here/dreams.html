@@ -47,8 +47,7 @@
         .calendar {
             width: 380px;
             padding: 10px;
-            /*background-color: pink;*/
-            border-radius: 1px;
+            border: solid pink;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             margin-right: 10px;
 
@@ -74,7 +73,7 @@
         .day {
             text-align: center;
             padding: 5px;
-            color: blue;
+            color: pink;
         }
 
         .dates {
@@ -98,7 +97,7 @@
         }
 
         .date:hover, .date.active {
-            background: #ff5869;
+            background: pink;
             color: white;
         }
 
@@ -163,7 +162,8 @@
 
         .rhombus:hover, .square:hover {
             transform: scale(1.1); /* Slightly enlarge on hover */
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.3s ease; /* Smooth transition for both transform and background color */
+            background-color: #ff69b4; /* Change to pink (or any color you prefer) */
         }
 
 
@@ -175,8 +175,8 @@
         }
 
         .dream-date {
-            background-color: red;
-            color: white;
+            background-color: pink; /* Dates with dreams highlighted in red */
+            color: black;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -186,8 +186,8 @@
         }
 
         .dream-date {
-            background-color: red; /* Dates with dreams highlighted in red */
-            color: white;
+            background-color: pink; /* Dates with dreams highlighted in red */
+            color: black;
         }
 
         .info-box {
@@ -209,16 +209,24 @@
             display: none;
             position: absolute;
             background-color: black;
-            border: 1px solid orange;
+            border: solid pink;
             padding: 10px;
             width: 200px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             z-index: 10;
-            color: red;
+            color: pink;
+        }
+
+        .theories-container {
+            display: flex; /* Flexbox for horizontal layout */
+            justify-content: space-between; /* Space between the boxes */
+            gap: 10px; /* Optional: Adds space between the boxes */
+            flex-wrap: wrap; /* Allows boxes to wrap to next line if needed */
+            margin-top: 20px; /* Space above theories container */
         }
 
         .theories {
-            margin-top: 20px; /* Adds space between the calendars and the square */
+            margin-top: 1px; /* Adds space between the calendars and the square */
             width: 200px;
             height: 200px;
             padding:5px;
@@ -228,10 +236,16 @@
             font-style: italic;
             text-align: center;
 
-            /* Centering the text vertically and horizontally */
             display: flex;
             justify-content: center; /* Centers horizontally */
             align-items: center; /* Centers vertically */
+        }
+
+        .theories:hover {
+            background: #ff69b4; /* Change background color on hover */
+            color: white; /* Change text color on hover */
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.7); /* Add shadow */
+            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
         }
 
 
@@ -254,16 +268,15 @@
 
 <div class="titlebar">
     <div class="rhombus"></div>
-    Dream Collection
+    <div style="color:pink">
+        Dream Collection
+
+    </div>
     <div class="square"></div>
 </div>
 
 <div class="page-container">
-<!--    <div class="side-shape">-->
-<!--        <div class="circle">-->
-<!--            <p class="quote">"The world we live in is a shadow of the world of ideas; dreams can bring us closer to that reality." - Plato</p>-->
-<!--        </div>-->
-<!--    </div>-->
+
 
     <div class="schedule-container">
         <!-- Calendar for October -->
@@ -319,14 +332,34 @@
 
     </div>
 
-    <div class="theories">
-        Visions for the future based on past experiences hidden within the unconscious
-        -Elvin
+    <div class="theories-container">
+        <div class="theories">
+            Visions for the future based on past experiences hidden within the unconscious -Elvin
+        </div>
+        <div class="theories">
+            Understanding the present helps illuminate the future - Maya
+        </div>
+        <div class="theories">
+            All life is a dream, and in our dreams, we can learn to transcend the illusions of the self.-Buddha
+        </div>
+        <div class="theories">
+            The interpretation of dreams is like a scientific experiment. They may reveal hidden patterns and connections that the rational mind cannot yet understand, showing us what might be possible beyond logic.-Einstein
+        </div>
+        <div class="theories">
+            Dreams are the whispers of your soul, the messages that come to you when the noise of the world fades-Angelou
+        </div>
+        <div class="theories">
+            Dreams are what keep us going, even when everything feels hopeless.-Lennon
+        </div>
     </div>
+
+
 </div>
 
 
 <script>
+
+
     const octoberDatesElement = document.getElementById('octoberDates');
     // const hoverBox = document.getElementById('hoverBox');
     const dreamEntries = {
@@ -349,8 +382,11 @@
         '11-19-24': "Many different storylines in this dream, and one of them is me chilling at my brothers house and there were many garbage bags in the living room. I wanted to help him clean it all out. There was another part of the dream that was talking to a girl about Young Miko and telling her about her songs like Princess Peach.",
         '11-25-24': "I was walking down the street with Kelly and there was a billboard that displayed all the newly trades that occurred. It appeared that the Bruins had blew up the team. Then I went upstairs to his spot, and I asked if he had a Switch charger. I woke up mid-sleep, and then returned back to the same dream where I'm with Kelly and his colleagues pitching to them. ",
         '11-26-24': "I was in the library chilling with Justin. One of the available books that were open to taking was The Art of Seduction. We grabbed it and walked around and it was pretty packed, then walked to an completely empty area but there was no bird watching available at that location so we went and sat at a more packed spot.",
-        '11-28-24': "I was an event space and recalling all the jobs I had. AT was sitting next to me, and Paul had a homegirl that he found that was going to go on a walk with. At one point AT got slapped by someone by mistake, she felt uncomfortable and walked away from the situation. She didn't come back and I was kinda bummed out."
-        
+        '11-28-24': "I was an event space and recalling all the jobs I had. AT was sitting next to me, and Paul had a homegirl that he found that was going to go on a walk with. At one point AT got slapped by someone by mistake, she felt uncomfortable and walked away from the situation. She didn't come back and I was kinda bummed out.",
+        '12-01-24': "First part of the dream was me sitting in a Vegas hotel horned af looking for someone. I believe it was me by myself. Second part was walking about to Kenos with his girl and Josh. Reminding him about fantasy, and also about the major renovations on Dufferin and Centre. Mario Loukas left home to drop something off.",
+        '12-02-24': "It was Annson, I , and someone else and we were going into the subway heading to a concert. I remember the subway ride, but nothing really after that. I just remember making the trip from the subway to the concert grounds.",
+        '12-03-24': "I started yelling at Ronklin at a bar because he kept on bringing up the past. Then Kevin, Cliff, and the cousins have gone to a Walmart twice. The second time we went to the gym we needed to buy Christmas lights.The first time at Wal-mart I sensed that I recognized the employee, and it was Ava."
+
 
     };
 
@@ -390,6 +426,7 @@
 
     document.getElementById('octoberDates').addEventListener('click', handleDateClick);
     document.getElementById('novemberDates').addEventListener('click', handleDateClick);
+    document.getElementById('decemberDates').addEventListener('click', handleDateClick);
 
     // Close the hover box if clicking outside
     document.addEventListener('click', function(event) {
