@@ -1,0 +1,751 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime</title>
+  <style>
+
+    *{
+    background-color: black;
+  }
+
+    body {
+      background-color: black;
+    }
+
+  .navigation
+  {
+    align-items: center;
+  }
+  .logo-bar {
+    display: flex;               /* Use flexbox for layout */
+    justify-content: space-between; /* Space out logo and navigation */
+    align-items: center;        /* Align items vertically centered */
+    background-color: black;    /* Optional: Add a background color */
+    padding: 10px;
+  }
+
+  .logo {
+    height: 50px; /* Adjust logo height as needed */
+  }
+
+  .navigation ul {
+    list-style-type: none;      /* Remove bullet points */
+    margin: 0;                  /* Remove default margin */
+    padding: 0;                 /* Remove default padding */
+    display: flex;              /* Use flexbox for the navigation */
+    gap: 15px;
+  }
+
+  .navigation li {
+    margin-right: 15px; /* Space between links */
+  }
+
+  .navigation a {
+    color: white; /* Text color for links */
+    text-decoration: none; /* Remove underline */
+  }
+
+  .navigation a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+
+  .fourteen
+  {
+    display:flex;
+    justify-content: center;
+  }
+
+
+  .chest,.arms,.back,.shoulders
+  {
+    height:100px;
+    width:100px;
+    justify-content: flex-start;
+    border-radius:15px;
+  }
+
+
+  .chest
+  {
+    background-color:green;
+    color:black;
+  }
+    .back
+    {
+      background-color:orange;
+      color:black;
+    }
+
+    .shoulders
+    {
+      background-color:red;
+      color:black;
+    }
+
+    .arms
+    {
+      background-color:blue;
+      color:black;
+    }
+
+
+    #chester{
+      display: none;
+      background-color: green;
+      color:white;
+      border:1px solid black;
+      align-items: center;
+    }
+
+    #backer{
+      display: none;
+      background-color: yellow;
+      color:white;
+      border:1px solid black;
+      align-items: center;
+    }
+
+    #should{
+      display: none;
+      background-color: red;
+      color:white;
+      border:1px solid black;
+      align-items: center;
+    }
+
+    #army{
+      display: none;
+      background-color: blue;
+      color:white;
+      border:1px solid black;
+      align-items: center;
+    }
+
+    /* Alternate row colors */
+    tr:nth-child(even) {
+      background-color: #2a2a2a;  /* Darker color for even rows */
+    }
+
+    tr:nth-child(odd) {
+      background-color: #222; /* Slightly lighter color for odd rows */
+    }
+
+    /* Hover effects for table rows */
+    tr:hover {
+      background-color: #444; /* Highlight the row on hover */
+      cursor: pointer;  /* Change cursor to pointer */
+    }
+
+    td {
+      padding: 12px 20px;  /* Larger padding for better readability */
+      text-align: center;
+      font-size: 16px;
+      color: #e0e0e0;  /* Light color for text */
+      border: 1px solid #444;  /* Slightly lighter borders */
+      border-radius: 5px; /* Rounded corners */
+    }
+
+
+
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+<!-- Navbar -->
+<div class="logo-bar">
+  <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
+  <nav class="navigation">
+    <ul>
+      <li><a href="java.html">Jets</a></li>
+      <li><a href="rangers.html">Rangers</a></li>
+      <li><a href="dreams.html">Dreams</a></li>
+      <li><a href="wildcard.html">Prime</a></li>
+      <li><a href="lastdance.html">Progression</a></li>
+      <li><a href="wistfulness.html">Wistfulness</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+<div class="fourteen" id="fourteen">
+
+  <button onclick="myChest()" id="chest" class="chest">Chest</button>
+  <button onclick="myBack()" id="back" class="back">Back</button>
+  <button onclick="myShoulders()" id="shoulders" class="shoulders">Shoulders</button>
+  <button onclick="myArms()" id="arms" class="arms">Arms</button>
+
+</div>
+
+
+<table id="chester" class="chester">
+  <tr>
+    <th>14's</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+    <th>9</th>
+  </tr>
+  <tr>
+    <td>Incline Press</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Push-Ups</td>
+    <td>100</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Dips</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Chest Flys</td>
+    <td>85-100.2</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>DB Press</td>
+    <td>35</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Crossovers</td>
+    <td>30-40.3</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Floor Flies </td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Incline Mach </td>
+    <td>40</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+
+</table>
+
+<table id="backer" class="backer">
+  <tr>
+    <th>14's</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+    <th>9</th>
+  </tr>
+  <tr>
+    <td>Lat Pull-Back</td>
+    <td>70-100.2-110</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Lat Pull-Down</td>
+    <td>50-60.2-80</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Pull-Ups</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Db Pull-Backs</td>
+    <td></td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Handle Pull-Down</td>
+    <td>35.3-42.5</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Pendalay</td>
+    <td>60.3-70</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Mach(Pull-Down)</td>
+    <td>70</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Mach(Pull-Back)</td>
+    <td>70</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+</table>
+
+<table id="should">
+  <tr>
+    <th>14's</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+    <th>9</th>
+  </tr>
+  <tr>
+    <td>Shoulder Press</td>
+    <td></td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Arnolds</td>
+    <td></td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Wings</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>4x4</td>
+    <td></td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Face Pull</td>
+    <td>35.3-42.5</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Mach Side Raise</td>
+    <td></td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Mach Shoulder Raise</td>
+    <td>70</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Plate Raise</td>
+    <td>70</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+
+</table>
+
+<table id="army">
+  <tr>
+    <th>14's</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+    <th>9</th>
+  </tr>
+  <tr>
+    <td>Barbell Curls</td>
+    <td></td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Skullcrushers</td>
+    <td></td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Inside Db Curls</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Tricep-Pulldown</td>
+    <td></td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Held Pull-Up</td>
+    <td>35.3-42.5</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Swing Tri Pull</td>
+    <td></td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Mach Curls</td>
+    <td>70</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>Mach Tri-Curls</td>
+    <td>70</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+
+</table>
+
+
+</body>
+
+
+<script>
+
+  function myChest()
+  {
+    let chestTable = document.getElementById("chester");
+    if(window.getComputedStyle(chestTable).display === "none")
+    {
+      chestTable.style.display = "table";
+      document.addEventListener("click", closeTableOnClickOutside);
+    }
+    else
+    {
+      chestTable.style.display = "none";
+      document.removeEventListener("click", closeTableOnClickOutside);
+    }
+  }
+
+  function closeTableOnClickOutside(event)
+  {
+    let chestTable = document.getElementById("chester");
+    let chestButton = document.getElementById("chest");
+
+    if(!chestTable.contains(event.target) && event.target !== chestButton)
+    {
+      chestTable.style.display = "none";
+      document.removeEventListener("click", closeTableOnClickOutside);
+    }
+  }
+
+  function myBack()
+  {
+    let backTable = document.getElementById("backer");
+    if(window.getComputedStyle(backTable).display === "none")
+    {
+      backTable.style.display = "table";
+      document.addEventListener("click", cTableOnClickOutside);
+    }
+    else
+    {
+      backTable.style.display = "none";
+      document.removeEventListener("click", cTableOnClickOutside);
+    }
+  }
+
+  function cTableOnClickOutside(event)
+  {
+    let backTable = document.getElementById("backer");
+    let backButton = document.getElementById("back");
+
+    if(!backTable.contains(event.target) && event.target !== backButton)
+    {
+      backTable.style.display = "none";
+      document.removeEventListener("click", cTableOnClickOutside);
+    }
+  }
+
+  function myShoulders()
+  {
+    let shoulderTable = document.getElementById("should");
+    if(window.getComputedStyle(shoulderTable).display === "none")
+    {
+      shoulderTable.style.display = "table";
+      document.addEventListener("click", TableOnClickOutside);
+    }
+    else
+    {
+      shoulderTable.style.display = "none";
+      document.removeEventListener("click", TableOnClickOutside);
+    }
+  }
+
+  function TableOnClickOutside(event)
+  {
+    let shoulderTable = document.getElementById("should");
+    let shoulderButton = document.getElementById("shoulders");
+
+    if(!shoulderTable.contains(event.target) && event.target !== shoulderButton)
+    {
+      shoulderTable.style.display = "none";
+      document.removeEventListener("click", TableOnClickOutside);
+    }
+  }
+
+  function myArms()
+  {
+    let armTable = document.getElementById("army");
+    if(window.getComputedStyle(armTable).display === "none")
+    {
+      armTable.style.display = "table";
+      document.addEventListener("click", OnClickOutside);
+    }
+    else
+    {
+      armTable.style.display = "none";
+      document.removeEventListener("click", OnClickOutside);
+    }
+  }
+
+  function OnClickOutside(event)
+  {
+    let armTable = document.getElementById("army");
+    let armButton = document.getElementById("arms");
+
+    if(!armTable.contains(event.target) && event.target !== armButton)
+    {
+      armTable.style.display = "none";
+      document.removeEventListener("click", OnClickOutside);
+    }
+  }
+
+</script>
+
+
+
+</html>

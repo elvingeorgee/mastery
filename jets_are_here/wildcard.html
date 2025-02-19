@@ -1,475 +1,635 @@
-<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rejection Streak</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Prime</title>
     <style>
-
-        .title{
-            border-radius: 2px;
-            border-color: white;
-            color:white;
-            background-color: black;
-            font-size: 40px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        :root {
+            --bg-color: rgb(20, 20, 20);
+            --card-hover-bg: rgba(255, 255, 255, 0.1);
         }
 
-        .whites{
-            position:relative;
-            width:40px;
-            height:40px;
-            background-color:white;
-            border-radius: 50%;
-            display:flex;
-            align-items:center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
-            cursor: pointer;
-        }
-
-        .browns{
-            position:relative;
-            width:40px;
-            height:40px;
-            background-color:brown;
-            border-radius: 50%;
-            display:flex;
-            align-items:center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-        }
-
-        .races{
-            display:flex;
-            gap:10px;
-            justify-content: center;
-            margin-top:20px;
-        }
-
-        .box
-        {
-            width:200px;
-            height:200px;
-            position:absolute;
-            top:100px;
-            display:none;
-            align-items:center;
-            justify-content:center;
-            padding:20px;
-            border-radius:8px;
-            font-size:20px;
-            font-weight:bold;
-            color:white;
-        }
-
-        .left-box, .lefter-box, .left-bottom-box, .lefter-bottom-box,.lefty-bottom-box,.leftyer-bottom-box{
-            background-color: white;
-            border-color: black;
-            color: black;
-        }
-
-        .right-box, .righter-box, .right-bottom-box, .righter-bottom-box {
-            background-color: brown;
-        }
-
-
-        .gradient-box {
-            width: 200px; /* Make it a thin vertical box */
-            height: 500px; /* Adjust the height as necessary */
-            background: linear-gradient(to bottom, green, red); /* Green to red gradient */
-            margin-top: 30px; /* Space between the circle buttons and the gradient box */
-            display: flex; /* Use Flexbox for centering */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            margin-left: auto;
-            margin-right: auto; /* Centers the gradient box horizontally */
-            border-radius: 3px;
-            border: 2px solid black; /* Black border around the line */
-        }
-
-        /* Vertical Line */
-        .line {
-            width: 15px; /* Keep the line width narrow */
-            height: 500px; /* Set the height of the line */
-            background: linear-gradient(to bottom, green, red); /* Gradient background */
-            border-radius: 3px;
-            border: 2px solid black; /* Black border around the line */
-            margin: 0 auto; /* Center the line within its parent */
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Ensures the circles are spaced evenly */
-        }
-
-        /* Circle styling */
-        .line .circle1, .circle2, .circle3, .circle4, .circle5, .circle6, .circle7, .number1, .number2, .number3,.number4,.number5 {
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
+        body {
             margin: 0;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            cursor: pointer;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: white;
+            font-family: Arial, sans-serif;
         }
 
-        /* Specific circles */
-        .line .circle1 {
-            border: 3px solid black;
-            background-color: teal;
-        }
-
-        .line .circle2 {
-            border: 3px solid black;
-            background-color: green;
-        }
-
-        .line .circle3 {
-            border: 3px solid black;
-            background-color: lightgreen;
-        }
-
-        .line .circle4 {
-            border: 3px solid black;
-            background: linear-gradient(green, red);
-        }
-
-        .line .circle5 {
-            border: 3px solid black;
-            background-color: yellow;
-        }
-
-        .line .circle6 {
-            border: 3px solid black;
-            background-color: orange;
-        }
-
-        .line .circle7 {
-            border: 3px solid black;
-            background-color: red;
-        }
-
-        /* Circle positions */
-        .line .circle1 { top: 0; }
-        .line .circle2 { top: 15%; }
-        .line .circle3 { top: 35%; }
-        .line .circle4 { top: 50%; }
-        .line .circle5 { top: 65%; }
-        .line .circle6 { top: 80%; }
-        .line .circle7 { bottom: 0; }
-
-        /* Adjust the positioning of numbers to sit next to the circles */
-
-        /* Number 1: To the left of circle5 */
-        .line .number1 {
-            position: absolute;
-            top: 65%; /* Align with circle5 */
-            left: -250%; /* Position to the left of circle5 */
-            transform: translateX(-100%); /* Move it to the left of the circle */
-            width: 40px;
-            height: 40px;
-            background-color: yellow;
-            border: 3px solid black;
-            border-radius: 50%;
+        /* Navbar Styling */
+        .logo-bar {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
-            cursor: pointer;
-        }
-
-        /* Number 2: To the left of circle6 */
-        .line .number2 {
-            position: absolute;
-            top: 80%; /* Align with circle6 */
-            left: -250%; /* Position to the left of circle6 */
-            transform: translateX(-100%); /* Move it to the left of the circle */
-            width: 40px;
-            height: 40px;
-            background-color: orange;
-            border: 3px solid black;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
-            cursor: pointer;
-        }
-
-        /* Number 3: To the right of circle5 */
-        .line .number3 {
-            position: absolute;
-            top: 65%; /* Align with circle5 */
-            right: 30%; /* Position to the right of circle5 */
-            transform: translateX(100%); /* Move it to the right of the circle */
-            width: 40px;
-            height: 40px;
-            background-color: yellow;
-            border: 3px solid black;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
-            cursor: pointer;
-        }
-
-        .line .number4 {
-            position: absolute;
-            top: 50%; /* Align with circle5 */
-            right: 30%; /* Position to the right of circle5 */
-            transform: translateX(100%); /* Move it to the right of the circle */
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(green, red);
-            border: 3px solid black;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
-            cursor: pointer;
-        }
-
-        .line .number5 {
-            position: absolute;
-            top: 35%; /* Align with circle5 */
-            right: 30%; /* Position to the right of circle5 */
-            transform: translateX(100%); /* Move it to the right of the circle */
-            width: 40px;
-            height: 40px;
-            background-color: lightgreen;
-            border: 3px solid black;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
-            cursor: pointer;
-        }
-
-        .textbox1,.textbox2,.textbox3, .textbox4,.textbox5
-        {
             background-color: black;
-            border: 1px solid orange;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .navigation ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navigation li {
+            display: inline;
+        }
+
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cards Container */
+        #cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 100px 20px 20px;
+            justify-content: center;
+        }
+
+        /* Card Styling */
+        .card, .bolt-card {
+            background-color: var(--card-hover-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 300px;
+            height: 260px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            align-items:center;
+            flex-direction: column;
+        }
+        .card:hover,.bolt-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+
+        /* Card Image */
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card div {
             padding: 10px;
-            width: 200px;
-            height:150px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-            color: red;
-            margin-left: 120px; /* Moves the box 100px to the right */
+            text-align: center;
+            font-size: 18px;
         }
 
+        /* Show the Blue Box on Hover */
+        .card:hover .hover-box {
+            display: block;
+        }
 
-        .textbox1
-        {
-            background-color: yellow;
-            border: 1px solid orange;
+        /* Mouse Tracking Effect */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--card-hover-bg);
+            opacity: 0;
+            transition: opacity 300ms ease, background 500ms ease;
+            border-radius: inherit;
+        }
+
+        .card:hover, .bolt-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Harry Potter Card Specific Styling */
+        .bolt-card {
+            height: 400px; /* Increased from 260px */
+            background-color: rgba(128, 0, 128, 0.8); /* Purple shade */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .bolt-card .title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .bolt-card img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .bolt-card .book-list {
+            font-size: 16px;
+            line-height: 1.5;
             padding: 10px;
-            width: 200px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-            color: red;
-            margin-right: 120px; /* Moves the box 100px to the right */
+            overflow: auto;
         }
 
-        .textbox2
-        {
-            background-color: orange;
-            border: 1px solid orange;
-            padding: 10px;
-            width: 200px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-            color: red;
-            margin-right: 120px; /* Moves the box 100px to the right */
+        .book-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .book-item img {
+            width: 30px;
+            height: 30px;
         }
 
-
-        .textbox3
-        {
-            background-color: yellow;
-            border: 1px solid orange;
-            padding: 10px;
-            width: 200px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-            color: red;
-            margin-left: 120px; /* Moves the box 100px to the right */
-        }
-        .textbox4
-        {
-            background: linear-gradient(green, red);
-            border: 1px solid orange;
-            padding: 10px;
-            width: 200px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-            color: red;
-            margin-left: 120px; /* Moves the box 100px to the right */
+        /* Reduce padding in the book-list */
+        .book-list {
+            padding: 5px 10px;
+            font-size: 15px; /* Adjust font size for better fit */
+            line-height: 1.4;
         }
 
-        .textbox5
-        {
-            background: lightgreen;
-            border: 1px solid orange;
-            padding: 10px;
-            width: 200px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-            color: red;
-            margin-left: 120px; /* Moves the box 100px to the right */
+        .card, .bolt-card {
+            height: 300px;
         }
 
-        .doodoo
-        {
-            background: yellow;
-        }
-
-        .due
-        {
-            background: linear-gradient(green, red);
-            color:black;
-
-        }
-
-        .doo
-        {
-            background: orange;
-        }
-        .iska
-        {
-            background: lightgreen;
-        }
-        .stars {
-            display: flex; /* Use flexbox for horizontal arrangement */
-            justify-content: center; /* Center the stars horizontally */
-            gap: 10px; /* Space between the stars */
+        .stars-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px; /* Adjust the spacing between stars */
             margin-top: 10px; /* Add some space above the stars */
         }
 
         .star {
-            font-size: 30px; /* Set the size of the stars */
-            color: gold; /* Make the stars golden */
-            cursor: pointer; /* Change cursor to indicate they are interactive */
+            height: 20px;        /* Adjust as needed */
+            width: 20px;         /* Keeps the aspect ratio */
+            object-fit: contain; /* Ensures it scales nicely within the container */
         }
 
-        .whitey1, .whitey2, .whitey3, .whitey4, .whitey5, .whitey6 {
-            font-size: 14px;
-            background: white;
-            color: black;
-            padding: 5px 10px; /* Optional: add some padding inside each whitey div */
-            width: 100%; /* Ensures whitey divs take up full width of the parent container */
+        .large-box{
+            display:none;
+            position:fixed;
+            top:10%;
+            left:50%;
+            width:70%;
+            height:80%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color:white;
+            border-radius:10px;
+            box-shadow:0 4px 12px rgba(0, 0, 0, 0.5);
+            z-index:1000;
+            padding:20px;
+            overflow:auto;
+            opacity:0;
+            transform: translateX(-50%) scale(0.8);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .large-box.visible {
+            display:block;
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        .large-box .close-btn,.cl-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+
+        }
+
+        .large-box, .close-btn:hover
+        {
+            background-color: #1335cf;
+            opacity:0.7;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0; /* Start invisible */
+            visibility: hidden; /* Keep it hidden initially */
+            z-index: 999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .overlay.visible {
+            opacity: 1; /* Make visible */
+            visibility: visible; /* Set to visible */
+        }
+
+        /* Styling the hyperlink */
+        .styled-link {
+            color: #ff4500;       /* Change the link color to orange-red */
+            text-decoration: none; /* Remove the underline */
+            font-weight: bold;     /* Make the text bold */
+        }
+
+        /* Styling on hover */
+        .styled-link:hover {
+            color: #007bff;        /* Change color to blue on hover */
+            text-decoration: underline; /* Add underline on hover */
+        }
+        /* New Book Box Styling */
+        /*.book-box {*/
+        /*    display: none;*/
+        /*    position: fixed;*/
+        /*    top: 10%;*/
+        /*    left: 50%;*/
+        /*    width: 70%;*/
+        /*    height: 80%;*/
+        /*    background-color: #1335cf;*/
+        /*    color: white;*/
+        /*    border-radius: 15px;*/
+        /*    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);*/
+        /*    z-index: 1000;*/
+        /*    padding: 20px;*/
+        /*    overflow: hidden;*/
+        /*    opacity: 0;*/
+        /*    transform: translateX(-50%) scale(0.8);*/
+        /*    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;*/
+        /*}*/
+
+        .book-box {
+            position: fixed;
+            top: calc(100px + 20px); /* Adjusted to match the first row of cards (padding from #cards) */
+            left: 50%;
+            width: 70%;
+            height: 80%;
+            max-height: 90%;
+            background: #fff;
+            color: #000;
             display: flex;
-            align-items: center; /* Center the whitey elements horizontally within the box */
-            justify-content: flex-start; /* Align them to the top of the container */
-            width: 100%; /* Ensure the box takes up the full width available */
-            max-width: 500px; /* Optional: set a max-width to prevent stretching too wide */
-            margin: 0 auto; /* Center the box horizontally within the page */
-            box-sizing: border-box;
-            margin-bottom:10px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 1001;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border-radius: 10px;
+            opacity: 0; /* Start invisible */
+            visibility: hidden; /* Hidden initially */
+            transform: translate(-50%, 0) scale(0.8); /* Adjusted transform */
+            transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+        }
+
+
+        .book-box {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(-50%) scale(0.8);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s;
+        }
+
+        .book-box.visible {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(-50%, 0) scale(1); /* Maintain alignment */
+        }
+
+
+        @keyframes openBook {
+            0% {
+                transform: translateX(-50%) scaleX(0);
+            }
+            100% {
+                transform: translateX(-50%) scaleX(1);
+            }
+        }
+
+
+        .book-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            width: 100%;
+            height:60%;
+            padding: 10px 0; /* Equal padding on top and bottom */
+            gap: 5px;
+            flex-grow: 1; /* Ensures it grows to fill vertical space */
         }
 
 
 
-
-        #leftBox, #lefterBox, #rightBox, #righterBox, #left-bottom-box, #lefter-bottom-box, #right-bottom-box, #righter-bottom-box {
-            background-color: #f4f4f4; /* Light background for the boxes */
-            padding: 15px;
-            margin-bottom: 20px; /* Space between each .box */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        .page-pair {
+            display: none;
+            width: 100%;
+            display: flex;
+            gap: 10px;
         }
 
-        .whitey1
+
+
+        .book-page {
+            width: 48%;
+            height: 100%;
+            padding: 10px;
+            margin: 0;
+            background-color: #1335cf;
+            color: white;
+            border-radius: 5px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            overflow-y: auto; /* Ensure scrolling works if content overflows */
+        }
+
+        @media (max-width: 768px) {
+            .book-content {
+                flex-direction: column; /* Stack pages vertically on small screens */
+                gap: 10px; /* Adjust gap for better readability */
+            }
+
+            .book-page {
+                width: 100%; /* Full width for stacked pages */
+            }
+        }
+
+        .book-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nav-button {
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .nav-button:hover {
+            background-color: #007bff;
+        }
+
+
+        .close-btn,.cl-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .navigation button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        .navigation button:hover {
+            background: #0056b3;
+        }
+
+        .close-btn,.cl-btn:hover {
+            background-color: darkred;
+        }
+
+        @media (max-width: 768px) {
+            #cards {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .card, .bolt-card {
+                width: 90%; /* Adjust card width for smaller screens */
+            }
+        }
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px; /* Optional: Adjust horizontal padding */
+            margin: 0;
+            background-color: #1335cf; /* Match the page background */
+            color: white;
+            font-size: 18px; /* Adjust as needed */
+            font-weight: bold;
+        }
+
+        .pagenum {
+            margin: 0; /* Remove unnecessary spacing */
+            font-size: 20px; /* Adjust size if needed */
+        }
+
+        .pagetitle {
+            margin: 0;
+            font-size: 20px; /* Adjust size to match pagenum */
+        }
+        .line {
+            height: 4px;
+            background-color: red;
+            flex-grow: 1;
+            margin: 0 10px;
+        }
+
+        .book-box {
+            height: 80%; /* Adjust to ensure it doesn’t get cut off */
+            max-height: 90%; /* Prevent excessive height on larger screens */
+            width: 70%;
+            overflow: hidden; /* Avoid content spilling out */
+        }
+
+        .bigtitle
         {
-            flex-direction:row;
-            justify-content:space-between;
-            background:white;
-            color:black;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 88px;
+            font-style:italic;
         }
-        .whitey2
+
+        .thisguy
         {
-            top:20%;
-            background:white;
-            color:black;
+            text-align: center;
+            font-size:16px;
+            font-style: italic;
         }
-        .whitey3
+
+        .tob
         {
-            top:30%;
-            background:white;
-            color:black;
+            text-align: center;
+            font-size:40px;
+            font-style: italic;
+
         }
-        .whitey4
+        .line {
+            height: 4px;
+            background-color: white;
+            flex-grow: 1;
+            margin: 0 10px;
+        }
+        .tobby{
+            padding-top:100px;
+        }
+
+        .area{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #cf6e13;
+            /*background-color: rgba(0, 0, 0, 0.5);*/
+            opacity: 0; /* Start invisible */
+            visibility: hidden; /* Keep it hidden initially */
+            z-index: 999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .area.visible
         {
-            top:40%;
-            background:white;
-            color:black;
+            opacity: 1; /* Make visible */
+            visibility: visible; /* Set to visible */
         }
-        .whitey5
+
+        .textBo {
+            position: fixed;
+            top: 12.5%;
+            left: 50%;
+            height: 70%;
+            max-height: 90%;
+            width: 70%;
+            background-color: #cf6e13; /* Add a background for better visibility */
+            border-radius: 10px;
+            padding: 20px;
+            overflow: auto;
+            visibility: hidden;
+            opacity: 0;
+            color: white;
+            transform: translate(-50%, -50%) scale(0.8); /* Center on the screen */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            z-index: 1001; /* Ensure it appears above other elements */
+        }
+
+        .textBo.visible {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+
+        .tenny-content
         {
-            top:50%;
-            background:white;
-            color:black;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap:wrap;
+            gap:20px;
+            padding:20px;
         }
-        .whitey6
+
+
+        .cl-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1002; /* Ensure it's above all content within textBo */
+            transition: background-color 0.3s ease;
+        }
+        .cl-btn:hover {
+            background-color: darkred;
+        }
+
+        .tenny-content {
+            display: flex;
+            justify-content: space-between; /* Space between columns */
+            align-items: flex-start; /* Align items at the top */
+            flex-wrap: wrap; /* Allow wrapping if screen size is too small */
+            gap: 20px; /* Add spacing between columns */
+            padding: 20px; /* Add some padding around the container */
+        }
+
+
+        .tennycolumn {
+            flex: 1; /* Each column takes equal space */
+            min-width: 200px; /* Ensure a minimum width for smaller screens */
+            max-width: 25%; /* Maximum width per column */
+            height: auto; /* Let the height adjust based on content */
+            padding: 10px;
+            background-color: #cf6e13;
+            color: white;
+            border-radius: 5px;
+            border: 2px dashed white;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        .tenny-content img
         {
-            top:60%;
-            background:white;
-            color:black;
+            width:75%;
+            height:75%;
+            border:2px dotted black;
         }
 
-
-
-
-
-        /* Positions for all boxes */
-        .left-box { left: 10px; }
-        .lefter-box { left: 220px; }
-        .left-bottom-box { left: 10px; top: 320px; }
-        .lefter-bottom-box { left: 220px; top: 320px; }
-        .lefty-bottom-box { left: 10px; top: 640px; }
-        .leftyer-bottom-box { left: 220px; top: 640px; }
-
-        .right-box { right: 10px; }
-        .righter-box { right: 220px; }
-        .right-bottom-box { right: 10px; top: 320px; }
-        .righter-bottom-box { right: 220px; top: 320px; }
-
-
+        .let{
+            font-size:14px;
+        }
 
     </style>
-</head>
-<body>
 
+</head>
+
+<body>
+<!-- Navbar -->
 <div class="logo-bar">
     <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
     <nav class="navigation">
@@ -477,309 +637,1393 @@
             <li><a href="java.html">Jets</a></li>
             <li><a href="rangers.html">Rangers</a></li>
             <li><a href="dreams.html">Dreams</a></li>
-            <li><a href="wildcard.html">Wild Card</a></li>
+            <li><a href="wildcard.html">Prime</a></li>
             <li><a href="lastdance.html">Progression</a></li>
+            <li><a href="wistfulness.html">Wistfulness</a></li>
         </ul>
     </nav>
 </div>
 
-<div class="title">
-    Rejection Streak
+<!-- Cards -->
+<div id="cards">
+    <div class="card" style="background-color: #1335cf;" onclick="showBookBox()">
+        <div>Why are the Rangers Spiraling?</div>
+        <img src="foxy.jpg" alt="Rangers">
+        <div style="font-size:14px">
+            23-24: 55-23(1st) | 24-25: 18-20(25th)
+        </div>
+
+    </div>
+
+    <div class="card" style="background-color: #cf6e13;" onclick="showTennyBox()">
+        <div>Brain Activity During Tennis</div>
+        <img src="nadal.jpg" alt="Tennis">
+        <div style="font-size:14px">
+            Comp Record: 3-4
+        </div>
+    </div>
+
+    <div class="card" style="background-color: white;">
+        <div style="color:black">Debi Tirar Mas Fotos Review</div>
+        <img src="bbunny.jpg" alt="Review">
+        <div class="stars-container">
+            <img src="gostar.jpg" alt="Star" class="star">
+            <img src="gostar.jpg" alt="Star" class="star">
+            <img src="gostar.jpg" alt="Star" class="star">
+            <img src="gostar.jpg" alt="Star" class="star">
+            <img src="gostar.jpg" alt="Star" class="star">
+        </div>
+    </div>
+
+    <div class="bolt-card" style="background-color: purple;">
+        <div class="title">
+            <img src="bolt.png" alt="Bolt">
+            <span>Harry Potter Book Reviews</span>
+        </div>
+        <div class="book-list">
+            <div class="book-item">
+                <img src="hp1.jpg">
+                Philosopher's Stone
+            </div>
+            <div class="book-item">
+                <img src="hp2.jpg">
+                Chamber of Secrets
+            </div>
+            <div class="book-item">
+                <img src="hp3.jpg">
+                Prisoner of Azkaban
+            </div>
+            <div class="book-item">
+                <img src="hb44.png">
+                Goblet of Fire
+            </div>
+            <div class="book-item">
+                <img src="hp5.jpg">
+                Order of the Phoenix
+            </div>
+            <div class="book-item">
+                <img src="hp66.pmh.png">
+                Half-Blood Prince
+            </div>
+            <div class="book-item">
+                <img src="hp7.jpg">
+                Deathly Hallows
+            </div>
+        </div>
+    </div>
+    <!-- Empty Cards -->
+<!--    <div class="card"></div>-->
+<!--    <div class="card"></div>-->
+<!--    <div class="card"></div>-->
+<!--    <div class="card"></div>-->
 </div>
 
-<div class="races">
-    <div class="whites" onclick="toggleBoxes('left', 1)">W</div>
-    <div class="browns" onclick="toggleBoxes('right', 1)">B</div>
-</div>
-
-<div class="gradient-box">
-    <div class="line">
-        <div class="circle1" id="circle1">+3</div>
-        <div class="circle2" id="circle2">+2</div>
-        <div class="circle3" id="circle3">+1</div>
-        <div class="circle4" id="circle4">0</div>
-        <div class="circle5" id="circle5">-1</div>
-        <div class="number1" id="number1">1</div> <!-- Number 1 -->
-        <div class="number2" id="number2">2</div> <!-- Number 2 -->
-        <div class="number3" id="number3">3</div> <!-- Number 3 -->
-        <div class="number4" id="number4">4</div> <!-- Number 3 -->
-        <div class="number5" id="number5">5</div> <!-- Number 3 -->
-        <div class="circle6" id="circle6">-2</div> <!-- -2 circle -->
-        <div class="circle7" id="circle7">-3</div>
-
-        <div class="textbox1" id="textbox1" style="display: none;">
-            <label style="background-color: yellow" >Hottest Gilf Ever-Gym</label>
-            <div class="doodoo">There was eye contact, and it felt like it I'd never talk to her, and then that guy went to make the move.</div>
-            <div class="stars">
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-            </div>
+<div class="area" id="area"></div>
+<div class="textBo" id="textBo">
+    <button class="cl-btn" onclick="closeTennyBox()">Esc</button>
+    <div class="tenny-content">
+        <div class="tennycolumn">Hippocampus
+            <p><img src="hippocampus.png"></p>
+            <p class="let">The hippocampus plays a critical role in memory formation, spatial navigation, and motor learning. All three are extremely active during play. This is crucial to spatial memory as in mere seconds the play tracks the trajectory of the ball, and moving to an optimal position to return the shot. Lastly, determining where the shot should be placed based on the oppositions' strengths/weaknesses.</p>
+            <p class="let">It is one of the key areas for neurogenesis(growth of new neurons). Tennis is a mentally demanding sports, which stimulates neuroplasticity requiring players to learn, adapt, and strategize in real time.</p>
         </div>
-        <div class="textbox2" id="textbox2" style="display: none;">
-            <label style="background-color: orange" >Mid-Filipino Thick Af-Gym</label>
-            <div class="doo">I should've worked-out right next to her, especially since I knew she was a regular.</div>
-            <div class="stars">
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-
-            </div>
+        <div class="tennycolumn">Cerebellum
+            <p><img src="cerebellum.png"></p>
+            <p class="let">The cerebellum is located at the back of the brain, plays a crucial role in coordinating movements, maintaining balance, and improving motor skills through feedback loops. It's responsible for movement coordination, Timing and rhythm, and motor learning.</p>
+            <p class="let">The balance control for the degree of stability when going full speed to the net, and depending on the severity of the lunge to maintain the posture for an accurate follow-through. Perfecting a slice backhand by iteratively adjusting the racket angle and swing speed. Also adjusting mid-swing to account for an unexpected spin on the ball.</p>
         </div>
-        <div class="textbox3" id="textbox3" style="display: none;">
-            <label style="background-color: yellow">Fine Engaged Girl-Gym</label>
-            <div class="doodoo">The momentum from the morning run gave me the urge, Jesus Christ she was beautiful</div>
-            <div class="stars">
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-            </div>
+        <div class="tennycolumn">Motor Cortex
+            <p><img src="motor.png"></p>
+            <p class="let">The motor cortex, located in the frontal lobe, is responsible for planning, controlling, and executing voluntary movements. Primary Motor Cortex: executes specific movements. Premotor Cortex: Plans and coordinates complex movements. Supplementary Motor Area: Handles movement sequences and bilateral coordination.</p>
+            <p class="let">During repetition, motor cortex activity decreases as movements become more automated, transferring some responsibility to the cerebellum and basal ganglia. The motor cortex works with the somatosensory cortex to integrate feedback from the hand and arm to adjust grip + strength.</p>
         </div>
-        <div class="textbox4" id="textbox4" style="display: none;">
-            <label style="background: linear-gradient(green, red); color: black" >Mid-Filipino Thick Af-Gym</label>
-            <div class="due">She made little to no eye contact, and made the convo very quick.</div>
-            <div class="stars">
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-
-            </div>
-        </div>
-        <div class="textbox5" id="textbox5" style="display: none;">
-            <label style="background-color: lightgreen">Iska-Moroccan Queen</label>
-            <div class="iska">It was a cool conversation until the queen thought I was going for a hug. We back up</div>
-            <div class="stars">
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-                <span class="star">&#9733;</span> <!-- Star symbol -->
-            </div>
-        </div>
-
-
     </div>
 </div>
 
-<!-- Hidden boxes that will appear based on the button click -->
-<!-- First row of white and brown boxes -->
-<div class="box left-box" id="leftBox">
-    <div class="whitey1">
-        Zara-99% Percentile Latina<br>
-        First Sight: Sept-23<br>
-        Approach: April-23<br>
-        Int 1: Told her that I saw her at the mall, and had a great exchange<br>
-        Int 2: During mid-conversation I exploded my water bottle on the floor and that was the last time I saw her.<br>
-        Case Closed: Sept 24
-    </div>
+<div class="bboverlay" id="bboverlay"></div>
+<div class="bb">
+
+    Despues de unas semanas con el album. Senti la sensacion autentica de un album de reggaeton fuerte. Prefiero canciones con bajo pesado. Las ondas de calor que cambien a lo largo de la primera cancion fueron fenmenales. La Bateria que entraba con los ecos de Bad Bunny creo una vibra muy divertida. Al final de la cancion, cuando el bajo se magnifica. Uno de esos clasicos.
 
 </div>
 
-<div class="box lefter-box" id="lefterBox">
-    <div class="whitey1">
-        Michelle-Older Italian Girl<br>
-        First Sight: Sept-23<br>
-        Approach: Jan-23<br>
-        Int 1: Asked her for a piece of gum never got it.<br>
-        Int 2: She stole the weights I was using once, but didn't counter.<br>
-        Case Closed: Sept-24
+<div class="overlay" id="overlay"></div>
+<div id="bookBox" class="book-box">
+    <button class="close-btn" onclick="closeBookBox()">Close</button>
+    <div class="book-content">
+        <div class="page-pair" id="pair">
+            <div class="book-page" id="bpage">
+                <p class="bigtitle">Rangers Renaissance</p>
+                <p class="thisguy">By Elvin George</p>
+            </div>
+            <div class="book-page" id="bpage77">
+                <div class="tobby">
+                <h2 class="tob">Chapter 1:Roster Destruction</h2>
+                <h2 class="tob">Chapter 2:Kid Line</h2>
+                <h2 class="tob">Chapter 3:Cinderella Run</h2>
+                <h2 class="tob">Chapter 4:Punishing Panthers</h2>
+                <h2 class="tob">Chapter 5:Devil Drury</h2>
+
+                </div>
+                    <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        <div class="page-pair" id="pair1">
+            <div class="book-page" id="bpage1">
+                <div class="page-header">
+                    <h2 class="pagenum">1</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Chapter 1: Roster Construction</h1>
+                </div>
+                <h2>My Rangers are Truly Dead.You wouldn't expect a team 2 wins away from the Stanley Cup Finals a year ago, to plummet to the bottom 5 of the league. The team was never exceptional in all facets of the game. Either regular (5 on 5) for majority of the game or when an opposing team commits a foul which creates an odd-man opportunity(5 on 4) or "Power Play", for a limited period of time.The team finished 3rd in both power play and penalty kill(defending the power play). While the team finished in the bottom 5, for goals scored in 5 on 5 play.This narrative gifted the crowd to celebrate as if they scored a goal when the team received a Power Play.This problem is due to the lack of power forwards, and abundance of skill players.In the season prior to the last, the teams' Russian maestro Artemi Panarin had a disappointing playoff run and felt like his hair carried a curse so he shaved his head and killed is lucious curly hair.He finished the year prior with 92 points(13th in the league), and he cut his hair and finished 3rd with 120 points.</h2>
+                <button class="nav-btn prev-btn" disabled>Previous</button>
+<!--                <div class="line"></div>-->
+            </div>
+            <div class="book-page" id="bpage2">
+                <div class="page-header">
+                    <h2 class="pagenum">2</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Roster Construction</h1>
+                </div>
+                <h2>Those are regular season points, but know he shaved because he didn't score a goal in that years' playoff run.44/120 points came from the power play, his phenomenal playmaking and precision accuracy hides his flaws.He lacks speed and strength holding the puck. He relies on his linemates to bring the puck in and he floats around into the open space to create a high danger chance.Their game is cycle passes relentlessly around the opposing end, until a player gets frustrated and snipes a weak shot on the goalie.It's watching a puck go around a merry-go-round since the players fear they wouldn't be able to cut through the middle of the ice and get swarmed by the opposition. This pathetic mindset had the team finished in the bottom 10 in Goals Per Game.They're power play frauds, since they play nonchalent until one of them exaggerates a hit  and boom Power Play for them.</h2>
+                <button class="nav-btn next-btn">Next</button>
+<!--                <div class="line"></div>-->
+            </div>
+        </div>
+        <div class="page-pair" id="pair2">
+            <div class="book-page" id="bpage3">
+                <div class="page-header">
+                    <h2 class="pagenum">4</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Roster Construction</h1>
+                </div>
+                <h2> The difficulty defending their power play was that there are two high-danger options,
+                    as many teams expect the shot would be coming from Panarin. Luckily this team has a sniper and a perennial deflector.
+                    Chris Kreider has been crowned one of the best deflectors of the puck. It is a beauty to watch and a terror to defend. Teams fade away from the net to cover the Panarin shot,
+                    but he's just sending a saucer pass to Kreider to deflect. He finished with 18 power goals last season, and please watch the replay of the deflected goals to appreciate the hand-eye coordination. The other two contributors that earned the team the best position in the regular season last year was extremely intelligent defender in Adam Fox, and top 15 centre in Mika Zibanajad.</h2>
+                <button class="nav-btn prev-btn">Previous</button>
+            </div>
+            <div class="book-page" id="bpage4">
+                <div class="page-header">
+                    <h2 class="pagenum">5</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Roster Construction</h1>
+                </div>
+                <h2>Foxs' talent lies in reading the ice exceptionally and simply playing error-free hockey. His passing and skating ability gifted him 6th in points among defenceman last year. While Mika had an above average season, and gaining easy points finishing the bread crumbs from Kreider and Panarin. Team finished first, but everyone knew Zibanjad had some sort of regression in the teams' cinderella run.And Igor.Igor Shesterkin became the highest paid goale in NHL history this season because he's been saving these pussies' ass ON A NIGHTLY BASIS. No other goalie gets more munion than him, so please watch Jesus on skates. Also, think how frustrated he is that his team STRUGGLES to score 2+ goals A NIGHT. Panarin joined the team in the midst of a rebuild where the team announced to the public that the roster will be nuked so they can draft young players and develop them to a team on their own.</h2>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        <div class="page-pair" id="pair3">
+            <div class="book-page" id="bpage5">
+                <div class="page-header">
+                    <h2 class="pagenum">5</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Chapter 2: Kid Line</h1>
+                </div>
+                <h2>
+                    Rangers were the first team to complete a microwaved hybrid rebuild, and it was destined to be a disaster. Zibanajad and Kreider were the lone wolves who survived trecherous seasons during the span of 2018-2020. The reward for the suffering was a 2nd Overall Pick in the Draft in 2019, and the 1st Overall Pick in 2020.In the NHL, draft picks outside of the top 3 are sent to the minor leagues for the first season to adjust to the NHL playing style. While, the top 3 are given a roster spot immediately as they're expected to have immediate impact to the team. Those top picks are given the green light to do whatever they want as they're usually labelled the face of a "rebuilding" franchise. Their fans accept their mistakes and flaws as those teams are slowly building a playoff team.So in 2019 the Rangers drafted Kappo Kakko, and he felt the bright lights of broadway bleed through his skin. His skating was clunky, and he lacked speed so he was getting burned on counter attacks.
+                </h2>
+                <button class="nav-btn prev-btn">Previous</button>
+            </div>
+            <div class="book-page" id="bpage6">
+                <div class="page-header">
+                    <h2 class="pagenum">6</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Kid Line</h1>
+                </div>
+                <h2>His first season was a disaster.Here is where the chaos begins, as Rangers win the lottery by 12.5% to get the first overall pick and draft undersized and highly skilled Alexis Lafreniere.  Then three weeks later Panarin signs with the Rangers. Let's see what's in this cereal bowl: Zibanajad suffering through years of despair finally has a solid group of talent, but now has to 2nd fiddle to Panarin. Panarin who has played as a number 2 but knows he's a number 1 talent wants to prove he's among the best in the league.A 19 and 18 year old who have been an alpha of their youth teams are forced to develop in the shadows of these superstars.Quick rundown because there's no surprise, so the lack of chemistry outweighed the raw talent entailed abysmal seasons for both Lafreniere and Kappo. Obviously, Zibanajad and Panarin had phenomenal seasons, but didn't make the playoffs.</h2>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        <div class="page-pair" id="pair4">
+            <div class="book-page" id="bpage7">
+                <div class="page-header">
+                    <h2 class="pagenum">7</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Kid Line</h1>
+                </div>
+                <h2> Season 2 with this nucleus was where chemistry was born. The coaching birthed the line to reignite the kids.The Kids Line: Lafreniere-Chytil-Kappo. Chytil was drafted 17th overall in 2017 and felt the same pain of the lack of playing time. To Preface this segment, I fucking love these three. The team never should've signed Panarin, or should've traded away the kids away so they can learn and make mistakes on their own. Their initial growth was terrible because they didn't get enough touches on the puck, and they were watching teammates who had a complete understanding of the game.My biggest gripe is that in their entire career both kids have 0 power play time. Power Plays are like going to school all day and you get to go on recess for 2 minutes. Can you imagine school WITHOUT RECESS? The other team has a player down for usually 2 minutes. I have more ice to play with so I can showcase my true talents.Playing in New York, being a high draft pick, and not being an immediate impact. Will get to a teenagers head right? Late during the 2022 season, the coach decided to put all three kids together and it was like watching hockey porn. Kids were given the green light to play free wheeling hockey and this proved dividends in the playoffs. </h2>
+                <button class="nav-btn prev-btn">Previous</button>
+            </div>
+            <div class="book-page" id="bpage8">
+                <div class="page-header">
+                    <h2 class="pagenum">8</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Kid Line</h1>
+                </div>
+                <h2>Words can't do justice watch these kids light these bozos up. Entering that playoff period the team didn't have the expectations for a deep playoff run, but ended up making it in the 3rd round to lose to the Lightning. The poor reality is that coaching wanted the kid line to graduate and help on Zibanajad and Panarins' line but as the 2023 season progressed Lafreniere began to figure out his game but Kappo failed to show significant growth. The season ended as a disaster as they lost to their crosstown rivals in the first round to the New Jersey Devils. The bright spot looking forward to the next season is that they created a premier scoring first line. The team added highly skilled centre Vinny Trochek, and after 5 years of line juggling. They have a certified high danger scoring first line. This team entered last years' playoffs as a well oiled machine finishing best in the league and figured that if they keep an efficient special teams(PP + PK), with the help of Igor they can win the cup.</h2>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        <div class="page-pair" id="pair5">
+            <div class="book-page" id="bpage9">
+                <div class="page-header">
+                    <h2 class="pagenum">9</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Chapter 3: Unlocked Synergy</h1>
+                </div>
+                <h2>The Hurricanes and Rangers met in the playoffs 2 years prior and yet again the Canes are HEAVY favorites. Carolina had the stronger roster, and despite the Rangers finishing first in the league the betting public knew Carolina had the gamestyle to wear out Igor. Canes would immediately rip a shot on net the second the entire the opposing teams zone. As their speed and size bolt to the rebound, until the goalie stops the play. It is easy to neutralize with an elite goalie preventing a rebound or directing the initial shot to a defenceman to initiate a counter.Hurricanes rapid game pace could wear out the Rangers so the hockey world picking the Canes is understandable. Rangers routed them during Game 1, but Hurricanes pressured Igor by peppering him with 57 shots in Game 2. As the Canes scored, the Rangers tied it every time until the Game reached Overtime. Playoff Overtime Hockey is the unanimous best sports experience as a neutral fan. It follows the next goal wins premise(Golden Goal), and as a fan watching it you're naturally watching every shot hit your and their goalie with a clenched anus.</h2>
+                <button class="nav-btn prev-btn">Previous</button>
+            </div>
+            <div class="book-page" id="bpage10">
+                <div class="page-header">
+                    <h2 class="pagenum">10</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Unlocked Synergy</h1>
+                </div>
+                <h2>This rule praises the idea that one-goal can really change the outcome of an entire series. One goal can change a series from going 2-0 or 1-1.Igor stood tall during the first overtime period, and his team gave him a sigh of relief after Trochek cleans up a rebound early in the 2nd Overtime period. Rangers head to Carolina with a 2-0 lead. At this point of the playoffs Lafreniere ignited into the first overall pick he was destined to be. His shot has always been reliable, but his stick handling has become extremely polished. Rangers carried the lead into the final period, and lost it with 2 minutes to go in the game. As the 2nd straight game went to OT. Lady Luck served the Rangers yet again, as Panarin deflected a shot through his leg and shivered the Carolina crowd. Lady luck would switch sides as Rangers lost their opportunity to close out the series as the Hurricanes won Game 4. Back in NY, the Rangers strike first early in the game, but the goalies stole the show for the next two periods. Until, Orlov caught the Rangers in a line change and sends the puck to Staal to beat Igor. Game is now tied 1-1 and the energy has shifted. </h2>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        <div class="page-pair" id="pair6">
+            <div class="book-page" id="bpage11">
+                <div class="page-header">
+                    <h2 class="pagenum">11</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Unlocked Synergy</h1>
+                </div>
+                <h2>Losing two straight after holding full control of the series up 3-0 is frightening but the option of bringing this series to a Game 7 at home is more of a mental hell than it is a pleasure. Canes were playing with the intention of going back to New York as they unleashed a plethora of shots on Igor, and  Martinook catches Igor snoozing to put the team up 1 ending the first. Fear is creeping in the Rangers side, and the chaos continues as Jarvis cleans up a rebound to put them up 2-0. Then after a failed clearance Panarin rips a shot that gets deflected by Trochek. Rangers now have life. Aho snatches the puck from Fox and scores far side of Igor, and Canes retain their two-goal cushion going into the third. Midway through the 3rd, Canes goalie loses sight of the puck within his skates and Kreider jams it in to put them one behind.Dominos begin to drop during the ensuing Power Play, Panarin snipes the pass right onto Kreider stick to tie the game up. The boys have quieted the crowd and smell the killshot.</h2>
+                <button class="nav-btn prev-btn">Previous</button>
+            </div>
+            <div class="book-page" id="bpage12">
+                <div class="page-header">
+                    <h2 class="pagenum">12</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Chapter 4: Punishing Panthers</h1>
+                </div>
+                <h2>The Rangers continue to hem the play in their zone, and after catching a tired group of Canes for an extended shift. King Kreider  catches the defenceman sleeping and finishes a one-timer to complete the hat trick. The team is 4 minutes away from the 3rd round of the playoffs.Canes bring their goalie on the bench, for an additional skater but that's no difference for Igor. Rangers set to face last years' Stanley Cup Finalist the Florida Panthers. No team is harder to beat than the one who lost in the final the previous year. he Panthers are annoying as shit. They were the best team left in the playoffs, not matter who's in the finals. You beat them, the cup is yours. Respectively, losing the Stanley Cup to a NHL team that have been around for about 3 years  could carry enough steam to blow your head.Game 5 was a goalie battle as Igor and his countryman Sergei Brobosvksy were trading jab after jab of highlight reel saves. </h2>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        <div class="page-pair" id="pair7">
+            <div class="book-page" id="bpage13">
+                <div class="page-header">
+                    <h2 class="pagenum">13</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Punishing Panthers</h1>
+                </div>
+                <h2>Unfortunately, the Ranger felt the effects of the overwhelming pressure of the Cats and they gave up a record 12 giveaways.Rangers started with a one goal lead but the Panthers took advantage of their slugging play with a 3 goal stretch. Any sort of assertion into the Panthers zone was quickly countered by the quick-moving defenceman. Panthers held off and carried a 3-2 lead back home to Florida with a win away from the Stanley Cup finals.The Rangers were hoping for a miracle as they couldn't generate any high danger chances, and the Cats figured out a sound defensive strategy to limit any movement within their own zone. Rangers' captain Jacob Trouba missed on a bone-headed hit which created a 2 on 1 which pierced the heart of Rangers fans as former Ranger Tarasenko sniped the puck by Shesterkin to kill any sort of life. Panarin scored his first goal of the series with a minute left, but that's all the was left.</h2>
+                <button class="nav-btn prev-btn">Previous</button>
+            </div>
+            <div class="book-page" id="bpage14">
+                <div class="page-header">
+                    <h2 class="pagenum">14</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Punishing Panthers</h1>
+                </div>
+                <h2>Panthers headed to the finals, where to no surprise they won the Stanley Cup in 7 games. Obviously getting two wins away from a finals is feat to be happy with but not proud of. Although, with the way this team plays on a nightly basis they should be proud of. As Igors' demand for his salary seemed much deserved as he was consoled by all his players in the final whistle of the game due to his sheer brillance. The team managed to score 2+ goals once in the entire Panthers series, both stars Zibanjad and Panarin left the series with a combined single goal. So now headed into this season the main question marks were is Mika going to get his game back? is Panarin going to show up in the playoffs? What are the kids going to do? The main concern was Jacob Trouba as he carried a 8 million cap hit, and was merely a human wrecking ball on defence. He was responsible for many costly turnovers in the playoffs especially the back-breaking final goal. </h2>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        <div class="page-pair" id="pair8">
+            <div class="book-page" id="bpage15">
+                <div class="page-header">
+                    <h2 class="pagenum">15</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Chapter 5: Devil Drury</h1>
+                </div>
+                <h2>Fans knew he needed to go, but as the captain of the team it's unorthodox for a team to trade away a captain after a strong playoff push. The elephant in the room was he was that he was the reason the run wasn't deeper.The Rangers had an interesting way of moving players who had a no-movement clause(7 Teams that Player can be traded to). So the first player exiled was Barclay Goodrow, who carried a hefty salary with minimal point production.So the Rangers GM(Chris Drury) told Goodrow, "Hey we can't figure a trade out with the teams you've listed so we're just going to release you to the league". This method is embarassing for the player as it puts a billboard to the world saying " NO ONE WANTS TO TRADE FOR YOU " and it drops their market value heavily. Goodrow avoided that route by offering a new trade list. He eventually did get traded back to his old team.</h2>
+                <button class="nav-btn prev-btn">Previous</button>
+            </div>
+            <div class="book-page" id="bpage16">
+                <div class="page-header">
+                    <h2 class="pagenum">16</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Devil Drury</h1>
+                </div>
+                <h2>So in respect to the Captains' wishes, they let the season begin to see if noticeable improvement occurred to warrant his stay. After a strong 9-4 start to the season, the team began to crumble. Chytil suffered a serious injury leaving him out of the lineup for an extended period. The management had enough and during the 5 game skid, Drury gave the same negotiation he gave to Goodrow to Trouba. Trouba had the same fate, and changed his list to ship him to Anaheim California. Kreider and Zibanjad lost their drive for the game as they went through 5 game pointless streaks.Despite the veteran slumps, there was a bright spot, as media terrorized Kappo Kakko figured his game out but just couldn't score the puck. His defensive game was elite, and was 1st on the team in (+/-) at +11. (+/-) measures if the player was on the ice when their team scores (+1) or on the ice when the opposing team scores(-1)</h2>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        <div class="page-pair" id="pair9">
+            <div class="book-page" id="bpage17">
+                <div class="page-header">
+                    <h2 class="pagenum">17</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Devil Drury</h1>
+                </div>
+                <h2>As I fan, I was ecstatic as the problem on the ice is gone. We should put a younger defenceman to fill in his spot, and boom back on a resurgance. Clearly, the individuals on the team had some fear with the way Drury has been managing the roster, and reports put out that the entire team should be a on the trading block.To be fair if you aren't doing your job, like why are you surprised lol? I had to side with Drury in that sense where a team who trimmed the fat holding them back of excellence to continue to play below mediocre.Here is where my love for my childhood team ended. Midway through December as the team continues to slump and Zibanajad and Kreider continue to be horrid. Since Kappo couldn't put up any points despite his defensive excellence.He was asked not to suit a game. So now rightfully so, my king went to the media and said, "easy to take the young guy and put him out". Talk yo shit Kapp. Zibanajad(-21) gets paid 9% of the total team salary and averages 0.5 Points per game(League Average is 0.75), and in 33 games Chris Kreider(-8) was on pace for 24 goals(Yearly Average 32).</h2>
+                <button class="nav-btn prev-btn">Previous</button>
+            </div>
+            <div class="book-page" id="bpage18">
+                <div class="page-header">
+                    <h2 class="pagenum">18</h2>
+                    <div class="line"></div>
+                    <h1 class="pagetitle">Devil Drury</h1>
+                </div>
+                <h2>The unwritten rule of not dressing veterans is too embarassing so those two were untouchable, so Kappo had to take the hit. Here is where I shed a tear in the middle of a shisha session. Devil Drury was not a fan of Kappo Kappos' comments, so a day later, he ships my golden boy to Seattle FOR A BAG OF PEANUTS. Former 2nd Overall Pick with the teams' highest defensive metric WHO IS STILL 23 <-> A no-name bozo. That's where I cut the line, as I stopped watching the team play as this sinking ship is truly going down the gutter. There's no happy ending at this point as the Rangers are in the bottom 5 of the league, and all from failed chemistry with a sprinkle of cutthroat management. Hopefully we can get a playoff spot, but who knows Drury might cut the whole team before that happens. </h2>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
     </div>
 </div>
-<div class="box right-box" id="rightBox">Opp 1 </div>
-<div class="box righter-box" id="righterBox">Opp 2</div>
-
-<!-- Second row of white and brown boxes -->
-<div class="box left-bottom-box" id="leftBottomBox">
-    <div class="whitey1">
-        Natalie-Human Perfection<br>
-        First Sight: April-24<br>
-        Approach: Sept-24<br>
-        Int 1: I complimented her by telling her she looks like Bella Hadid<br>
-        Int 2: Proceeded to avoid eye contact for a while<br>
-        Case Closed: Nov-24
-    </div>
-</div>
-<div class="box lefter-bottom-box" id="lefterBottomBox">
-    <div class="whitey1">
-        Yustina-Latina Perfection<br>
-        First Sight: Oct-23<br>
-        Approach: Sept-24<br>
-        Int 1: I offered her a ride home twice. Both declined<br>
-        Int 2: Teasing with her lifting her sweats up and down then proceed to walk to her bf.<br>
-        Case Closed: Nov-24
-    </div>
-</div>
-<div class="box right-bottom-box" id="rightBottomBox">Gorgeous Engaged Gym Baddie</div>
-<div class="box righter-bottom-box" id="righterBottomBox">Livina</div>
-
-<div class="box lefty-bottom-box" id="leftyBottomBox">Beach Girl</div>
-<div class="box leftyer-bottom-box" id="leftyerBottomBox">Ukraine Girl</div>
 
 
+</body>
 
 
+<!-- JavaScript for Mouse Tracking -->
 <script>
 
-    function toggleTextbox(number) {
-        // Hide all textboxes first
-        hideAllTextboxes();
 
-        // Show the textbox based on the number clicked
-        switch(number) {
-            case 1:
-                document.getElementById("textbox1").style.display = "block";
-                break;
-            case 2:
-                document.getElementById("textbox2").style.display = "block";
-                break;
-            case 3:
-                document.getElementById("textbox3").style.display = "block";
-                break;
-            case 4:
-                document.getElementById("textbox4").style.display = "block";
-                break;
-            case 5:
-                document.getElementById("textbox5").style.display = "block";
-                break;
-            default:
-                break;
+    function showTennyBox() {
+        const textBox = document.getElementById("textBo");
+        textBox.classList.add("visible");
+    }
+
+    function closeTennyBox() {
+        const textBox = document.getElementById("textBo");
+        textBox.classList.remove("visible");
+    }
+
+    // Add click listener to overlay to close the box
+    document.getElementById("area").addEventListener("click", closeTennyBox);
+
+
+    function showBookBox() {
+        const overlay = document.getElementById("overlay");
+        const bookBox = document.getElementById("bookBox");
+
+        // Make both overlay and book box visible
+        overlay.classList.add("visible");
+        bookBox.classList.add("visible");
+    }
+
+    function closeBookBox() {
+        const overlay = document.getElementById("overlay");
+        const bookBox = document.getElementById("bookBox");
+
+        // Hide both overlay and book box
+        overlay.classList.remove("visible");
+        bookBox.classList.remove("visible");
+    }
+
+    // Add click listener to overlay to close the box
+    document.getElementById("overlay").addEventListener("click", closeBookBox);
+
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const pagePairs = document.querySelectorAll(".page-pair");
+
+        let currentPairIndex = 0;
+    //     Start with the first pair
+
+        function showPair(index)
+        {
+            pagePairs.forEach((pair,i) =>{
+                pair.style.display = i === index ? "flex" : "none";
+            });
+
+            const currentPair = pagePairs[currentPairIndex];
+            const prevButton = currentPair.querySelector(".nav-btn.prev-btn");
+            const nextButton = currentPair.querySelector(".nav-btn.next-btn");
+
+            if(prevButton) prevButton.disabled = currentPairIndex === 0;
+            if(nextButton) nextButton.disabled = currentPairIndex === pagePairs.length - 1;
+
         }
-    }
 
-    // Function to hide all textboxes
-    function hideAllTextboxes() {
-        document.getElementById("textbox1").style.display = "none";
-        document.getElementById("textbox2").style.display = "none";
-        document.getElementById("textbox3").style.display = "none";
-        document.getElementById("textbox4").style.display = "none";
-        document.getElementById("textbox5").style.display = "none";
+        showPair(currentPairIndex);
+    //     Initialize the first pair
 
-    }
+        pagePairs.forEach((pair,index)=> {
+            const prevButton = pair.querySelector(".nav-btn.prev-btn");
+            const nextButton = pair.querySelector(".nav-btn.next-btn");
 
-    // Add event listeners to number boxes
-    document.getElementById("number1").addEventListener("click", function() {
-        toggleTextbox(1);
-    });
-    document.getElementById("number2").addEventListener("click", function() {
-        toggleTextbox(2);
-    });
-    document.getElementById("number3").addEventListener("click", function() {
-        toggleTextbox(3);
-    });
-    document.getElementById("number4").addEventListener("click", function() {
-        toggleTextbox(4);
-    });
-    document.getElementById("number5").addEventListener("click", function() {
-        toggleTextbox(5);
-    });
-
-
-
-
-
-    let leftBoxState = 0; // 0 = no box visible, 1 = leftBox visible, 2 = lefterBox visible, 3 = leftBottomBox visible, etc.
-    let rightBoxState = 0; // 0 = no box visible, 1 = rightBox visible, 2 = righterBox visible, 3 = rightBottomBox visible, etc.
-
-    function toggleBoxes(side, row) {
-        // Get all boxes based on their IDs
-        const leftBox = document.getElementById('leftBox');
-        const lefterBox = document.getElementById('lefterBox');
-        const rightBox = document.getElementById('rightBox');
-        const righterBox = document.getElementById('righterBox');
-        const leftBottomBox = document.getElementById('leftBottomBox');
-        const lefterBottomBox = document.getElementById('lefterBottomBox');
-        const leftyBottomBox = document.getElementById('leftyBottomBox');
-        const leftyerBottomBox = document.getElementById('leftyerBottomBox');
-        const lBottomBox = document.getElementById('lBottomBox');
-        const llBottomBox = document.getElementById('llBottomBox');
-        const rightBottomBox = document.getElementById('rightBottomBox');
-        const righterBottomBox = document.getElementById('righterBottomBox');
-
-        // Hide all boxes first
-        leftBox.style.display = 'none';
-        lefterBox.style.display = 'none';
-        rightBox.style.display = 'none';
-        righterBox.style.display = 'none';
-        leftBottomBox.style.display = 'none';
-        lefterBottomBox.style.display = 'none';
-        leftyBottomBox.style.display = 'none';
-        leftyerBottomBox.style.display = 'none';
-        rightBottomBox.style.display = 'none';
-        righterBottomBox.style.display = 'none';
-
-        if (side === 'left') {
-            if (row === 1) { // First row of white boxes
-                if (leftBoxState === 0) {
-                    leftBox.style.display = 'flex';
-                    leftBoxState = 1;
-                } else if (leftBoxState === 1) {
-                    lefterBox.style.display = 'flex';
-                    leftBoxState = 2;
-                } else if (leftBoxState === 2) {
-                    leftBottomBox.style.display = 'flex';
-                    leftBoxState = 3;
-                } else if (leftBoxState === 3) {
-                    lefterBottomBox.style.display = 'flex';
-                    leftBoxState = 4;
-                } else if (leftBoxState === 4) {
-                    leftyBottomBox.style.display = 'flex';
-                    leftBoxState = 5;
-                } else if (leftBoxState === 5) {
-                    leftyerBottomBox.style.display = 'flex';
-                    leftBoxState = 6;
-                }
-            } else { // Second row of white boxes
-                if (leftBoxState === 2) {
-                    leftBottomBox.style.display = 'flex';
-                    leftBoxState = 3;
-                } else if (leftBoxState === 3) {
-                    lefterBottomBox.style.display = 'flex';
-                    leftBoxState = 4;
-                } else if (leftBoxState === 4) {
-                    leftyBottomBox.style.display = 'flex';
-                    leftBoxState = 5;
-                } else if (leftBoxState === 5) {
-                    leftyerBottomBox.style.display = 'flex';
-                    leftBoxState = 6;
-                }
+            if(prevButton)
+            {
+                prevButton.addEventListener("click", ()=>{
+                    if(currentPairIndex > 0)
+                    {
+                        currentPairIndex--;
+                        showPair(currentPairIndex);
+                    }
+                });
             }
-        }
 
-        if (side === 'right') {
-            if (row === 1) { // First row of brown boxes
-                if (rightBoxState === 0) {
-                    rightBox.style.display = 'flex';
-                    rightBoxState = 1;
-                } else if (rightBoxState === 1) {
-                    righterBox.style.display = 'flex';
-                    rightBoxState = 2;
-                } else if (rightBoxState === 2) {
-                    rightBottomBox.style.display = 'flex';
-                    rightBoxState = 3;
-                } else if (rightBoxState === 3) {
-                    righterBottomBox.style.display = 'flex';
-                    rightBoxState = 4;
-                } else {
-                    rightBoxState = 0; // Reset to initial state
-                }
-            } else { // Second row of brown boxes
-                if (rightBoxState === 2) {
-                    rightBottomBox.style.display = 'flex';
-                    rightBoxState = 3;
-                } else if (rightBoxState === 3) {
-                    righterBottomBox.style.display = 'flex';
-                    rightBoxState = 4;
-                }
+            if(nextButton)
+            {
+                nextButton.addEventListener("click", () => {
+                    if(currentPairIndex < pagePairs.length - 1)
+                    {
+                        currentPairIndex++;
+                        showPair(currentPairIndex);
+                    }
+                })
             }
-        }
-    }
+        })
+
+    })
+    // Close the text box if the overlay is clicked
+    document.getElementById('overlay').addEventListener('click', closeTextBox);
+
+    // Example of Mouse Tracking Effect (not directly related to your issue)
+    document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const gradient = `radial-gradient(800px circle at ${x}px ${y}px, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 40%)`;
+            card.style.setProperty('--card-hover-bg', gradient);
+        });
+    });
+
+    // div.insertAdjacentHTML('beforeend', '<p>Hello</p>');
+        // div.insertAdjacentHTML('afterbegin', '<p>Bye</p>');
+        // beforebegin: immediately before elem
+        // afterbegin: at the beginning
+        // beforeend: into elem, at the end
+        // afteend: immediately after elem
+
+        // div.before('<p>Hello</p>', document.createElement('hr'));
+
+        // div.before('<p>Hello</p>', document.createElement('hr'));
+
+        // ol.before('before');
+        // // Insert before <ol>
+        // ol.after('after');
+        // // Insert After <ol>
+
+        // let liFirst = document.createElement('li');
+        // liFirst.innerHTML = 'prepend';
+        // ol.prepend(liFirst);
+        // Insert liFirst at the beginning of <ol>
+
+        // let liLast = document.createElement('li');
+        // liLast.innerHTML = 'append';
+        // ol.append(liLast);
+        // Insert lilast at the end of <ol>
+
+        // .append = appends nodes or strings at the end of the node
+        // .prepend = insert nodes or strings at the beginning of node
+        // .before = insert nodes or strings before node
+        // .after = insert nodes or strings after node
+        // .replaceWith = replaces node with the given nodes or strings
+
+        // let div = document.createElement('div');
+        // div.className = "alert";
+        //
+        // div.innerHTML = "<strong>Today was the best day of your life, and it's not done</strong>";
+        //
+        // document.body.append(div);
+
+        // let div = document.createElement('div');
+        // // 1. Create <div> element
+        //
+        // div.className = "alert";
+        // // 2. Set its class to "alert"
+        //
+        // div.innerHTML = "<strong>Hi There</strong> You've read an important message.";
+        //
+        // document.body.append(div);
+        // 3. Fill it with the content
+
+        // let div = document.createElement('div');
+        // //     creates a new element node with the given tag
+        //
+        // let textNode = document.createTextNode('Here I am');
+
+
+
+        // document.getElementById('btn1').addEventListener('click', function(event){
+        //     console.log('You clicked ', event.target);
+        //     alert('You Clicked Button 1!');
+        // });
+        //
+        // document.getElementById('btn2').addEventListener('click', function(event){
+        //     console.log('You clicked ', event.target);
+        //     alert('You Clicked Button 2!');
+        // });
+
+
+        // let links = document.querySelector('a');
+        // for(let link of links)
+        // {
+        //     let href = link.getAttribute('href');
+        //     if(!href) continue;
+        //     if(!href.includes(`://`)) continue;
+        //     if(!href.startsWith('http://internal.com')) continue;
+        //     link.style.color = 'orange';
+        // }
+
+        // let elem = document.querySelector('[data-widget-name]');
+        // // getting it
+        //
+        // alert(elem.dataset.widgetName);
+        // reading the value
+
+        // let input = document.querySelector('input');
+        //
+        // // attribute => property
+        // input.setAttribute('id', 'id');
+        // alert(input.id);
+        //
+        // // property => attribute
+        // input.id = 'newId';
+        // alert(input.getAttribute('id'));
+
+        // alert(elem.getAttribute('About'));
+        // // 1. Elephant, reading
+        // elem.setAttribute('Test', 123);
+        // // 2. Writing
+        // alert(elem.outerHTMl);
+        // // 3. See if the attribute is in HTML(yes)
+        // for(let attr of elem.attributes)
+        // {
+        //     alert(`${attri.name} = ${attr.value}`);
+        // }
+        // (4) List All
+
+        // let image = document.getElementById("myImage");
+        // alert(image.getAttribute('src'));
+        //
+        // image.setAttribute('src','newImage.jpg');
+        // If you change the src attribute via Javascript, the browser does not automatically update the image
+        // To the new source immediately, you would need to manually set the src property.
+
+        // let btn = document.getElementById('submitBtn');
+        //
+        // alert(btn.innerHTML);
+        //
+        // btn.innerHTML = 'Click Me';
+        // alert(btn.innerHTML);
+
+
+
+        // document.body.sayTagName = function()
+        // // Adding a custom method named sayTagName to the document.body object
+        // {
+        //     alert(this.tagName);
+        // };
+        // document.body.sayTagName();
+
+        // document.body.myData = {
+        //     name:"Tim",
+        //     title:"Thomas"
+        // };
+        //
+        // alert(document.body.myData.title);
+
+
+        // alert(elem.getAttribute('About'));
+        // elem.setAttribute('Test', 123);
+        // alert(elem.outerHTML);
+        // for(let attr of elem.attribute)
+        // {
+        //     alert(`${attri.name} = ${attri.value}`);
+        // }
+
+
+
+
+
+        // document.body.makeGinga = function()
+        // {
+        //     alert(this.makeGinga())
+        // };
+        //
+        // document.body.makeGinga();
+        //
+
+        // document.body.sayTagName = function()
+        // {
+        //     alert(this.tagName);
+        // };
+        //
+        // document.body.sayTagName();
+
+        // document.body.myData = {
+        //     name:'Artemi',
+        //     title:'Panarin'
+        // };
+        //
+        // alert(document.body.myData.title);
+
+        // let body = document.body;
+        //
+        // body.innerHTML = "<!--" + body.tagName + "--->";
+        //
+        // alert(body.firstChild.data);
+
+        // alert(document.body.lastChild.nodeType);
+
+
+        // for(let li of document.querySelectorAll('li'))
+        // {
+        // //     get the title from the text node
+        //     let title = li.firstChild.data;
+        //
+        //     title = title.trim();
+        // //     Remove extra spaces from ends
+        //
+        //     let count = li.getElementsByTagName('li').length;
+        //
+        //     alert(title + ': ' + count);
+        // }
+        // alert(elem.type);
+        // alert(elem.id);
+        // alert(elem.value);
+
+        // elem.hidden = true;
+
+        // let name = prompt("What's your name?", "<b>Winnie-the-Pooh!</b>");
+        // elem1.innerHTML = name;
+        // elem2.textContent = name;
+
+        // alert(news.textContent);
+
+        // let text = document.body.firstChild;
+        // alert(text.data);
+        //
+        // let comment = text.nextSibling;
+        // alert(comment.data);
+        // let div = document.querySelector('div');
+        //
+        // div.outerHTML = '<p>A new element</p>';
+        // // replace div.outerHTML with <p>...</p>
+        //
+        // alert(div.outerHTML);
+        // Wow! 'div' is the same
+
+        // alert(elem.outerHTML);
+
+        // var htmlContent = element.outerHTML;
+        // // Retrieve full HTML element including the element's own tags
+        // element.outerHTML = newHTML;
+        // Replace the element itself with the new HTML provided, including its opening and closing tags
+
+        // function appendText()
+        // {
+        //     const myDiv = document.getElementById("myDiv");
+        //     myDiv.innerHTML += "world!";
+        // }
+
+
+        // document.body.innerHTML = 'Fuck me man';
+        // InnerHTML allows you to get the HTML property inside the element as a string
+
+        // alert(document.body.innerHTML);
+        // // Read the current contents
+        // document.body.innerHTML = 'The New Body';
+        // // Replace it!
+
+
+
+
+        // let ageTable = document.getElementById('age-table');
+        // console.log(ageTable);
+        // // Find the table with id="age-table"
+        //
+        // let labelsInTable = age.table.getElementsByTagName('label');
+        // console.log(labelsinTable);
+        // // Find all label elements inside the table (there should be three)
+        //
+        // let firstTd = ageTable.getElementsByTagName('td')[0];
+        // console.log(firstTd);
+        // // Find the first <td> in the table (the one with the word "Age")
+        //
+        // let searchForm = document.forms['search'];
+        // console.log(searchForm);
+        // // Find the form with the name search
+        //
+        // let firstInputInForm = searchForm.querySelector('input');
+        // console.log(firstInputInForm);
+        // // Find the first input of the form
+        //
+        // let inputsInForm = searchForm.querySelectorAll('input');
+        // let lastInputInForm = inputsInForm[inputsInForm.length - 1];
+        // console.log(lastInputForm);
+    //     Finds the last input in that form
+
+
+    //     let table = document.getElementById('age-table');
+    //     // 1. Table with id="age-table"
+    //     table.getElementsByTagName('label');
+    //     // 2. All label elements inside the table
+    //     table.rows[0].cells[0];
+    //     // The first td in that table (with the word "Age")
+    //     let form = document.getElementsByName('search')[0];
+    //     // 4. The form with the name "search" assuming there's only one element with name = "search" in the document
+    //     form.getElementsByTagName('input');
+    //     // 5. The first input in the form
+    //     let inputs = form.querySelectorAll('input');
+    //     inputs[inputs.length-1];
+    // //     Take the last one
+
+
+
+
+    // let divs = document.getElementsByClassName('myClass');
+    // console.log(divs.length);
+    //
+    // let newDiv = document.createElement('div');
+    // newDiv.className = 'myClass';
+    // document.body.appendChild(newDiv);
+    // console.log(divs.length);
+
+
+    // let inputs = table.getElementsByTagName('input');
+    //
+    // for(let input of inputs)
+    // {
+    //     alert(input.value + ': ' + input.checked);
+    // }
+
+
+    // let chapter = document.querySelector('chapter');
+    // alert(chapter.closest('.book'));
+    // alert(chapter.closest('.contents'));
+    //
+    // alert(chapter.closest('h1'))
+
+
+    // for(let elem of document.body.children)
+    // {
+    //     if(elem.matches('a[href$="zip"]'))
+    //     {
+    //         alert("The archive reference: " + elem.href);
+    //     }
+    // }
+
+
+    // let elements = document.querySelectorAll('ul > li:last-child');
+    // for(let elem of elements)
+    // {
+    //     alert(elem.innerHTML);
+    // }
+
+    // let elem = 5;
+    // alert(elem);
+
+    // elem.style.background = 'red';
+    // elem is a reference to DOM-Element with id=
+
+
+    // 12.30.24
+
+    // let elem = document.body;
+    //
+    // alert(getComputedStyle(elem).width);
+
+    // let elem = document.getElementById('elem');
+    // // gets element
+    //
+    // elem.style.background = 'red';
+    // // make it background red
+
+    // alert(document.body.className); // main page
+
+    // document.body.classList.add('article');
+    //
+    // alert(document.body.className);
+
+    // for(let name of document.body.classList)
+    // {
+    //     alert(name);
+    // }
+
+
+    // ol.before('Jagr');
+    // // Insert String "before"  before
+    // ol.after('Berard');
+    //
+    // let liFirst = document.createElement('li');
+    // liFirst.innerHTML = 'Straka';
+    // ol.prepend(liFirst);
+    //
+    // let liLast = document.createElement('li');
+    // liLast.innerHTML = 'Kakko';
+    // ol.append(liLast);
+
+
+    // let div = document.createElement('div');
+    // // Create the <div> element
+    // div.className = "alert";
+    // // Set its class to alert
+    // div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
+    // // Created the element but we can't see it yet
+    // document.body.append(div);
+
+
+    // let div = document.createElement('div');
+    // // Create a new element node with the given tag
+    //
+    // let textNode = document.createTextNode('Here I am');
+
+    // let user = {
+    //     name:"Bomba",
+    //     age:44
+    // };
+    //
+    // for(let div of document.querySelector('[show-info]'))
+    // {
+    //     let field = div.getAttribute('show-info');
+    //     div.innerHTML = user[field];
+    // }
+
+    // alert(div.getAttribute('style'));
+    // <!--    string-->
+    //
+    // // Object
+    // alert(div.style);
+    // // [Object CSS Style]
+    // alert(div.style.color);
+    // // Red
+
+
+    // alert(input.getAttribute('checked'));
+    // alert(input.checked);
+
+    // let checkbox = document.querySelector('#check1');
+    //
+    // // Attribute to property
+    // checkbox.setAttribute('checked', true);
+    // alert(checkbox.checked);
+    //
+    // // Property to attribute
+    // checkbox.checked = false;
+    // alert(checkbox.getAttribute('checked'));
+
+
+    // let input = document.querySelector('input');
+
+    // attribute =>property
+    // input.setAttribute('id', 'id');
+    // alert(input.id);
+    // Sets the HTML attribute id of the input element to ID.
+    // At this point, the input element has an ID attribute in the HTML, but not reflected in the DOM property
+    // The DOM property is automatically updated to reflect the new id attribute
+
+    // DOM Property to Attribute
+    // input.id = 'newID';
+    // alert(input.getAttribute('id'));
+
+
+    // let input = document.querySelector('input');
+    //
+    // // attribute => property
+    // input.setAttribute('value', 'text');
+    // alert(input.value);
+    //
+    // // Not Property => attribute
+    // input.value = 'newValue';
+    // alert(input.getAttribute('value'))
+
+    // let input = document.querySelector('input');
+    //
+    // // attribute => property
+    // input.setAttribute('value', 'text');
+    // alert(input.value);
+    //
+    // // Not property => attribute
+    // input.value = 'newValue';
+    // alert(input.getAttribute('value'));
+
+
+    // const elem = document.getElementById('myDiv');
+    //
+    // // Remove the 'class' attribute
+    // elem.removeAttribute('class');
+    // alert(elem.getAttribute('class'));
+    //
+    // // Remove the 'data-info' attribute
+    // elem.removeAttribute('data-info');
+    // alert(elem.getAttribute('data-info'));
+    //
+    // // Try removing a non-existing attribute
+    // elem.removeAttribute('style');
+    // alert(elem.getAttribute('style'));
+
+
+    // const elem = document.getElementById('myDiv');
+    //
+    // // Set the 'class' attribute to 'newClass'
+    // elem.setAttribute('class', 'newClass');
+    // alert(elem.getAttribute('class'));
+    // // Add a new 'data-custom' attribute
+    // elem.setAttribute('data-custom', 'some value');
+    // alert(elem.getAttribute('data-custom'));
+    // // Set the 'style' attribute
+    // elem.setAttribute('style', 'color: red; background-color:yellow');
+    // alert(elem.getAttribute('style'));
+
+
+    // const elem = document.getElementById('myDiv');
+    //
+    // alert(elem.getAttribute('class'));
+    // // Retrieves the value of the attribute
+    // // Get the value of the 'class' attribute
+    // alert(elem.getAttribute('data-info'));
+    // // Get the value of the 'data-info' attribute
+    // alert(elem.getAttribute('style'));
+    // // Get a non-existing attribute, returns null
+
+    // const elem = document.getElementById('myDiv');
+    //
+    // alert(elem.hasAttribute('class'))
+    // // check if the element has a 'class' attribute
+    //
+    // alert(elem.hasAttribute('style'))
+    // // Check if the element has a 'style' attribute
+
+    // document.body.myData = {
+    //     name:"Bomba";
+    //     title:"Clot"
+    // };
+    //
+    // alert(document.body.myData.title);
+    //
+    // document.body.sayTagName = function()
+    // {
+    //     alert(this.tagName)
+    // };
+    //
+    // document.body.sayTagName();
+
+    // let chapter = document.querySelector('chapter');
+    //
+    // alert(chapter.closest('.book'));
+    // alert(chapter.closest('.contents'));
+    // alert(chapter.closest('h1'));
+
+    // for(let elem of document.body.children)
+    // {
+    //     if(elem.matches('a[href$="zip]'))
+    //     {
+    //         alert("The archive reference: " + elem.href);
+    //     }
+    // }
+
+
+    // let elements = document.querySelectorAll('ul > li:last-child');
+    //
+    // for(let elem in elements)
+    // {
+    //     alert(elem.innerHTML);
+    // }
+
+    // let elem = document.getElementById('elem');
+    //
+    // elem.style.background = 'red';
+
+
+    // console.log(document.body.childNodes);
+    // (1)EventTarget: root abstract class for everything
+
+    // (2)Node: serving as a base for DOM nodes
+    // Provides the core tree functionality: parentNode, nextSibling, childNodes
+    // Other classes that inherit from it
+
+    // (3)Document are inherited from HTMLDocument
+    // Document global object belongs exactly to this class. It serves as an entry point to the DOM
+
+    // (4) CharacterData: text(<p> Hello </p>>)
+
+
+    // let usernameElement = document.getElementsByName('username')[0];
+    // // Get all elements with the 'username'
+    // let subscribeCheckbox = document.getElementsByName('subscribe'[0]);
+    // // Get all elements with the name 'subscribe'
+    // alert('Username field value: ' + usernameElement.value);
+    // alert('Is subscribed: ' + subscribeCheckbox.checked);
+    // Display alerts for the username value and subscribe checkbox status
+
+
+    // let highlightedElements = document.getElementsByClassName('highlight');
+    // // Get all elements with the 'highlight' class
+    //
+    // for(let elem of highlightedElements){
+    //     elem.style.border = '2px solid red';
+    // }
+    // Retrieves all elements with the specified CSS class name within the given element(elem)
+
+    // let container = document.getElementById('container');
+    // // Get the container element
+    // let listItems = container.getElementsByTagName('li');
+    // // Get all <li> elements within the container
+    // for(let li of listItems)
+    // // Loop through and alert each <li>'s content
+    // {
+    //     alert(li.innerHTML);
+    // //     Alerts each <li> content
+    // }
+    // Retrieves all elements under the same tag name
+
+    // let inputs = table.getElementsByTagName('input');
+    // // Looks for elements with the given tag and returns the collection of them
+    // // The tag parameter can also be a star "*" for any tags
+    //
+    // let
+    //
+    // for(let input of inputs)
+    // {
+    //     alert(input.value + ': ' + input.checked);
+    // }
+
+    // for(let elem of document.body.children)
+    // {
+    //     if(elem.matches('a[href$="zip"'))
+    //     {
+    //         alert("The archive references: " + elem.href);
+    //     }
+    // }
+
+    // let elements = document.querySelectorAll('ul > li:last-child');
+    // // Last item in each unordered list
+    //
+    // for(let elem of elements)
+    // {
+    //     alert(elem.innerHTML);
+    //
+
+    // let elem = 5;
+    // // Elem now changes to 5 because we declared a variable under the same name
+    // alert(elem);
+    // // Only while the other variable hasn't been defined.
+
+    // elem.style.background = 'red';
+    // Elem is a reference to DOM-element with id="elem"
+
+    // id="elem-content"->can't be a variable name because of the hyphen
+    // unless we use the square brackets: window['elem-content']
+
+    // let elem = document.getElementById('elem');
+    // elem.style.background='red';
+    // If an element has the id attribute, we can get the element using the method document.getElementById(id)
+
+
+    // let elements = document.querySelectorAll('ul > li:last-child');
+    // for(let elem of elements)
+    // {
+    //     alert(elem.innerHTML);
+    // }
+
+    // let elem = 5;
+    //
+    // alert(elem);
+
+    // elem.style.background = 'red';
+    // Elem-content has a hyphen inside,
+
+    // let elem = document.getElementById('elem');
+    //
+    // // make its background red;
+    // elem.style.background = 'red';
+    // Changing that portion of the page to red
+
+    // function getListContent()
+    // {
+    //     let fragment = new DocumentFragment();
+    //
+    //     for(let i = 1;i <=3;i++)
+    //     {
+    //         let li = document.createElement('li');
+    //         li.append(i);
+    //         fragment.append(li);
+    //     }
+    //     return fragment;
+    // }
+    //
+    // ul.append(getListContent());
+    // DocumentFragment is a special DOM node that serves as a wrapper to pass around lists of nodes.
+    // We can append other nodes to it, but when we insert it somewhere, then its content is inserted instead.
+    // For example, getListContent below generates a fragment with <li> items, that are later inserted into <ul>:
+
+
+    // let div2 = div.cloneNode(true)
+    // div2.querySelector('strong').innerHTML = 'U will be fine';
+    // div.after(div2);
+
+    // let div = document.createElement('div');
+    // div.className = "alert";
+    // div.innerHTML = "<strong>Everything happens for a reason </strong> You will be stronger the next time you see her";
+    //
+    // document.body.append(div);
+    // setTimeout(()=> div.remove(),1000);
+
+    // div.insertAdjacentHTML('beforebegin', '<p>Hello</p>');
+    // div.insertAdjacentHTML('afterend', '<p>Bye</p>');
+    // Insert Adjacent where to insert relative to elem
+    //
+
+
+    // "beforebegin" – insert html immediately before elem,
+    //     "afterbegin" – insert html into elem, at the beginning,
+    //     "beforeend" – insert html into elem, at the end,
+    //     "afterend" – insert html immediately after elem.
+
+    // div.before('<p>Hello</p>', document.createElement('hr'));
+    // ol.before('before');
+    // ol.after('after');
+    //
+    // let liFirst = document.createElement('li');
+    // liFirst.innerHTML = 'prepend';
+    // ol.prepend(liFirst);
+    //
+    // let liLast = document.createElement('li');
+    // liLast.innerHTML = 'append';
+    // ol.append(liLast);
+
+    // let div = document.createElement('div');
+    //
+    // // Set its class to "alert"
+    // div.className = "alert"
+    //
+    // // Fill it with the content
+    // div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
+    //
+    // // Adding it within the body element
+    // document.body.append(div);
+
+    // let div = document.createElement('div');
+    // // Creates a new element node with the given tag
+    //
+    // let textNode = document.createTextNode('Here I am');
+
+    // let links = document.querySelectorAll('a');
+    //
+    // for(let link of links)
+    // {
+    //     let href = link.getAttribute('href');
+    //     if(!href) continue;
+    // //     No Attribute
+    //     if(!href.includes('://')) continue;
+    //     // No Protocol
+    //     if(href.startsWith('http://internal.com')) continue;
+    //     // Internal
+    //     link.style.color = 'orange';
+    // }
+
+
+    // alert(order.dataset.orderState);
+    //
+    // order.dataset.orderState = "pending";
+
+    // artemi = {
+    //     name:"Bread",
+    //     points:36
+    // };
+    //
+    // for(let div of document.querySelectorAll('[panarin-info]'))
+    // // insert the corresponding info into the field
+    // {
+    //     let field = div.getAttribute('panarin-info');
+    //     div.innerHTML = artemi[field];
+    // //     First Pete into "name", then 25 into age
+    // }
+
+    // let link = document.querySelector('a');
+    // link.style.color = 'orange';
+
+    // let elem = doucment.querySelector('[data-widget-name]');
+    // // reading the value
+    // alert(elem.getAttribute('data-widget-name'));
+
+    // alert(order.dataset.orderState);
+    // order.dataset.orderState = "pending";
+
+    // read
+    // alert(order.dataset.orderState); // new
+
+    // modify
+    // order.dataset.orderState = "pending"; // (*)
+
+    // let user = {
+    //     name:"Pete",
+    //     age:25
+    // };
+    // <!--    The code finds an element with the mark and shows what's requested-->
+    //
+    // for(let div of document.querySelectorAll('[show-info]')){
+    // //     Insert the corresponding info into the field
+    //     let field = div.getAttribute('show-info');
+    //     div.innerHTML = user[field];
+    // //     First Pete into name, and then 25 into the age
+    // }
+
+
+    <!--    attribute-->
+    // alert(a.getAttribute('href'));
+    //         hello
+
+    // Property
+    // alert(a.href);
+
+    <!--    string-->
+    // alert(div.getAttribute('style'));
+    // // The get attribute will return the string which is the raw value of style
+    //
+    // // Object
+    // alert(div.style);
+    // alert(div.style.color);
+
+    // alert(input.getAttribute('checked'));
+    // alert(input.checked);
+
+
+    // alert( elem.getAttribute('About') ); // (1) 'Elephant', reading
+    //
+    // elem.setAttribute('Test', 123); // (2), writing
+    //
+    // alert( elem.outerHTML ); // (3), see if the attribute is in HTML (yes)
+    //
+    // for (let attr of elem.attributes) { // (4) list all
+    //     alert( `${attr.name} = ${attr.value}` );
+    // }
+
+    // alert(document.body.id);
+    // alert(document.body.something);
+
+    // elem.hasAttribute(name) – checks for existence.
+    // elem.getAttribute(name) – gets the value.
+    // elem.setAttribute(name, value) – sets the value.
+    // elem.removeAttribute(name) – removes the attribute.
+
+
+    // Element.protoype.sayHi = function()
+    // {
+    //     alert(`Hello, I'm ${this.name}`);
+    // };
+    //
+    // document.documentElement.sayHi();
+    // document.body.sayHi();
+
+    // document.body.myData = {
+    //     name: 'Caesar',
+    //     title:'Imperator'
+    // };
+    //
+    // alert(document.body.myData.title);
+
+    // document.body.sayTagName = function()
+    // {
+    //     alert(this.tagName)
+    // };
+    //
+    // document.body.sayTagName()
+
+
+    // setInterval(()=> elem.hidden = !elem.hidden,1000);
+
+    // let name = prompt("What's your name?", "<b>Winnie-the-Pooh!</b>");
+    // elem1.innerHTML = name;
+    // elem2.innerHTML = name;
+
+    // alert(news.textContent);
+
+    // let text = document.body.firstChild;
+    // alert(text.data);
+    //
+    // let comment = text.nextSibling;
+    // alert(comment.data);
+
+    // let div = document.querySelector('div');
+    // // replace div.outerHTML with <p>...</p>
+    // div.outerHTML = '<p>A new element</p>';
+    // // Wow! 'div' is still the same!
+    // alert(div.outerHTML);
+
+
+    // alert(elem.outerHTML); // <div id="elem">Hello <b>World</b></div>
+
+
+    // let div = document.querySelector('div');
+    //
+    // div.outerHTML = '<p>Fuck me man</p>';
+    //
+    // alert(div.outerHTML);
+
+    // document.body.innerHTML = '<b>test';
+    // alert(document.body.innerHTML);
+
+
+    // Powerful way to change the page
+    // Replaces the content body completely to a new page
+    // alert(document.body.innerHTML);
+    // document.body.innerHTML = "The new prime";
+    // <!--    InnerHTML property allows to get the HTML inside the element as a string-->
+
+
+    // <!--    querySelector searches by CSS -->
+    // querySelectorAll searches by CSS
+    // getElementsById searches by id
+    // getElementsByName searches by name
+    // getElementsbyTagNAme searches by tag or *
+    // getElementsByClassName searches by class
+
+    // let form = document.getElementsByName('my-form')[0];
+    // // finding it by name attribute
+    //
+    // // find by class inside the form
+    // let articles = form.getElementsByClassName('article');
+    // alert(articles.length);
+    // Looking for article elements
+    // 2, Found two elements with the class "article";
+
+
+    // let inputs = table.getElementsByTagName('input');
+    //
+    // for(let input of inputs)
+    // {
+    //     alert(input.value + ': ' + input.checked);
+    // }
+    <!--    GetElementsBy-->
+
+
+
+
+
+    // let chapter = document.querySelector('.chapter');
+    //
+    // alert(chapter.closest('.book')); // UL
+    // alert(chapter.closest('.contents')); // DIV
+    //
+    // alert(chapter.closest('h1')); // null (because h1 is not an ancestor)
+
+
+    // let elem = document.getElementById("elem");
+    //
+    // // elem.style.background = 'red';
+    // elem.style.setProperty('background-color','red','important');
+
+    // let elem = 5;
+    // alert(elem);
+
+    // let elements = document.querySelectorAll('ul > li:last-child');
+    // // returns all elements inside elem
+    //
+    // for(let elem of elements)
+    // {
+    //     alert(elem.innerHTML);
+    // }
+
+    //     Matches when we are iterating over elements and trying to filter out those that interest us
+
+    // for(let elem of doucment.body.children)
+    // {
+    //     if(elem.matches('a[href$="zip"]'))
+    //     {
+    //         alert("The archive reference: " + elem.href);
+    //     }
+    // }
+
+    // let elem = document.body;
+    //
+    // alert(elem.nodeType);
+    //
+    // alert(elem.firstChild.nodeType);
+    //
+    // alert(document.nodeType);
+
+    // alert(document.body.nodeName);
+    // alert(document.body.tagName);
+    //     Tag Name exists only for elements in the node
+    //      Node Name is defined for elements it means the same as tagname
+    //      for other node types(text, comment, etc) it has string with the node type
 
 
 </script>
-
 
 
 </body>

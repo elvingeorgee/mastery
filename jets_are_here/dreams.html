@@ -204,18 +204,21 @@
         }
 
 
-        /* Styling for displaying dream entry text */
         .dream-entry-display {
             display: none;
-            position: absolute;
+            position: absolute; /* Keep it absolute for positioning relative to clicked date */
             background-color: black;
             border: solid pink;
             padding: 10px;
-            width: 200px;
+            width: 250px; /* Set a fixed width for consistency */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             z-index: 10;
             color: pink;
+            max-height: 200px; /* Limit the height of the display box */
+            overflow-y: auto; /* Enable scrolling if the content exceeds the max height */
+            font-size: 14px; /* Ensure the text is readable */
         }
+
 
         .theories-container {
             display: flex; /* Flexbox for horizontal layout */
@@ -260,8 +263,9 @@
             <li><a href="java.html">Jets</a></li>
             <li><a href="rangers.html">Rangers</a></li>
             <li><a href="dreams.html">Dreams</a></li>
-            <li><a href="wildcard.html">Wild Card</a></li>
+            <li><a href="wildcard.html">Prime</a></li>
             <li><a href="lastdance.html">Progression</a></li>
+            <li><a href="wistfulness.html">Wistfulness</a></li>
         </ul>
     </nav>
 </div>
@@ -328,16 +332,50 @@
             </div>
             <div class="dates" id="decemberDates"></div>
         </div>
+
+        <div class="calendar" id="januaryCalendar">
+            <div class="header">
+                <div class="monthYear" id="januaryMonthYear">January 2025</div>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thurs</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="januaryDates"></div>
+        </div>
+
+        <div class="calendar" id="februaryCalendar">
+            <div class="header">
+                <div class="monthYear" id="februaryMonthYear">February 2025</div>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thurs</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="februaryDates"></div>
+        </div>
+
         <div class="dream-entry-display" id="dreamEntryDisplay">Select a highlighted date to see its entry.</div>
+
 
     </div>
 
     <div class="theories-container">
         <div class="theories">
-            Visions for the future based on past experiences hidden within the unconscious -Elvin
+            Created fantasies based on past experiences hidden within the unconscious -Elvin
         </div>
         <div class="theories">
-            Understanding the present helps illuminate the future - Maya
+            Subconscious visualizations of ones' current mindset-Steven
         </div>
         <div class="theories">
             All life is a dream, and in our dreams, we can learn to transcend the illusions of the self.-Buddha
@@ -385,23 +423,65 @@
         '11-28-24': "I was an event space and recalling all the jobs I had. AT was sitting next to me, and Paul had a homegirl that he found that was going to go on a walk with. At one point AT got slapped by someone by mistake, she felt uncomfortable and walked away from the situation. She didn't come back and I was kinda bummed out.",
         '12-01-24': "First part of the dream was me sitting in a Vegas hotel horned af looking for someone. I believe it was me by myself. Second part was walking about to Kenos with his girl and Josh. Reminding him about fantasy, and also about the major renovations on Dufferin and Centre. Mario Loukas left home to drop something off.",
         '12-02-24': "It was Annson, I , and someone else and we were going into the subway heading to a concert. I remember the subway ride, but nothing really after that. I just remember making the trip from the subway to the concert grounds.",
-        '12-03-24': "I started yelling at Ronklin at a bar because he kept on bringing up the past. Then Kevin, Cliff, and the cousins have gone to a Walmart twice. The second time we went to the gym we needed to buy Christmas lights.The first time at Wal-mart I sensed that I recognized the employee, and it was Ava."
-
+        '12-03-24': "I started yelling at Ronklin at a bar because he kept on bringing up the past. Then Kevin, Cliff, and the cousins have gone to a Walmart twice. The second time we went to the gym we needed to buy Christmas lights.The first time at Wal-mart I sensed that I recognized the employee, and it was Ava.",
+        '12-04-24': "I was on an island and it was like the people were dying. It was very similar to Shutter Island, as people began aging a lot quickly. People were accerlating their time of death. Then there was a warzone situation where there were three people running around. The two mans got sniped. Idk about the last character",
+        '12-05-24': "We were having dinner at periammas' renovated house with all the cousins chilling, and then we were going to eat the cheesecake. Then Ann made a comment that got me tight. I went upstairs to talk to periamma, and she was sad because she was going through things. As I left the house it exited to the outside of a park. I was walking with a random guy telling him why I was talking to my aunt.",
+        '12-07-24': "I was being driven around in a school bus, and then at some point I got dropped off at someone's house. It apparently was the wrong house, and I went back into the school bus and was asked if ",
+        '12-08-24': "All four of us were driving to a cabin or like an AirBnb, and we were chilling in the basement of it. Once we were going upstairs we noticed that there was two girls staying up, but obviously girls leaning towards Andrews' age. Another part of the dream was us staying at home, and wanting to get some food and mama was going to be the one who brought us the food.",
+        '12-09-24': "Natalie and I were sitting on a school bus, and just talking. She was probably on her phone, and I asked her how often she reads. She said she hasn't read in the last 10 years.",
+        '12-10-24': "We were playing a guessing game similar to charades and Kevins' side of the family was all guessing. The other part of the dream was us being in Sri Lanka, Raishman and Kavi were chilling in Sri Lanka and moving in a Tuktok",
+        '12-12-24': "Natalie was going inside the gym, but it was strange because it was also my bedroom and she was wearing a set I've never see her wear before. Then she moved inside the room, and when I peep in she's fully covered in the blanket and sleeping with a plate of just rice. Someone throwing out Thinking Fast + Slow in the garbage. I'm going back and forth to open the door and at some point she moves, and I go open a new door and I've now been passed out for 20min and she's sitting talking to me. Another portion of a dream is me planning a trip to a few spanish speaking countries, and some might be in europe.",
+        '12-13-24': "I was negotiating deals in my sleep with some sort of beef restaurant. There was problems that there was another restaurant involved. At the end of the dream, the initially declined the offer as a joke but then accepted it.",
+        '12-14-24': "Initially sleeping over at periammas and she had a renovated basement. Then we were transferred to school when Kevins' cousins were there, and everyone was competing for a math test. It was basic math but it felt like an advanced competition. We went to go out for dinner with Vic, Marj, and we were gonna take shots. Then Andrew was telling me how he didn't want to do PSW.",
+        '12-15-24': "Panarin requested a trade. We were walking in a farm like old-western style setting, and I feel like I wasn't a good time wandering around the city. I had two people with me, and we had to hop inside a taxi cab to go to the airport. There was an asian girl next to me, and then the guy in the passenger seat was taking her shoes off. Then it was ggs.",
+        '12-16-24': "I got hit with the three people, and became pestered by them asking me questions non stop. Unna was driving with Adrian on some sort of road trip.",
+        '12-17-24': "There was a party with a group of milfs. Then it transported to a roof top party where my laptop monitors screen got fucked up. I had to go take the laptop to repairs, but my bro needed the car. I went to go visit a pizza place and asked for their signature pizza and they did they would do half nacho cheese with the other half regular lowkey that's what I wanted. I was chilling with Junior at one point. Annson was waiting for us to play a flag football game. On a third down there was a passing play that was missed because the QB was blitzed and the HB wasn't ready for the pass as they were running the route",
+        '12-18-24': "I was at the gym and then Natalie was doing her own thing. Although I was eating fuzzy peaches, and then I must've forgot it somewhere in the gym. Then while I was stretching, the asian girl brought the fuzzy peaches, and she was eating her own oranges. She said she randomly found the fuzzy peaches somewhere. At one point she dropped the fuzzy peaches, and then I went for one of her oranges.",
+        '12-19-24': "There was a cafeteria area where I was chilling with that I was chilling at, and then I was transferred over to an upper place of a building. Following that I was a pokemon battle with someone, and then fucking Maganium at Thunder wtf. ",
+        '12-21-24': "I was in a dream with Kyah and we were in a class and just getting to know each other.",
+        '12-22-24': "We were waiting outside of a swimming pool with Julian and Tabia. We were shopping outside, and there was a pool behind us. Then we were just waiting to leave, and there was a concert happening in the background. We couldn't get it in, and it was Lil Baby concert. We tried to sneak in once everyone got in but we couldnt.",
+        '12-23-24': "I was watching some P with a guy with his girl, and man I know it was a high intense situation but I kept my composure. Then the Rangers were getting smoked at a game, and then GM was telling us to go back to MSG with our 50k seats. I was in the library picking up pencils, and walking out with a worker walking right infront of me, and another one. Discussing something on a forum with them, and I also think I was talking to Marjorie.",
+        '12-24-24': "JR was eating some sort of jello and it was some sort of mixture. He was telling me to eat. ",
+        '12-25-24': "I was prepping for a bridle party and sizing up suits in a wedding hall. Also I might've been pitching a restaurant in the  city, like it was a bar and grill",
+        '12-29-24': "Two families sitting in a a bed, and both had bad wives. The couple on the right was both white, and I don't know about the ones on the left but they were pretty as well. The thing that changed things was the husband on the right was complimenting the wife on the left, and the OG wife didn't like that. So his wife starting grinding on him and he potentially busted. I then transferred to MLSE, where all the workers there were bad. I was at a grocery store and a random NY guy showed me his phone wallpaper and it had his slong at the end of the live wallpaper. Then all these MLSE workers were bad, and there was a part where a guy quit, and it showed him quitting twice. Lastly, there was a gorgeous girl that left, and I tried getting her number but she had a man.",
+        '12-30-24': "WD: I was in a like in a First Nations family/police worker group. There was an investigation going within the house, and at one point there was a thorough search that was going on to look for something. Then a spanish girl was audtioning for a role and at one point she went reverse cowgirl.",
+        '12-31-24': "I was at a dealership deciding to a pick a car.",
+        '01-01-25': "I was an executive director for the new Spiderman movie. I was waiting for Scarlet Jo to be available for an interview, and it was the second time we were doing a press conference. We were in the grocery store shopping and considering the best possibility for the Spiderman.",
+        '01-02-25': "The entire family was at our house but there were two girls that I was trying to entertain. One of the girls read books, while I was just generally talking to the other one. Nothing came out of it, and then we went to a horse race. Jess was there and it was us pretty much walking around the room doing little things.",
+        '01-03-25': "Eddie, Emily, and I were on some sort of mission. I remember we had to do something as a collective group.",
+        '01-04-25': "I was in an alleyway running away from something. There was a portion of the dream where it felt like I was dating Jess like we were a couple. I felt like I was caring for her for unnecessary reason. Then I was walking out of our backyard with Lily-Rose Depp, and she was talking to someone in Russian on the sidewalk while we were walking together.",
+        '01-05-25': "We were playing with Atlas at my house in the middle floor and everyone was asking about Annson. Then periappa interuppted and told everyone his side of the story, and Atlas began whispering why what he said wasn't right. Then Andrew wanted to burn and cut, my bro said yes. Then Ronklin said no to that, they stepped out but it was too cold outside so I stayed back.",
+        '01-06-25': "There was a rave happening at a resort, and Jennifer was going upstairs to one of the rooms of the place.",
+        '01-07-25': "We were walking in a snowy area, and I forgot the reason and how we got there. We were following some sort of trail.I was working a shift at the mall, and was doing two jobs at once. There was a customer doing a telus migration. I was on the phone with someone doing a sale as well.",
+        '01-09-25': "Kristina hybrid was the most awkward image ever imagined and it will open the flood gates. What the fuck was that",
+        '01-11-25': "There was a huge open space where Justin Timberlake, SZA, and I were walking around to see what we could eventually do with this open field of land.",
+        '01-14-25': "There was a family gathering where Periappa and Anton Cithiappa were involved. I had to go to tennis so I couldn't focus too long.",
+        '01-16-25': "Nicolas Cage was being chased around in slow motion trying to kill one person, but then at one point someoone who wasn't suppose to kill him. Ends up killing him sending chills within my body. I'm at the moms gym and I'm losing my fucking mind, and I'm getting cheesed cuz I hate dreams like these. Lastly, I'm on a call with someone and once it ends, I go to a room and hear Yachi and someone else listening to the call that I'm doing. I try to tell them to unpack, but I tried ripping their luggage open 3x and it was the same result every time.",
+        '01-19-25': "Jess was pissed off at me for some reason. The location was hogwarts and was sending me to get stuff for her. At one point, she asked to go get a water bottle she was using. It was in a cauldron room, and then as I stepped out she came out looking good in a really nice dress. Then I was working in the first floor of an office, and then I saw Riyad looking at me in a distance. We proceeded to walk to his desk, and then discussed the idea of going to go see the baby when he goes, but he felt it was was evasive. There was an awkward silence and it was over. Lastly, we were chilling in the back of an Wal-Mart, and there customers juicing and leaving their things on the side for people to clean up. One of the managers working were Red Foreman, and the other person was Seth. Within the Walmart, Rufeeno was helping me flirt with a asian Girl.",
+        '01-22-25': "Zara was standing in front of a porch, and we just talking very elegantly.",
+        '01-24-25': "He humiliated him in front of me and told him to cry in front of all these people. Then we were at the back of the orthodontists, and there was Kendra Lust esque person I was trying converse and it was starting to get physical but I kept my composure. I had to leave through the back door. I was transported to a subway station and I was severely dissappointed that I couldn't manufacture anything with her, and it was this weird looking subway station with multiple different doors but one main station in the main platform.",
+        '01-27-25': "Kristina was learning something on a computer. Then I was with Perianna and Sam for a house warming with one of jays uncles looking for a new house. There was a thick momma dog running around the house",
+        '01-28-25': "We were at the cottage cutting a cake for Kavis birthday. There was a weird moment when we were planning on cutting a cake for him. I was one of the first people to cut the cake but it should’ve been Abi. Then an insect outbreak happened. Uber Office was on Highway 7 and Interchange.",
+        '01-29-25': "It was at the library and everyone was talking to everyone at the place. Everyone was hollering at everyone trying to pick them up. The brown girl was at the place trying to talk to me. She couldn’t make eye contact and you kept on walking away but still continued the conversation.",
+        '01-30-25': "Jess was wearing a really nice white outfit and she was telling me that she was going to leave Uber for a new job. Then it sounded like we were preparing to pitch my full time role opportunity to a manger to see if I can get it ",
+        '02-01-25': "My first international big boom. It was in a pretty good opportunity and maybe a much needed reset. I was told by Ronklin that they’d be getting stuff every week. Then I met with Isabels family and they were saying something along the lines of that one kid being left out of the family. It sounded like he was taking advantage of the system. Then we were in some karate dojo. This man offered me a job at the nba offices. ",
 
     };
 
-
-    function generateCalendar(datesElement, month) {
-        const currentYear = 2024;
-        const totalDays = new Date(currentYear, month + 1, 0).getDate();
-
+    function generateCalendar(datesElement, month, year) {
+        const totalDays = new Date(year, month + 1, 0).getDate();  // Get the total number of days in the month
         let datesHTML = '';
         for (let i = 1; i <= totalDays; i++) {
-            const formattedDate = `${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}-${String(currentYear).slice(-2)}`;
+            const formattedDate = `${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}-${String(year).slice(-2)}`;
+            // PadStart is added to make sure a single digit month has a 0 in the front of it.
+            // Only takes the last two digits of the year(24)
             const isDreamDate = dreamEntries.hasOwnProperty(formattedDate);
+            // check if one of the dream entries is the date
             const dateClass = isDreamDate ? 'dream-date' : '';
+            // Add 'dream-date' class if a dream exists for the date
             datesHTML += `<div class="date ${dateClass}" data-date="${formattedDate}">${i}</div>`;
         }
+
         datesElement.innerHTML = datesHTML;
     }
 
@@ -410,15 +490,16 @@
         const entry = dreamEntries[date];
         const entryDisplay = document.getElementById('dreamEntryDisplay');
 
-
         if (entry) {
             entryDisplay.innerText = entry;
             entryDisplay.style.display = 'block';
 
-            // Position the hover box above the clicked date
+            // Get the position of the clicked date element
             const rect = event.target.getBoundingClientRect();
-            entryDisplay.style.top = `${rect.top - entryDisplay.offsetHeight - 10}px`;
-            entryDisplay.style.left = `${rect.left + (rect.width / 2) - (entryDisplay.offsetWidth / 2)}px`;
+
+            // Position the dream box just below the clicked date
+            entryDisplay.style.top = `${rect.bottom + window.scrollY + 10}px`;  // 10px gap from the circle
+            entryDisplay.style.left = `${rect.left + window.scrollX + (rect.width / 2) - (entryDisplay.offsetWidth / 2)}px`;  // Center the box
         } else {
             entryDisplay.innerText = "No dream entry for this date.";
         }
@@ -427,6 +508,9 @@
     document.getElementById('octoberDates').addEventListener('click', handleDateClick);
     document.getElementById('novemberDates').addEventListener('click', handleDateClick);
     document.getElementById('decemberDates').addEventListener('click', handleDateClick);
+    document.getElementById('januaryDates').addEventListener('click', handleDateClick);
+    document.getElementById('februaryDates').addEventListener('click', handleDateClick);
+
 
     // Close the hover box if clicking outside
     document.addEventListener('click', function(event) {
@@ -436,10 +520,12 @@
         }
     });
 
-    // Generate calendars
-    generateCalendar(document.getElementById('octoberDates'), 9); // October
-    generateCalendar(document.getElementById('novemberDates'), 10); // November
-    generateCalendar(document.getElementById('decemberDates'),11)
+    // Generate calendars for October, November, December (2024) and January (2025)
+    generateCalendar(document.getElementById('octoberDates'), 9, 2024); // October 2024
+    generateCalendar(document.getElementById('novemberDates'), 10, 2024); // November 2024
+    generateCalendar(document.getElementById('decemberDates'), 11, 2024); // December 2024
+    generateCalendar(document.getElementById('januaryDates'), 0, 2025); // January 2025
+    generateCalendar(document.getElementById('februaryDates'), 1, 2025); // January 2025
 
 
 </script>

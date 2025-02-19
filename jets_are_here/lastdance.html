@@ -12,9 +12,8 @@
 
         .bari
         {
-            border:1px solid green;
+            padding-top:35px;
         }
-
         .canvas {
             border: 1px solid green;
             margin-top: 20px;
@@ -28,18 +27,21 @@
             margin-top: 20px;
         }
 
-        .rps
-        {
-            display:flex;
-            justify-content: space-between;
+        .rps {
+            display: flex;
+            justify-content: center;  /* Center the buttons closer to each other */
+            gap: 5px;  /* Reduce the space between buttons */
         }
 
-        .rock,.paper,.scissors{
-            width:40px;
-            height:40px;
-            justify-content: center;
-            color:black;
-            font-size:8px;
+        .rock, .paper, .scissors {
+            width: 60px;  /* Optional: You can adjust the width of buttons if needed */
+            height: 60px;  /* Same for height */
+            font-size: 14px;  /* Adjust the font size for better appearance */
+            color: black;
+        }
+
+        .rock, .paper, .scissors {
+            margin: 0 5px; /* Slight margin between buttons, if necessary */
         }
 
         .rock:hover, .paper:hover, .scissors, .chingching:hover {
@@ -80,26 +82,34 @@
             color:white;
         }
 
-        .graphis
-        {
-            padding-top: 20px;
+        .graphis {
             display: flex;
             justify-content: space-between;
-            width: 100%; height: 400px;
+            align-items: stretch;
+            width: 100%;
+            margin-bottom: 20px;
+            flex: 1 1 auto;  /* Allow it to grow or shrink */
+            max-height: 300px;
         }
 
-        /* Styling for .strength container */
+        .jerilyn
+        {
+            width: 48%;
+            height: 100px;
+        }
+
         .strength {
-            border: 1px solid green;
-            width: 50%;
-            height: 115%;
             background: black;
+            color: white;
             padding: 20px;
             box-sizing: border-box;  /* Ensure padding is included in width/height calculations */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
+            overflow: auto;  /* Prevent overflow */
+            flex-grow: 1;  /* Ensure it grows to fill available space */
+            height:500px;
         }
 
         /* Title area */
@@ -147,19 +157,24 @@
             width: 100%;
         }
 
-        /* General table styling */
         table {
-            width: 100%; /* Full width */
-            border-collapse: collapse;
+            width: 100%;
+            max-height: 100%;  /* Ensures table stays within container height */
+            overflow-y: auto;  /* Vertical scroll if the table exceeds the height */
+            display: block;
             margin-top: 20px;
-            color: white;
         }
 
-        th, td {
-            border: 1px solid white;  /* Table borders */
-            padding: 12px 20px;  /* Larger padding for better readability */
+
+
+        th {
+            background-color: #333;
+            font-size: 18px;
+            color: #fff;
+            padding: 12px;
             text-align: center;
-            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Adjusting the first row (headings) */
@@ -168,20 +183,24 @@
             font-size: 18px;
         }
 
-        /* Responsive adjustments */
-        @media screen and (max-width: 768px) {
-            .strength {
-                width: 90%;  /* Make the strength container more flexible on smaller screens */
-            }
+        td {
+            padding: 12px 20px;  /* Larger padding for better readability */
+            text-align: center;
+            font-size: 16px;
+            color: #e0e0e0;  /* Light color for text */
+            border: 1px solid #444;  /* Slightly lighter borders */
+            border-radius: 5px; /* Rounded corners */
+        }
 
-            .chingching {
-                font-size: 14px;
-                padding: 8px 16px;  /* Reduce button size on small screens */
+
+        @media screen and (max-width: 768px) {
+            table, .shoulders, .arms, .chest, .back {
+                width: 100%;  /* Full width for mobile */
             }
 
             table th, table td {
-                font-size: 14px;  /* Smaller font size for small screens */
-                padding: 8px 12px;  /* Reduced padding on small screens */
+                font-size: 14px; /* Adjust font size */
+                padding: 8px;  /* Adjust padding for smaller screen */
             }
         }
 
@@ -205,6 +224,157 @@
            text-align: center;
        }
 
+        /* Alternate row colors */
+        tr:nth-child(even) {
+            background-color: #2a2a2a;  /* Darker color for even rows */
+        }
+
+        tr:nth-child(odd) {
+            background-color: #222; /* Slightly lighter color for odd rows */
+        }
+
+        /* Hover effects for table rows */
+        tr:hover {
+            background-color: #444; /* Highlight the row on hover */
+            cursor: pointer;  /* Change cursor to pointer */
+        }
+
+        table, .shoulders, .arms, .chest, .back {
+            margin: 20px auto;
+            max-width: 90%; /* Limit table width */
+        }
+
+        button.chingching {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: 2px solid #555;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button.chingching:hover {
+            background-color: #555;
+            transform: scale(1.05);  /* Slightly enlarge on hover */
+        }
+
+        .singsing button {
+            margin: 5px;
+        }
+
+
+        .tranq {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;         /* Allow items to wrap into multiple rows */
+            /*justify-content: center; !* Center the items horizontally *!*/
+            /* Space between items */
+            padding: 10px 0;
+            margin-top: 200px;
+        }
+
+
+        .circle-container {
+            display: flex;
+            flex-direction: row;     /* Align circles horizontally */
+            align-items: center;
+            justify-content: center;
+            gap: 10px;               /* Space between the circles */
+            width: 200px;            /* Set width to control how many circles fit per row */
+        }
+
+    .minus,.plus{
+        width:100px;
+        height:100px;
+        border-radius:50%;
+        color:white;
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items:center;
+    }
+
+    .minus
+    {
+        background-color: red;
+        color:black;
+    }
+
+        .plus
+        {
+            background-color: green;
+        }
+
+        .label {
+            margin-top: 8px;           /* Adds some space between the circle and the text */
+            font-size: 14px;           /* Adjust text size */
+            color: green;              /* Text color */
+        }
+        .label-minus {
+            margin-top: 8px;            /* Adds some space between the circle and the text */
+            font-size: 14px;            /* Adjust text size */
+            color: red;                /* Text color */
+        }
+
+        .minus:hover, .plus:hover {
+            opacity: 0.8;
+            border-radius: 20%;  /* Make the circle less round */
+            transition: border-radius 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Default styles for info boxes */
+        .info-box, .info-box-red {
+            display: none;
+            position: absolute;
+            width: 200px;
+            padding: 10px;
+            border: 2px solid black;
+            z-index: 10;
+            transition: border-radius 0.3s ease, opacity 0.3s ease; /* Smooth transition for both radius and opacity */
+        }
+
+        .info-box {
+            background-color: green;
+            color: white;
+        }
+
+        .info-box-red {
+            background-color: red;
+            color: black;
+            border: 2px solid black;
+        }
+
+        /* Hover effect when info-boxes are visible */
+        .info-box:hover, .info-box-red:hover {
+            opacity: 1;
+            border-radius: 0%; /* Change border-radius to 0 for a rectangular shape */
+        }
+
+        /* Title styling inside the info box */
+        .info-box strong, .info-box-red strong {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px; /* Space between the title and the content */
+        }
+
+        .date-g
+        {
+            background-color: green;
+            color:white;
+            font-size:10px;
+            margin-top:5px;
+        }
+
+        .date-r
+        {
+            background-color: red;
+            color:black;
+            font-size:10px;
+            margin-top:5px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -216,8 +386,9 @@
             <li><a href="java.html">Jets</a></li>
             <li><a href="rangers.html">Rangers</a></li>
             <li><a href="dreams.html">Dreams</a></li>
-            <li><a href="wildcard.html">Wild Card</a></li>
+            <li><a href="wildcard.html">Prime</a></li>
             <li><a href="lastdance.html">Progression</a></li>
+            <li><a href="wistfulness.html">Wistfulness</a></li>
         </ul>
     </nav>
 
@@ -239,11 +410,14 @@
 <div class="graphis">
 
     <!-- Bar Chart -->
-    <div style="width: 48%; height: 100%;">
+    <div class="jerilyn">
 
         <canvas id="myChart" class="bari"></canvas>
 
     </div>
+
+
+
 
     <div class="strength">
 
@@ -270,9 +444,9 @@
                 <td>10-15-17.5(2)</td>
                 <td>50(2)-65(2)</td>
                 <td>32.5-37.5</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>12.02</td>
@@ -284,31 +458,85 @@
                 <td>22.5-30(3)</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.29</td>
+                <td>10.3-12.5</td>
+                <td>32.5.2-37.5.2</td>
+                <td></td>
+                <td>5lb</td>
+                <td></td>
+                <td>30.4</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>1.3</td>
+                <td>10-5.2-7.5</td>
+                <td>50-65-80</td>
+                <td>60-70.3</td>
+                <td>10lb</td>
+                <td>22.5</td>
+                <td></td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>1.8</td>
+                <td>10-15-17.5*-20*</td>
+                <td>50.2-70.2</td>
+                <td>60.3-70</td>
+                <td>10lb</td>
+                <td>20</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1.12</td>
+                <td>15-17.5*-20*</td>
+                <td>60.3-80</td>
+                <td>60.3-70</td>
+                <td>7.5</td>
+                <td>15.2-17.5.2</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1.16</td>
+                <td>0-10-12.5.2</td>
+                <td>65.4</td>
+                <td>27.5.4</td>
+                <td>5lb</td>
+                <td></td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>1.25</td>
+                <td>10.3-12.5</td>
+                <td>50.4</td>
+                <td>25.2-30*</td>
+                <td>5.2-10.2</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
 
 
@@ -328,7 +556,7 @@
                 <td>11.28</td>
                 <td>40s(3)-50s</td>
                 <td>40s(2)-50s-60s</td>
-                <td>4</td>
+                <td></td>
                 <td>110s(3)-130s-150s</td>
                 <td>40s(3)-50s</td>
                 <td>32.5(2)-37.5-42.5</td>
@@ -337,38 +565,111 @@
                 <td>12.03</td>
                 <td>40(3)-50</td>
                 <td></td>
-                <td>4</td>
+                <td></td>
                 <td>110-130-150(2)</td>
-                <td>6</td>
+                <td></td>
                 <td>37.5-42.5</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.15</td>
+                <td>50.4</td>
+                <td></td>
+                <td>78</td>
+                <td></td>
+                <td>50.3-60</td>
+                <td>32.5-37.5.3</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.19</td>
+                <td>50.4</td>
+                <td></td>
+                <td></td>
+                <td>110.130.150.2</td>
+                <td>40-42.5.2</td>
+                <td>32.5.2-37.5.2</td>
             </tr>
             <tr>
-                <td>1</td>
+                <td>12.30</td>
+                <td>50.4</td>
+                <td></td>
+                <td></td>
+                <td>110-130-150.2</td>
+                <td>40.2-50.2</td>
+                <td>60.2-70.2</td>
+            </tr>
+            <tr>
+                <td>1.4</td>
+                <td>50-70.2-90/</td>
+                <td>40-50.3</td>
+                <td>50(CM)</td>
+                <td>110-150-170-190</td>
+                <td>60</td>
+                <td>60-70.3</td>
+            </tr>
+            <tr>
+                <td>1.9</td>
+                <td>70.3-90</td>
+                <td>40.3-50</td>
+                <td>1.25</td>
+                <td>130.2 150.2</td>
+                <td></td>
+                <td>60.3-70</td>
+            </tr>
+            <tr>
+                <td>1.17</td>
                 <td>2</td>
                 <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>1.25</td>
+                <td>130-150-170.2</td>
+                <td>60</td>
+                <td>60-70-80</td>
             </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
 
 
         </table>
@@ -381,52 +682,106 @@
                 <td>Incline Db</td>
                 <td>Push-Ups</td>
                 <td>Db Flies</td>
-                <td>Dips</td>
+                <td>Dips/ Chest Flies</td>
             </tr>
             <tr>
                 <td>11.29</td>
                 <td>25-30-35(2)</td>
                 <td>45-70-75-80-</td>
-                <td>4</td>
+                <td></td>
                 <td>94</td>
                 <td>22.5-25(2)-30</td>
                 <td>16</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.11</td>
+                <td></td>
+                <td>45-70-75-80</td>
+                <td>30-35-35-35</td>
+                <td>100</td>
+                <td>22.5-25(2)-30</td>
+                <td></td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.15</td>
+                <td>25-35.2-40</td>
+                <td></td>
+                <td></td>
+                <td>100</td>
+                <td>22.5.2-27.5.2</td>
+                <td>85.3-100</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.24</td>
+                <td></td>
+                <td>45-75.2-85</td>
+                <td></td>
+                <td>100</td>
+                <td></td>
+                <td>70.3-100</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.31</td>
+                <td></td>
+                <td>35-45-60-75</td>
+                <td>70.3-90-CP</td>
+                <td>100</td>
+                <td>20.3-22.5</td>
+                <td>17.5-22.5</td>
+            </tr>
+            <tr>
+                <td>1.5</td>
+                <td>25-35.2-40*</td>
+                <td></td>
+                <td>35.1</td>
+                <td>100</td>
+                <td>100-115.2-130*</td>
+                <td>30-40.2-50*</td>
+            </tr>
+            <tr>
+                <td>1.10</td>
+                <td>90-100-120-130*</td>
+                <td>45-70-75-90*</td>
+                <td>100-115-130-145*</td>
+                <td>100</td>
+                <td>20-22.5-25.2</td>
+                <td>22.5-27.5</td>
+            </tr>
+            <tr>
+                <td>1.19</td>
+                <td>25-27.5.2-30</td>
+                <td>70-90-110.2</td>
+                <td></td>
+                <td>100</td>
+                <td>15.2-20.2</td>
+                <td>7.5.2-12.5.2</td>
+            </tr>
+            <tr>
+                <td>1.23</td>
+                <td>25-35-30-32.5</td>
+                <td>90.3-110</td>
+                <td></td>
+                <td>100</td>
+                <td>20.3-22.5</td>
+                <td>110-115.2-130</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
 
 
@@ -435,57 +790,111 @@
         <table class="back" id="back">
             <tr>
                 <td>Date</td>
-                <td>Lat PullB</td>
-                <td>Lat PullD</td>
+                <td>Lat PullBack</td>
+                <td>Lat PullDown</td>
                 <td>Pull-Up</td>
-                <td>Mac PullB</td>
-                <td>Mac PullD</td>
-                <td>Pendalay</td>
+                <td>Mac PullBack</td>
+                <td>Mac PullDown</td>
+                <td>Pendalay Row</td>
             </tr>
             <tr>
                 <td>11.30</td>
-                <td>50-70-90(2)</td>
-                <td>70-90(2)-100</td>
-                <td>-</td>
-                <td>-</td>
+                <td>50-70-90.2</td>
+                <td>70-90.2-100</td>
+                <td></td>
+                <td></td>
                 <td>90</td>
-                <td>45(2)-70(2)</td>
+                <td>45.2-70.2</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.12</td>
+                <td>70-80.2-85</td>
+                <td>30-50-60.2</td>
+                <td>20</td>
+                <td></td>
+                <td>70.2-90-110</td>
+                <td></td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.16</td>
+                <td>35-50.3</td>
+                <td></td>
+                <td></td>
+                <td>45-70-90.2</td>
+                <td>70.2-90.2</td>
+                <td></td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>12.28</td>
+                <td>60-70-85.2</td>
+                <td>50-60.3</td>
+                <td>22</td>
+                <td></td>
+                <td>70.2-90.2</td>
+                <td></td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
+                <td>1.2</td>
+                <td>90-100-110-120</td>
+                <td>60-82.5-110</td>
+                <td>16</td>
+                <td>70-80-90.2</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1.7</td>
+                <td>110-120-130-150*</td>
+                <td>85-100-120-140*</td>
+                <td>22</td>
+                <td>60-80-100-90</td>
+                <td>60-80.2-90*(PL)</td>
+                <td>45-70-80-95*</td>
+            </tr>
+            <tr>
+                <td>1.11</td>
+                <td>130.3-150*</td>
+                <td>80-90.2-100</td>
+                <td>23</td>
+                <td>50-70-90-110</td>
+                <td>32.5-37.5-42.5-47.5(PL)</td>
+                <td>70.3-90</td>
+            </tr>
+            <tr>
+                <td>1.21</td>
+                <td>70-95-105.2</td>
+                <td>70.4(Pull-D)</td>
+                <td>25</td>
+                <td>110.4</td>
+                <td></td>
+                <td>80.4</td>
+            </tr>
+            <tr>
+                <td>1.24</td>
+                <td>100.3-110</td>
+                <td>70.4(Pull-D)</td>
+                <td>27</td>
+                <td>70-90.2-110*</td>
+                <td>80-95.2-90</td>
+                <td>70-90.2</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
 
 
@@ -495,9 +904,77 @@
 
 </div>
 
+<div id="tranq" class="tranq">
+    <div class="circle-container">
+        <div class="plus" data-info="She committed UnSportsmanLike Conduct: +30 Yards">
+            Van
+            <div class="date-g">12.28</div>
+        </div>
+        <div class="label">0</div>
+    </div>
+    <div class="circle-container">
+        <div class="minus" data-info="Tight coverage, but a quick slant route was open. I just threw the ball out of play.">
+            Papa Girl
+            <div class="date-r">1.2</div>
+        </div>
+        <div class="label-minus">-1</div>
+    </div>
+    <div class="circle-container">
+        <div class="minus" data-info="She turned the ball over the first drive, but she came back giving you the lane for the TD. You just tripped doofus.">
+            Iska
+            <div class="date-r">1.4</div>
+        </div>
+        <div class="label-minus">-2</div>
+    </div>
+    <div class="circle-container">
+        <div class="plus" data-info="I had to run a last second play action, and got one yard on the play.">
+            Fob?
+            <div class="date-g">1.10</div>
+        </div>
+        <div class="label">-1</div>
+    </div>
+    <div class="circle-container">
+        <div class="minus" data-info="Deep ball was always open and I was staring at it. I took the sack.">
+            Nicole
+            <div class="date-r">1.11</div>
+        </div>
+        <div class="label-minus">-2</div>
+    </div>
+    <div class="circle-container">
+        <div class="plus" data-info="Wide Open Field but all we wanted was the first down.">
+            Tick #1
+            <div class="date-g">1.12</div>
+        </div>
+        <div class="label">-1</div>
+    </div>
+    <div class="circle-container">
+        <div class="plus" data-info="TD">
+            Nicole
+            <div class="date-g">1.13</div>
+        </div>
+        <div class="label">0</div>
+    </div>
+    <div class="circle-container">
+        <div class="minus" data-info="First Downs were available, but mentally out. Then a Television Timeout happened ending things early.">
+            Persian
+            <div class="date-r">1.18</div>
+        </div>
+        <div class="label-minus">-1</div>
+    </div>
+    <div class="circle-container">
+        <div class="plus" data-info="We just wanted the first down, and wait till post vacation for further play">
+            Dimetisha
+            <div class="date-g">1.25</div>
+        </div>
+        <div class="label">0</div>
+    </div>
+</div>
+
+
 
 
 <script>
+
 
 
     function showTable(table)
@@ -518,11 +995,11 @@
     };
 
 
-    const xValues = ["2020", "2021", "2022", "2023", "2024"];
-    const yValues = [12372, 14327, 10319, 12831, 6914];  // Total values
-    const partialYValues = [880, 1774, 2578, 1575, 290];  // Partial values to highlight
-    const weedValues = [602, 995, 554, 1398, 31];  // Weed values to include in the stack
-    const barColors = ["teal", "red", "green", "blue", "orange"];
+    const xValues = ["2020", "2021", "2022", "2023", "2024","2025"];
+    const yValues = [12372, 14327, 10319, 12831, 7334,0];  // Total values
+    const partialYValues = [880, 1774, 2578, 1575, 290,0];  // Partial values to highlight
+    const weedValues = [602, 995, 554, 1398, 31,0];  // Weed values to include in the stack
+    const barColors = ["teal", "red", "green", "blue", "orange","pink"];
 
     new Chart("myChart", {
         type: "bar",
@@ -683,7 +1160,89 @@
         updateScores()
 
 
-    })
+    });
+
+    const plus = document.querySelectorAll('.plus');
+    const minus = document.querySelectorAll('.minus');
+
+    const infoBox = document.createElement('div');
+    const infoBoxRed = document.createElement('div');
+    infoBox.className = 'info-box';
+    infoBoxRed.className = 'info-box-red';
+    document.body.appendChild(infoBox);
+    document.body.appendChild(infoBoxRed);
+
+    plus.forEach(circle => {
+        circle.addEventListener('mouseenter', (e) => {
+            infoBox.style.display = 'block';
+            infoBox.innerHTML = e.target.dataset.info; // Display the data-info content
+            const rect = e.target.getBoundingClientRect();
+            const infoBoxWidth = infoBox.offsetWidth;
+
+            // Calculate the desired position
+            let leftPosition = rect.left + window.scrollX + (rect.width / 2) - (infoBoxWidth / 2);
+            let topPosition = rect.bottom + window.scrollY + 5; // Position just below the circle
+
+            // Check if the info box would overflow the top of the viewport
+            if (topPosition + infoBox.offsetHeight > window.innerHeight) {
+                topPosition = rect.top + window.scrollY - infoBox.offsetHeight - 5; // Adjust to be above the circle
+            }
+
+            // Adjust left position if it overflows the left side of the viewport
+            if (leftPosition < 0) {
+                leftPosition = 5; // Position it slightly inside the viewport
+            }
+
+            // Adjust left position if it overflows the right side of the viewport
+            if (leftPosition + infoBoxWidth > window.innerWidth) {
+                leftPosition = window.innerWidth - infoBoxWidth - 5; // Position it slightly inside the viewport
+            }
+
+            // Set the position of the info box
+            infoBox.style.left = `${leftPosition}px`;
+            infoBox.style.top = `${topPosition}px`;
+        });
+
+        circle.addEventListener('mouseleave', () => {
+            infoBox.style.display = 'none';
+        });
+    });
+
+    minus.forEach(circle => {
+        circle.addEventListener('mouseenter', (e) => {
+            infoBoxRed.style.display = 'block';
+            infoBoxRed.innerHTML = e.target.dataset.info; // Display the data-info content
+            const rect = e.target.getBoundingClientRect();
+            const infoBoxRedWidth = infoBoxRed.offsetWidth;
+
+            // Calculate the desired position
+            let leftPosition = rect.left + window.scrollX + (rect.width / 2) - (infoBoxRedWidth / 2);
+            let topPosition = rect.bottom + window.scrollY + 5; // Position just below the circle
+
+            // Check if the info box would overflow the top of the viewport
+            if (topPosition + infoBoxRed.offsetHeight > window.innerHeight) {
+                topPosition = rect.top + window.scrollY - infoBoxRed.offsetHeight - 5; // Adjust to be above the circle
+            }
+
+            // Adjust left position if it overflows the left side of the viewport
+            if (leftPosition < 0) {
+                leftPosition = 5; // Position it slightly inside the viewport
+            }
+
+            // Adjust left position if it overflows the right side of the viewport
+            if (leftPosition + infoBoxRedWidth > window.innerWidth) {
+                leftPosition = window.innerWidth - infoBoxRedWidth - 5; // Position it slightly inside the viewport
+            }
+
+            // Set the position of the info box
+            infoBoxRed.style.left = `${leftPosition}px`;
+            infoBoxRed.style.top = `${topPosition}px`;
+        });
+
+        circle.addEventListener('mouseleave', () => {
+            infoBoxRed.style.display = 'none';
+        });
+    });
 
 
     // let answer = parseInt(prompt("What is the number you would like to FizzBuzz up to?"))
@@ -1927,16 +2486,1705 @@
     // user.sizes.width = 60;
     // alert(clone.sizes.width);
 
-    let user = {
-        name: "John",
-        age: 30
-    };
+    // let user = {
+    //     name: "John",
+    //     age: 30
+    // };
+    //
+    // user.sayHi = function() {
+    //     alert("Hello!");
+    // }
+    //
+    // user.sayHi();
 
-    user.sayHi = function() {
-        alert("Hello!");
-    }
+    // function User(){
+    //     alert(new.target);
+    // }
+    //
+    // User();
+    //
+    // new User();
 
-    user.sayHi();
+    // function User(name)
+    // {
+    //     this.name = name;
+    //     this.isAdmin = False;
+    // }
+    //
+    // let user = new User("Jack");
+    //
+    // alert(user.name);
+    // alert(user.isAdmin);
+
+    // function User(name)
+    // {
+    //     if(!new.target)
+    //     {
+    //         return new User(name);
+    //     }
+    //
+    //     this.name = name;
+    // }
+    // let john = User("John");
+    // alert(john.name);
+
+    // let user = {};
+    //
+    // alert(user?.address?.street);
+
+    // let user = null;
+    //
+    // alert(user?.address);
+    // alert(user?.address.street);
+
+    // let user = null;
+    // let x = 0;
+    //
+    // user?.sayHi(x++);
+    //
+    // alert(x);
+
+    // let userAdmin = {
+    //     admin(){
+    //         alert("I am admin");
+    //     }
+    // }
+    //
+    // let userGuest = {};
+    //
+    // userAdmin.admin?.();
+    // userGuest.admin?.();
+
+    // let key = "teamname";
+    //
+    // let user1 = {
+    //     teamname:"Panarin"
+    // };
+    //
+    // let user2 = null;
+    //
+    // alert(user1?.[key]);
+    // alert(user2?.[key]);
+
+//     Symbols
+
+    // let id1 = Symbol("id");
+    // let id2 = Symbol("id");
+    //
+    // alert(id1 == id2);
+
+    // let user = {
+    //     name: "John"
+    // };
+    //
+    // let id = Symbol("id");
+    //
+    // user[id] = 1;
+    //
+    // alert(user[id]);
+
+    // let id = Symbol("id");
+    // let user = {
+    //     name: "John",
+    //     age: 30,
+    //     [id]: 123
+    // };
+    //
+    // for(let key in user) alert(key);
+    //
+    // alert("Direct: " + user[id]);
+
+    // let id = Symbol("bread");
+    //
+    // let bread ={
+    //     name: "Artemi",
+    //     age: 33,
+    //     [id]: 27
+    // };
+    //
+    // for(let key in bread) alert(key);
+
+    // let id = Symbol("bread");
+    //
+    // let bread = {
+    //     name: "Artemi",
+    //     age: 33,
+    //     [id]: 432
+    // };
+    //
+    //
+    // for(key in bread) alert(key);
+    //
+    // alert("Direct: " + bread[id]);
+
+    // let id = Symbol("bread");
+    //
+    // let bread = {
+    //     name:"Mika",
+    //     age:30,
+    //     [id]: 545
+    // };
+    //
+    // for(key in bread) alert(bread[key]);
+    //
+    // alert("Direct: " + bread[id]);
+
+//     read from global registry
+//     let id = Symbol.for("id");
+//     let idAgain = Symbol.for("id");
+//
+//     alert(id === idAgain);
+
+//     get symbol by name
+//     let sym = Symbol.for("bread");
+//     let sym2 = Symbol.for("mika");
+//
+// //     get symbol by symbol
+//     alert(Symbol.keyFor(sym));
+//     alert(Symbol.keyFor(sym2));
+
+    // let globalSymbol = Symbol.for("name");
+    // let localSymbol = Symbol("name");
+    //
+    // alert(Symbol.keyFor(globalSymbol));
+    // alert(Symbol.keyFor(localSymbol));
+    // alert(localSymbol.description);
+
+
+    // anotherObj[obj] = 123;
+    //
+    // alert(anotherObj[obj]);
+
+    // let num = Number(obj);
+    // // explicit conversion
+    //
+    // // maths(except binary plus)
+    // let n = +obj;
+    // // unary plus
+    // let delta = date1 - date2;
+    //
+    // // less/greater comparison
+    // let greater = user1 > user2;
+
+    // let user = {name: "John"};
+    //
+    // alert(user);
+    // alert(user.valueOf() === user);
+
+    // let user = {
+    //     name: "Artemi",
+    //     money: 1000,
+    //
+    //     // for hint = "String"
+    //     toString()
+    //     {
+    //       return `{name: "${this.name}"}`;
+    //     },
+    //
+    //     // for hint = "number" or "default"
+    //     valueOf(){
+    //         return this.money;
+    //     }
+    // };
+    //
+    // alert(user);
+    // alert(+user);
+    // alert(user + 500);
+
+    // let user = {
+    //     name: "Pepa",
+    //
+    //     toString()
+    //     {
+    //         return this.name;
+    //     }
+    // };
+    //
+    // alert(user);
+    // alert(user + 500);
+
+    // let josh = {
+    //     name: "Josh",
+    //     sayHi: function(){
+    //         alert("Hi Buddy!");
+    //     }
+    // };
+    //
+    // josh.sayHi();
+
+    // let farts = {
+    //     name: "Sounds",
+    //     sayHi: function(){
+    //         alert("Farts Hi");
+    //     }
+    // }
+    //
+    // farts.sayHi();
+
+    // let str = "Hello";
+    //
+    // alert(str.toUpperCase());
+
+    // let n = 1.233435;
+    //
+    // alert(n.toFixed(2));
+
+    // let user = {
+    //     name: "Sammy",
+    //     age: 44,
+    //
+    //     toString(){
+    //         return `{name: "${this.name}", age: ${this.age}}`;
+    //     }
+    // };
+    //
+    // alert(user);
+
+    // let ranger = {
+    //     name: "Artemi",
+    //     points:44,
+    //
+    //     toString(){
+    //         return `name: "${this.name}", Points: "${this.points}"`;
+    //     }
+    // }
+    //
+    // alert(ranger);
+
+    // let ranger = {
+    //     name: 'Elvin',
+    //     points: 44,
+    //     isRanger: False,
+    //     courses: ['html', 'css','js'],
+    //     spouse: null
+    // };
+    //
+    // let json = JSON.stringify(ranger);
+    //
+    // alert(typeof json);
+    //
+    // alert(json);
+    //
+    // let ranger = {
+    //     name: "Elvin",
+    //     position: "RW",
+    //     points: 44
+    // };
+    //
+    // let json = JSON.stringify(ranger);
+    //
+    // alert(typeof json);
+    //
+    // alert(json);
+
+
+    // let room = {
+    //     number:23
+    // };
+    //
+    // let meetup = {
+    //     title:"Conference",
+    //     participants: ["Tommy", "Pammy"]
+    // };
+    //
+    // meetup.place = room;
+    // room.owner = meetup;
+
+    // Replacing with JSON
+
+    // let room = {
+    //     number:23
+    // };
+    //
+    // let meetup = {
+    //     title:"Conference",
+    //     participants: [{name: "Tom"}, {name: "Sammy"}],
+    //     place:room
+    // //     meetup references room
+    // };
+    //
+    // room.occupiedBy = meetup;
+    // // room references meetup
+    //
+    // alert(JSON.stringify(meetup,['title', 'participants']));
+
+    // let user =
+    //     {
+    //         name: "Artemi",
+    //         points: 44,
+    //
+    //         toString()
+    //         {
+    //             return `{name: "${this.name}", points: ${this.points}}`;
+    //         }
+    //     };
+    //
+    // alert(user);
+
+    // let ranger = {
+    //     name: "Artemi",
+    //     points: 44,
+    //     isAdmin: false,
+    //     courses: ['html', 'css', 'js'],
+    //     spouse: null
+    // };
+    //
+    // let json = JSON.stringify(ranger);
+    //
+    // alert(typeof json);
+    //
+    // alert(json);
+//     Converts it into a string.
+//
+
+    // let room = {
+    //     number: 24
+    // };
+    //
+    // let meetup = {
+    //     title: "Conference",
+    //     participants: ["Artemi", "Mika"]
+    // };
+    //
+    // meetup.place = room;
+    // room.hasBeen = meetup;
+    //
+    // JSON.stringify(meetup);
+
+    // let room = {
+    //     number:23
+    // };
+    //
+    // let meetup = {
+    //     title:"Playoff Game",
+    //     participants: [{name: "Artemi"}, {name: "Mika"}],
+    //     place:room
+    // //     MeetUp Reference Room
+    // };
+    //
+    // room.occupiedBy = meetup;
+    // // Room Reference MeetUp
+    //
+    // alert(JSON.stringify(meetup, ['title','participants', 'place', 'name', 'number']));
+
+//     let room = {
+//         number: 23
+//     };
+//
+//     let meetup = {
+//         title:"Conference",
+//         participants: [{name: "Adam"}, {name: "Lindy"}],
+//         place:room
+//     //     Meetup referenced Room
+//     };
+//
+//     room.occupiedBy = meetup;
+// //     Room references meetup
+//
+//     alert( JSON.stringify(meetup, function replacer(key, value){
+//         alert(`${key}: ${value}`);
+//         return (key === 'occupiedBy') ? undefined: value;
+//     }));
+
+    // let user = {
+    //     name:"Panarin",
+    //     points:44,
+    //     roles:{
+    //         isCaptain:false,
+    //         isLeader:true,
+    //     }
+    // };
+    //
+    // alert(JSON.stringify(user,null,2));
+
+    // let room = {
+    //     number:23
+    // };
+    //
+    // let meetup = {
+    //     title:"Conference",
+    //     date: new Date(Date.UTC(2017,0,1)),
+    //     room
+    // };
+    //
+    // alert(JSON.stringify(meetup,null,3));
+
+    // let room = {
+    //     number:23,
+    //     toJSON(){
+    //         return this.number;
+    //     }
+    // };
+    //
+    // let meetup = {
+    //     title:"Conference",
+    //     room
+    // };
+    //
+    // alert(JSON.stringify(room));
+    // alert(JSON.stringify(meetup));
+
+    // Multiply and Divide Method
+    // let num = 1.234343;
+    // alert(Math.round(num * 100) / 100);
+
+    // alert(parseInt('100px'));
+    // alert(parseFloat('12.5em'));
+    //
+    // alert(parseInt('12.3'));
+    // alert(parseFloat('12.3.4'));
+    //
+    // alert(parseInt('a123'));
+
+    // let single = `single-quoted`;
+    // let double = "double-quoted";
+    //
+    // let backticks = `backticks`;
+
+    // let numbers = "[0,1,2,3]";
+    // numbers = JSON.parse(numbers);
+    // alert(numbers[1]);
+
+    // let userData = '{"name": "Artemi", "goals": 15, "isCaptain": false, "linemates": [0,1,2,3]}';
+    //
+    // let user = JSON.parse(userData);
+    // alert(user.linemates[13]);
+
+    // let user = {
+    //     name: "John Smith",
+    //     age: 35
+    // };
+    //
+    // let userData = JSON.parse(JSON.stringify(user));
+    //
+    // alert(userData.age);
+
+//     JSON.stringify to convert objects into JSOn
+//     JSON.parse to convert JSON back into an object
+
+    // let player = {
+    //     name: 'Artemi',
+    //     points: 44,
+    //     isCaptain: false,
+    //     courses: ['html', 'css','java'],
+    //     spouse:null
+    // };
+    //
+    // let json = JSON.stringify(player);
+    //
+    // alert(typeof json);
+    //
+    // alert(json);
+
+//     Json strings use double quotes, Everything is double quoted.
+
+    // let player = {
+    //     sayHi(){
+    //         alert("Hello!");
+    //     },
+    //     [Symbol("id")]: 123,
+    //     something:undefined
+    // };
+    //
+    // alert(JSON.stringify(user));
+
+    // let meetup = {
+    //     title: "Conference",
+    //     room: {
+    //         number:23,
+    //         participants:["john", "ann"]
+    //     }
+    // };
+    //
+    // alert(JSON.stringify(meetup))
+
+    // let room = {
+    //     number:23
+    // };
+    //
+    // let meetup = {
+    //     title: "Conference",
+    //     participants: [{name: "John"}, {name: "Alice"}],
+    //     place: room // meetup references room
+    // };
+    //
+    // room.occupied = meetup;
+    //
+    // alert(JSON.stringify(meetup, ['title','participants']));
+
+    // let room = {
+    //     number:23
+    // };
+    //
+    // let meetup = {
+    //     title:"Conference",
+    //     participants: [{name: "John"}, {name:"Alice"}],
+    //     place:room
+    // };
+    //
+    // room.occupiedBy = meetup;
+    //
+    // alert(JSON.stringify(meetup, function replacer(key, value){
+    //     alert(`${key}: ${value}`);
+    //     return (key == 'occupiedBy') ? undefined: value;
+    // }))
+
+    // let obj = {
+    //     name: "Walter",
+    //     last: "Thomas",
+    //     age: 50,
+    //     angry: true,
+    //     bestscore: 200,
+    //     armed: true
+    // };
+    //
+    // let log = console.log;
+    // let str;
+    //
+    // str = JSON.stringify(obj);
+    // log('1', str);
+    //
+    // str = JSON.stringify(obj,['age','angry','last']);
+    // log('\n2', str);
+    //
+    // str = JSON.stringify(obj,['age','angry','last']);
+    // log('\n3', str);
+    //
+    //
+    // function replace(key,value)
+    // {
+    //     if(typeof value === 'string')
+    //     {
+    //         return undefined;
+    //     }else
+    //     {
+    //         return value;
+    //     }
+    // }
+    // str = JSON.stringify(obj, replace);
+    // log('\n3',str)
+    //
+    // str = JSON.stringify(obj, null,'\tX\tX\tX\tX\tX ');
+    // log('\n4',str);
+    //
+    // str = JSON.stringify(obj, null,4);
+    // log('\n5',str);
+
+//     Replace will replace and remove whatever contents you want to be in changed within the content
+
+
+    // const student = {
+    //     playerName: 'Artemi',
+    //     'player age': 33,
+    //     year: 10,
+    //     welcome:function(){
+    //         console.log("Welcome to RCV Academy " + this.playerName);
+    //     }
+    // };
+    //
+    // let studentjson = JSON.stringify(student)
+    // console.log(studentjson);
+    // console.log(studentjson.playerName);
+
+//     Stringify converts Javascript Object in JSON
+//     Parse is the reverse
+
+    // const student = {
+    //     playerName: 'Artemi',
+    //     'player age': 33,
+    //     year: 10,
+    //     welcome:function(){
+    //         console.log("Welcome to RCV Academy " + this.playerName);
+    //     }
+    // };
+    //
+    // let studentjson = JSON.stringify(student)
+    // console.log(studentjson);
+    // let studentobj = JSON.parse(studentjson);
+    // console.log(studentobj)
+    // console.log(studentobj.playerName);
+
+    // let user = {
+    //     name: "John Smith",
+    //     age: 35
+    // };
+    //
+    // let user2 = JSON.stringify(user);
+    //
+    // alert(user2);
+
+
+    // let room = {
+    //     number: 23
+    // };
+    //
+    // let meetup = {
+    //     title: "Conference",
+    //     occupiedBy: [{name: "John"}, {name: "Alice"}],
+    //     place: room
+    // };
+    //
+    // // circular references
+    // room.occupiedBy = meetup;
+    // meetup.self = meetup;
+    //
+    // alert(JSON.stringify(meetup, function replacer(key, value) {
+    //     return (key != "" && value == meetup) ? undefined : value;
+    // }));
+
+//     Recursion
+
+    // function pow(x, n)
+    // {
+    //     let result = 1;
+    // //     multiply result by x n times in the loop
+    //         for(let i = 0; i < n;i++)
+    //         {
+    //             result *= x;
+    //         }
+    //
+    //         return result;
+    // }
+    //
+    // alert(pow(4,5));
+
+    // function pow(x, n)
+    // {
+    //     if(n == 1)
+    //     {
+    //         return x;
+    //     }
+    //     else
+    //     {
+    //         return x * pow(x, n - 1);
+    //     }
+    // }
+    //
+    // alert(pow(2,4));
+
+    // let player = {
+    // //     name: "Artemi",
+    // //     points: 44,
+    // //     isGOAT: true,
+    // //     teams: ["CHI", "CBJ", "NYR"],
+    // //     spouse: null
+    // // };
+    // //
+    // // let json = JSON.stringify(player);
+    // //
+    // // alert(typeof json);
+    // //
+    // // alert(json);
+
+//     Convert objects into JSON
+//     Skip functions, symbolic keys, and undefined properties
+
+    // let game = {
+    //     title:"Playoffs",
+    //     room:{
+    //         arena: 23,
+    //         participants: ["davante", "garett"]
+    //     }
+    // };
+    //
+    // alert(JSON.stringify(game))
+
+
+    // let arena = {
+    //     number:23
+    // };
+    //
+    // let game = {
+    //     title: "Playoffs",
+    //     participants: [{name: "Artemi"}, {name: "Mika"}],
+    //     place: arena
+    // };
+    //
+    // arena.occupiedBy = game;
+    //
+    // alert(JSON.stringify(game,["title", "participants"]));
+
+    // let arena = {
+    //     number:24
+    // };
+    //
+    // let game = {
+    //     title:"Playoffs",
+    //     participants: [{name: "Artemi"}, {name: "Mika"}],
+    //     place: arena
+    // };
+    //
+    // arena.occupiedBy = game;
+    //
+    // alert(JSON.stringify(game,["title","participants","place","name","number"]));
+
+    // let room = {
+    //     number:23
+    // };
+    //
+    // let meetup = {
+    //     title:"Conference",
+    //     participants: [{name: "John"}, {name: "Alice"}],
+    //     place: room // meetup references room
+    // };
+    //
+    // room.occupiedBy = meetup;
+    //
+    // alert(JSON.stringify(meetup, function replacer(key, value){
+    //     alert(`${key}: ${value}`);
+    //     return(key == 'occupiedBy') ? undefined : value;
+    // }));
+
+    // let user = {
+    //     name: "Lafreniere",
+    //     age: 25,
+    //     roles:{
+    //         isRW:true,
+    //         isC: false
+    //     }
+    // };
+    //
+    // alert(JSON.stringify(user,null,2));
+
+
+    // let room = {
+    //     number: 23
+    // };
+    //
+    // let meetup = {
+    //     title: "Conference",
+    //     date: new Date(Date.UTC(2024,0,1)),
+    //     room
+    // };
+    //
+    // alert(JSON.stringify(meetup));
+
+    // let room = {
+    //     number: 23,
+    //     toJSON()
+    //     {
+    //         return this.number;
+    //     }
+    // };
+    //
+    // let meetup = {
+    //     title: "Conference",
+    //     room
+    // };
+    //
+    // alert(JSON.stringify(room));
+    // alert(JSON.stringify(meetup));
+
+
+    // let user = {
+    //     name: "Artemi Panarin",
+    //     points: 36
+    // };
+    //
+    // let user2 = JSON.parse(JSON.stringify(user));
+
+
+//     Recursion
+//     function pow(x, n)
+//     {
+//         let result = 1;
+//
+//         for(let i = 0; i < n;i++)
+//         {
+//             result *= x;
+//         }
+//
+//         return result;
+//
+//     }
+//
+//     alert(pow(2,3));
+
+    // function pow(x, n)
+    // {
+    //     if(n == 1)
+    //     {
+    //         return x;
+    //     }
+    //     else
+    //     {
+    //         return x * pow(x, n -1);
+    //     }
+    // }
+    //
+    // alert(pow(2,3));
+
+    // function factor(n)
+    // {
+    //     if(n == 1 || n == 0)
+    //     {
+    //         return n;
+    //     }
+    //     else
+    //     {
+    //         return n * factor(n - 1);
+    //     }
+    // }
+    //
+    // console.log(factor(4));
+
+    // function pow(x, n)
+    // {
+    //     if(n == 1)
+    //     {
+    //         return x;
+    //     }
+    //     else
+    //     {
+    //         return x * pow(x,n - 1);
+    //     }
+    // }
+    // alert(pow(2,4));
+
+    // function recur(x, y)
+    // {
+    //     if(y == 1)
+    //     {
+    //         return x;
+    //     }
+    //     else
+    //     {
+    //         return x * recur(x,y - 1);
+    //     }
+    //
+    // }
+    //
+    // alert(recur(2,4));
+
+    // let company = {
+    //     sales: [{
+    //         name: 'John',
+    //         salary: 1000
+    //     }, {
+    //         name: 'Alice',
+    //         salary: 1600
+    //     }],
+    //
+    //     development: {
+    //         sites: [{
+    //             name: 'Peter',
+    //             salary: 2000
+    //         }, {
+    //             name: 'Alex',
+    //             salary: 1800
+    //         }],
+    //
+    //         internals: [{
+    //             name: 'Jack',
+    //             salary: 1300
+    //         }]
+    //     }
+    // };
+    //
+    // function sumSalaries(department)
+    // {
+    //     if(Array.isArray(department))
+    //     {
+    //         return department.reduce((prev,current) => prev + current.salary,0)
+    //     }
+    //     else
+    //     {
+    //         let sum = 0;
+    //         for(let subdep of Object.values(department))
+    //         {
+    //             sum += sumSalaries(subdep);
+    //         }
+    //         return sum;
+    //     }
+    // }
+    //
+    // alert(sumSalaries(company));
+
+    // let company = { // the same object, compressed for brevity
+    //     sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 1600 }],
+    //     development: {
+    //         sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
+    //         internals: [{name: 'Jack', salary: 1300}]
+    //     }
+    // };
+    //
+    // // The function to do the job
+    // function sumSalaries(department) {
+    //     if (Array.isArray(department)) { // case (1)
+    //         return department.reduce((prev, current) => prev + current.salary, 0); // sum the array
+    //     } else { // case (2)
+    //         let sum = 0;
+    //         for (let subdep of Object.values(department)) {
+    //             sum += sumSalaries(subdep); // recursively call for subdepartments, sum the results
+    //         }
+    //         return sum;
+    //     }
+    // }
+    //
+    // alert(sumSalaries(company)); // 7700
+
+    // function start(i){
+    //     console.log('Hello', i);
+    //     if(i > 10) return;
+    //     start(i + 1);
+    // }
+    // start(0);
+
+    // let company = {
+    //     sales:[{name:'Tom', salary: 1000}, {name: 'Alice', salary: 1600}],
+    //
+    //     development:{sites:[{name: 'Peter', salary:2000},{name: 'Alex', salary: 1800}], internals:[{name: 'Jack', salary:1300}]
+    //     }
+    // };
+    //
+    // function sumSalaries(department){
+    //     if(Array.isArray(department)){
+    //         return department.reduce((prev,current) => prev + current.salary, 0);
+    //     }
+    //     else
+    //     {
+    //         let sum = 0;
+    //         for(let subdep of Object.values(department))
+    //         {
+    //             sum += sumSalaries(subdep);
+    //         }
+    //         return sum;
+    //     }
+    // }
+    //
+    // alert(sumSalaries(company));
+
+    // let arr = [obj1, obj2, obj3];
+
+//     const numbers = [1, 2, 3, 4, 5, 6];
+//
+//     const sum = numbers.reduce((accumlator, currentValue) => {return accumlator + currentValue;},0);
+//
+// alert(sum);
+
+    // const goals = [33, 44, 5533, 2,34];
+    //
+    // const sum = goals.reduce((prev,currentValue) => {return prev + currentValue;},0);
+    //
+    // alert(sum);
+
+//     Linked List
+
+    // let list = {value: 1};
+    // list.next = {value: 2};
+    // list.next.next = {value:3};
+    // let secondlist = list.next.next;
+    // list.next.next.next = {value: 4};
+    // list.next.next.next.next = null;
+
+
+    // let list = {value: 1};
+    // list.next = {value:2};
+    // list.next.next = {value: 3};
+    // list.next.next.next = {value: 4};
+    //
+    // list = {value: "new item", next: list};
+
+    // function sumTo(n) {
+    //     if (n == 1 || n == 0)
+    //     {
+    //         return 1;
+    //     }
+    //     else
+    //     {
+    //         return n + sumTo(n - 1);
+    //     }
+    //
+    // }
+    //
+    // alert(sumTo(100))
+
+    // function factorial(n)
+    // {
+    //     if(n == 1)
+    //     {
+    //         return 1;
+    //     }
+    //     else
+    //     {
+    //         return n * factorial(n - 1);
+    //     }
+    //
+    // }
+    //
+    // alert(factorial(5));
+
+    // function factorial(n){
+    //     return (n == 1) ? n * factorial(n -1): 1;
+    // }
+    //
+    // alert(factorial(5));
+    //
+    // function fibo(x,y)
+    // {
+    //     return (y === 1 || y === 0) ? x * fibo(x, y - 1): 1;
+    // }
+    //
+    // alert(fibo(5,3));
+
+//     Fibonacci Sequence
+//     function fibo(x) {
+//         return x <= 1 ? fibo(x - 1) + fibo(x - 2);
+//     }
+//
+//     alert(fibo(44));
+
+
+    // a = fib(1), b = fib(2), these values are by definition 1
+    // let a = 1, b = 1;
+
+    // get c = fib(3) as their sum
+    // let c = a + b;
+
+    /* we now have fib(1), fib(2), fib(3)
+a  b  c
+1, 1, 2
+*/
+
+    // function fib(n) {
+    //     let a = 1;
+    //     let b = 1;
+    //     for (let i = 3; i <= n; i++)
+    //     {
+    //         let c = a + b;
+    //         a = b;
+    //         b = c;
+    //     }
+    //     return b;
+    // }
+    //
+    // alert(fib(55));
+
+    // function fibonacci(n)
+    // {
+    //     if(n == 0) return 0;
+    //     if(n == 1) return 1;
+    //
+    //     let prev1 = 1;
+    //     let prev2 = 0;
+    //     let current = 0;
+    //
+    //     for(let i = 2; i <= n;i++)
+    //     {
+    //         current = prev1 + prev2;
+    //
+    //         console.log(`F(${i}): ${prev1} + ${prev2} = ${current}`);
+    //
+    //         prev2 = prev1;
+    //         prev1 = current;
+    //     }
+    //
+    //     return current;
+    // }
+    //
+    // console.log(fibonacci(6));
+
+//     Fn = Fn-1 + Fn-2
+
+    // function recursiveFibonacci(n)
+    // {
+    //     if(n < 2)
+    //     {
+    //         return 1;
+    //     }
+    //
+    //     return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
+    // }
+    //
+    // console.log(recursiveFibonacci(0));
+    // console.log(recursiveFibonacci(1));
+    // console.log(recursiveFibonacci(6));
+    // console.log(recursiveFibonacci(7));
+
+
+//     Linked List
+
+    // let list = {
+    //     value:1,
+    //     next:{
+    //         value:2,
+    //         next:{
+    //             value:3,
+    //             next:{
+    //                 value:4,
+    //                 next:null
+    //             }
+    //         }
+    //     }
+    // };
+
+    // let list = {value:1};
+    // list.next = {value:2};
+    // list.next.next = {value: 3};
+    // list.next.next.next = {value: 4};
+    // list.next.next.next.next = null;
+    //
+    // let secondList = list.next.next;
+    // list.next.next = null;
+
+     // const n1 = {
+     //     data:100
+     // };
+     //
+     // const n2 = {
+     //     data: 200
+     // };
+     //
+     // n1.next = n2;
+     //
+     // console.log(n1);
+
+
+    // class Node{
+    //     construct(data,next = null)
+    //     {
+    //         this.data = data;
+    //         this.next = next;
+    //     }
+    // }
+
+    // const n1 = new Node(100);
+    // console.log(n1);
+
+
+    // class LinkedList{
+    //     constructor() {
+    //         this.head = null;
+    //         // Means list is empty
+    //         this.size = 0;
+    //     //     Size of list is 0
+    //     }
+    //
+    // //     Insert First Node
+    //     insertFirst(data)
+    //     {
+    //         this.head = new Node(data,this.head);
+    //     //     If we want to insert the first one, we now push that to the next one
+    //     }
+
+    //     Insert Last Node
+
+    //     Insert at Index
+
+    //      Get at Index
+
+    //     Remove at Index
+
+    //     Clear List
+
+    //     Print List Data
+    //     printListData()
+    //     {
+    //         let current = this.head;
+    //
+    //         while(current){
+    //             console.log(current.data);
+    //             current = current.next;
+    //         }
+    //     }
+    //
+    //
+    // }
+    //
+    // const ll = new LinkedList();
+    //
+    // ll.insertFirst(100);
+    // ll.insertFirst(200);
+    // ll.insertFirst(300);
+    //
+    // console.log(ll.printListData());
+
+    // let list = {value:1};
+    // list.next = {value:2};
+    // list.next.next = {value: 3};
+    // list.next.next.next = {value: 4};
+    // list.next.next.next.next = null;
+    //
+    // let secondList = list.next.next;
+    // list.next.next = null;
+
+   //  let list = {
+   //      value:1, next:
+   //          {
+   //              value:2,
+   //              next:
+   //                  {
+   //                      value:3,
+   //                      next:{
+   //                          value:4,
+   //                          next:null
+   //                      }
+   //                  }
+   //          }
+   //  };
+   //
+   //  function printList(list)
+   //  {
+   //      tmp = list;
+   //      while(tmp)
+   //      {
+   //          alert(tmp.value);
+   //          tmp = tmp.next;
+   //      }
+   //  }
+   //
+   // alert(printList(list));
+
+     // let list = {
+     //     value:1, next:
+     //         {
+     //             value:2,
+     //             next:
+     //                 {
+     //                     value:3,
+     //                     next:{
+     //                         value:4,
+     //                         next:null
+     //                     }
+     //                 }
+     //         }
+     // };
+     //
+     // function printList(list)
+     // {
+     //     alert(list.value);
+     // //     output the current value
+     //
+     //     if(list.next){
+     //         printList(list.next);
+     //     //     Do the same for the rest of the list
+     //     }
+     // }
+     //
+     // printList(list);
+
+    // let list = {
+    //     value: 1,
+    //     next: {
+    //         value: 2,
+    //         next: {
+    //             value: 3,
+    //             next: {
+    //                 value: 4,
+    //                 next: null
+    //             }
+    //         }
+    //     }
+    // };
+    //
+    // function printReverse(list)
+    // {
+    //     let arr = [];
+    //     let tmp = list;
+    //
+    //     while(tmp)
+    //     {
+    //         arr.push(tmp.value);
+    //         tmp = tmp.next;
+    //     }
+    //
+    //     for(let i = arr.length - 1; i >= 0; i--)
+    //     {
+    //         alert(arr[i]);
+    //     }
+    // }
+    //
+    // alert(printReverse(list));
+
+
+    // alert(Math.max(4,43333,443,4));
+    //
+    // function sum(a, b)
+    // {
+    //     return a + b;
+    // }
+    //
+    // alert(sum(1, 2, 3, 4, 5, 6,7));
+
+
+    // function sumAll(...args)
+    // {
+    //     let sum = 0;
+    //
+    //     for(let arg of args){
+    //         sum += arg;
+    //     }
+    //     return sum;
+    // }
+    //
+    // alert( sumAll(1) ); // 1
+    // alert( sumAll(1, 2) ); // 3
+    // alert( sumAll(1, 2, 3) ); // 6
+
+
+    // function showName(firstName, lastName,...titles)
+    // {
+    //     alert(firstName + " " + lastName);
+    //
+    //     alert(titles[0]);
+    //     alert(titles[1]);
+    //     alert(titles.length);
+    // }
+    //
+    // alert(showName("Julius", "Caesar", "Bomba", "Clot"));
+
+//     First two variables go into the one variable
+//     The rest goes in the titles array
+
+
+    // function showName()
+    // {
+    //     alert(arguments.length);
+    //     alert(arguments[0]);
+    //     alert(arguments[1]);
+    // }
+    //
+    // alert(showName("Bomba", "Clot"));
+    // alert(showName("Ilya"));
+
+    // let arr1 = [1, -2, 3, 4];
+    // let arr2 = [8, 3, -8, 1];
+    //
+    // alert( Math.max(...arr1, ...arr2) ); // 8
+
+//     let arr = [1, 2, 3];
+//
+//     let arrcpy = [...arr]
+// //     spread the array into a list of parameters
+// //     then put the result into a new array
+//
+//     alert(JSON.stringify(arr) === JSON.stringify(arrCopy))
+// //     Do the arrays have the same contents?
+//
+//     arr.push(4);
+//     alert(arr);
+//     alert(arrcpy);
+
+
+    // let obj = {a: 1, b:2, c: 3};
+    //
+    // let objCopy = {...obj};
+    //
+    // // alert(JSON.stringify(obj) === JSON.stringify(objCopy));
+    // //
+    // // alert(obj === objCopy);
+    // //
+    // obj.d = 4;
+    // alert(JSON.stringify(obj));
+    // alert(JSON.stringify(objCopy));
+
+    // let message = "Hello";
+    //
+    // alert(message);
+
+    // {
+    //     let message = "Hello";
+    //     alert(message);
+    // }
+    //
+    // {
+    //     let message = "Goodbye";
+    //     alert(message);
+    // }
+
+    // if(true)
+    // {
+    //     let phrase = "Hello!";
+    //
+    //     alert(phrase);
+    // }
+    //
+    // alert(phrase);
+
+    // function sayHiBye(firstName, lastName)
+    // {
+    //     function getFullName(){
+    //         return firstName + " " + lastName;
+    //     }
+    //
+    //     alert("Hello " + getFullName());
+    //     alert("Bye " + getFullName());
+    // }
+    //
+    // sayHiBye("Bomba","Clot");
+
+    // function makeCounter()
+    // {
+    //     let count = 0;
+    //
+    //     return function(){
+    //         return count++;
+    //     };
+    // }
+    //
+    // let counter = makeCounter();
+    //
+    // alert(counter());
+    // alert(counter());
+    // alert(counter());
+
+//     The Old VAR
+
+    // var message = "It's Mine";
+    // alert(message);
+
+//     Var has no block scope they are visible through all scopes
+
+    // if(true)
+    // {
+    //     var test = "It's Mine";
+    // }
+
+    // for(var i = 0; i < 10;i++)
+    // {
+    //     var one = 1;
+    // }
+    //
+    // alert(1);
+    // alert(one);
+
+    // for (var i = 0; i < 10; i++) {
+    //     var one = 1;
+    //     // ...
+    // }
+    //
+    // alert(i);   // 10, "i" is visible after loop, it's a global variable
+    // alert(one); // 1, "one" is visible after loop, it's a global variable
+
+    // function sayHi()
+    // {
+    //     if(true)
+    //     {
+    //         var phrase = "It's Mine";
+    //     }
+    //     alert(phrase);
+    // }
+    //
+    // sayHi();
+    // alert(phrase);
+
+//     var variables can be declared below their use
+
+
+    // function sayHi()
+    // {
+    //     phrase = "Bombaclot";
+    //
+    //     alert(phrase);
+    //
+    //     var phrase;
+    // }
+    //
+    // sayHi();
+
+//     Variables decalred with Var become the property of the global object
+
+
+    // function sayHi(){
+    //     alert("It's Mine");
+    // }
+    //
+    // alert(sayHi.name);
+
+
+    // let user = {
+    //     sayHi(){
+    //
+    //     },
+    //     sayBye:function(){
+    //
+    //     }
+    // }
+    //
+    // alert(user.sayHi.name);
+    // alert(user.sayBye.name);
+
+    // function f1(a){}
+    // function f2(a, b){}
+    // function f3(a,b,...more){}
+    //
+    // alert(f1.length);
+    // alert(f2.length);
+    // alert(f3.length);
+
+    // function ask(question,...handlers)
+    // {
+    //     let isYes = confirm(question);
+    //
+    //     for(let handler of handlers){
+    //         if(handler.length == 0)
+    //         {
+    //             if(isYes) handler();
+    //         } else
+    //         {
+    //             handler(isYes);
+    //         }
+    //     }
+    // }
+    //
+    // ask("Question?", ()=>alert('You said yes'), result => alert(result));
+
+    // function sayHi()
+    // {
+    //     alert("It's Mine");
+    //
+    //     sayHi.counter++;
+    // }
+    //
+    // sayHi.counter = 0;
+    //
+    // sayHi();
+    // sayHi();
+    //
+    // alert(`Called ${sayHi.counter} times`);
+
+    // function makeCounter()
+    // {
+    //     function counter(){
+    //         return counter.count++;
+    //     };
+    //
+    //     counter.count = 0;
+    //
+    //     return counter;
+    // }
+    //
+    // let counter = makeCounter();
+    // alert(counter());
+    // alert(counter());
+
+    // let sayHi = function(who)
+    // {
+    //     alert(`Hello, ${who}`);
+    // };
+
+    // let sayHi = function func(who)
+    // {
+    //     alert(`Hello,${who}`);
+    // }
+    //
+    // sayHi("bombaclot");
+
+    // let sayHi = function func(who)
+    // {
+    //     if(who)
+    //     {
+    //         alert(`Hello, ${who}`);
+    //     }
+    //     else
+    //     {
+    //         func("Guest");
+    //     }
+    // };
+    //
+    // sayHi();
+    //
+    // func()
+
+    // There are two special things about the name func, that are the reasons for it:
+    //
+    // It allows the function to reference itself internally.
+    //     It is not visible outside of the function.
+
+
+    // let sayHi = function(who)
+    // {
+    //     if(who)
+    //     {
+    //         alert(`Hello, ${who}`);
+    //     }
+    //     else
+    //     {
+    //         sayHi("Bombclot");
+    //     }
+    // };
+
+    // function sayHi()
+    // {
+    //     alert("Hi");
+    // }
+    // alert(sayHi.name);
+
+    // let sayHi = function func(who)
+    // {
+    //     alert(`hello, ${who}`)
+    // };
+    //
+    // sayHi("bombclot");
+
+//     Allows function to reference itself internally
+//     It is not visible outside of the function
+
+    // let sayHi = function func(who)
+    // {
+    //     if(who){
+    //         alert(`hello, ${who}`);
+    //     }
+    //     else
+    //     {
+    //         func("Guest");
+    //     }
+    // };
+    //
+    // sayHi("bombaclot");
+    //
+    // func();
+
+
+    // let sayHi = function(who)
+    // {
+    //     if(who)
+    //     {
+    //         alert(`Hello, ${who}`);
+    //     }
+    //     else
+    //     {
+    //         sayHi("Guest");
+    //     }
+    // };
+    //
+    // let welcome = sayHi;
+    // sayHi = null;
+    //
+    // welcome();
+
+    // let sayHi = function func(who)
+    // {
+    //     if(who)
+    //     {
+    //         alert(`hello, ${who}`);
+    //     }
+    //     else
+    //     {
+    //         func("Guest");
+    //     }
+    // };
+    //
+    // let welcome = sayHi;
+    // sayHi = null;
+    //
+    // welcome();
+
+//     Creating a new Function
+
+    // function getFunc()
+    // {
+    //     let value = "test";
+    //
+    //     let func = new Function(str);
+    //
+    //     func();
+    // }
+
+    // document.body.style.background = "red";
+    // setTimeout(() => document.body.style.background = "",1000);
+
+
 
 
 </script>
