@@ -63,6 +63,7 @@
     width:100px;
     justify-content: flex-start;
     border-radius:15px;
+
   }
 
 
@@ -96,6 +97,7 @@
       color:white;
       border:1px solid black;
       align-items: center;
+      position:absolute;
     }
 
     #backer{
@@ -104,6 +106,7 @@
       color:white;
       border:1px solid black;
       align-items: center;
+      position:absolute;
     }
 
     #should{
@@ -112,6 +115,7 @@
       color:white;
       border:1px solid black;
       align-items: center;
+      position:absolute;
     }
 
     #army{
@@ -120,7 +124,10 @@
       color:white;
       border:1px solid black;
       align-items: center;
+      position:absolute;
     }
+
+
 
     /* Alternate row colors */
     tr:nth-child(even) {
@@ -138,7 +145,7 @@
     }
 
     td {
-      padding: 12px 20px;  /* Larger padding for better readability */
+      padding: 5px 10px;  /* Larger padding for better readability */
       text-align: center;
       font-size: 16px;
       color: #e0e0e0;  /* Light color for text */
@@ -146,8 +153,70 @@
       border-radius: 5px; /* Rounded corners */
     }
 
+    .sidenav
+    {
+      height:80%;
+      width:160px;
+      position:fixed;
+      top:10%;
+      right:0;
+      background-color:black;
+      color:white;
+    }
 
+    .ss
+    {
+      color:red;
+      font-size:20px;
+    }
 
+    .green-text
+    {
+      color:green;
+    }
+
+    .duradon
+    {
+      height:125px;
+      width:125px;
+      border:5px red;
+    }
+
+    .rando
+    {
+      color:white;
+    }
+
+    .finga
+    {
+      position:fixed;
+      top:65px;
+      left:90px;
+      color:red;
+      font-size:45px;
+      font-style:italic;
+    }
+
+    .pinky {
+      position: fixed;
+      right: 200px;
+      max-height: 100px;
+      overflow-y: auto; /* Enables vertical scrolling */
+      display: block; /* Ensures scrolling works properly */
+    }
+
+    .pinky table {
+      width: 100%; /* Ensures the table fits inside the div */
+      border-collapse: collapse;
+    }
+
+    .pinky th {
+      color: white;
+      position: sticky; /* Keeps the header fixed when scrolling */
+      top: 0;
+      background: black; /* Ensures readability */
+      z-index: 2;
+    }
 
 
 
@@ -172,16 +241,72 @@
   </nav>
 </div>
 
+<div class="sidenav">
+  <a class="ss">Shorty SideBar</a>
+  <a>Dimitisha <span class="green-text">+1</span></a>
+  <img class="duradon" src="duradon.jpg">
+</div>
+
 
 <div class="fourteen" id="fourteen">
+
+  <p class="finga" id="finga">
+    Linear Progression
+  </p>
 
   <button onclick="myChest()" id="chest" class="chest">Chest</button>
   <button onclick="myBack()" id="back" class="back">Back</button>
   <button onclick="myShoulders()" id="shoulders" class="shoulders">Shoulders</button>
   <button onclick="myArms()" id="arms" class="arms">Arms</button>
 
+  <table class="pinky" id="pinky">
+    <tr>
+      <th>Title</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Rating</th>
+    </tr>
+    <tr>
+      <td>Inner Game of Tennis</td>
+      <td>2.20</td>
+      <td>2.22</td>
+      <td>4 / 5 </td>
+    </tr>
+    <tr>
+      <td>Inner Game of Tennis</td>
+      <td>2.20</td>
+      <td>2.22</td>
+      <td>4 / 5 </td>
+    </tr>
+    <tr>
+      <td>Inner Game of Tennis</td>
+      <td>2.20</td>
+      <td>2.22</td>
+      <td>4 / 5 </td>
+    </tr>
+    <tr>
+      <td>Inner Game of Tennis</td>
+      <td>2.20</td>
+      <td>2.22</td>
+      <td>4 / 5 </td>
+    </tr>    <tr>
+    <td>Inner Game of Tennis</td>
+    <td>2.20</td>
+    <td>2.22</td>
+    <td>4 / 5 </td>
+  </tr>
+
+
+  </table>
+
 </div>
 
+<div class="book">
+
+
+
+
+</div>
 
 <table id="chester" class="chester">
   <tr>
@@ -198,7 +323,7 @@
   </tr>
   <tr>
     <td>Incline Press</td>
-    <td>1</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -222,7 +347,7 @@
   </tr>
   <tr>
     <td>Dips</td>
-    <td>1</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -270,7 +395,7 @@
   </tr>
   <tr>
     <td>Floor Flies </td>
-    <td>1</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -334,7 +459,7 @@
   </tr>
   <tr>
     <td>Pull-Ups</td>
-    <td>1</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -394,7 +519,7 @@
   </tr>
   <tr>
     <td>Mach(Pull-Back)</td>
-    <td>70</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -421,7 +546,7 @@
   </tr>
   <tr>
     <td>Shoulder Press</td>
-    <td></td>
+    <td>10</td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -445,7 +570,7 @@
   </tr>
   <tr>
     <td>Wings</td>
-    <td>1</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -457,7 +582,7 @@
   </tr>
   <tr>
     <td>4x4</td>
-    <td></td>
+    <td>7.5</td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -469,7 +594,7 @@
   </tr>
   <tr>
     <td>Face Pull</td>
-    <td>35.3-42.5</td>
+    <td>17.5-22.5</td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -481,7 +606,7 @@
   </tr>
   <tr>
     <td>Mach Side Raise</td>
-    <td></td>
+    <td>50</td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -493,7 +618,7 @@
   </tr>
   <tr>
     <td>Mach Shoulder Raise</td>
-    <td>70</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -504,8 +629,8 @@
     <td>9</td>
   </tr>
   <tr>
-    <td>Plate Raise</td>
-    <td>70</td>
+    <td>DB Press</td>
+    <td>25</td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -557,7 +682,7 @@
   </tr>
   <tr>
     <td>Inside Db Curls</td>
-    <td>1</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -581,7 +706,7 @@
   </tr>
   <tr>
     <td>Held Pull-Up</td>
-    <td>35.3-42.5</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -605,7 +730,7 @@
   </tr>
   <tr>
     <td>Mach Curls</td>
-    <td>70</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -617,7 +742,7 @@
   </tr>
   <tr>
     <td>Mach Tri-Curls</td>
-    <td>70</td>
+    <td></td>
     <td>2</td>
     <td>3</td>
     <td>4</td>
@@ -628,7 +753,12 @@
     <td>9</td>
   </tr>
 
+
 </table>
+
+<p class="rando" id="rando">
+  What we doin over here?
+</p>
 
 
 </body>
