@@ -1,0 +1,1872 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron&text=0123456789:AMP' rel='stylesheet' type='text/css'>
+    <style>
+
+        *{
+            background-color: black;
+            overflow:hidden;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .navigation
+        {
+            align-items: center;
+        }
+        .logo-bar {
+            display: flex;               /* Use flexbox for layout */
+            justify-content: space-between; /* Space out logo and navigation */
+            align-items: center;        /* Align items vertically centered */
+            background-color: black;    /* Optional: Add a background color */
+            padding: 10px;
+        }
+
+        .logo {
+            height: 50px; /* Adjust logo height as needed */
+        }
+
+        .navigation ul {
+            list-style-type: none;      /* Remove bullet points */
+            margin: 0;                  /* Remove default margin */
+            padding: 0;                 /* Remove default padding */
+            display: flex;              /* Use flexbox for the navigation */
+            gap: 15px;
+        }
+
+        .navigation li {
+            margin-right: 15px; /* Space between links */
+        }
+
+        .navigation a {
+            color: white; /* Text color for links */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .navigation a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+        .fourteen
+        {
+            display:flex;
+            justify-content: center;
+        }
+
+
+        .chest,.arms,.back,.shoulders
+        {
+            height:100px;
+            width:100px;
+            justify-content: flex-start;
+            border-radius:15px;
+
+        }
+
+        /* Specific Button Classes */
+        .chest, .back, .shoulders, .arms {
+            background-color: #333;
+            border-radius: 12px;
+            padding: 15px;
+            width: 100px;
+            text-align: center;
+            font-size: 14px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+
+        #chester {
+            display: none;
+            background-color: green;
+            color: white;
+            border: 1px solid black;
+            position: fixed; /* Ensures it's always on top */
+            top: 25%; /* Adjust as needed */
+            left:17%;
+            transform: translateX(-50%); /* Centers properly */
+            z-index: 9999; /* High value to stay on top */
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Adds slight glow */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #backer{
+            display: none;
+            background-color: yellow;
+            color:white;
+            border:1px solid black;
+            align-items: center;
+            position:fixed; /* Ensures position is always on top*/
+            top:25%;
+            left:32%;
+            transform: translateX(-50%); /* Centers properly */
+            z-index: 9999; /* High value to stay on top */
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Adds slight glow */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+
+        #should{
+            display: none;
+            background-color: red;
+            color:white;
+            border:1px solid black;
+            align-items: center;
+            position:fixed;
+            top:25%;
+            left:47%;
+            transform: translateX(-50%);
+            z-index: 9999; /* High value to stay on top */
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Adds slight glow */
+            padding:10px;
+            border-radius:5px;
+
+
+
+        }
+
+        #army{
+            display: none;
+            background-color: blue;
+            color:white;
+            border:1px solid black;
+            align-items: center;
+            position:fixed;
+            top:25%;
+            left:62%;
+            transform:translateX(-50%);
+            z-index: 9999; /* High value to stay on top */
+            box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+            padding:10px;
+            border-radius:5px;
+        }
+
+
+
+        /* Alternate row colors */
+        tr:nth-child(even) {
+            background-color: #2a2a2a;  /* Darker color for even rows */
+        }
+
+        tr:nth-child(odd) {
+            background-color: #222; /* Slightly lighter color for odd rows */
+        }
+
+        /* Hover effects for table rows */
+        tr:hover {
+            background-color: #444; /* Highlight the row on hover */
+            cursor: pointer;  /* Change cursor to pointer */
+        }
+
+        td {
+            padding: 5px 10px;  /* Larger padding for better readability */
+            text-align: center;
+            font-size: 16px;
+            color: #e0e0e0;  /* Light color for text */
+            border: 1px solid #444;  /* Slightly lighter borders */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .sidenav
+        {
+            height:80%;
+            width:160px;
+            position:fixed;
+            top:10%;
+            right:0;
+            background-color:black;
+            color:white;
+        }
+
+        .ss
+        {
+            color:red;
+            font-size:20px;
+        }
+
+        .green-text
+        {
+            color:green;
+        }
+
+        .duradon
+        {
+            height:125px;
+            width:125px;
+            border:5px red;
+        }
+
+        .rando
+        {
+            color:white;
+        }
+
+        .finga
+        {
+            position:fixed;
+            top:65px;
+            right:185px;
+            color:red;
+            font-size:45px;
+            font-style:italic;
+        }
+
+        .pinky {
+            position: fixed;
+            left: 100px;
+            max-height: 100px;
+            overflow-y: auto; /* Enables vertical scrolling */
+            display: block; /* Ensures scrolling works properly */
+        }
+
+
+        .pinky table {
+            width: 100%; /* Ensures the table fits inside the div */
+            border-collapse: collapse;
+        }
+
+        .pinky th {
+            color: white;
+            position: sticky; /* Keeps the header fixed when scrolling */
+            top: 0;
+            background: black; /* Ensures readability */
+            z-index: 2;
+        }
+
+        .recipes
+        {
+            color:white;
+        }
+
+        .container{
+            display:flex;
+            /*justify-content: space-between;*/
+            /*gap:20px;*/
+        }
+
+
+
+        .effort {
+            width: 40%;
+            height: 150px;
+            background-color: black;
+            color:red;
+            position: relative;
+            justify-content: center;
+        }
+
+        .mforce
+        {
+            font-style: italic;
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            text-align:center;
+            font-size:20px;
+            position:fixed;
+
+        }
+
+        .kms
+        {
+            font-family: 'Orbitron', sans-serif;
+            font-size:25px;
+            color:red;
+            position:fixed;
+            left:65%;
+        }
+        .digits
+        {
+            font-family: 'Orbitron', sans-serif;
+            font-size:50px;
+            color:red;
+            position:fixed;
+        }
+
+        .rotty
+        {
+            width:120px;
+            height:20px;
+            text-align: center;
+            position:relative;
+            left:22%;
+        }
+
+        .recipes
+        {
+            height:300px;
+            width:450px;
+            background-color:black;
+            left:2px;
+            align-items:center;
+            justify-content: center;
+        }
+
+        .defence
+        {
+            height:17px;
+            width:140px;
+            background-color: red;
+            color:black;
+            font-size:13px;
+            font-weight: 900;
+            align-items:center;
+            justify-content: center;
+        }
+
+        .recipes
+        {
+            height:290px;
+            width:750px;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            position:relative;
+        }
+
+        .chicken, .beef, .fish{
+            border-radius: 12px;
+            padding: 15px;
+            width: 100px;
+            text-align: center;
+        }
+
+
+
+        .chicken
+        {
+            border-radius: 10px;
+            background-color: purple;
+            position:absolute;
+            left:0;
+        }
+
+        .beef
+        {
+            border-radius: 10px;
+            background-color: orange;
+            position:absolute;
+            left:30%;
+            transform:translateX(-50%);
+        }
+
+        .fish
+        {
+            border-radius: 10px;
+            background-color: maroon;
+            position:absolute;
+            left:43%;
+        }
+
+        .chic
+        {
+            color:white;
+            background-color: purple;
+        }
+
+        .bet
+        {
+            color:white;
+            background-color: orange;
+        }
+
+        .fey
+        {
+            color:white;
+            background-color: maroon;
+        }
+
+        .conty{
+            display:flex
+        }
+
+        .tomme,.tommi,.tommo
+        {
+            height:150px;
+            width:150px;
+        }
+
+        .tomats
+        {
+            padding-top:30px;
+        }
+
+
+        .chest:hover { background-color: green; }
+        .back:hover { background-color: orange; }
+        .shoulders:hover { background-color: red; }
+        .arms:hover { background-color: blue; }
+
+        .countdown
+        {
+            position:fixed;
+            top:265px;
+            right:895px;
+            background-color: rgb(235, 0, 0);
+            color:white;
+            display:inline-flex;
+            align-items:center;
+            justify-content: center;
+            font-size:40px;
+            margin:0;
+
+        }
+
+        .countdown-min,.countdown-part,.countdown-sec
+        {
+            color:white;
+        }
+
+        .break
+        {
+            position:fixed;
+            top:265px;
+            right:740px;
+            background-color: rgb(235, 0, 0);
+            color:white;
+            display:inline-flex;
+            align-items:center;
+            justify-content: center;
+            font-size:40px;
+            margin:0;
+        }
+
+        .breaker
+        {
+
+            position:fixed;
+            top:265px;
+            right:590px;
+            background-color: rgb(235, 0, 0);
+            color:white;
+            display:inline-flex;
+            align-items:center;
+            justify-content: center;
+            font-size:40px;
+            margin:0;
+        }
+
+        .butts
+        {
+            background-color: rgb(235, 0, 0);
+            color:white;
+        }
+
+        .start,.reset,.stop
+        {
+            background-color: rgb(235, 0, 0);
+            color:white;
+        }
+
+        .start{
+            position:fixed;
+            top:180px;
+            left:560px;
+        }
+
+        .stop{
+            position:fixed;
+            top:180px;
+            left:720px;
+        }
+
+        .reset{
+            position:fixed;
+            top:180px;
+            left:880px;
+        }
+
+        .tomats
+        {
+            color:white;
+        }
+
+        .former{
+            /*background-color: rgb(235, 0, 0);*/
+            overflow-y: auto; /* Enables vertical scrolling */
+            max-height: 300px;
+            width:365px;
+        }
+
+        h1 {
+            background-color: rgb(235, 0, 0);
+            color:white;
+        }
+        h3 {
+            background-color: rgb(235, 0, 0);
+            color:white;
+        }
+
+        .farts{
+            /*border-collapse: collapse;*/
+            /*width: 50%;*/
+            /*margin: 20px auto;*/
+        }
+
+        input {
+            padding: 8px;
+            width: 140%;
+            box-sizing: border-box;
+        }
+
+        .header{
+            color:white;
+            background-color: black;
+        }
+
+        .natalie
+        {
+            color:red;
+        }
+
+        .lines {
+            width: 100%; /* Ensures the input takes up the full width of the table cell */
+            background-color: rgb(235, 0, 0);
+        }
+
+        .lines input{
+            width: 100%; /* Ensures the input takes up the full width of the table cell */
+            background-color: green;
+        }
+
+        .nums
+        {
+            background-color: rgb(235, 0, 0);
+
+        }
+
+        .chicklist,.beeflist,.fishlist,.fishlist1
+        {
+            position:fixed;
+            font-size: 12px;
+            color:white;
+            top:550px;
+            cursor: pointer;
+
+        }
+
+        .beeflist
+        {
+            left:45%;
+
+
+        }
+
+        .fishlist
+        {
+            left:56.5%;
+        }
+        .fishlist1
+        {
+            position:fixed;
+            top:570px;
+            left:55%;
+        }
+
+        .chickchart,.beefchart,.fistchart
+        {
+            display:none;
+            position:fixed;
+            top:65%;
+            right:180px;
+            height:255px;
+            width:360px;
+            background-color:black;
+            border: 3px solid purple;
+
+        }
+
+        .beefchart
+        {
+            background-color: orange;
+        }
+
+        .fishchart
+        {
+            background-color:maroon;
+        }
+
+        .blanks {
+            height: 20px;
+            width: 40px;
+            background-color: grey;
+            border: 2px solid red;
+            position: fixed;
+            transition: background 1s linear;
+            top:50%;
+            right:40%;
+        }
+
+        .blanks1
+        {
+            height:20px;
+            width:40px;
+            background-color: grey;
+            border: 2px solid red;
+            position:fixed;
+            top:50%;
+            right:50%;
+        }
+
+        .blanks2
+        {
+            height:20px;
+            width:40px;
+            background-color: grey;
+            border: 2px solid red;
+            position:fixed;
+            top:50%;
+            right:61%;
+        }
+
+        .blanks3
+        {
+            height:20px;
+            width:40px;
+            background-color: grey;
+            border: 2px solid red;
+            position:fixed;
+            top:52.5%;
+            right:50%;
+        }
+        .blanks3
+        {
+            height:20px;
+            width:40px;
+            background-color: grey;
+            border: 2px solid red;
+            position:fixed;
+            top:53.5%;
+            right:50%;
+        }
+
+        .blanks4
+        {
+            height:20px;
+            width:40px;
+            background-color: grey;
+            border: 2px solid red;
+            position:fixed;
+            top:57%;
+            right:50%;
+        }
+
+        .blanks5
+        {
+            height:20px;
+            width:40px;
+            background-color: grey;
+            border: 2px solid red;
+            position:fixed;
+            top:50%;
+            right:57%;
+        }
+
+
+        .blanks6
+        {
+            height:20px;
+            width:40px;
+            background-color: grey;
+            border: 2px solid red;
+            position:fixed;
+            top:54.5%;
+            left:40%;
+        }
+
+        .blanks7
+        {
+            height:20px;
+            width:40px;
+            background-color: grey;
+            border: 2px solid red;
+            position:fixed;
+            top:54.5%;
+            right:61%;
+        }
+
+        #work-timer,#counter,#break-timer
+        {
+            position:fixed;
+        }
+
+        #work-timer
+        {
+            font-size:20px;
+            color:white;
+            background-color: rgb(235, 0, 0);
+            z-index:99;
+            top:200px;
+            left:560px;
+        }
+
+        #counter
+        {
+            font-size:40px;
+            color:white;
+            z-index:99;
+            top:225px;
+            left:720px;
+            background-color: rgb(235, 0, 0);
+        }
+
+        #break-timer
+        {
+            font-size:40px;
+            color:white;
+            z-index:99;
+            top:225px;
+            left:880px;
+            background-color: rgb(235, 0, 0);
+        }
+
+        #w_minutes
+        {
+            position:fixed;
+            background-color: rgb(235, 0, 0);
+            font-size:40px;
+            top:225px;
+            left:525px;
+        }
+
+
+        .semicolon1
+        {
+            position:fixed;
+            background-color: rgb(235, 0, 0);
+            top:225px;
+            left:565px;
+            font-size:40px;
+
+
+        }
+
+        #w_seconds
+        {
+            position:fixed;
+            background-color: rgb(235, 0, 0);
+            top:225px;
+            left:575px;
+            font-size:40px;
+
+
+        }
+
+        #b_minutes
+        {
+            position:fixed;
+            background-color: rgb(235, 0, 0);
+            top:225px;
+            left:850px;
+            font-size:40px;
+
+
+        }
+
+
+        .semicolon2
+        {
+            position:fixed;
+            background-color: rgb(235, 0, 0);
+            top:225px;
+            left:870px;
+            font-size:40px;
+
+
+        }
+
+        #b_seconds
+        {
+            position:fixed;
+            background-color: rgb(235, 0, 0);
+            top:225px;
+            left:885px;
+            font-size:40px;
+
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+<!-- Navbar -->
+<div class="logo-bar">
+    <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
+    <nav class="navigation">
+        <ul>
+            <li><a href="java.html">Jets</a></li>
+            <li><a href="rangers.html">Rangers</a></li>
+            <li><a href="dreams.html">Dreams</a></li>
+            <li><a href="wildcard.html">Prime</a></li>
+            <li><a href="lastdance.html">Progression</a></li>
+            <li><a href="wistfulness.html">Wistfulness</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="sidenav">
+    <a class="ss">Shorty SideBar</a>
+    <a>Dimitisha <span class="green-text">+1</span></a>
+    <img class="duradon" src="dura.png">
+    <a>Natalie <span class="green-text">+2</span></a>
+    <img class="duradon" src="crobat.png">
+    <div class="natalie">Natalie 1</div>
+    <div class="natalie">Natalie 0</div>
+    <div class="natalie">Natalie -1</div>
+</div>
+
+
+<div class="fourteen" id="fourteen">
+
+
+    <button onclick="myChest()" id="chest" class="chest">Chest</button>
+    <button onclick="myBack()" id="back" class="back">Back</button>
+    <button onclick="myShoulders()" id="shoulders" class="shoulders">Shoulders</button>
+    <button onclick="myArms()" id="arms" class="arms">Arms</button>
+
+    <table class="pinky" id="pinky">
+        <tr>
+            <th>Book Title</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Page.Num</th>
+            <th>Rating</th>
+        </tr>
+        <tr>
+            <td>Inner Game of Tennis</td>
+            <td>2.20</td>
+            <td>2.21</td>
+            <td>154</td>
+            <td> 5 / 5 </td>
+        </tr>
+        <tr>
+            <td>Man & His Symbols</td>
+            <td>2.26</td>
+            <td>2.27</td>
+            <td>94</td>
+            <td> 5 / 5 </td>
+        </tr>
+        <tr>
+            <td>The Creative Act</td>
+            <td>2.28</td>
+            <td></td>
+            <td>400</td>
+            <td> </td>
+        </tr>
+
+
+    </table>
+
+
+    <div style="">12:04PM</div>
+
+    <div class="kms" id="kms">
+        RD 2 100 KillMySelfs
+        <div class="digits">
+            0 0km/h 100
+        </div>
+    </div>
+
+
+</div>
+
+
+<table id="chester" class="chester">
+    <tr>
+        <th>14's</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+    </tr>
+    <tr>
+        <td>Incline Press</td>
+        <td>25.2-30-35</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Push-Ups</td>
+        <td>100</td>
+        <td>50</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Dips</td>
+        <td>16</td>
+        <td></td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Chest Flys</td>
+        <td>85-100.2</td>
+        <td>100</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>DB Press</td>
+        <td>35</td>
+        <td></td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Crossovers</td>
+        <td>30-40.3</td>
+        <td>30.3-20</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Floor Flies </td>
+        <td></td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Incline Mach </td>
+        <td>40</td>
+        <td></td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+
+</table>
+
+<table id="backer" class="backer">
+    <tr>
+        <th>14's</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+    </tr>
+    <tr>
+        <td>Lat Pull-Back</td>
+        <td>70-100.2-110</td>
+        <td>100</td>
+        <td>70-90</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Lat Pull-Down</td>
+        <td>50-60.2-80</td>
+        <td></td>
+        <td></td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Pull-Ups</td>
+        <td>20</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Db Pull-Backs</td>
+        <td></td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Handle Pull-Down</td>
+        <td>35.3-42.5</td>
+        <td>37.5</td>
+        <td>32.5-37.5</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Pendalay</td>
+        <td>60.3-70</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Mach(Pull-Down)</td>
+        <td>70</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Mach(Pull-Back)</td>
+        <td>70</td>
+        <td>50</td>
+        <td>50-70-90.2</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+</table>
+
+<table id="should">
+    <tr>
+        <th>14's</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+    </tr>
+    <tr>
+        <td>Shoulder Press</td>
+        <td>10</td>
+        <td>10-12.5.2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Arnolds</td>
+        <td></td>
+        <td></td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Wings</td>
+        <td>17.5</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>4x4</td>
+        <td>7.5</td>
+        <td>7.5</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Face Pull</td>
+        <td>17.5-22.5</td>
+        <td>20.3-30</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Mach Side Raise</td>
+        <td>50</td>
+        <td>50</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Mach Shoulder Raise</td>
+        <td></td>
+        <td></td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>DB Press</td>
+        <td>25</td>
+        <td></td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+
+</table>
+
+<table id="army">
+    <tr>
+        <th>14's</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+    </tr>
+    <tr>
+        <td>Barbell Curls</td>
+        <td>40.2-50</td>
+        <td>40</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Skullcrushers</td>
+        <td></td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Inside Db Curls</td>
+        <td></td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Tricep-Pulldown</td>
+        <td>17.5</td>
+        <td>15-20.2-25</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Held Pull-Up</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Swing Tri Pull</td>
+        <td>40</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Mach Curls</td>
+        <td>50</td>
+        <td>70</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>Mach Tri-Curls</td>
+        <td>90-110-130</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+
+
+</table>
+
+<div class="container">
+
+    <div class="chart">
+        <canvas id="myChart" class="myChart" style="height:285px;width:500px;"></canvas>
+    </div>
+
+
+    <div class="tomats">
+        <img class="tomme" src="tomats.png">
+        <img class="tommi" src="tomats.png">
+        <img class="tommo" src="tomats.png">
+
+        <div id="work-timer" class="timer">
+            <p id="w_minutes">25</p><p class="semicolon1">:</p><p id="w_seconds">00</p>
+        </div>
+
+        <p id="counter" class="timer">0</p>
+
+        <div id="break-timer" class="timer">
+            <p id="b_minutes">5</p><p class="semicolon2">:</p><p id="b_seconds">00</p>
+        </div>
+
+        <button type= "button" id="start"  class="start">Start</button>
+        <button type= "button" id="stop" class="stop">Stop</button>
+        <button type= "button" id="reset" class="reset">Reset</button>
+
+        <div class="blanks" id="progress1"></div>
+        <div class="blanks1" id="progress2"></div>
+        <div class="blanks2" id="progress3"></div>
+        <div class="blanks3" id="progress4"></div>
+        <div class="blanks4" id="progress5"></div>
+        <div class="blanks5" id="progress6"></div>
+        <div class="blanks6" id="progress7"></div>
+        <div class="blanks7" id="progress8"></div>
+
+
+
+    </div>
+
+    <div class="former">
+        <table class="farts">
+            <tr>
+                <th class="header">Counter</th>
+                <th class="header">Progress</th>
+            </tr>
+            <tr>
+                <td class="nums">1</td>
+                <td class="lines"> <input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">2</td>
+                <td class="lines"> <input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">3</td>
+                <td class="lines"> <input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">4</td>
+                <td class="lines"> <input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">5</td>
+                <td class="lines"> <input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">6</td>
+                <td class="lines"> <input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">7</td>
+                <td class="lines"> <input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">8</td>
+                <td class="lines"><input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">9</td>
+                <td class="lines"> <input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">10</td>
+                <td class="lines"><input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">11</td>
+                <td class="lines"><input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">12</td>
+                <td class="lines"><input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">13</td>
+                <td class="lines"><input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">14</td>
+                <td class="lines"><input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">15</td>
+                <td class="lines"><input type="text" placeholder="Enter Value"></td>
+            </tr>
+            <tr>
+                <td class="nums">16</td>
+                <td class="lines"><input type="text" placeholder="Enter Value"></td>
+            </tr>
+
+
+        </table>
+    </div>
+
+
+</div>
+
+
+<div class="conty">
+
+    <div class="chart">
+        <canvas id="theChart" class="theChart" style="height:300px;width:500px;display: flex;"></canvas>
+    </div>
+
+    <div class="recipes">
+        <div class="rotty" id="rotty">Recipe Rotation</div>
+        <div class="chicken">Chicken
+        </div>
+
+        <div class="chicklist" id="chicklist">
+            Garlic Potatoes + Chicken
+        </div>
+
+        <div class="beeflist">
+            Cheese Beef Tortellini
+        </div>
+
+        <div class="fishlist">
+            Creamy Salmon
+        </div>
+        <div class="fishlist1">
+            Cajun Alfredo Shrimp Pasta
+        </div>
+
+        <div class="beef">Beef
+        </div>
+        <div class="fish">Fish
+        </div>
+    </div>
+
+    <div class="chickchart" id="chickchart">
+        <div>1.Marinate </div>
+        <div>2.Marinate </div>
+        <div>3.Marinate </div>
+        <div>4.Marinate </div>
+        <div>5.Marinate </div>
+        <div>6.Marinate </div>
+        <div>7.Marinate </div>
+    </div>
+
+
+
+</div>
+
+
+</body>
+
+
+<script>
+
+    var blanks = [
+        document.getElementById("progress1"),
+        document.getElementById("progress2"),
+        document.getElementById("progress3"),
+        document.getElementById("progress4"),
+        document.getElementById("progress5"),
+        document.getElementById("progress6"),
+        document.getElementById("progress7"),
+        document.getElementById("progress8"),
+
+    ];
+
+    var cycleCount = 0; // Track which blank is being filled
+
+    function updateBlanks() {
+        let totalTime = 25 * 60; // 25 minutes in seconds
+        let remainingTime = wm.innerText * 60 + parseInt(ws.innerText); // Remaining time in seconds
+        let progressPercentage = ((totalTime - remainingTime) / totalTime) * 100; // Fill % for current blank
+
+        // Ensure we stay within the 8 blanks range
+        if (cycleCount < blanks.length) {
+            blanks.forEach((blank, index) => {
+                if (index < cycleCount) {
+                    blank.style.backgroundColor = "red"; // Fully filled blanks
+                } else if (index === cycleCount) {
+                    blank.style.background = `linear-gradient(to right, red ${progressPercentage}%, grey ${progressPercentage}%)`;
+                } else {
+                    blank.style.backgroundColor = "grey"; // Unfilled blanks
+                }
+            });
+        }
+    }
+
+    var start = document.getElementById('start');
+    var reset = document.getElementById('reset');
+    var stop = document.getElementById('stop');
+
+
+    var wm = document.getElementById("w_minutes");
+    var ws = document.getElementById("w_seconds");
+
+    var bm = document.getElementById("b_minutes");
+    var bs = document.getElementById("b_seconds");
+
+    // Store a reference to a timer variable
+    var startTimer;
+
+    start.addEventListener('click',function()
+    {
+        if(startTimer === undefined)
+        {
+            startTimer = setInterval(timer,1000);
+        }
+        else
+        {
+            alert("Timer is already Running");
+        }
+    });
+
+    stop.addEventListener('click',function(){
+        stopInterval();
+        startTimer = undefined;
+    });
+
+    reset.addEventListener('click',function(){
+
+        wm.innerText = 25;
+        ws.innerText = "00";
+
+        bm.innerText = 5;
+        bs.innerText = "00"
+
+        document.getElementById("counter").innerText = 0;
+        stopInterval();
+        startTimer = undefined;
+    });
+
+    // Modify the timer function to update the progress bar
+    function timer() {
+        if (ws.innerText != 0) {
+            ws.innerText--;
+        } else if (wm.innerText != 0 && ws.innerText == 0) {
+            ws.innerText = 59;
+            wm.innerText--;
+        }
+
+        // Call the progress bar update function
+        updateBlanks();
+
+        // Break Timer Countdown
+        if (wm.innerText == 0 && ws.innerText == 0) {
+            if (bs.innerText != 0) {
+                bs.innerText--;
+            } else if (bm.innerText != 0 && bs.innerText == 0) {
+                bs.innerText = 59;
+                bm.innerText--;
+            }
+        }
+
+        // If One Full Cycle is completed
+        if (wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0) {
+            wm.innerText = 25;
+            ws.innerText = "00";
+            bm.innerText = 5;
+            bs.innerText = "00";
+            document.getElementById("counter").innerText++;
+        }
+    }
+
+    //     Stop Timer Function
+    function stopInterval()
+    {
+        clearInterval(startTimer);
+    }
+
+
+    const xValue = [56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82]
+
+    new Chart("theChart",{
+        type:"line",
+        data:{
+            labels:xValue,
+            datasets:[{
+                data:[62,64,66,66,66,66],
+                borderColor:"red",
+                fill:false
+            },{
+                data:[62,62,62,64,65],
+                borderColor: "white",
+                fill:false
+            },{
+                data:[60,62,64,66,68,68],
+                borderColor: "purple",
+                fill:false
+            },{
+                data:[58,60,61,62,62,64,64,64],
+                borderColor: "yellow",
+                fill:false
+            },{
+                data:[58,60,62,62,64,66],
+                borderColor: "blue",
+                fill:false
+            },{
+                data:[57,57,59,61,61,63],
+                borderColor: "orange",
+                fill:false
+            }]
+        },
+        options:{
+            title:{
+                display: true,
+                text: "East Wild Card Race", // Change this to your desired title
+                fontSize: 18 // Adjust font size if needed
+            },
+            legend: {display:false},
+            scales: {
+                xAxes: [{
+                    ticks: { min: 56, max: 82 },
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Games Played"
+                    }
+                }],
+                yAxes: [{
+                    ticks: { min: 57, max: 94 },
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Points" // Change this to your desired label
+                    }
+                }]
+            }
+
+        }
+    })
+
+
+
+    const xyValues = [{x: 67, y:479},{x: 64, y:460},{x: 64, y:417},{x: 61, y:516},{x: 58, y:478},{x: 63, y:399},{x: 64, y:680},{x: 51, y:403},{x: 67, y:409},{x: 72, y:509},{x: 63, y:478},{x: 47, y:428},{x: 76, y:657},{x: 63, y:457},{x: 80, y:785},{x: 75, y:835}, {x: 70, y: 720}, {x: 62, y: 390}, {x: 76, y:752}, {x: 73, y: 761}]
+
+    const pointColors = xyValues.map((point, index) => {
+        if (index === 14 || index === 15 || index === 12 || index === 18 ) return "rgb(0, 255, 0)"; // Green for first point
+        if (index === 13 || index === 8 || index === 6 || index === 5 || index === 4 || index === 3 || index === 2 || index === 1 || index == 17) return "rgb(0, 0, 255)"; // Blue for fourth point
+        if (index === 11 || index === 15 || index === 12 )  return "rgb(255, 0, 0)"; // Blue for fourth point
+        if (index === 10 )  return "rgb(172, 100, 255)"; // Blue for fourth point
+        if (index === 9|| index === 16)  return "rgb(72, 172, 255)"; // Blue for fourth point
+        if (index === 7)  return "rgb(50, 100, 100)"; // Blue for fourth point
+        if (index === 19)  return "rgb(100, 100, 100)"; // Blue for fourth point
+        return "rgb(255, 0, 0)"; // Default red color
+    });
+
+
+    new Chart("myChart", {
+        type: "scatter",
+        data: {
+            datasets: [{
+                pointRadius: 4,
+                pointBackgroundColor: pointColors,
+                data: xyValues
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: "Efficiency vs Shots", // Change this to your desired title
+                fontSize: 18 // Adjust font size if needed
+            },
+            legend: { display: false },
+            scales: {
+                xAxes: [{
+                    ticks: { min: 20, max: 100 },
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Efficiency(%)"
+                    }
+                }],
+                yAxes: [{
+                    ticks: { min: 330, max: 1000 },
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Shots#" // Change this to your desired label
+                    }
+                }]
+            }
+        }
+    });
+
+
+    function garlicPotatoes()
+    {
+        let chickchart = document.getElementById("chicklist");
+        if(window.getComputedStyle(chickchart).display === "none")
+        {
+            chickchart.style.display = "table";
+            document.addEventListener("click", chickTableOnClickOutside);
+        }
+        else
+        {
+            chickchart.style.display = "none";
+            document.removeEventListener("click", chickTableOnClickOutside);
+        }
+
+    }
+
+    function chickTableOnClickOutside()
+    {
+        let chickchart = document.getElementById("chick");
+        let chicken = document.getElementById("chicken");
+
+        if(!chickchart.contains(event.target) && event.target !== chicken)
+        {
+            chickchart.style.display = "none";
+            document.removeEventListener("click", chickTableOnClickOutside);
+        }
+    }
+
+
+    function myChest()
+    {
+        let chestTable = document.getElementById("chester");
+        if(window.getComputedStyle(chestTable).display === "none")
+        {
+            chestTable.style.display = "table";
+            document.addEventListener("click", closeTableOnClickOutside);
+        }
+        else
+        {
+            chestTable.style.display = "none";
+            document.removeEventListener("click", closeTableOnClickOutside);
+        }
+    }
+
+    function closeTableOnClickOutside(event)
+    {
+        let chestTable = document.getElementById("chester");
+        let chestButton = document.getElementById("chest");
+
+        if(!chestTable.contains(event.target) && event.target !== chestButton)
+        {
+            chestTable.style.display = "none";
+            document.removeEventListener("click", closeTableOnClickOutside);
+        }
+    }
+
+    function myBack()
+    {
+        let backTable = document.getElementById("backer");
+        if(window.getComputedStyle(backTable).display === "none")
+        {
+            backTable.style.display = "table";
+            document.addEventListener("click", cTableOnClickOutside);
+        }
+        else
+        {
+            backTable.style.display = "none";
+            document.removeEventListener("click", cTableOnClickOutside);
+        }
+    }
+
+    function cTableOnClickOutside(event)
+    {
+        let backTable = document.getElementById("backer");
+        let backButton = document.getElementById("back");
+
+        if(!backTable.contains(event.target) && event.target !== backButton)
+        {
+            backTable.style.display = "none";
+            document.removeEventListener("click", cTableOnClickOutside);
+        }
+    }
+
+    function myShoulders()
+    {
+        let shoulderTable = document.getElementById("should");
+        if(window.getComputedStyle(shoulderTable).display === "none")
+        {
+            shoulderTable.style.display = "table";
+            document.addEventListener("click", TableOnClickOutside);
+        }
+        else
+        {
+            shoulderTable.style.display = "none";
+            document.removeEventListener("click", TableOnClickOutside);
+        }
+    }
+
+    function TableOnClickOutside(event)
+    {
+        let shoulderTable = document.getElementById("should");
+        let shoulderButton = document.getElementById("shoulders");
+
+        if(!shoulderTable.contains(event.target) && event.target !== shoulderButton)
+        {
+            shoulderTable.style.display = "none";
+            document.removeEventListener("click", TableOnClickOutside);
+        }
+    }
+
+    function myArms()
+    {
+        let armTable = document.getElementById("army");
+        if(window.getComputedStyle(armTable).display === "none")
+        {
+            armTable.style.display = "table";
+            document.addEventListener("click", OnClickOutside);
+        }
+        else
+        {
+            armTable.style.display = "none";
+            document.removeEventListener("click", OnClickOutside);
+        }
+    }
+
+    function OnClickOutside(event)
+    {
+        let armTable = document.getElementById("army");
+        let armButton = document.getElementById("arms");
+
+        if(!armTable.contains(event.target) && event.target !== armButton)
+        {
+            armTable.style.display = "none";
+            document.removeEventListener("click", OnClickOutside);
+        }
+    }
+
+</script>
+
+
+
+</html>

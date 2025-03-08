@@ -6,13 +6,20 @@
     <title>Dreams</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Page container styling */
+
+        *
+        {
+            overflow:hidden;
+            /*overflow-x:auto;*/
+        }
+
         .page-container {
             display: flex;
             flex-direction: column;  /* Stack items vertically */
             align-items: center;     /* Align everything centrally */
             gap: 20px;               /* Add some space between items */
             margin-top: 50px;
+
         }
 
 
@@ -44,12 +51,54 @@
             /* Removed max-width to center text better within shapes */
         }
 
-        .calendar {
+        .octcalendar,.novcalendar,.deccalendar,.jancalendar,.febcalendar,.marcalendar{
             width: 380px;
             padding: 10px;
             border: solid pink;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             margin-right: 10px;
+
+        }
+
+        .octcalendar{
+        position:fixed;
+            top:22%;
+            left:7.5%;
+
+        }
+
+        .deccalendar{
+            position:fixed;
+            top:22%;
+            left:37%;
+
+        }
+
+        .febcalendar{
+            position:fixed;
+            top:22%;
+            left:66.5%;
+
+        }
+
+        .novcalendar{
+            position:fixed;
+            top:61%;
+            left:7.5%;
+
+        }
+
+        .jancalendar{
+            position:fixed;
+            top:61%;
+            left:37%;
+
+        }
+
+        .marcalendar{
+            position:fixed;
+            top:61%;
+            left:66.5%;
 
         }
 
@@ -284,7 +333,7 @@
 
     <div class="schedule-container">
         <!-- Calendar for October -->
-        <div class="calendar" id="octoberCalender">
+        <div class="octcalendar" id="octoberCalender">
             <div class="header">
                 <div class="monthYear" id="octoberMonthYear">October 2024</div>
             </div>
@@ -301,7 +350,7 @@
         </div>
 
         <!-- Calendar for November -->
-        <div class="calendar" id="novemberCalendar">
+        <div class="novcalendar" id="novemberCalendar">
             <div class="header">
                 <div class="monthYear" id="novemberMonthYear">November 2024</div>
             </div>
@@ -317,7 +366,7 @@
             <div class="dates" id="novemberDates"></div>
         </div>
 
-        <div class="calendar" id="decemberCalendar">
+        <div class="deccalendar" id="decemberCalendar">
             <div class="header">
                 <div class="monthYear" id="decemberMonthYear">December 2024</div>
             </div>
@@ -333,7 +382,7 @@
             <div class="dates" id="decemberDates"></div>
         </div>
 
-        <div class="calendar" id="januaryCalendar">
+        <div class="jancalendar" id="januaryCalendar">
             <div class="header">
                 <div class="monthYear" id="januaryMonthYear">January 2025</div>
             </div>
@@ -349,7 +398,7 @@
             <div class="dates" id="januaryDates"></div>
         </div>
 
-        <div class="calendar" id="februaryCalendar">
+        <div class="febcalendar" id="februaryCalendar">
             <div class="header">
                 <div class="monthYear" id="februaryMonthYear">February 2025</div>
             </div>
@@ -365,31 +414,47 @@
             <div class="dates" id="februaryDates"></div>
         </div>
 
+        <div class="marcalendar" id="marchCalendar">
+            <div class="header">
+                <div class="monthYear" id="marchMonthYear">March 2025</div>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thurs</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="marchDates"></div>
+        </div>
+
         <div class="dream-entry-display" id="dreamEntryDisplay">Select a highlighted date to see its entry.</div>
 
 
     </div>
 
-    <div class="theories-container">
-        <div class="theories">
-            Created fantasies based on past experiences hidden within the unconscious -Elvin
-        </div>
-        <div class="theories">
-            Subconscious visualizations of ones' current mindset-Steven
-        </div>
-        <div class="theories">
-            All life is a dream, and in our dreams, we can learn to transcend the illusions of the self.-Buddha
-        </div>
-        <div class="theories">
-            The interpretation of dreams is like a scientific experiment. They may reveal hidden patterns and connections that the rational mind cannot yet understand, showing us what might be possible beyond logic.-Einstein
-        </div>
-        <div class="theories">
-            Dreams are the whispers of your soul, the messages that come to you when the noise of the world fades-Angelou
-        </div>
-        <div class="theories">
-            Dreams are what keep us going, even when everything feels hopeless.-Lennon
-        </div>
-    </div>
+<!--    <div class="theories-container">-->
+<!--        <div class="theories">-->
+<!--            Created fantasies based on past experiences hidden within the unconscious -Elvin-->
+<!--        </div>-->
+<!--        <div class="theories">-->
+<!--            Subconscious visualizations of ones' current mindset-Steven-->
+<!--        </div>-->
+<!--        <div class="theories">-->
+<!--            All life is a dream, and in our dreams, we can learn to transcend the illusions of the self.-Buddha-->
+<!--        </div>-->
+<!--        <div class="theories">-->
+<!--            The interpretation of dreams is like a scientific experiment. They may reveal hidden patterns and connections that the rational mind cannot yet understand, showing us what might be possible beyond logic.-Einstein-->
+<!--        </div>-->
+<!--        <div class="theories">-->
+<!--            Dreams are the whispers of your soul, the messages that come to you when the noise of the world fades-Angelou-->
+<!--        </div>-->
+<!--        <div class="theories">-->
+<!--            Dreams are what keep us going, even when everything feels hopeless.-Lennon-->
+<!--        </div>-->
+<!--    </div>-->
 
 
 </div>
@@ -465,6 +530,15 @@
         '01-29-25': "It was at the library and everyone was talking to everyone at the place. Everyone was hollering at everyone trying to pick them up. The brown girl was at the place trying to talk to me. She couldn’t make eye contact and you kept on walking away but still continued the conversation.",
         '01-30-25': "Jess was wearing a really nice white outfit and she was telling me that she was going to leave Uber for a new job. Then it sounded like we were preparing to pitch my full time role opportunity to a manger to see if I can get it ",
         '02-01-25': "My first international big boom. It was in a pretty good opportunity and maybe a much needed reset. I was told by Ronklin that they’d be getting stuff every week. Then I met with Isabels family and they were saying something along the lines of that one kid being left out of the family. It sounded like he was taking advantage of the system. Then we were in some karate dojo. This man offered me a job at the nba offices. ",
+        '02-27-25': "Andrew pulled up to a Shawarma place and acted like he ran shit, and was telling people that he never pays for the Shawarma and goes there bare times. We were playing with a drone at the asian corns house and tried to land it on my nogin. Mass and some other holy family person went to Lost and Found. There was DeRocco chilling.",
+        '02-28-25': "We were at some sort of event of party, where I have little to no recollection of but i don't want to not post it you feel me. For the numbers",
+        '03-01-25': "I was at baseball game being played at the Rogers Centre, and it was appeared as if the game was about to be over and they were transitioning the baseball game to another sports game. We were working through the food stand of the area and looking for things to eat. I was walking up a mountain and saw Daenyus waiting for us at the top.",
+        '03-02-25': "Raishman and Ruffeeno were over and they were told to go get Macaroni/Spaghetti. When they went to go get it, one of the workers told them it was here but it wasn't really it. As Raishman went to go yell at her as she was hiding in a room. As he opened the room. The Mom was there hearing him call the little girl a bitch. They both got kicked out and my mom ended up deep frying the pasta for them. Paul was 1st in the league ",
+        '03-03-25': "I went into the office during the morning and was told to come back to the office during the evening time. I made the bad decision to come back, and perianna was there waiting for me. Although when I went into the meeting room, no one was there. Then when I went into the gym and use the facilities, everyone had used the towels already.There was a part where Lulu was having a crazy good time look at her stories on Whatsapp.",
+        '03-04-25': "I was in a room playing with Rihannas' kids and just talking about life, and then was transported to a grocery store where Travis was cashing me out, but I wasn't able to get to the page to allow me to cash me out. There was all these pages on the way that didn't allow me to proceed with my payment. I then just let it go and woke up.",
+        '03-05-25': "I was at a resort and I don't recall what happened at the resort but I remember seeing Maria Papadakis. People were confusing her with Croatian when I knew she was Greek. Then Sabretooth was awaken and was on a hunt for wolverine. We were watching Sabretooth chase him on a highway and eventually getting to him. We driving to a cottage that was far away but there was a possible detour to be taken to go to Florida. I was pitch black and mountains all around, and we were on the border of Florida.",
+        '03-06-25': "There was a birthday party happening at a very small house and half of the house was family, and the other half was his people. As the party grew larger and larger, more of his people came in. Then I was walking around in a bar trying to get someones number, or any contact information for that sake. I didn't get any luck but I also wasn't attempting hard enough.",
+        '03-05-25': "I was at a resort and I don't recall what happened at the resort but I remember seeing Maria Papadakis. People were confusing her with Croatian when I knew she was Greek. Then Sabretooth was awaken and was on a hunt for wolverine. We were watching Sabretooth chase him on a highway and eventually getting to him. We driving to a cottage that was far away but there was a possible detour to be taken to go to Florida. I was pitch black and mountains all around, and we were on the border of Florida.",
 
     };
 
@@ -510,6 +584,7 @@
     document.getElementById('decemberDates').addEventListener('click', handleDateClick);
     document.getElementById('januaryDates').addEventListener('click', handleDateClick);
     document.getElementById('februaryDates').addEventListener('click', handleDateClick);
+    document.getElementById('marchDates').addEventListener('click', handleDateClick);
 
 
     // Close the hover box if clicking outside
@@ -526,6 +601,7 @@
     generateCalendar(document.getElementById('decemberDates'), 11, 2024); // December 2024
     generateCalendar(document.getElementById('januaryDates'), 0, 2025); // January 2025
     generateCalendar(document.getElementById('februaryDates'), 1, 2025); // January 2025
+    generateCalendar(document.getElementById('marchDates'), 2, 2025); // January 2025
 
 
 </script>
