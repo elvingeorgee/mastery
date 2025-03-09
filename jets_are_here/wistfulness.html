@@ -595,13 +595,16 @@
       border: 3px solid maroon;
     }
 
-    .blanks {
+    .blanks9 {
       height: 20px;
       width: 40px;
       background-color: grey;
       border: 2px solid red;
       position: fixed;
       overflow: hidden; /* Ensures the filling does not go beyond limits */
+      top:50%;
+      right:39%;
+
     }
 
     .progress-fill {
@@ -613,17 +616,23 @@
       transition: height 1s linear;
     }
 
-    .blanks, #progressBreak {
+    .blanks {
       height: 20px;
       width: 40px;
       background-color: grey;
       border: 2px solid red;
       position: fixed;
-      transition: width 1s linear, background-color 1s linear;
-      top:50%;
-      right:39%;
+      overflow: hidden; /* Ensures fill does not go beyond limits */
     }
 
+    .fill {
+      height: 0%; /* Start empty */
+      width: 100%; /* Fill the entire width */
+      background-color: red;
+      position: absolute;
+      bottom: 0; /* Fills from bottom to top */
+      transition: height 1s linear; /* Smooth filling animation */
+    }
     .blanks1
     {
       height:20px;
@@ -632,7 +641,7 @@
       border: 2px solid red;
       position:fixed;
       top:50%;
-      right:50%;
+      right:55%;
     }
 
     .blanks2
@@ -664,7 +673,7 @@
       border: 2px solid red;
       position:fixed;
       top:53.5%;
-      right:50%;
+      right:51%;
     }
 
     .blanks4
@@ -896,11 +905,11 @@
   <img class="duradon" src="dura.png">
   <a>Natalie <span class="green-text">+2</span></a>
   <img class="duradon" src="crobat.png">
-  <div class="natalie">Natalie 1</div>
-  <div class="natalie">Natalie 0</div>
-  <div class="natalie">Natalie -1</div>
+  <div class="natalie">Natalie 1 -> -1</div>
   <a>Dimitisha <span class="green-text">0</span></a>
   <img class="duradon" src="tododile.png">
+  <a>Natalie <span class="green-text">+1</span></a>
+  <img class="duradon" src="hitmonchan.png">
 </div>
 
 
@@ -937,7 +946,14 @@
     <tr>
       <td>The Creative Act</td>
       <td>3.5</td>
-      <td>3.7</td>
+      <td>3.8</td>
+      <td>400</td>
+      <td>5/5 </td>
+    </tr>
+    <tr>
+      <td>Modern Man</td>
+      <td>3.5</td>
+      <td>3.8</td>
       <td>400</td>
       <td>5/5 </td>
     </tr>
@@ -1433,12 +1449,12 @@
     <button type= "button" id="stop" class="stop">Stop</button>
     <button type= "button" id="reset" class="reset">Reset</button>
 
-    <div class="blanks" id="progress1"></div>
-    <div class="blanks2" id="progress3"></div>
-    <div class="blanks5" id="progress6"></div>
-    <div class="blanks6" id="progress7"></div>
-    <div class="blanks7" id="progress8"></div>
-    <div class="blanks8" id="progress9"></div>
+    <div class="blanks9" id="progress1"><div class="fill"></div></div>
+    <div class="blanks2" id="progress3"><div class="fill"></div></div>
+    <div class="blanks5" id="progress6"><div class="fill"></div></div>
+    <div class="blanks6" id="progress7"><div class="fill"></div></div>
+    <div class="blanks7" id="progress8"><div class="fill"></div></div>
+    <div class="blanks8" id="progress9"><div class="fill"></div></div>
 
 
 
@@ -1787,11 +1803,9 @@
     }
   }
 
-
   var start = document.getElementById('start');
   var reset = document.getElementById('reset');
   var stop = document.getElementById('stop');
-
 
   var wm = document.getElementById("w_minutes");
   var ws = document.getElementById("w_seconds");
@@ -1799,81 +1813,203 @@
   var bm = document.getElementById("b_minutes");
   var bs = document.getElementById("b_seconds");
 
-  // Store a reference to a timer variable
   var startTimer;
+  var progressBars = [
+    document.getElementById("progress3").querySelector('.fill'), // Work 1 (25 min)
+    document.getElementById("progress1").querySelector('.fill'), // Break 1 (5 min)
+    document.getElementById("progress6").querySelector('.fill'), // Work 2 (25 min)
+    document.getElementById("progress1").querySelector('.fill'), // Break 2 (5 min)
+    document.getElementById("progress8").querySelector('.fill'), // Work 3 (25 min)
+    document.getElementById("progress1").querySelector('.fill'), // Break 3 (5 min)
+    document.getElementById("progress7").querySelector('.fill')  // Work 4 (Final 25 min)
+  ];
+  var currentBarIndex = 0; // Tracks which progress bar is filling
 
-  start.addEventListener('click',function()
-  {
-    if(startTimer === undefined)
-    {
-      startTimer = setInterval(timer,1000);
-    }
-    else
-    {
+  start.addEventListener('click', function () {
+    if (startTimer === undefined) {
+      currentBarIndex = 0; // Reset sequence on new start
+      startNextTimer();
+    } else {
       alert("Timer is already Running");
     }
   });
 
-  stop.addEventListener('click',function(){
+  stop.addEventListener('click', function () {
     stopInterval();
     startTimer = undefined;
   });
 
-  reset.addEventListener('click',function(){
-
+  reset.addEventListener('click', function () {
     wm.innerText = 25;
     ws.innerText = "00";
-
     bm.innerText = 5;
-    bs.innerText = "00"
-
+    bs.innerText = "00";
     document.getElementById("counter").innerText = 0;
     stopInterval();
     startTimer = undefined;
+    resetBars();
   });
 
-  function timer(){
-    // Work Timer Countdown
-    if(ws.innerText != 0)
-    {
-      ws.innerText--;
-    }
-    else if(wm.innerText != 0 && ws.innerText == 0)
-    {
-      ws.innerText = 59;
-      wm.innerText--;
-    }
-    // Break Timer Countdown
-    if(wm.innerText == 0 && ws.innerText == 0)
-    {
-      if(bs.innerText != 0)
-      {
-        bs.innerText--;
-      }else if(bm.innerText != 0 && bs.innerText == 0)
-      {
-        bs.innerText = 59;
-        bm.innerText--;
-      }
-    }
-    //     If One Full Cycle is completed
-    if(wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0)
-    {
-      wm.innerText = 25;
-      ws.innerText = "00";
+  // Start next timer (Work or Break)
+  function startNextTimer() {
+    if (currentBarIndex >= progressBars.length) return;
 
-      bm.innerText = 5;
-      bs.innerText = "00"
+    let isBreak = currentBarIndex % 2 === 1;
+    let minutes = isBreak ? 5 : 25; // Work = 25 min, Break = 5 min
 
-      document.getElementById("counter").innerText++;
+    // Reset progress bars when needed
+    if (isBreak) {
+      resetBars(); // Reset only for breaks
     }
+
+    fillProgressBar(progressBars[currentBarIndex], minutes);
+    startCountdown(minutes, function () {
+      currentBarIndex++;
+      startNextTimer();
+    });
   }
 
-  //     Stop Timer Function
-  function stopInterval()
-  {
+  // Countdown Timer
+  function startCountdown(duration, callback) {
+    let totalTime = duration * 60; // Convert minutes to seconds
+    let remainingTime = totalTime;
+
+    startTimer = setInterval(function () {
+      let min = Math.floor(remainingTime / 60);
+      let sec = remainingTime % 60;
+
+      if (currentBarIndex % 2 === 0) { // Work period
+        wm.innerText = min;
+        ws.innerText = sec < 10 ? "0" + sec : sec;
+      } else { // Break period
+        bm.innerText = min;
+        bs.innerText = sec < 10 ? "0" + sec : sec;
+      }
+
+      if (remainingTime <= 0) {
+        clearInterval(startTimer);
+        callback(); // Move to next timer
+      } else {
+        remainingTime--;
+      }
+    }, 1000);
+  }
+
+  // Fill progress bar gradually
+  function fillProgressBar(bar, minutes) {
+    let totalTime = minutes * 60; // Convert to seconds
+    let intervalTime = totalTime / 100; // Each step of filling
+
+    let fillPercentage = 0;
+    let fillTimer = setInterval(function () {
+      if (fillPercentage >= 100) {
+        clearInterval(fillTimer);
+      } else {
+        fillPercentage++;
+        bar.style.height = `${fillPercentage}%`; // Only fill the red area
+      }
+    }, intervalTime * 1000);
+  }
+
+  // Reset all progress bars
+  function resetBars() {
+    progressBars.forEach(bar => {
+      bar.style.height = "0%"; // Reset fill without changing size
+    });
+  }
+
+  // Stop Timer Function
+  function stopInterval() {
     clearInterval(startTimer);
   }
-
+  //
+  //
+  // var start = document.getElementById('start');
+  // var reset = document.getElementById('reset');
+  // var stop = document.getElementById('stop');
+  //
+  //
+  // var wm = document.getElementById("w_minutes");
+  // var ws = document.getElementById("w_seconds");
+  //
+  // var bm = document.getElementById("b_minutes");
+  // var bs = document.getElementById("b_seconds");
+  //
+  // // Store a reference to a timer variable
+  // var startTimer;
+  //
+  // start.addEventListener('click',function()
+  // {
+  //   if(startTimer === undefined)
+  //   {
+  //     startTimer = setInterval(timer,1000);
+  //   }
+  //   else
+  //   {
+  //     alert("Timer is already Running");
+  //   }
+  // });
+  //
+  // stop.addEventListener('click',function(){
+  //   stopInterval();
+  //   startTimer = undefined;
+  // });
+  //
+  // reset.addEventListener('click',function(){
+  //
+  //   wm.innerText = 25;
+  //   ws.innerText = "00";
+  //
+  //   bm.innerText = 5;
+  //   bs.innerText = "00"
+  //
+  //   document.getElementById("counter").innerText = 0;
+  //   stopInterval();
+  //   startTimer = undefined;
+  // });
+  //
+  // function timer(){
+  //   // Work Timer Countdown
+  //   if(ws.innerText != 0)
+  //   {
+  //     ws.innerText--;
+  //   }
+  //   else if(wm.innerText != 0 && ws.innerText == 0)
+  //   {
+  //     ws.innerText = 59;
+  //     wm.innerText--;
+  //   }
+  //   // Break Timer Countdown
+  //   if(wm.innerText == 0 && ws.innerText == 0)
+  //   {
+  //     if(bs.innerText != 0)
+  //     {
+  //       bs.innerText--;
+  //     }else if(bm.innerText != 0 && bs.innerText == 0)
+  //     {
+  //       bs.innerText = 59;
+  //       bm.innerText--;
+  //     }
+  //   }
+  //   //     If One Full Cycle is completed
+  //   if(wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0)
+  //   {
+  //     wm.innerText = 25;
+  //     ws.innerText = "00";
+  //
+  //     bm.innerText = 5;
+  //     bs.innerText = "00"
+  //
+  //     document.getElementById("counter").innerText++;
+  //   }
+  // }
+  //
+  // //     Stop Timer Function
+  // function stopInterval()
+  // {
+  //   clearInterval(startTimer);
+  // }
+  //
 
   const xValue = [56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82]
 
