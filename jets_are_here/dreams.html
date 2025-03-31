@@ -51,7 +51,7 @@
             /* Removed max-width to center text better within shapes */
         }
 
-        .octcalendar,.novcalendar,.deccalendar,.jancalendar,.febcalendar,.marcalendar{
+        .octcalendar,.novcalendar,.deccalendar,.jancalendar,.aprcalendar,.marcalendar{
             width: 380px;
             padding: 10px;
             border: solid pink;
@@ -74,7 +74,7 @@
 
         }
 
-        .febcalendar{
+        .marcalendar{
             position:fixed;
             top:22%;
             left:66.5%;
@@ -95,7 +95,7 @@
 
         }
 
-        .marcalendar{
+        .aprcalendar{
             position:fixed;
             top:61%;
             left:66.5%;
@@ -402,9 +402,9 @@
             <div class="dates" id="januaryDates"></div>
         </div>
 
-        <div class="febcalendar" id="februaryCalendar">
+        <div class="aprcalendar" id="aprilCalendar">
             <div class="header">
-                <div class="monthYear" id="februaryMonthYear">February 2025</div>
+                <div class="monthYear" id="aprilMonthYear">April 2025</div>
             </div>
             <div class="days">
                 <div class="day">Mon</div>
@@ -415,7 +415,7 @@
                 <div class="day">Sat</div>
                 <div class="day">Sun</div>
             </div>
-            <div class="dates" id="februaryDates"></div>
+            <div class="dates" id="aprilDates"></div>
         </div>
 
         <div class="marcalendar" id="marchCalendar">
@@ -534,8 +534,8 @@
         '03-24-25': "I was playing floor hockey in OLR, and I scored the GWG after the puck deflected off my leg.",
         '03-25-25': "There was probably 5 dreams into this one dream. I was in a class refilling a water bottle and I think I was at the gym. Then all of a sudden Alyssa Guerra was refilling her water bottle, and we had a small conversation. Despite that there were many layers to the dream, that I don't remember.",
         '03-26-25': "We were going through a Hudson Bay and ran into Leonard and Isabel. They were going up an elevator, and we were just watching them go up and talked about them briefly.",
-        '03-27-25': "I was going to school which was already a crazy commute everyday. I was forced to drive all the way to the school, and despite that I had to keep the car at the school for two nights. Josh was also there to see if he was interested to come for the following night. I was also looking for condos that I could stay on the west side of Toronto, and found dinky 1 bachelors room to stay in. They were also begging to drive the car."
-
+        '03-27-25': "I was going to school which was already a crazy commute everyday. I was forced to drive all the way to the school, and despite that I had to keep the car at the school for two nights. Josh was also there to see if he was interested to come for the following night. I was also looking for condos that I could stay on the west side of Toronto, and found dinky 1 bachelors room to stay in. They were also begging to drive the car.",
+        '03-30-25': "We were holding tryouts for the school soccer team, and I already had a spot on the team. We were at the very front of Veld, and we didn't pop for the first day, but was told that we were going to pop for the second day, and the Canada US Game was going to be at 2pm. Lima was one of the captains of the soccer team. Brandon brought up where he sent the money to"
     };
 
     function generateCalendar(datesElement, month, year) {
@@ -579,8 +579,8 @@
     document.getElementById('novemberDates').addEventListener('click', handleDateClick);
     document.getElementById('decemberDates').addEventListener('click', handleDateClick);
     document.getElementById('januaryDates').addEventListener('click', handleDateClick);
-    document.getElementById('februaryDates').addEventListener('click', handleDateClick);
     document.getElementById('marchDates').addEventListener('click', handleDateClick);
+    document.getElementById('aprilDates').addEventListener('click', handleDateClick);
 
 
     // Close the hover box if clicking outside
@@ -596,8 +596,8 @@
     generateCalendar(document.getElementById('novemberDates'), 10, 2024); // November 2024
     generateCalendar(document.getElementById('decemberDates'), 11, 2024); // December 2024
     generateCalendar(document.getElementById('januaryDates'), 0, 2025); // January 2025
-    generateCalendar(document.getElementById('februaryDates'), 1, 2025); // January 2025
     generateCalendar(document.getElementById('marchDates'), 2, 2025); // January 2025
+    generateCalendar(document.getElementById('aprilDates'), 3, 2025); // January 2025
 
 
 </script>

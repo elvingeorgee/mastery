@@ -1,34 +1,70 @@
-document.addEventListener("DOMContentLoaded", function(){
-    const allElements = ["dropdown", "drop2", "drop3", "drop4", "drop5", "drop6", "drop7", "lobDown", "lob1", "lob2", "lob3", "lob4", "lob5", "lob6", "lob7"];
+document.addEventListener("DOMContentLoaded", function () {
+    const blurbs = [
+        "okcBlurb", "houBlurb", "lalBlurb", "gswBlurb", "cavsBlurb", "celtsBlurb", "nykBlurb", "milBlurb",
+        "winBlurb", "dalBlurb", "vegBlurb", "oilBlurb", "wasBlurb", "carBlurb", "flaBlurb", "torBlurb"
+    ];
 
-    // Hide all content boxes initially
-    allElements.forEach(id => {
+    let currentVisibleBlurb = null;
+
+    // Initially hide all blurbs (by removing the .show class)
+    blurbs.forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.style.display = "none";
+        if (el) el.classList.remove("show");
     });
 
-
-    function showElement(elementId) {
-        allElements.forEach(id => {
+    function showBlurb(blurbId) {
+        blurbs.forEach(id => {
             const el = document.getElementById(id);
-            if (el) el.style.display = (id === elementId) ? "block" : "none";
+            if (el) el.classList.toggle("show", id === blurbId);
         });
+        currentVisibleBlurb = document.getElementById(blurbId);
     }
-    // Add event listeners to dropdowns/lobdowns
-    document.getElementById("dropdown").addEventListener("click", () => showElement("okc"));
-    document.getElementById("drop2").addEventListener("click", () => showElement("hou"));
-    document.getElementById("drop3").addEventListener("click", () => showElement("lal"));
-    document.getElementById("drop1").addEventListener("click", () => showElement("gsw"));
-    document.getElementById("drop4").addEventListener("click", () => showElement("cavs"));
-    document.getElementById("drop5").addEventListener("click", () => showElement("celts"));
-    document.getElementById("drop6").addEventListener("click", () => showElement("nyk"));
-    document.getElementById("drop7").addEventListener("click", () => showElement("mil"));
-    document.getElementById("lobDown").addEventListener("click", () => showElement("win"));
-    document.getElementById("lob1").addEventListener("click", () => showElement("dal"));
-    document.getElementById("lob2").addEventListener("click", () => showElement("veg"));
-    document.getElementById("lob3").addEventListener("click", () => showElement("oil"));
-    document.getElementById("lob4").addEventListener("click", () => showElement("was"));
-    document.getElementById("lob5").addEventListener("click", () => showElement("car"));
-    document.getElementById("lob6").addEventListener("click", () => showElement("fla"));
-    document.getElementById("lob7").addEventListener("click", () => showElement("tor"));
+
+    // Mapping dropdowns/lobs to blurbs
+    const clickMappings = {
+        "dropdown": "okcBlurb",
+        "drop2": "houBlurb",
+        "drop3": "lalBlurb",
+        "drop1": "gswBlurb",
+        "drop4": "cavsBlurb",
+        "drop5": "celtsBlurb",
+        "drop6": "nykBlurb",
+        "drop7": "milBlurb",
+        "lobDown": "winBlurb",
+        "lob1": "dalBlurb",
+        "lob2": "vegBlurb",
+        "lob3": "oilBlurb",
+        "lob4": "wasBlurb",
+        "lob5": "carBlurb",
+        "lob6": "flaBlurb",
+        "lob7": "torBlurb"
+    };
+
+    Object.entries(clickMappings).forEach(([triggerId, blurbId]) => {
+        const trigger = document.getElementById(triggerId);
+        if (trigger) {
+            trigger.addEventListener("click", function (e) {
+                e.stopPropagation(); // Prevent closing blurbs immediately
+                showBlurb(blurbId);
+            });
+        }
+    });
+
+    // Prevent clicks inside blurbs from closing them
+    blurbs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener("click", e => {
+                e.stopPropagation();
+            });
+        }
+    });
+
+    // Clicking outside closes any open blurb
+    document.addEventListener("click", () => {
+        if (currentVisibleBlurb) {
+            currentVisibleBlurb.classList.remove("show");
+            currentVisibleBlurb = null;
+        }
+    });
 });

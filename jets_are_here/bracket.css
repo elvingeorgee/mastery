@@ -1076,11 +1076,170 @@ body {
 }
 
 .teamBlurb {
-    height: 500px;
-    width: 500px;
+    height: 460px;
+    width: 540px;
     position: fixed;
-    top: 40%;
-    left: 40%;
-    background-color: yellow;
-    display: none;
+    top: 25%;
+    left: 32%;
+    background-color: black;
+    padding: 2px; /* Needed to show the gradient "border" */
+
+    border: 4px solid transparent; /* actual border becomes invisible */
+    border-radius: 8px;
+
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+.teamBlurb.show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+#okcBlurb
+{
+    background-image:
+            linear-gradient(to right, orange, orangered, purple),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#houBlurb
+{
+    background-image:
+            linear-gradient(to right, red, orangered, orange),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#lalBlurb
+{
+    background-image:
+            linear-gradient(to right, yellow, purple, blue),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#gswBlurb
+{
+    background-image:
+            linear-gradient(to right, yellow, blue, navy),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+
+#cavsBlurb
+{
+    background-image:
+            linear-gradient(to right, maroon, orangered, red),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+
+#celtsBlurb
+{
+    background-image:
+            linear-gradient(to right, green, black, red),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#nykBlurb
+{
+    background-image:
+            linear-gradient(to right, darkorange, blue, teal),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#milBlurb
+{
+    background-image:
+            linear-gradient(to right, green, white, yellow),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#winBlurb
+{
+    background-image:
+            linear-gradient(to right, blue, red, blue),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#dalBlurb
+{
+    background-image:
+            linear-gradient(to right, green, white,maroon),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#vegBlurb
+{
+    background-image:
+            linear-gradient(to right, black, gold,green),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#oilBlurb
+{
+    background-image:
+            linear-gradient(to right, blue, white,black),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#wasBlurb
+{
+    background-image:
+            linear-gradient(to right, red,blue),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#carBlurb
+{
+    background-image:
+            linear-gradient(to right, red,black),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#flaBlurb
+{
+    background-image:
+            linear-gradient(to right, orange,black,red),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+#torBlurb
+{
+    background-image:
+            linear-gradient(to right,blue,white),
+            linear-gradient(black, black); /* inner content */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 }
