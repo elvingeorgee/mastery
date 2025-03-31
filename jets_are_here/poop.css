@@ -1,0 +1,425 @@
+/*:root {*/
+/*    --bg-color: rgb(20, 20, 20);*/
+/*    --card-hover-bg: rgba(255, 255, 255, 0.1);*/
+/*}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
+*{
+    background-color: black;
+    overflow:hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: white;
+    /*font-family: Arial, sans-serif;*/
+}
+
+/* Navbar Styling */
+.logo-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.logo {
+    height: 50px;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation li {
+    display: inline;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+}
+
+.duradon
+{
+    position:absolute;
+    top:8%;
+    left:1%;
+    height:125px;
+    width:125px;
+    border:5px red;
+}
+
+.duradon1
+{
+    position:absolute;
+    top:8%;
+    left:10%;
+    height:125px;
+    width:125px;
+    border:5px red;
+}
+
+.duradon2
+{
+    position:absolute;
+    top:8%;
+    left:19%;
+    height:125px;
+    width:125px;
+    border:5px red;
+}
+
+.duradon3
+{
+    position:absolute;
+    top:8%;
+    left:28%;
+    height:125px;
+    width:125px;
+    border:5px red;
+}
+
+.duradon4
+{
+    position:absolute;
+    top:8%;
+    left:36%;
+    height:125px;
+    width:125px;
+    border:5px red;
+}
+
+.duradon5
+{
+    position:absolute;
+    top:8%;
+    left:45%;
+    height:125px;
+    width:125px;
+    border:5px red;
+}
+
+.duradon6
+{
+    position:absolute;
+    top:8%;
+    left:54%;
+    height:125px;
+    width:125px;
+    border:5px red;
+}
+
+.green-text
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:7.5%;
+    font-size:9px;
+}
+
+.green-texter
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:15.5%;
+    font-size:9px;
+}
+
+.green-texty
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:23.5%;
+    font-size:9px;
+}
+
+.greenTight
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:33.5%;
+    font-size:9px;
+}
+
+.natalie
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:3.5%;
+    font-size:9px;
+}
+
+.natalie1
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:11%;
+    font-size:9px;
+}
+
+.natalie2
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:21%;
+    font-size:9px;
+}
+
+.natalieKing
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:29%;
+    font-size:9px;
+}
+.button{
+    background-color:white;
+    color:black;
+    z-index:999;
+    position:absolute;
+    top:45%;
+    right:20%;
+}
+
+.text{
+
+    position:absolute;
+    color:white;
+    z-index:999;
+    top:45%;
+    right:30%;
+
+}
+
+.blurb
+{
+    position:relative;
+    top:30%;
+    left:1%;
+    height:100px;
+    width:100px;
+    background-color:royalblue;
+}
+
+.titlebar
+{
+    height:10px;
+    width:100%;
+    background-color: red;
+    top:30%;
+    position:relative;
+
+}
+
+.myChart
+{
+    position:fixed;
+    top:30%;
+    width: 40%;  /* Quarter of the original width */
+    height: 30%; /* Quarter of the original height */
+    max-width: 500px; /* Prevent it from getting too big */
+    max-height: 500px; /* Prevent it from getting too big */
+}
+
+.theChart
+{
+    position:fixed;
+    top:30%;
+    right:20px;
+    width: 30%;  /* Quarter of the original width */
+    height: 30%; /* Quarter of the original height */
+    max-width: 500px; /* Prevent it from getting too big */
+    max-height: 500px; /* Prevent it from getting too big */
+}
+
+.playoff
+{
+    position:fixed;
+    height:500px;
+    width:450px;
+    top:30%;
+    right:36%;
+    color:white;
+    overflow-x:auto;
+    display:none;
+
+}
+
+.nbaplayoff
+{
+    position:fixed;
+    height:500px;
+    width:450px;
+    top:30%;
+    right:36%;
+    color:white;
+    overflow-x:auto;
+    display:none;
+}
+
+.nba
+{
+    background-color: red;
+    color:white;
+    font-family: 'Press Start 2P', cursive;
+    position:fixed;
+    top:27%;
+    right:50%;
+
+}
+
+
+.nba2
+{
+    background-color: red;
+    color:white;
+    font-family: 'Press Start 2P', cursive;
+    position:fixed;
+    top:27%;
+    right:45%;
+}
+
+.cleanup
+{
+    padding-left:25px;
+}
+
+.cleanerup
+{
+    padding-left:30px;
+}
+
+.sos
+{
+    padding-left:5px;
+}
+
+.texter {
+    padding-top: 10px;
+    overflow: hidden;
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 300px; /* Adjust as needed */
+    font-family: 'Orbitron', sans-serif;
+    font-size:15px;
+}
+
+.vl {
+    border-left: 2px solid aquamarine;
+    height: 405px;
+    position:fixed;
+    top:37%;
+    left:15%;
+}
+
+.vl1 {
+    border-left: 2px solid aquamarine;
+    height: 390px;
+    position:fixed;
+    top:39%;
+    right:19.25%;
+}
+
+.yext
+{
+    color:aquamarine;
+    position:fixed;
+    top:37%;
+    left:15.5%;
+    font-size:12px;
+
+}
+
+.yexter
+{
+    color:aquamarine;
+    position:fixed;
+    top:40%;
+    right:7%;
+    font-size:12px;
+
+}
+.nhltitle
+{
+    /*font-size:11.5px;*/
+}
+
+.nhlblurb
+{
+    margin-top:10px;
+    /*font-size:11.5px;*/
+}
+
+
+.hockey,.basketball
+{
+    overflow: hidden;
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-width: 400px; /* Adjust as needed */
+}
+
+
+.basketball
+{
+    top:50%;
+    font-size:15px;
+}
+
+.liner
+{
+    height:165px;
+    width: 5px;
+    background-color:brown;
+    position:fixed;
+    top:5%;
+    left:36%;
+}
+
+.btown
+{
+    position:fixed;
+    top:27%;
+    left:36%;
+    color:brown;
+    font-size:10px;
+
+}
+
+
+/*Absolute Positioning Requirements*/
+
+/*1. Coordinates of the element such as top, left, right, bottom*/
+/*2. Positioned Parent Element*/
+/*Position Relative acts like its removed from the regular document flow*/
+/*Position Absolute: Stick something in a specific position without having anything to move*/

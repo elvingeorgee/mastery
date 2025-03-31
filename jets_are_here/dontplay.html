@@ -1,0 +1,217 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't Play</title>
+    <link rel="stylesheet" href="poop.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="logo-bar">
+    <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
+    <nav class="navigation">
+        <ul>
+<!--            <li><a href="java.html">Jets</a></li>-->
+<!--            <li><a href="rangers.html">Rangers</a></li>-->
+            <li><a href="dreams.html">Dreams</a></li>
+<!--            <li><a href="wildcard.html">Prime</a></li>-->
+            <li><a href="lastdance.html">Progression</a></li>
+            <li><a href="wistfulness.html">Wistfulness</a></li>
+            <li><a href="dontplay.html">Don't Play</a></li>
+            <li><a href="bracket.html">Magum Opus</a></li>
+
+        </ul>
+    </nav>
+</div>
+
+<div class="sidenav">
+    <a class="natalie">Subway<span class="green-text">+2</span></a>
+    <img class="duradon" src="ivysaur.png">
+    <img class="duradon1" src="gyra.png">
+    <a class="natalie1">Becinda<span class="green-texter">+3</span></a>
+    <img class="duradon2" src="moltres.png">
+    <a class="natalie2">Miss<span class="green-texty">+4</span></a>
+    <img class="duradon3" src="dragonite.png">
+    <a class="natalieKing">Natalie<span class="greenTight">+5</span></a>
+    <img class="duradon4" src="psy.png">
+    <img class="duradon5" src="mew.png">
+    <img class="duradon6" src="jynx.png">
+
+    <div class="liner"></div>
+    <div class="btown">Away</div>
+
+</div>
+
+    <canvas id="myChart" class="myChart"></canvas>
+    <canvas id="theChart" class="theChart"></canvas>
+    <div class="vl"></div>
+    <div class="vl1"></div>
+
+    <div class="yext">Post-Prediction</div>
+    <div class="yexter">Post-Prediction</div>
+
+<button class="nba" id="nhl" onclick="showNHL()">NHL</button>
+<button class="nba2" id="nba" onclick="showNBA()">NBA</button>
+
+    <div class="playoff" id="playoff">
+        <div class="title">NHL Playoff Preview  </div>
+        <table class="hockey">
+            <tr>
+                <td>Team</td>
+                <td class="sos">SOS</td>
+                <td class="cleanup">PP(%)</td>
+                <td class="cleanerup">PK(%)</td>
+            </tr>
+            <tr>
+                <td>Red Wings</td>
+                <td class="sos">0.608</td>
+                <td class="cleanup">28.9</td>
+                <td class="cleanerup">69.9</td>
+            </tr>
+            <tr>
+                <td>Blue Jackets</td>
+                <td class="sos">0.565</td>
+                <td class="cleanup">19.4</td>
+                <td class="cleanerup">75.4</td>
+            </tr>
+            <tr>
+                <td>Islanders</td>
+                <td class="sos">0.549</td>
+                <td class="cleanup">11.7</td>
+                <td class="cleanerup">70.9</td>
+            </tr>
+            <tr>
+                <td>Rangers</td>
+                <td class="sos">0.542</td>
+                <td class="cleanup">19</td>
+                <td class="cleanerup">82.5</td>
+            </tr>
+            <tr>
+                <td>Canadiens</td>
+                <td class="sos">0.515</td>
+                <td class="cleanup">21.9</td>
+                <td class="cleanerup">81.4</td>
+            </tr>
+            <tr>
+                <td>Bruins</td>
+                <td class="sos">0.500</td>
+                <td class="cleanup">15</td>
+                <td class="cleanerup">76.8</td>
+            </tr>
+            <tr>
+                <td>Senators</td>
+                <td class="sos">0.476</td>
+                <td class="cleanup">23.7</td>
+                <td class="cleanerup">77.8</td>
+            </tr>
+
+        </table>
+
+        <div class="texter">
+            <div class="nhltitle">Prediction with 14-15 Games Remaining</div>
+            <div class="nhlblurb">1) Senators: They've broken apart from the pack by beginning a 6 game Winning Streak, and with their Vezina winning Goalie they should comfortable keep the first Wild Card spot. It helps to have the weakest schedule out of the teams hunting for a playoff spot and majority of their games will be played at home. </div>
+            <div class="nhlblurb">2) Rangers: If Igor locks in, and it seems like he has. It's wraps for everyone else other than Ottawa. The head to head with the Blue Jackets was the determining factor if we'd be able to prove how desperate we are for that playoff spot. Similar to Ottawa, their schedule doesn't have a lot of frightening teams so this is their playoff spot to lose.</div>
+            <div class="nhlblurb">3) Canadiens: I hate these guys because it's just a bunch of kids that are hungry for some playoff life. They'll be applying pressure until the end with their new wonderkid Lane Hudston, but their weak goaltending will be their biggest crutch.  </div>
+            <div class="nhlblurb">4) Blue Jackets: I have no idea how the Blue Jackets got this far with garbage goal tending Their lack of high octane offensive threats won't be sustainable during these last few weeks of the season. They've had trouble coming back when trailing, and not having a player in the top 25 in points prevents their team to stay afloat amid war between experienced teams.</div>
+            <div class="nhlblurb">5) Red Wings: At one point, the Red Wings were leading the pact until they fell into a dark hold of 5 straight losses. That stretch allowed the Rangers and Jackets to fly by them, and now with them having the most difficult schedule, a lot of things have to go right for them to get in. </div>
+            <div class="nhlblurb">6) Bruins: They were aware that they're not in the mix, and absolutely gutted their team at the trade deadline. The Bruins regression has begun :) </div>
+            <div class="nhlblurb">7) Islanders: They should sell the team at this point. They're team has difficulty generating offense, and high danger scoring chances. Also, allowing Brock Nelson to walk shows that they've given up on the possibility of a strong playoff push.</div>
+            <div></div>
+        </div>
+
+    </div>
+
+    <div class="nbaplayoff" id="nbaplayoff">
+        <div class="title">NBA Playoff Preview  </div>
+        <table class="basketball">
+            <tr>
+                <td>Team</td>
+                <td class="sos">SOS</td>
+                <td class="cleanup">OFF</td>
+                <td class="cleanerup">DEF</td>
+            </tr>
+            <tr>
+                <td>Mavs</td>
+                <td class="sos">14.24</td>
+                <td class="cleanup">12th</td>
+                <td class="cleanerup">21st</td>
+            </tr>
+            <tr>
+                <td>Timberwolves</td>
+                <td class="sos">14.62</td>
+                <td class="cleanup">9th</td>
+                <td class="cleanerup">6th</td>
+            </tr>
+            <tr>
+                <td>Warriors</td>
+                <td class="sos">14.91</td>
+                <td class="cleanup">15th</td>
+                <td class="cleanerup">8th</td>
+            </tr>
+            <tr>
+                <td>Rockets</td>
+                <td class="sos">14.96</td>
+                <td class="cleanup">14th</td>
+                <td class="cleanerup">2nd</td>
+            </tr>
+            <tr>
+                <td>Clippers</td>
+                <td class="sos">15.32</td>
+                <td class="cleanup">18th</td>
+                <td class="cleanerup">3rd</td>
+            </tr>
+            <tr>
+                <td>Suns</td>
+                <td class="sos">15.54</td>
+                <td class="cleanup">10th</td>
+                <td class="cleanerup">27th</td>
+            </tr>
+            <tr>
+                <td>Kings</td>
+                <td class="sos">7th</td>
+                <td class="cleanup">7th</td>
+                <td class="cleanerup">19th</td>
+            </tr>
+            <tr>
+                <td>Lakers</td>
+                <td class="sos">15.81</td>
+                <td class="cleanup">11th</td>
+                <td class="cleanerup">13th</td>
+            </tr>
+            <tr>
+                <td>Nuggets</td>
+                <td class="sos">15.89</td>
+                <td class="cleanup">2nd</td>
+                <td class="cleanerup">22nd</td>
+            </tr>
+            <tr>
+                <td>Grizzlies</td>
+                <td class="sos">16.08</td>
+                <td class="cleanup">6th</td>
+                <td class="cleanerup">10th</td>
+            </tr>
+
+        </table>
+        <div class="texter">
+            <div class="nhltitle">Prediction with 14-15 Games Remaining</div>
+            <div class="nhlblurb">1)Grizzlies: Based off SOS, and them finding a good rhythm at the right time, I expect them to find themselves with the two spot at the end of the season.</div>
+            <div class="nhlblurb">2)Lakers: This is based off of the health of LeBron, and I'm expecting him to be back later this week. They don't want to deal with the Nuggets at all in the playoffs, so for that sake he will go bezerk in this stretch to avoid that possibility.</div>
+            <div class="nhlblurb">3)Rockets: Defensive psychopath Ime Udoka, has created the beast of Celtics in the south of Texas. I trust them to bully their way through into the 3rd spot on the list.</div>
+            <div class="nhlblurb">4)Warriors:Steph is rejuvenated and on a mission to beat Lebrons' number. At this point, the Warriors are 14-1 with Jimmy and they look unstoppable right now.</div>
+            <div class="nhlblurb">5)Nuggets: The Nuggets reliability and durability seemed to have faded away, and it's astonishing how durable Jokic has come. The question is how long can he carry this inconsistent above average players.</div>
+            <div class="nhlblurb">6)Clippers:Harden and Kawhi seem so fun together, and if they're healthy I'm confident they'll be an annoying team to go against. The health has them stuck at this spot.</div>
+            <div class="nhlblurb">7)Timberwolves: Their strong defence should allow them to stay float despite having a strong strength of schedule. Anthony Edwards should propel this team to avenge their dissappointing conference finals ending. </div>
+            <div class="nhlblurb">8)Kings: I hate how they're here, and I'm happy that Zach Lavine can finally have some playoff experience. Their lack of true number 1 offensive threat can be wary in deeper stretches of the game especially since their defence isn't entirely reliable.</div>
+            <div class="nhlblurb">9)Suns: KD is gonna commit suicide if they make it to the playoffs because I promise you they're getting swept. They have terrible defence, and their offensive is so ugly and cluttered. Their wins are all through KD playing hero ball at the end.</div>
+            <div class="nhlblurb">10)Mavericks: Kyrie shouldn't been here, and it's heartbreaking not seeing my dog in the playoffs.</div>
+
+            <div></div>
+        </div>
+    </div>
+
+<script src="poopy.js"></script>
+
+
+</body>
