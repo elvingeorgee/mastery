@@ -1,0 +1,235 @@
+
+*{
+    background-color: black;
+    overflow:hidden;
+}
+
+body {
+    background-color: black;
+}
+
+.navigation
+{
+    align-items: center;
+}
+.logo-bar {
+    display: flex;               /* Use flexbox for layout */
+    justify-content: space-between; /* Space out logo and navigation */
+    align-items: center;        /* Align items vertically centered */
+    background-color: black;    /* Optional: Add a background color */
+    padding: 10px;
+}
+
+.logo {
+    height: 50px; /* Adjust logo height as needed */
+}
+
+.navigation ul {
+    list-style-type: none;      /* Remove bullet points */
+    margin: 0;                  /* Remove default margin */
+    padding: 0;                 /* Remove default padding */
+    display: flex;              /* Use flexbox for the navigation */
+    gap: 15px;
+}
+
+.navigation li {
+    margin-right: 15px; /* Space between links */
+}
+
+.navigation a {
+    color: white; /* Text color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.navigation a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: lightblue;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.curve {
+    position: fixed;
+    width: 100px;
+    height: 50px;
+    background-color: lightblue;
+    border-radius: 50% 50% 0 0;
+}
+
+.curve.top {
+    top: calc(50% - 100px);
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.curve.bottom {
+    top: calc(50% + 50px);
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.curve.left {
+    top: 50%;
+    left: calc(50% - 100px);
+    width: 50px;
+    height: 100px;
+    border-radius: 50% 0 0 50%;
+    transform: translateY(-50%);
+}
+
+.circle:hover {
+    box-shadow: 0 0 10px #00f, 0 0 20px #0ff;
+}
+.curve.right:hover {
+    box-shadow: 0 0 10px #00f, 0 0 20px #0ff;
+}
+.curve.left:hover {
+    box-shadow: 0 0 10px #00f, 0 0 20px #0ff;
+}
+.curve.top:hover {
+    box-shadow: 0 0 10px #00f, 0 0 20px #0ff;
+}
+.curve.bottom:hover {
+    box-shadow: 0 0 10px #00f, 0 0 20px #0ff;
+}
+
+
+.curve.right {
+    top: 50%;
+    left: calc(50% + 50px);
+    width: 50px;
+    height: 100px;
+    border-radius: 0 50% 50% 0;
+    transform: translateY(-50%);
+}
+
+.cardy
+{
+
+    background-color: lightblue;
+    position:fixed;
+    top:39%;
+    left:29%;
+
+}
+
+
+.army
+{
+    position:absolute;
+    top:30%;
+    left:12%;
+    height:45px;
+    width:45px;
+    background-color: lightblue;
+    /*border:5px red;*/
+}
+
+
+.run
+{
+    position:absolute;
+    top:20%;
+    left:27%;
+    height:45px;
+    width:45px;
+    background-color: lightblue;
+    /*border:5px red;*/
+}
+
+
+.chest
+{
+    position:absolute;
+    top:25%;
+    left:30%;
+    height:45px;
+    width:45px;
+    background-color: lightblue;
+    /*border:5px red;*/
+}
+
+.back
+{
+    position:absolute;
+    top:30%;
+    left:10%;
+    height:45px;
+    width:45px;
+    background-color: lightblue;
+    /*border:5px red;*/
+}
+
+.shoulders {
+    position: absolute;
+    top: 35%;
+    right: 20%;
+    /*height: 45px;*/
+    /*width: 45px;*/
+    background-color: lightblue;
+    transform: rotate(180deg);
+    /* border: 5px red; */
+}
+
+.curve left:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.blocka {
+    height: 400px;
+    width: 50%;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    background-color: lightpink;
+    clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 30%,
+            80% 50%,
+            100% 70%,
+            100% 100%,
+            0 100%
+    );
+}
+
+.choppa {
+    height: 400px;
+    width: 50%;
+    position: fixed;
+    right: 0;
+    top: 10%;
+    background-color: honeydew;
+    clip-path: polygon(
+            100% 0,
+            0 0,
+            0 30%,
+            20% 50%,
+            0 70%,
+            0 100%,
+            100% 100%
+    );
+}
+
+.diamond-wrapper {
+    position: fixed;
+    bottom: 20px; /* adjust as needed */
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg); /* center + rotate */
+    transform-origin: center;
+    z-index: 10;
+}
+
+.circle, .curve {
+    position: absolute; /* instead of fixed */
+}

@@ -107,7 +107,7 @@ body {
 {
     position:absolute;
     top:8%;
-    left:36%;
+    left:38%;
     height:125px;
     width:125px;
     border:5px red;
@@ -117,7 +117,7 @@ body {
 {
     position:absolute;
     top:8%;
-    left:45%;
+    left:47%;
     height:125px;
     width:125px;
     border:5px red;
@@ -127,7 +127,7 @@ body {
 {
     position:absolute;
     top:8%;
-    left:54%;
+    left:56%;
     height:125px;
     width:125px;
     border:5px red;
@@ -169,6 +169,24 @@ body {
     font-size:9px;
 }
 
+.greenTighty
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:43%;
+    font-size:9px;
+}
+
+.greenTi
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:53%;
+    font-size:9px;
+}
+
 .natalie
 {
     color:green;
@@ -202,6 +220,24 @@ body {
     position:fixed;
     top:25%;
     left:29%;
+    font-size:9px;
+}
+
+.natalieYam
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:39.5%;
+    font-size:9px;
+}
+
+.natalieYer
+{
+    color:green;
+    position:fixed;
+    top:25%;
+    left:49.5%;
     font-size:9px;
 }
 .button{
@@ -406,11 +442,31 @@ body {
     left:36%;
 }
 
+.liner2
+{
+    height:165px;
+    width: 5px;
+    background-color:brown;
+    position:fixed;
+    top:5%;
+    left:37%;
+}
+
 .btown
 {
     position:fixed;
     top:27%;
-    left:36%;
+    left:34%;
+    color:brown;
+    font-size:10px;
+
+}
+
+.btown1
+{
+    position:fixed;
+    top:27%;
+    left:37%;
     color:brown;
     font-size:10px;
 

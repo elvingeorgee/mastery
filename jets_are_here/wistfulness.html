@@ -954,7 +954,7 @@
       <li><a href="wistfulness.html">Wistfulness</a></li>
       <li><a href="dontplay.html">Don't Play</a></li>
       <li><a href="bracket.html">Magum Opus</a></li>
-
+      <li><a href="sixty.html">60 Days</a></li>
 
     </ul>
   </nav>
@@ -1025,6 +1025,13 @@
       <td>286</td>
       <td>5/5 </td>
     </tr>
+    <tr>
+      <td>Understanding Human Nature</td>
+      <td>3.20</td>
+      <td>3.27</td>
+      <td>286</td>
+      <td>5/5 </td>
+    </tr>
 
 
   </table>
@@ -1035,7 +1042,7 @@
   <div class="kms" id="kms">
       RD 2 100 KMs
     <div class="digits">
-      8:00km/h 7-79
+      8:04km/h 10-33
     </div>
   </div>
 
@@ -2041,6 +2048,11 @@
         data: [8.46,7.39,7.34,7.50,7.50,8.47,7.30],
         borderColor: "green",
         fill: false
+      },{
+        label: "Apr 25-4k",
+        data: [8.31,8.31,8.04],
+        borderColor: "purple",
+        fill: false
       }]
     },
     options: {
@@ -2100,10 +2112,10 @@
     }
   });
 
-  const xyValues = [{x: 67, y:479},{x: 64, y:460},{x: 64, y:417},{x: 61, y:516},{x: 58, y:478},{x: 63, y:399},{x: 64, y:680},{x: 51, y:403},{x: 67, y:409},{x: 72, y:509},{x: 63, y:478},{x: 47, y:428},{x: 76, y:657},{x: 63, y:457},{x: 80, y:785},{x: 75, y:835}, {x: 70, y: 720}, {x: 62, y: 390}, {x: 76, y:752}, {x: 73, y: 761}, {x: 73, y:620}, {x:71,y:776},{x:72,y:519}, {x:71, y:916},{x: 79, y:577}];
+  const xyValues = [{x: 67, y:479},{x: 64, y:460},{x: 64, y:417},{x: 61, y:516},{x: 58, y:478},{x: 63, y:399},{x: 64, y:680},{x: 51, y:403},{x: 67, y:409},{x: 72, y:509},{x: 63, y:478},{x: 47, y:428},{x: 76, y:657},{x: 63, y:457},{x: 80, y:785},{x: 75, y:835}, {x: 70, y: 720}, {x: 62, y: 390}, {x: 76, y:752}, {x: 73, y: 761}, {x: 73, y:620}, {x:71,y:776},{x:72,y:519}, {x:71, y:916},{x: 79, y:577},{x: 81,y:816}];
 
   const pointColors = xyValues.map((point, index) => {
-    if (index === 14 || index === 15 || index === 12 || index === 18 || index == 24) return "rgb(0, 255, 0)"; // Green for first point
+    if (index === 14 || index === 15 || index === 12 || index === 18 || index == 24 || index == 25) return "rgb(0, 255, 0)"; // Green for first point
     if (index === 13 || index === 8 || index === 6 || index === 5 || index === 4 || index === 3 || index === 2 || index === 1 || index == 17 ) return "rgb(0, 0, 255)"; // Blue for fourth point
     if (index === 11 || index === 15 || index === 12 )  return "rgb(255, 0, 0)"; // Blue for fourth point
     if (index === 20 || index === 21)  return "rgb(255, 165, 0)"; // Blue for fourth point
