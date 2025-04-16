@@ -216,6 +216,60 @@ body {
     background-color: transparent;
 }
 
+.offpic
+{
+    height:100px;
+    width:100px;
+    position:fixed;
+    /*right:7%;*/
+}
+
+.lefpic
+{
+    height:100px;
+    width:100px;
+    position:fixed;
+    right:4%;
+}
+
+.offpic
+{
+    height:100px;
+    width:100px;
+    position:fixed;
+    /*right:7%;*/
+}
+
+.offy
+{
+    color:black;
+    background-color:transparent;
+    position:fixed;
+    top:34%;
+    left:20%;
+    overflow: auto;
+    height:100px;
+    width:500px;
+}
+.dippy
+{
+    color:black;
+    background-color:transparent;
+    position:fixed;
+    top:60%;
+    left:20%;
+    overflow: auto;
+    height:100px;
+    width:500px;
+}
+
+.lefpic
+{
+    height:100px;
+    width:100px;
+    position:fixed;
+    right:4%;
+}
 .rockets,.lakers,.warriors,.cavs,.celts,.knicks,.bucks,.okc
 {
     height:70px;
@@ -1084,8 +1138,8 @@ body {
     height:70px;
     width:70px;
     position:fixed;
-    left:7%;
-    top:10%;
+    left:4%;
+    top:5%;
 }
 
 .sacsblu
@@ -1093,8 +1147,27 @@ body {
     height:70px;
     width:70px;
     position:fixed;
-    right:7%;
-    top:10%;
+    right:4%;
+    top:5%;
+
+}
+
+.denblu
+{
+    height:70px;
+    width:70px;
+    position:fixed;
+    left:4%;
+    top:5%;
+}
+
+.clblu
+{
+    height:70px;
+    width:70px;
+    position:fixed;
+    right:4%;
+    top:5%;
 
 }
 
@@ -1114,6 +1187,29 @@ body {
     background-color: transparent;
 }
 
+.leadwin
+{
+    font-family: 'Press Start 2P';
+    background-color: transparent;
+    position:fixed;
+    top:22%;
+    left:2%;
+    font-size:12px;
+}
+
+
+.loswin
+{
+    font-family: 'Press Start 2P';
+    background-color: transparent;
+    position:fixed;
+    top:22%;
+    right:6%;
+    font-size:12px;
+
+}
+
+
 .seasonseries
 {
     font-family: 'Press Start 2P';
@@ -1125,9 +1221,50 @@ body {
     padding-top:2%;
     text-align: center;
     height:75px;
-    width:300px;
+    width:500px;
     color:black;
     background-color: transparent;
+}
+
+.offady
+{
+    font-family: 'Press Start 2P';
+    top:30%;
+    left:34%;
+    position:fixed;
+    font-size:12px;
+    color:black;
+    background-color: transparent;
+}
+
+.deffady
+{
+    font-family: 'Press Start 2P';
+    top:55%;
+    right:39%;
+    position:fixed;
+    font-size:12px;
+    color:black;
+    background-color: transparent;
+}
+
+
+
+.ofcseries,.defseries
+{
+    position:fixed;
+    top:34%;
+    left:4%;
+    height:100px;
+    width:775px;
+    background-color:transparent;
+    border: 2px solid orange;
+
+}
+
+.defseries
+{
+    top:60%;
 }
 
 .winners {
@@ -1202,11 +1339,11 @@ body {
 }
 
 .teamBlurb {
-    height: 460px;
-    width: 540px;
+    height: 530px;
+    width: 840px;
     position: fixed;
     top: 25%;
-    left: 32%;
+    left: 25%;
     display:inline-block;
     /*background-color: black;*/
     padding: 2px; /* Needed to show the gradient "border" */
@@ -1245,7 +1382,7 @@ body {
 #houBlurb
 {
     background-image:
-            linear-gradient(to right, red, orangered, orange),
+            linear-gradient(to right, orange, orangered, blue),
             linear-gradient(black, black); /* inner content */
     background-origin: border-box;
     background-clip: padding-box, border-box;
