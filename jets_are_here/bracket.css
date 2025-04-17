@@ -224,11 +224,21 @@ body {
     /*right:7%;*/
 }
 
-.lefpic
+.stephpic
+{
+    height:125px;
+    width:125px;
+    position:fixed;
+    top:32%;
+    right:4%;
+}
+
+.minpic
 {
     height:100px;
     width:100px;
     position:fixed;
+    top:34%;
     right:4%;
 }
 
@@ -1171,6 +1181,25 @@ body {
 
 }
 
+.rockblu
+{
+    height:70px;
+    width:70px;
+    position:fixed;
+    left:4%;
+    top:5%;
+}
+
+.gswblu
+{
+    height:70px;
+    width:70px;
+    position:fixed;
+    right:4%;
+    top:5%;
+
+}
+
 .okcwins
 {
     position:fixed;
@@ -1257,7 +1286,7 @@ body {
     left:4%;
     height:100px;
     width:775px;
-    background-color:transparent;
+    background-color: transparent;
     border: 2px solid orange;
 
 }
@@ -1391,7 +1420,7 @@ body {
 #lalBlurb
 {
     background-image:
-            linear-gradient(to right, yellow, purple, blue),
+            linear-gradient(to right, red, orange, yellow),
             linear-gradient(black, black); /* inner content */
     background-origin: border-box;
     background-clip: padding-box, border-box;
@@ -1400,7 +1429,7 @@ body {
 #gswBlurb
 {
     background-image:
-            linear-gradient(to right, yellow, blue, navy),
+            linear-gradient(to right, yellow, purple, navy),
             linear-gradient(black, black); /* inner content */
     background-origin: border-box;
     background-clip: padding-box, border-box;
@@ -1420,7 +1449,7 @@ body {
 #celtsBlurb
 {
     background-image:
-            linear-gradient(to right, green, black, red),
+            linear-gradient(to right, green, white, yellow),
             linear-gradient(black, black); /* inner content */
     background-origin: border-box;
     background-clip: padding-box, border-box;
