@@ -9,8 +9,24 @@
 
         *
         {
-            overflow:hidden;
+            /*!*overflow:hidden;*!        overflow:hidden;*/
             /*overflow-x:auto;*/
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent any accidental horizontal scroll */
+        }
+
+        .schedule-container {
+            display: flex;
+            flex-wrap: wrap;              /* Allow wrapping to next row */
+            /*overflow-x: auto;             !* Enable horizontal scroll *!*/
+            padding: 20px;
+            gap: 20px;
+            /*margin-top: 50px;*/
+            max-height: 900px; /* Optional, prevents infinite rows */
         }
 
         .page-container {
@@ -51,56 +67,64 @@
             /* Removed max-width to center text better within shapes */
         }
 
-        .octcalendar,.novcalendar,.deccalendar,.jancalendar,.aprcalendar,.marcalendar{
+
+        .octcalendar, .novcalendar, .deccalendar, .jancalendar, .marcalendar, .aprcalendar, .maycalendar, .junecalendar, .julycalendar {
             width: 380px;
             padding: 10px;
             border: solid pink;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            margin-right: 10px;
-
+            flex-shrink: 0;
         }
 
-        .octcalendar{
-        position:fixed;
-            top:22%;
-            left:7.5%;
-
+        .schedule-container::-webkit-scrollbar {
+            display: none;
+        }
+        .schedule-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
 
-        .deccalendar{
-            position:fixed;
-            top:22%;
-            left:37%;
+        /*.octcalendar{*/
+        /*position:fixed;*/
+        /*    top:22%;*/
+        /*    left:7.5%;*/
 
-        }
+        /*}*/
 
-        .marcalendar{
-            position:fixed;
-            top:22%;
-            left:66.5%;
+        /*.deccalendar{*/
+        /*    position:fixed;*/
+        /*    top:22%;*/
+        /*    left:37%;*/
 
-        }
+        /*}*/
 
-        .novcalendar{
-            position:fixed;
-            top:61%;
-            left:7.5%;
+        /*.marcalendar{*/
+        /*    position:fixed;*/
+        /*    top:22%;*/
+        /*    left:66.5%;*/
 
-        }
+        /*}*/
 
-        .jancalendar{
-            position:fixed;
-            top:61%;
-            left:37%;
+        /*.novcalendar{*/
+        /*    position:fixed;*/
+        /*    top:61%;*/
+        /*    left:7.5%;*/
 
-        }
+        /*}*/
 
-        .aprcalendar{
-            position:fixed;
-            top:61%;
-            left:66.5%;
+        /*.jancalendar{*/
+        /*    position:fixed;*/
+        /*    top:61%;*/
+        /*    left:37%;*/
 
-        }
+        /*}*/
+
+        /*.aprcalendar{*/
+        /*    position:fixed;*/
+        /*    top:61%;*/
+        /*    left:66.5%;*/
+
+        /*}*/
 
         .header {
             display: flex;
@@ -317,7 +341,7 @@
             <li><a href="wistfulness.html">Wistfulness</a></li>
             <li><a href="dontplay.html">Don't Play</a></li>
             <li><a href="bracket.html">Magum Opus</a></li>
-            <li><a href="sixty.html">60 Days</a></li>
+            <li><a href="mandb.html">M + B</a></li>
 
         </ul>
     </nav>
@@ -402,6 +426,22 @@
             <div class="dates" id="januaryDates"></div>
         </div>
 
+        <div class="marcalendar" id="marchCalendar">
+            <div class="header">
+                <div class="monthYear" id="marchMonthYear">March 2025</div>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thurs</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="marchDates"></div>
+        </div>
+
         <div class="aprcalendar" id="aprilCalendar">
             <div class="header">
                 <div class="monthYear" id="aprilMonthYear">April 2025</div>
@@ -418,9 +458,9 @@
             <div class="dates" id="aprilDates"></div>
         </div>
 
-        <div class="marcalendar" id="marchCalendar">
+        <div class="maycalendar" id="mayCalendar">
             <div class="header">
-                <div class="monthYear" id="marchMonthYear">March 2025</div>
+                <div class="monthYear" id="mayMonthYear">May 2025</div>
             </div>
             <div class="days">
                 <div class="day">Mon</div>
@@ -431,7 +471,39 @@
                 <div class="day">Sat</div>
                 <div class="day">Sun</div>
             </div>
-            <div class="dates" id="marchDates"></div>
+            <div class="dates" id="mayDates"></div>
+        </div>
+
+        <div class="junecalendar" id="juneCalendar">
+            <div class="header">
+                <div class="monthYear" id="juneMonthYear">June 2025</div>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thurs</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="juneDates"></div>
+        </div>
+
+        <div class="julycalendar" id="julyCalendar">
+            <div class="header">
+                <div class="monthYear" id="julyMonthYear">July 2025</div>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thurs</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="julyDates"></div>
         </div>
 
         <div class="dream-entry-display" id="dreamEntryDisplay">Select a highlighted date to see its entry.</div>
@@ -546,7 +618,16 @@
         '04-10-25': "We were getting married and we had one kid. We were raising them together and I was encouraging healthy living habits. I left for quite some time to work on myself and then came back and started teaching them the good things to do ",
         '04-11-25': "Brother and I were on vacation in somewhere in Europe, and I felt the dread that we didn't do enough while we were there. The hurt feeling of wasting opportunities didn't feel good. The majority of the time I was washing dishes, and everytime that I thought I was done there would be a new batch of dishes coming in.",
         '04-12-25': "I was staying at a cottage and applying for jobs at the cottage. I needed to go to a bank and drove a kid from one plaza to another to give me tips on the bank. On how it’s better to go to the hospital in Texas if anything were to happen to you. As in waitinf in line there’s a bull riding competition and I’m bongee corded to the roof of the arena and I’m swinging back and forth. Cashier was on bumble her background photo was from Stacked ",
-        '04-13-25': "I was sitting in a working area at the mall, and I was being watched by Kevins' family similar through a glass wall. They were observing me like I was in a zoo. Then I was in a pit during a Drake set, and crowd was split in all different ways. I was leaving the concert with two girls going through the subway station going through exits to different countries."
+        '04-13-25': "I was sitting in a working area at the mall, and I was being watched by Kevins' family similar through a glass wall. They were observing me like I was in a zoo. Then I was in a pit during a Drake set, and crowd was split in all different ways. I was leaving the concert with two girls going through the subway station going through exits to different countries.",
+        '04-17-25': "I was at a house party talking to this one girl for quite some time and there seemed to be like a film being filmed or a skit for drake. I left the house and came back in the end. Cliff was talking to me about life. I was talking to this girl about driving around California and just chilling. Paul was texting me that Hibachi was making him shit. Perianna was putting you got served on TV. Ramon wants to watch 2 fast 2 furious. I was in the basement going to take a shower ",
+        '04-18-25': "I was in Thailand riding around in a bike exploring places and then I was in a hotel conference working with a few other people and Lacy was my manager and I reminded him that was getting two CWs. People and other colleagues were talking loudly around me. We went back to our room and we were chilling with all the cousins. John was tempting to show us his porn stash. ",
+        '04-19-25': "PBM was with Diana chilling, and then we went to sleep with an asian girl. This dream reiterated my type.",
+        '04-21-25': "Andrew, Johnny, and I were scrambling around the city then found myself inside of a record booth. They eventually came in and I finished a track. I walked inside a room, and I saw Justin then he was ripping on me about the Rangers not making the playoffs.",
+        '04-24-25': "Working in a cafe in a college town and kids are coming inside the cafe to eat food. I’m taking trips to and from the car and coming back and noticed one of the kids is eating my food. I began asking him why he’s eating my foood. I was playing a game of NHL and absolutely killing someone’s during the 2nd period. All my stuff was everyone and I was gradually cleaning it up.",
+        '04-25-25': "Had a huge family party at someone’s apartment but Jason wasn’t there. There was bueno and Josh at the beginning of the party. Although it just didn’t have any life or energy to the event. Everyone was there just to be there. There was a mobsters movie theme going on in the background. At some point, Perianna Jayson and Vino came in and Vino was in a very bad condition. He needed help moving around the house. He needed someone to be with him at all times.",
+        '04-26-25': "I was at a church where they were introducing the new priest that was Irish. As his mass was going on he had Joe boragina, Molloy, Kelly in the background as he was chilling. Then I left early to start walking home on my own. I was crossing Draper and Glen Shields and noticed a lost dog that was behind me. I was recalling the stage of life where I was at and worried that the progress wasn’t as eventful. I was encouraging myself that actions need to be made for the necessary changes to occur.",
+        '05-01-25': "I was walking around Yonge and Finch, and noticed there was a tattoo parlour around the corner. I was walking on the strip and noticed there was a food truck that had the snack that I always loved. They didn’t have the food. I ordered something along with a mango shake.",
+        '05-02-25': "I was waiting outside of a pizza place, and she was in the distance within the corner of my eye at all times. There was never any drastic closure between us and she always was pretty far from me. I was questioning a lot of the decisions I've made until this point and it maybe be rooted to her. Although it is my decision on how I operate. Also, with this new frame of mind, I feel like the best is here and the foundation has be set."
     };
 
 
@@ -578,10 +659,24 @@
 
             // Get the position of the clicked date element
             const rect = event.target.getBoundingClientRect();
+            const scrollY = window.scrollY;
+            const scrollX = window.scrollX;
 
-            // Position the dream box just below the clicked date
-            entryDisplay.style.top = `${rect.bottom + window.scrollY + 10}px`;  // 10px gap from the circle
-            entryDisplay.style.left = `${rect.left + window.scrollX + (rect.width / 2) - (entryDisplay.offsetWidth / 2)}px`;  // Center the box
+            // Calculate centered position
+            let left = rect.left + scrollX + (rect.width / 2) - (entryDisplay.offsetWidth / 2);
+
+            // Prevent going off the left edge
+            if (left < 10) {
+                left = 10; // Small padding from the edge
+            }
+
+            // Prevent going off the right edge
+            if (left + entryDisplay.offsetWidth > window.innerWidth - 10) {
+                left = window.innerWidth - entryDisplay.offsetWidth - 10; // Small padding from the right edge
+            }
+
+            entryDisplay.style.top = `${rect.bottom + scrollY + 10}px`;
+            entryDisplay.style.left = `${left}px`;
         } else {
             entryDisplay.innerText = "No dream entry for this date.";
         }
@@ -593,6 +688,11 @@
     document.getElementById('januaryDates').addEventListener('click', handleDateClick);
     document.getElementById('marchDates').addEventListener('click', handleDateClick);
     document.getElementById('aprilDates').addEventListener('click', handleDateClick);
+    document.getElementById('mayDates').addEventListener('click', handleDateClick);
+    document.getElementById('juneDates').addEventListener('click', handleDateClick);
+    document.getElementById('julyDates').addEventListener('click', handleDateClick);
+
+
 
 
     // Close the hover box if clicking outside
@@ -610,6 +710,12 @@
     generateCalendar(document.getElementById('januaryDates'), 0, 2025); // January 2025
     generateCalendar(document.getElementById('marchDates'), 2, 2025); // January 2025
     generateCalendar(document.getElementById('aprilDates'), 3, 2025); // January 2025
+    generateCalendar(document.getElementById('mayDates'), 4, 2025); // January 2025
+    generateCalendar(document.getElementById('juneDates'), 5, 2025); // January 2025
+    generateCalendar(document.getElementById('julyDates'), 6, 2025); // January 2025
+
+
+
 
 
 </script>

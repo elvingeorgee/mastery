@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Pizza & Wings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <style>
+        .font-logo {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+<!-- Navbar -->
+<nav class="flex justify-between items-center px-8 py-5 bg-gray-800 shadow-md">
+    <h1 class="text-3xl font-logo text-yellow-400">Prime Pizza & Wings</h1>
+    <ul class="flex space-x-6">
+        <li><a href="#menu" class="hover:text-yellow-300">Menu</a></li>
+        <li><a href="#about" class="hover:text-yellow-300">About</a></li>
+        <li><a href="#contact" class="hover:text-yellow-300">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1601924582975-4c3fd4c8c3ed');">
+    <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-center">
+        <div>
+            <h2 class="text-5xl font-logo text-yellow-400 mb-4">Where Crust Meets Craft</h2>
+            <p class="text-xl text-gray-200 mb-6">Premium handcrafted pizzas & bold wings.</p>
+            <a href="#menu" class="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3 px-6 rounded-full">View Menu</a>
+        </div>
+    </div>
+</section>
+
+<!-- Menu Highlights -->
+<section id="menu" class="px-6 py-16 bg-gray-900 text-center">
+    <h3 class="text-4xl font-logo text-yellow-400 mb-12">Our Favorites</h3>
+    <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+            <img src="https://images.unsplash.com/photo-1601924582975-4c3fd4c8c3ed" alt="Pizza" class="rounded-md mb-4">
+            <h4 class="text-2xl font-semibold mb-2">Truffle Supreme Pizza</h4>
+            <p class="text-gray-300">A blend of mozzarella, truffle oil, mushrooms & prosciutto.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+            <img src="https://images.unsplash.com/photo-1612392061780-f9f1c6e21290" alt="Wings" class="rounded-md mb-4">
+            <h4 class="text-2xl font-semibold mb-2">Firecracker Wings</h4>
+            <p class="text-gray-300">Crispy, spicy wings tossed in our signature sauce.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+            <img src="https://images.unsplash.com/photo-1604908554160-0e9640eeaa2b" alt="Combo" class="rounded-md mb-4">
+            <h4 class="text-2xl font-semibold mb-2">Combo Feast</h4>
+            <p class="text-gray-300">Large pizza + 10 wings + 2 drinks — perfect for sharing.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="px-8 py-16 bg-gray-800 text-center">
+    <h3 class="text-4xl font-logo text-yellow-400 mb-6">Our Story</h3>
+    <p class="max-w-3xl mx-auto text-gray-300 text-lg">
+        Prime Pizza & Wings is more than a restaurant — it's a craft. We source the freshest ingredients, hand-knead our dough daily, and bring fire-baked flavor to every slice and wing. Whether you're grabbing a quick bite or sharing a family meal, our food is made to be remembered.
+    </p>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="px-8 py-16 bg-gray-900 text-center">
+    <h3 class="text-4xl font-logo text-yellow-400 mb-6">Get in Touch</h3>
+    <p class="text-gray-300 mb-4">123 Flavor Street, Tasteville · (123) 456-7890</p>
+    <p class="text-gray-300 mb-4">Open Daily: 11am - 11pm</p>
+    <a href="mailto:order@primepizza.com" class="text-yellow-400 underline">order@primepizza.com</a>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-center py-6">
+    <p class="text-gray-400">&copy; 2025 Prime Pizza & Wings. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

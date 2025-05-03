@@ -1,0 +1,204 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    background-color: #2a2a2a;
+}
+
+html, body{
+    height:100%;
+    font-family: Arial, sans-serif;
+    color:#333;
+    line-height:1.6;
+}
+
+
+/* Links */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1rem;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 1.5rem;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Container helper class */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.topbar {
+    width: 96%;
+    margin: 0 auto;
+    height: 60px;
+    background-color: #2E6F40;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* subtle shadow for depth */
+}
+
+.top-section {
+    display: flex;
+    gap: 20px; /* space between each box */
+    padding: 20px 0;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.topleft {
+    height: 400px;
+    width: 400px;
+    background-color: #3B8F50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.topbox {
+    height: 400px;
+    width: 400px;
+    background-color: #3B8F50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;    /* <-- ADD THIS to stack items vertically */
+    justify-content: flex-start;
+    align-items: center;       /* <-- center horizontally */
+    padding-top: 20px;
+}
+
+.chest-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 25px; /* Makes nice rounded shape for all links */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logo{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 25px; /* Makes nice rounded shape for all links */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    align-items: center;
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+}
+
+.nav-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.nav-links li a.active {
+    background-color: white;
+    color: #2E6F40;
+    font-weight: bold;
+    border-radius: 25px;
+}
+.bomba {
+    margin-top: 15px;
+    width: 90%;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05); /* subtle transparent background */
+    border-radius: 10px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    font-size: 14px;
+}
+
+.bomba td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* subtle row divider */
+    color: rgba(255, 255, 255, 0.85); /* softer white text */
+    font-weight: 300;
+}
+
+.bomba tr:last-child td {
+    border-bottom: none; /* remove border from last row */
+}
+
+.bomba tr:hover td {
+    background-color: rgba(255, 255, 255, 0.08); /* subtle hover effect */
+}

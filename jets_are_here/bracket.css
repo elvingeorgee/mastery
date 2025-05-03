@@ -280,7 +280,7 @@ body {
     position:fixed;
     right:4%;
 }
-.rockets,.lakers,.warriors,.cavs,.celts,.knicks,.bucks,.okc
+.rockets,.lakers,.warriors,.cavs,.celts,.knicks,.bucks,.okc, .okcdub
 {
     height:70px;
     width:70px;
@@ -288,6 +288,13 @@ body {
     right:7%;
 }
 
+.okcdub
+{
+    height:70px;
+    width:70px;
+    position:fixed;
+    right:17%;
+}
 .blues,.avs,.mini,.kings,.rangers,.devils,.sens,.lightning,.kings
 {
     height:70px;
@@ -297,12 +304,20 @@ body {
 }
 
 
-.suns,.clippers,.timberwolves,.bulls,.hawks,.pistons,.pacers
+.suns,.clippers,.timberwolves,.bulls,.hawks,.pistons,.pacers,.mindub
 {
     height:70px;
     width:70px;
     position:fixed;
     right:1%;
+}
+
+.mindub
+{
+    height:70px;
+    width:70px;
+    position:fixed;
+    right:17%;
 }
 
 .jets,.stars,.vegas,.oilers,.caps,.canes,.panthers,.leafs
@@ -1449,7 +1464,7 @@ body {
 #celtsBlurb
 {
     background-image:
-            linear-gradient(to right, green, white, yellow),
+            linear-gradient(to right, green, white, red),
             linear-gradient(black, black); /* inner content */
     background-origin: border-box;
     background-clip: padding-box, border-box;
@@ -1552,15 +1567,59 @@ body {
     width:70px;
     top:15%;
     right:20%;
-    display:none;
 }
 
-.sacNext
+.minNext
 {
     position:fixed;
     height:70px;
     width:70px;
-    top:15%;
+    top:43%;
     right:20%;
-    display:none;
 }
+
+.cavsNext
+{
+    position:fixed;
+    height:70px;
+    width:70px;
+    top:50%;
+    right:20%;
+}
+
+.indNext
+{
+    position:fixed;
+    height:70px;
+    width:70px;
+    top:65%;
+    right:20%;
+}
+
+.cavsNext
+{
+    position:fixed;
+    height:70px;
+    width:70px;
+    top:55%;
+    right:20%;
+}
+
+.bosNext
+{
+    position:fixed;
+    height:70px;
+    width:70px;
+    top:84%;
+    right:20%;
+}
+
+.nykNext
+{
+    position:fixed;
+    height:70px;
+    width:70px;
+    top:74%;
+    right:20%;
+}
+

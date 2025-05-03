@@ -69,25 +69,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-const okcButton = document.getElementById("okcblu");
-const sacButton = document.getElementById("sacsblu");
-const okc = document.getElementById("okcNext");
-const sac = document.getElementById("sacNext");
-
-okc.style.display = "none";
-sac.style.display = "none";
-
-// Add click event listeners
-okcButton.addEventListener("click", showOKC);
-sacButton.addEventListener("click", showSac);
-
-function showOKC() {
-    okc.style.display = "block";
-    sac.style.display = "none";
-}
-
-function showSac() {
-    sac.style.display = "block";
-    okc.style.display = "none";
-}

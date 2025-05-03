@@ -293,7 +293,7 @@
     .digits
     {
       font-family: 'Orbitron', sans-serif;
-      font-size:50px;
+      font-size:47.5px;
       color:red;
       position:fixed;
     }
@@ -946,15 +946,6 @@
   <img src="jeters.jpg" alt="New York Jets Logo" class="logo">
   <nav class="navigation">
     <ul>
-<!--      <li><a href="java.html">Jets</a></li>-->
-<!--      <li><a href="rangers.html">Rangers</a></li>-->
-      <li><a href="dreams.html">Dreams</a></li>
-<!--      <li><a href="wildcard.html">Prime</a></li>-->
-      <li><a href="lastdance.html">Progression</a></li>
-      <li><a href="wistfulness.html">Wistfulness</a></li>
-      <li><a href="dontplay.html">Don't Play</a></li>
-      <li><a href="bracket.html">Magum Opus</a></li>
-      <li><a href="sixty.html">60 Days</a></li>
 
     </ul>
   </nav>
@@ -1026,10 +1017,10 @@
       <td>5/5 </td>
     </tr>
     <tr>
-      <td>Understanding Human Nature</td>
-      <td>3.20</td>
+      <td>Brain: Story of You</td>
+      <td>4.22</td>
       <td>3.27</td>
-      <td>286</td>
+      <td>223</td>
       <td>5/5 </td>
     </tr>
 
@@ -1042,7 +1033,7 @@
   <div class="kms" id="kms">
       RD 2 100 KMs
     <div class="digits">
-      8:02km/h 11-37
+      8:02km/h 21-76
     </div>
   </div>
 
@@ -2028,30 +2019,24 @@
     data: {
       labels: xdaValues,
       datasets: [{
-        label: "Sept 24-1k",
-        // fontSize: 18, // Adjust font size if needed
-        data: [7.26,7.32,8.38],
-        borderColor: "red",
-        fill: false
-      }, {
-        label: "Oct 24-2k",
-        data: [9.14,9.02,8.45,8.14,8.16,8,7.31,7.26,7.29,8.16,7.36],
-        borderColor: "pink",
-        fill: false
-      }, {
-        label: "Nov 24-3k",
+        label: "24-3k",
         data: [8.36,8.05,9.03,8.58,8.53,8.07,8.25,8.18,9.14,8.08,7.52,9],
         borderColor: "blue",
         fill: false
       },{
-        label: "Mar 25-3k",
+        label: "25-3k",
         data: [8.46,7.39,7.34,7.50,7.50,8.47,7.30],
         borderColor: "green",
         fill: false
       },{
-        label: "Apr 25-4k",
-        data: [8.31,8.31,8.04,8.01],
+        label: "25-4k",
+        data: [8.31,8.31,8.04,8.01,8.24,8.44,8.50,8.13,8.08,9.15,9.18],
         borderColor: "purple",
+        fill: false
+      },{
+        label: "25-5k",
+        data: [8.35],
+        borderColor: "red",
         fill: false
       }]
     },
@@ -2079,7 +2064,7 @@
         data: yValues
       },{
         label: "2025",
-        data: [36],
+        data: [30,36],
         backgroundColor: "green",  // Color of the dots
         borderColor: "green",  // Color of the connecting line
         borderWidth: 2,  // Thickness of the connecting line
@@ -2091,7 +2076,7 @@
     options: {
       legend: { display: true },  // Show legend with label
       scales: {
-        yAxes: [{ ticks: { min: 26, max: 70 } }],
+        yAxes: [{ ticks: { min: 23, max: 70 } }],
         xAxes: [{ ticks: { autoSkip: false } }]  // Ensures all x-axis labels appear
       },
       annotation: {
@@ -2112,7 +2097,7 @@
     }
   });
 
-  const xyValues = [{x: 67, y:479},{x: 64, y:460},{x: 64, y:417},{x: 61, y:516},{x: 58, y:478},{x: 63, y:399},{x: 64, y:680},{x: 51, y:403},{x: 67, y:409},{x: 72, y:509},{x: 63, y:478},{x: 47, y:428},{x: 76, y:657},{x: 63, y:457},{x: 80, y:785},{x: 75, y:835}, {x: 70, y: 720}, {x: 62, y: 390}, {x: 76, y:752}, {x: 73, y: 761}, {x: 73, y:620}, {x:71,y:776},{x:72,y:519}, {x:71, y:916},{x: 79, y:577},{x: 81,y:816}];
+  const xyValues = [{x: 67, y:479},{x: 64, y:460},{x: 64, y:417},{x: 61, y:516},{x: 58, y:478},{x: 63, y:399},{x: 64, y:680},{x: 51, y:403},{x: 67, y:409},{x: 72, y:509},{x: 63, y:478},{x: 47, y:428},{x: 76, y:657},{x: 63, y:457},{x: 80, y:785},{x: 75, y:835}, {x: 70, y: 720}, {x: 62, y: 390}, {x: 76, y:752}, {x: 73, y: 761}, {x: 73, y:620}, {x:71,y:776},{x:72,y:519}, {x:71, y:916},{x: 79, y:577},{x: 81,y:816},{x: 79,y:643}];
 
   const pointColors = xyValues.map((point, index) => {
     if (index === 14 || index === 15 || index === 12 || index === 18 || index == 24 || index == 25) return "rgb(0, 255, 0)"; // Green for first point
@@ -2120,7 +2105,7 @@
     if (index === 11 || index === 15 || index === 12 )  return "rgb(255, 0, 0)"; // Blue for fourth point
     if (index === 20 || index === 21)  return "rgb(255, 165, 0)"; // Blue for fourth point
     if (index === 10 )  return "rgb(172, 100, 255)"; // Blue for fourth point
-    if (index === 9|| index === 16)  return "rgb(72, 172, 255)"; // Blue for fourth point
+    if (index === 9|| index === 16 || index === 26)  return "rgb(72, 172, 255)"; // Blue for fourth point
     if (index === 7 || index === 22 || index === 23 )  return "rgb(50, 100, 100)"; // Blue for fourth point
     if (index === 19)  return "rgb(100, 100, 100)"; // Blue for fourth point
     return "rgb(255, 0, 0)"; // Default red color
