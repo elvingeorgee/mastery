@@ -1,27 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    // All blurbs in the page
     const blurbs = [
         "okcBlurb", "houBlurb", "lalBlurb", "gswBlurb", "cavsBlurb", "celtsBlurb", "nykBlurb", "milBlurb",
-        "winBlurb", "dalBlurb", "vegBlurb", "oilBlurb", "wasBlurb", "carBlurb", "flaBlurb", "torBlurb"
+        "winBlurb", "dalBlurb", "vegBlurb", "oilBlurb", "wasBlurb", "carBlurb", "flaBlurb", "torBlurb",
+        "middleBlurb1", "middleBlurb2", "middleBlurb3", "middleBlurb4"
     ];
 
     let currentVisibleBlurb = null;
 
-    // Initially hide all blurbs (by removing the .show class)
+    // Hide all blurbs at start
     blurbs.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.classList.remove("show");
     });
 
-    function showBlurb(blurbId) {
-        blurbs.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.classList.toggle("show", id === blurbId);
-        });
-        currentVisibleBlurb = document.getElementById(blurbId);
-    }
-
-    // Mapping dropdowns/lobs to blurbs
+    // Define clickable elements and which blurb they show
     const clickMappings = {
+        // Outer logos
         "dropdown": "okcBlurb",
         "drop2": "houBlurb",
         "drop3": "lalBlurb",
@@ -37,20 +33,39 @@ document.addEventListener("DOMContentLoaded", function () {
         "lob4": "wasBlurb",
         "lob5": "carBlurb",
         "lob6": "flaBlurb",
-        "lob7": "torBlurb"
+        "lob7": "torBlurb",
+
+        "okcNext": "middleBlurb1",
+        "minNext": "middleBlurb2",
+        "bosNext": "middleBlurb3",
+        "cavsNext": "middleBlurb4",
+        "indNext": "middleBlurb1", // <-- new
+        "nykNext": "middleBlurb2", // <-- new
+        "denNext": "middleBlurb3", // <-- new
+        "gswNext": "middleBlurb4"  // <-- new
     };
 
+    // Function to show blurb
+    function showBlurb(blurbId) {
+        blurbs.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.classList.toggle("show", id === blurbId);
+        });
+        currentVisibleBlurb = document.getElementById(blurbId);
+    }
+
+    // Bind click events
     Object.entries(clickMappings).forEach(([triggerId, blurbId]) => {
         const trigger = document.getElementById(triggerId);
         if (trigger) {
             trigger.addEventListener("click", function (e) {
-                e.stopPropagation(); // Prevent closing blurbs immediately
+                e.stopPropagation(); // Prevent closing right away
                 showBlurb(blurbId);
             });
         }
     });
 
-    // Prevent clicks inside blurbs from closing them
+    // Prevent blurbs from closing when clicking inside them
     blurbs.forEach(id => {
         const el = document.getElementById(id);
         if (el) {
@@ -60,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Clicking outside closes any open blurb
+    // Clicking anywhere else closes the blurb
     document.addEventListener("click", () => {
         if (currentVisibleBlurb) {
             currentVisibleBlurb.classList.remove("show");
@@ -68,4 +83,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-

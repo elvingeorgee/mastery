@@ -87,10 +87,12 @@ button:hover {
 
 .top-section {
     display: flex;
-    gap: 20px; /* space between each box */
+    flex-wrap: wrap;  /* allow wrapping on smaller screens */
+    gap: 20px;
     padding: 20px 0;
     width: 96%;
     margin: 0 auto;
+    justify-content: center; /* center the boxes when they wrap */
 }
 
 .topleft {
@@ -102,17 +104,25 @@ button:hover {
 }
 
 .topbox {
-    height: 400px;
-    width: 400px;
+    flex: 1 1 22%;  /* flexible width, but won't shrink too small */
+    min-width: 250px; /* minimum width for readability */
+    max-width: 400px; /* optional: prevents it from becoming too big on ultra-wide screens */
+    height: 375px;
     background-color: #3B8F50;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 
     display: flex;
-    flex-direction: column;    /* <-- ADD THIS to stack items vertically */
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;       /* <-- center horizontally */
+    align-items: center;
     padding-top: 20px;
+}
+
+.topbox:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3);
+    transition: box-shadow 0.3s ease;
 }
 
 .chest-button {
@@ -177,14 +187,26 @@ button:hover {
 }
 .bomba {
     margin-top: 15px;
-    width: 90%;
+    width: 100%; /* Fill the entire bomba-wrapper width */
     color: white;
-    background-color: rgba(255, 255, 255, 0.05); /* subtle transparent background */
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     border-collapse: collapse;
-    overflow: hidden;
+    overflow: auto; /* This will now enable scrollbars when content overflows */
+    max-height: 400px; /* or whatever height you want */
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     font-size: 14px;
+}
+
+
+.bomba-wrapper {
+    margin-top: 15px;
+    width: 100%;  /* Fill the entire topbox width */
+    height: 240px;
+    overflow-y: auto;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .bomba td {
