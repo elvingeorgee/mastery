@@ -13,6 +13,13 @@ html, body{
     line-height:1.6;
 }
 
+.bomba-table {
+    display: none;
+}
+
+.bomba-table.active {
+    display: table;
+}
 
 /* Links */
 a {
@@ -87,27 +94,27 @@ button:hover {
 
 .top-section {
     display: flex;
-    flex-wrap: wrap;  /* allow wrapping on smaller screens */
+    flex-wrap: wrap;
     gap: 20px;
     padding: 20px 0;
     width: 96%;
     margin: 0 auto;
-    justify-content: center; /* center the boxes when they wrap */
+    justify-content: center;
 }
 
 .topleft {
     height: 400px;
-    width: 400px;
+    width: 500px;
     background-color: #3B8F50;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
 .topbox {
-    flex: 1 1 22%;  /* flexible width, but won't shrink too small */
-    min-width: 250px; /* minimum width for readability */
-    max-width: 400px; /* optional: prevents it from becoming too big on ultra-wide screens */
-    height: 375px;
+    flex: 0 0 calc(25% - 20px);  /* <<< THIS makes them exactly 4 per row (or however many fit), - gap */
+    min-width: 200px;            /* allow shrinking a little bit */
+    max-width: 400px;
+     /* optional: don't get too big */
     background-color: #3B8F50;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -186,7 +193,7 @@ button:hover {
     border-radius: 25px;
 }
 .bomba {
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     width: 100%; /* Fill the entire bomba-wrapper width */
     color: white;
     background-color: rgba(255, 255, 255, 0.05);
@@ -223,4 +230,30 @@ button:hover {
 
 .bomba tr:hover td {
     background-color: rgba(255, 255, 255, 0.08); /* subtle hover effect */
+}
+
+.boxy-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #3B8F50;
+    margin-top: 10px;  /* <<< ADD THIS to create space */
+    padding-bottom: 10px; /* optional, makes it a bit nicer and spaced at bottom too */
+}
+
+.boxy {
+    height: 20px;
+    width: 30px;
+    background-color: #333;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.boxy:hover {
+    background-color: #555;  /* Change this to any color you want */
+    cursor: pointer;
 }
