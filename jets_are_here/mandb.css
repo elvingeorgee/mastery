@@ -6,6 +6,10 @@
     background-color: #2a2a2a;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html, body{
     height:100%;
     font-family: Arial, sans-serif;
@@ -344,4 +348,72 @@ button:hover {
 
 .protein-total.red {
     background-color: #dc3545;
+}
+
+.softball-field {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 600px;
+    margin: 40px auto;
+    background-color: #4CAF50; /* Outfield green */
+    border: 5px solid #333;
+    border-radius: 0 0 450px 450px / 0 0 400px 400px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+.infield {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-color: #c68642; /* Brown dirt color */
+    border-radius: 50%;
+    border: 5px solid #333;
+}
+
+.base {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+.first-base { top: 25%; left: 67%; }
+.second-base { top: 50%; left: 50%; transform: translateX(-50%) rotate(45deg); }
+.third-base { top: 25%; left: 30%; }
+.home-plate {
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    clip-path: polygon(50% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.hit-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.softball-field {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    will-change: opacity, transform;
+}
+
+.softball-field.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

@@ -46,3 +46,18 @@ updateProteinTotals();
 document.querySelectorAll('.protein-input').forEach(input => {
     input.addEventListener('input', updateProteinTotals);
 });
+
+// Observe when softball field comes into view
+const softballField = document.querySelector('.softball-field');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            softballField.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.3
+});
+
+observer.observe(softballField);
