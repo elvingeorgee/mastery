@@ -339,48 +339,81 @@
     <button class="chest-button">Back</button>
     <div class="bomba-wrapper">
         <table class="bomba bomba-table active" id="back1">
-<!---->
+            <tr>
+                <td>Name</td>
+                <td>14</td>
+                <td>14</td>
+                <td>10</td>
+                <td>TF</td>
+            </tr>
+            <tr>
+                <td>Pullback</td>
+                <td>70</td>
+                <td>85</td>
+                <td>100</td>
+                <td>115</td>
+            </tr>
+            <tr>
+                <td>Pulldown</td>
+                <td>70</td>
+                <td>80</td>
+                <td>90</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>W.PullB</td>
+                <td>45</td>
+                <td>55</td>
+                <td>65</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>MachPulldown</td>
+                <td>70</td>
+                <td>85</td>
+                <td>100</td>
+                <td>115</td>
+            </tr>
         </table>
         <table class="bomba bomba-table" id="back2">
-            <table class="bomba bomba-table active" id="back2">
-                <tr>
-                    <td>Name</td>
-                    <td>14</td>
-                    <td>14</td>
-                    <td>10</td>
-                    <td>TF</td>
-                </tr>
-                <tr>
-                    <td>Pullback</td>
-                    <td>70</td>
-                    <td>85</td>
-                    <td>100</td>
-                    <td>115</td>
-                </tr>
-                <tr>
-                    <td>Pulldown</td>
-                    <td>70</td>
-                    <td>80</td>
-                    <td>90</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>W.PullB</td>
-                    <td>45</td>
-                    <td>55</td>
-                    <td>65</td>
-                    <td>70</td>
-                </tr>
-                <tr>
-                    <td>MachPulldown</td>
-                    <td>70</td>
-                    <td>85</td>
-                    <td>100</td>
-                    <td>115</td>
-                </tr>
-            </table>
+            <tr>
+                <td>Name</td>
+                <td>14</td>
+                <td>14</td>
+                <td>10</td>
+                <td>TF</td>
+            </tr>
+            <tr>
+                <td>PullUps</td>
+                <td>5</td>
+                <td>5</td>
+                <td>5</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Pulldown</td>
+                <td>70</td>
+                <td>80</td>
+                <td>90</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>Pullback</td>
+                <td>70</td>
+                <td>85</td>
+                <td>100</td>
+                <td>115</td>
+            </tr>
+            <tr>
+                <td>Mach Pulldown</td>
+                <td>70</td>
+                <td>90</td>
+                <td>110</td>
+                <td>130</td>
+            </tr>
         </table>
         <table class="bomba bomba-table" id="back3">
+            <tr>
             <tr>
                 <td>Name</td>
                 <td>14</td>
@@ -1374,6 +1407,14 @@
                     <td>Chipotle Bowl</td>
                     <td><input type="number" class="protein-input" value="45"></td>
                 </tr>
+                <tr>
+                    <td>Protein Shake</td>
+                    <td><input type="number" class="protein-input" value="30"></td>
+                </tr>
+                <tr>
+                    <td>Chicken + Eggs</td>
+                    <td><input type="number" class="protein-input" value="45"></td>
+                </tr>
             </table>
             <div class="protein-total red">0g</div>
         </div>
@@ -1382,8 +1423,22 @@
         <div class="protein-box">
             <h3 style="color:white">Friday</h3>
             <table class="protein-table">
-                <td></td>
-                <td><input type="number" class="protein-input" value="0"></td>
+                <tr>
+                    <td>Breakfast Burrito</td>
+                    <td><input type="number" class="protein-input" value="60"></td>
+                </tr>
+                <tr>
+                    <td>Alfredo Pasta</td>
+                    <td><input type="number" class="protein-input" value="20"></td>
+                </tr>
+                <tr>
+                    <td>Protein Shake</td>
+                    <td><input type="number" class="protein-input" value="30"></td>
+                </tr>
+                <tr>
+                    <td>Chicken Curry</td>
+                    <td><input type="number" class="protein-input" value="30"></td>
+                </tr>
             </table>
             <div class="protein-total red">0g</div>
         </div>
@@ -1392,17 +1447,64 @@
 
 </div>
 
-<div class="softball-field">
-    <div class="infield"></div>
-    <div class="base first-base"></div>
-    <div class="base second-base"></div>
-    <div class="base third-base"></div>
-    <div class="home-plate"></div>
+<div class="field-wrapper">
+    <div class="prac-column">
+        <div class="prac1"></div>
+        <div class="prac2"></div>
+        <div class="prac3"></div>
+        <div class="prac4"></div>
+        <div class="prac5"></div>
+        <div class="prac6"></div>
+        <div class="prac7"></div>
+    </div>
 
-    <!-- Example hit markers -->
-    <div class="hit-marker" style="top: 40%; left: 50%;"></div>
-    <div class="hit-marker" style="top: 60%; left: 70%;"></div>
-    <div class="hit-marker" style="top: 50%; left: 30%;"></div>
+    <div class="softball-field">
+
+        <div class="infield"></div>
+        <div class="base first-base"></div>
+        <div class="base second-base"></div>
+        <div class="base third-base"></div>
+        <div class="home-plate"></div>
+
+                <div class="hit-marker" style="top: 20%; left: 40%;"></div>
+                <div class="hit-marker" style="top: 47%; left: 39%;"></div>
+                <div class="hit-marker" style="top: 20%; left: 29%;"></div>
+                <div class="hit-marker" style="top: 20%; left: 27%;"></div>
+                <div class="hit-marker" style="top: 12%; left: 43%;"></div>
+                <div class="hit-marker" style="top: 17%; left: 48%;"></div>
+                <div class="hit-marker" style="top: 48%; left: 37%;"></div>
+                <div class="hit-marker" style="top: 20%; left: 52%;"></div>
+                <div class="hit-marker" style="top: 14%; left: 48%;"></div>
+                <div class="hit-marker" style="top: 51%; left: 39%;"></div>
+                <div class="hit-marker" style="top: 53%; left: 37%;"></div>
+                <div class="hit-marker" style="top: 46%; left: 34%;"></div>
+                <div class="hit-marker" style="top: 56%; left: 28%;"></div>
+                <div class="hit-marker" style="top: 37%; left: 24%;"></div>
+                <div class="hit-marker" style="top: 37%; left: 20%;"></div>
+                <div class="hit-marker" style="top: 35%; left: 50%;"></div>
+                <div class="hit-marker" style="top: 17%; left: 50%;"></div>
+                <div class="hit-marker" style="top: 32%; left: 32%;"></div>
+
+        <!-- Example hit markers -->
+        <div class="hit-marker1" style="top: 27%; left: 50%;"></div>
+        <div class="hit-marker1" style="top: 17%; left: 34%;"></div>
+        <div class="hit-marker1" style="top: 22%; left: 40%;"></div>
+        <div class="hit-marker1" style="top: 42%; left: 29%;"></div>
+        <div class="hit-marker1" style="top: 33%; left: 34%;"></div>
+        <div class="hit-marker1" style="top: 39%; left: 39%;"></div>
+        <div class="hit-marker1" style="top: 42%; left: 38%;"></div>
+        <div class="hit-marker1" style="top: 65%; left: 52%;"></div>
+        <div class="hit-marker1" style="top: 23%; left: 54%;"></div>
+        <div class="hit-marker1" style="top: 53%; left: 56%;"></div>
+        <div class="hit-marker1" style="top: 63%; left: 52%;"></div>
+        <div class="hit-marker1" style="top: 46%; left: 34%;"></div>
+
+
+
+
+
+
+    </div>
 </div>
 
 

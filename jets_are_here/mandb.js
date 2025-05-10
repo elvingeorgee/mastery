@@ -61,3 +61,40 @@ const observer = new IntersectionObserver(entries => {
 });
 
 observer.observe(softballField);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const field = document.querySelector(".softball-field");
+    const prac = document.querySelector(".prac-column");
+
+    // Delay to simulate visibility trigger or scroll event
+    setTimeout(() => {
+        field.classList.add("visible");
+        prac.classList.add("visible");
+    }, 300); // You can adjust or tie this to scroll/interaction
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const prac1 = document.querySelector(".prac1");
+    const prac2 = document.querySelector(".prac2");
+
+    const hitMarkers1 = document.querySelectorAll(".hit-marker");
+    const hitMarkers2 = document.querySelectorAll(".hit-marker1");
+
+    function hideAllMarkers() {
+        hitMarkers1.forEach(marker => marker.style.display = "none");
+        hitMarkers2.forEach(marker => marker.style.display = "none");
+    }
+
+    prac1.addEventListener("click", function () {
+        hideAllMarkers();
+        hitMarkers1.forEach(marker => marker.style.display = "block");
+    });
+
+    prac2.addEventListener("click", function () {
+        hideAllMarkers();
+        hitMarkers2.forEach(marker => marker.style.display = "block");
+    });
+
+    // Initially hide all hit markers
+    hideAllMarkers();
+});

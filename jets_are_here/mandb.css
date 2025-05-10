@@ -81,6 +81,74 @@ button:hover {
     padding: 20px 0;
 }
 
+.prac-column {
+    position: absolute;
+    left: -400px; /* adjust to align left of field */
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.prac-column {
+    position: absolute;
+    left: -305px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    z-index: 10;
+
+    /* Transition effect */
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    will-change: opacity, transform;
+}
+
+.prac-column.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.prac1, .prac2, .prac3, .prac4, .prac5, .prac6, .prac7 {
+    width: 300px; /* Reduced from 350px */
+    height: 45px;
+    border: solid white;
+    border-radius: 10px;
+    background-color: purple;
+}
+
+/* Different colors (optional) */
+.prac2 { background-color: orange; }
+.prac3 { background-color: red; }
+.prac4 { background-color: green; }
+.prac5 { background-color: blue; }
+.prac6 { background-color: yellow; }
+.prac7 { background-color: black; }
+
+
+
+.field-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 40px;
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: flex-start; /* align left */
+}
+
+.field-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
 .topbar {
     width: 96%;
     margin: 0 auto;
@@ -397,16 +465,21 @@ button:hover {
     clip-path: polygon(50% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
-.hit-marker {
+.hit-marker,.hit-marker1 {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: red;
+    background-color: purple;
     border-radius: 50%;
     border: 2px solid white;
 }
 
-.softball-field {
+.hit-marker1{
+    background-color: orange;
+
+}
+
+.softball-field{
     opacity: 0;
     transform: translateY(100px);
     transition: opacity 1.2s ease, transform 1.2s ease;
@@ -414,6 +487,11 @@ button:hover {
 }
 
 .softball-field.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.prac-column.visible {
     opacity: 1;
     transform: translateY(0);
 }
