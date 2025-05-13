@@ -76,13 +76,24 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", function () {
     const prac1 = document.querySelector(".prac1");
     const prac2 = document.querySelector(".prac2");
+    const prac3 = document.querySelector(".prac3");
+    const prac5  = document.querySelector(".prac5");
+
 
     const hitMarkers1 = document.querySelectorAll(".hit-marker");
     const hitMarkers2 = document.querySelectorAll(".hit-marker1");
+    const hitMarkers3 = document.querySelectorAll(".hit-marker2");
+    const hitMarkers4 = document.querySelectorAll(".hit-marker3");
+
+
 
     function hideAllMarkers() {
         hitMarkers1.forEach(marker => marker.style.display = "none");
         hitMarkers2.forEach(marker => marker.style.display = "none");
+        hitMarkers3.forEach(marker => marker.style.display = "none");
+        hitMarkers4.forEach(marker => marker.style.display = "none");
+
+
     }
 
     prac1.addEventListener("click", function () {
@@ -93,6 +104,16 @@ document.addEventListener("DOMContentLoaded", function () {
     prac2.addEventListener("click", function () {
         hideAllMarkers();
         hitMarkers2.forEach(marker => marker.style.display = "block");
+    });
+
+    prac3.addEventListener("click", function () {
+        hideAllMarkers();
+        hitMarkers3.forEach(marker => marker.style.display = "block");
+    });
+
+    prac5.addEventListener("click", function () {
+        hideAllMarkers();
+        hitMarkers4.forEach(marker => marker.style.display = "block");
     });
 
     // Initially hide all hit markers

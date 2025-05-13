@@ -83,42 +83,80 @@ button:hover {
 
 .prac-column {
     position: absolute;
-    left: -400px; /* adjust to align left of field */
-    top: 0;
-    height: 100%;
+    top: 7%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 400px;
+    width: 250px;
     z-index: 10;
-}
-
-.prac-column {
-    position: absolute;
-    left: -305px;
-    top: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    z-index: 10;
-
-    /* Transition effect */
     opacity: 0;
-    transform: translateY(100px);
     transition: opacity 1.2s ease, transform 1.2s ease;
     will-change: opacity, transform;
 }
+
+
+.prac-column.left {
+    left: -1px;
+}
+
+.prac-column.right {
+    right: -1px; /* fine-tune as needed */
+}
+
+.prac1:hover,
+.prac2:hover,
+.prac3:hover,
+.prac4:hover,
+.prac5:hover,
+.prac6:hover,
+.prac7:hover,
+.prac8:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
 
 .prac-column.visible {
     opacity: 1;
     transform: translateY(0);
 }
-.prac1, .prac2, .prac3, .prac4, .prac5, .prac6, .prac7 {
-    width: 300px; /* Reduced from 350px */
-    height: 45px;
-    border: solid white;
+.prac1, .prac2, .prac3, .prac4, .prac5, .prac6, .prac7, .prac8 {
+    width: 250px;
+    height: auto;
+    padding: 12px 15px;
+    border: 2px solid white;
     border-radius: 10px;
+    color: white;
     background-color: purple;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.prac-left {
+    font-size: 20px;
+    font-weight: bold;
+    flex: 1;
+    text-align: left;
+}
+
+.prac-right {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    gap: 5px;
+    font-size: 16px;
+}
+
+.prac-stat span {
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 /* Different colors (optional) */
@@ -128,7 +166,7 @@ button:hover {
 .prac5 { background-color: blue; }
 .prac6 { background-color: yellow; }
 .prac7 { background-color: black; }
-
+.prac8 { background-color: pink; }
 
 
 .field-wrapper {
@@ -144,9 +182,11 @@ button:hover {
 
 .field-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 900px;
+    width: 100%;         /* allow full horizontal space */
+    max-width: 1400px;   /* increased from 900px */
     margin: 40px auto;
+    display: flex;
+    justify-content: center;
 }
 
 .topbar {
@@ -465,7 +505,7 @@ button:hover {
     clip-path: polygon(50% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
-.hit-marker,.hit-marker1 {
+.hit-marker,.hit-marker1,.hit-marker2,.hit-marker3 {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -476,6 +516,16 @@ button:hover {
 
 .hit-marker1{
     background-color: orange;
+
+}
+
+.hit-marker2{
+    background-color: red;
+
+}
+
+.hit-marker3{
+    background-color: blue;
 
 }
 
