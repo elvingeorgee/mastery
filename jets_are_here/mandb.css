@@ -520,7 +520,7 @@ button:hover {
 {
     font-size:10px;
     color:green;
-    left:30%;
+    /*left:30%;*/
     position:relative;
 }
 
@@ -560,8 +560,8 @@ button:hover {
 
 .failed
 {
-    height:75px;
-    width:75px;
+    height:200px;
+    width:200px;
     background-color: #333;
 
 }
@@ -574,7 +574,7 @@ button:hover {
     transform: translateX(10px);
     background-color: #1f1f1f;
     color: white;
-    width: 400px;
+    width: 350px;
     padding: 15px;
     border-radius: 10px;
     border: 2px solid #4caf50;
@@ -602,8 +602,15 @@ button:hover {
 .hover-info {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    gap: 0px; /* Remove extra space between elements */
     flex: 1;
+}
+.hover-info .plus,
+.hover-info .minus {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 0px; /* Remove space below each */
+    line-height: 1.2; /* Tighten line spacing */
 }
 
 .plus, .minus {
@@ -621,7 +628,16 @@ button:hover {
     font-size: 13px;
     line-height: 1.4;
     color: #ddd;
+    left:1%;
 }
+
+.hover-info .hover-text {
+    font-size: 12px;
+    line-height: 1.2; /* Tighten spacing */
+    margin-top: 2px;
+    color: #e0e0e0;
+}
+
 .hit-marker1{
     background-color: orange;
 
@@ -682,55 +698,67 @@ button:hover {
     top: 0;
     left: 100%;
     transform: translateX(12px);
-    background-color: #1f1f1f;
+    background-color: #2a2a2a;
     color: white;
     width: 280px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 2px solid #4caf50;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    font-size: 12px;
-    line-height: 1.4;
-    z-index: 999;
-    gap: 10px;
-    align-items: flex-start;
-}
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #4caf50;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    font-family: 'Arial', sans-serif;
 
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
 /* Image inside the box */
 .dragonair-hover-box .failed {
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    object-fit: cover;
+    background-color: #444;
     flex-shrink: 0;
-    border: 2px solid #999;
+    border: 1px solid #999;
 }
 
-/* Text section inside the box */
+/* Text section */
 .hover-info {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
+    flex: 1;
 }
 
-/* Plus line */
-.hover-info .plus {
+/* Top line (label) */
+.hover-info .plus,
+.hover-info .minus {
     font-size: 12px;
-    color: #4caf50;
-    font-weight: bold;
+    font-weight: 600;
+    margin-bottom: 2px;
 }
 
-/* Body text */
+.hover-info .plus {
+    color: #4caf50;
+}
+
+.hover-info .minus {
+    color: #e74c3c;
+}
+/* Description */
 .hover-info .hover-text {
     font-size: 12px;
-    color: #ddd;
     line-height: 1.4;
+    color: #e0e0e0;
 }
 
 .block1:hover .dragonair-hover-box,
 .block2:hover .dragonair-hover-box,
 .block3:hover .dragonair-hover-box,
 .block4:hover .dragonair-hover-box{
-    display: block;
+    display: flex;
 }
 .softball-field{
     opacity: 0;
