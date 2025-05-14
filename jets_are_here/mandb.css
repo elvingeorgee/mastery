@@ -199,7 +199,7 @@ button:hover {
     color: white;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between; /* changed from flex-end */
     padding: 0 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* subtle shadow for depth */
 }
@@ -262,12 +262,14 @@ button:hover {
     gap: 30px;
     padding: 0;
     margin: 0;
+    border-radius: 8px;
 }
 
 .nav-links li {
     display: flex;
     align-items: center;
     height: 100%;
+
 }
 
 .nav-links li a {
@@ -514,6 +516,112 @@ button:hover {
     border: 2px solid white;
 }
 
+.plus
+{
+    font-size:10px;
+    color:green;
+    left:30%;
+    position:relative;
+}
+
+
+.dragonair-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #2a2a2a;
+}
+
+.dragonair-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.dragonair-img {
+    height: 32px;
+    width: auto;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+}
+
+/* Show box when hovering over the image */
+.dragonair-link:hover + .dragonair-hover-box {
+    display: block;
+}
+
+.dragonair-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 25px;
+}
+
+.failed
+{
+    height:75px;
+    width:75px;
+    background-color: #333;
+
+}
+
+.dragonair-hover-box {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(10px);
+    background-color: #1f1f1f;
+    color: white;
+    width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #4caf50;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+    font-family: 'Arial', sans-serif;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Key line for top alignment */
+    gap: 15px;
+}
+
+.failed {
+    height: 60px;
+    width: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #444;
+    flex-shrink: 0;
+    border: 2px solid #999;
+    margin-top: 2px; /* fine-tune alignment */
+}
+
+.hover-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.plus, .minus {
+    font-size: 13px;
+    font-weight: bold;
+    color: #4caf50;
+    margin-bottom: 6px;
+}
+
+.minus {
+    color: red;
+}
+
+.hover-text {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #ddd;
+}
 .hit-marker1{
     background-color: orange;
 
@@ -529,6 +637,101 @@ button:hover {
 
 }
 
+.block-wrapper {
+    display: none;               /* initially hidden */
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+    position:relative;
+    left:-6%;
+}
+
+.dragonair-flex {
+    display: flex;
+    background-color: #2E6F40;
+    align-items: flex-start;
+    gap: 10px;
+    position: relative;
+    /*left:10px;*/
+}
+
+
+.block1, .block2, .block3,.block4 {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    text-align: center;
+    line-height: 60px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.block1 { background-color: green; }
+.block2 { background-color: green; }
+.block3 { background-color: red; }
+.block4 { background-color: red; }
+
+
+.dragonair-hover-box {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(12px);
+    background-color: #1f1f1f;
+    color: white;
+    width: 280px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 2px solid #4caf50;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    line-height: 1.4;
+    z-index: 999;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+/* Image inside the box */
+.dragonair-hover-box .failed {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    border: 2px solid #999;
+}
+
+/* Text section inside the box */
+.hover-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Plus line */
+.hover-info .plus {
+    font-size: 12px;
+    color: #4caf50;
+    font-weight: bold;
+}
+
+/* Body text */
+.hover-info .hover-text {
+    font-size: 12px;
+    color: #ddd;
+    line-height: 1.4;
+}
+
+.block1:hover .dragonair-hover-box,
+.block2:hover .dragonair-hover-box,
+.block3:hover .dragonair-hover-box,
+.block4:hover .dragonair-hover-box{
+    display: block;
+}
 .softball-field{
     opacity: 0;
     transform: translateY(100px);

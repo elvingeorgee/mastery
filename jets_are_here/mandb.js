@@ -119,3 +119,25 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initially hide all hit markers
     hideAllMarkers();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const pokerImg = document.querySelector(".dragonair-img");
+    const blockWrapper = document.querySelector(".block-wrapper");
+    const blocks = document.querySelectorAll(".block1, .block2, .block3, .block4");
+
+    pokerImg.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent any link behavior
+
+        // Show the block wrapper and all blocks
+        blockWrapper.style.display = "flex";
+        blocks.forEach(block => block.style.display = "inline-block");
+    });
+
+    // Prevent clicks on blocks from doing anything
+    blocks.forEach(block => {
+        block.addEventListener("click", (e) => {
+            e.preventDefault(); // Optional safeguard
+            // Do nothing
+        });
+    });
+});
